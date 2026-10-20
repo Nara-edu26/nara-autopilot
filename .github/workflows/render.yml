@@ -1,0 +1,98 @@
+name: Render & situs
+# Mengisi slot kosong dengan konten evergreen, merender media 14 hari ke depan,
+# lalu menerbitkan situs (kalkulator + media) di GitHub Pages.
+
+on:
+  push:
+    branches: [main]
+    paths: ["content/**", "engine/**", "docs/**", "assets/**", "config.json"]
+  schedule:
+    - cron: "37 22 * * *"   # 05.37 WIB, sebelum slot pagi
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ambil media yang sudah dirender (branch media)
+        run: |
+          mkdir -p docs/media
+          if git ls-remote --exit-code --heads origin media >/dev/null 2>&1; then
+            git fetch --depth 1 origin media
+            git --work-tree=docs/media checkout origin/media -- .
+            git reset -q
+          fi
+          echo "Folder media awal: $(ls docs/media | wc -l)"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: engine/requirements.txt
+
+      - name: Pasang Chromium & ffmpeg
+        run: |
+          pip install -r engine/requirements.txt
+          python -m playwright install --with-deps chromium
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
+      - name: Isi slot kosong (evergreen)
+        run: python engine/evergreen.py isi --hari 3
+
+      - name: Validasi
+        run: |
+          python engine/validate.py || echo "::warning::Ada post yang gagal validasi; post itu tidak dirender."
+
+      - name: Render
+        id: render
+        continue-on-error: true
+        run: python engine/render.py --sampai "$(TZ=Asia/Jakarta date -d '+14 days' +%F)"
+
+      - name: Bersihkan media lama
+        run: python engine/evergreen.py bersih
+
+      - name: Simpan antrean yang diisi evergreen
+        run: |
+          bash .github/scripts/commit.sh "evergreen: isi slot kosong" content/queue
+
+      - name: Simpan media ke branch media (satu commit, riwayat tidak menumpuk)
+        run: |
+          cd docs/media
+          git init -q -b media
+          git config user.name "nara-autopilot[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "media $(date -u +%FT%TZ)" || true
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" media
+          rm -rf .git
+
+      - name: Isi tautan situs dari config.json
+        run: python engine/situs.py
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - uses: actions/deploy-pages@v4
+
+      - name: Laporkan render gagal
+        if: steps.render.outcome == 'failure'
+        run: |
+          echo "::error::Sebagian post gagal dirender. Lihat log langkah Render."
+          exit 1

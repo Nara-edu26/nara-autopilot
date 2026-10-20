@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "pengeluaran lupa dicatat",
+      "frames": [
+        {"type": "cover", "kicker": "Catatan keuangan", "title": "4 pengeluaran kecil yang **paling sering lupa** dicatat", "sub": "Kecil satu-satu. Lumayan kalau dijumlah."},
+        {"type": "point", "n": 1, "title": "Parkir dan tol", "body": "Dibayar receh atau saldo kartu, jadi nggak terasa keluar. Catat totalnya tiap isi ulang saldo."},
+        {"type": "point", "n": 2, "title": "Biaya layanan & ongkir", "body": "Harga makanannya dicatat. Biaya tambahannya sering terlewat."},
+        {"type": "point", "n": 3, "title": "Langganan otomatis", "body": "Terpotong sendiri tiap bulan, jadi nggak pernah terasa sebagai keputusan."},
+        {"type": "point", "n": 4, "title": "Titip beli teman", "body": "\"Nanti aku ganti\" yang lupa diganti. Catat sebagai piutang, jangan dianggap hilang."},
+        {"type": "statement", "text": "Yang nggak dicatat, nggak bisa **dikurangi**.", "sub": "Kalau tiap transaksi terlalu ribet, cukup catat totalnya per minggu."},
+        {"type": "cta", "title": "Mana yang paling sering kamu lupa?", "body": "Tulis nomornya di komen. Mau hitung semuanya sekaligus? Komen **BOCOR**.", "pill": "Komen BOCOR"}
+      ],
+      "caption": "Pengeluaran besar jarang lupa dicatat. Yang kecil-kecil ini yang diam-diam menumpuk.\nNomor berapa yang paling sering kamu lewatkan? Tulis di komen.\nKomen BOCOR untuk Kalkulator Kebocoran gratis.",
+      "hashtags": ["keuanganpribadi", "catatankeuangan", "tipskeuangan", "gajian"],
+      "calc": []
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "air mineral botol",
+      "frames": [
+        {"type": "cover", "kicker": "Hitung kebocoran", "title": "Air mineral **Rp5 ribu**", "sub": "2 botol tiap hari kerja."},
+        {"type": "number", "label": "Sebulan", "eq": "Rp5.000 × 2 × 22 hari kerja", "value": "Rp220.000"},
+        {"type": "number", "label": "Setahun", "eq": "Rp220.000 × 12", "value": "Rp2.640.000"},
+        {"type": "statement", "text": "Botol minum sendiri dibeli **sekali**.", "sub": "Isi ulang di kantor. Selisihnya pindah ke Pos Masa Depan."},
+        {"type": "cta", "title": "Hitung punyamu", "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.", "pill": "Komen BOCOR"}
+      ],
+      "caption": "Rp5.000 nggak terasa. Rp2.640.000 setahun terasa.\nBawa botol minum sendiri, isi ulang di kantor, selisihnya langsung ke Pos Masa Depan.\nKomen BOCOR untuk hitung kebiasaan kecilmu.",
+      "hashtags": ["keuanganpribadi", "tipskeuangan", "hemat", "gajian"],
+      "calc": [
+        {"expr": "5000*2*22", "expect": 220000},
+        {"expr": "220000*12", "expect": 2640000}
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "spine_day": 3,
+      "topic": "tanggal 20",
+      "frames": [
+        {"type": "cover", "kicker": "POV", "title": "Tanggal 20. Saldo **Rp200 ribu**.", "sub": "Gajian masih 10 hari lagi."},
+        {"type": "statement", "theme": "cream", "text": "Nggak beli barang besar... **kok habis?**", "sub": "Nggak ada belanja besar. Tapi ada dua puluh belanja kecil."},
+        {"type": "statement", "text": "Kamu bukan boros. Kamu **belum punya sistem**.", "sub": "Dan sistem bisa dipelajari, mulai dari satu langkah."},
+        {"type": "cta", "title": "Tag teman yang lagi di fase ini", "body": "Langkah pertamanya: bagi gaji ke 5 pos, supaya setiap rupiah punya alamat.", "pill": "Tag 1 teman"}
+      ],
+      "caption": "Tanggal 20 rasanya beda, ya.\nKabar baiknya: ini biasanya bukan soal boros, tapi soal belum punya sistem.\nTag teman yang lagi di fase ini.",
+      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "tanggaltua"],
+      "given": [200000],
+      "calc": []
+    }
+  ]
+}

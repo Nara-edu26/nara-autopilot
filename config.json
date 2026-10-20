@@ -1,0 +1,39 @@
+{
+  "brand": {
+    "nama": "Nara",
+    "tanda_tangan": "Nara · pemandu AI",
+    "penutup": "Satu langkah dulu, ya.",
+    "signature_caption": "— Nara, pemandu AI"
+  },
+  "pages_base_url": "https://nara-edu26.github.io/nara-autopilot",
+  "email_kontak": "EMAIL-KAMU@contoh.com",
+  "zona_waktu": "Asia/Jakarta",
+  "slot": {
+    "pagi":  {"jam_wib": "07:00", "format_default": "carousel"},
+    "siang": {"jam_wib": "12:00", "format_default": "reel"},
+    "malam": {"jam_wib": "19:00", "format_default": "reel", "tulang_punggung": true}
+  },
+  "hari_1": "2026-10-26",
+  "label_ai": true,
+  "jeda": false,
+  "instagram": {
+    "api_host": "https://graph.instagram.com",
+    "api_versi": "",
+    "share_reel_ke_feed": true
+  },
+  "tautan": {
+    "kalkulator": "https://nara-edu26.github.io/nara-autopilot/kalkulator/",
+    "toko": "https://lynk.id/NAMA-TOKO",
+    "template_5_pos": "https://lynk.id/NAMA-TOKO/template-5-pos"
+  },
+  "kata_kunci": {
+    "BOCOR": "Kalkulator Kebocoran gratis",
+    "KELAS": "Daftar tunggu kursus Gajian Aman",
+    "SUDAH": "Tanda selesai tantangan (tidak ada DM)",
+    "TEMPLATE": "Link Template 5 Pos"
+  },
+  "evergreen": {
+    "boleh_ulang_setelah_hari": 90,
+    "minimal_persentil_reach": 50
+  }
+}

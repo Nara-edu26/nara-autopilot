@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-26",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "tanda gaji bocor",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Cek diri 2 menit",
+          "title": "5 tanda gajimu **bocor**, bukan kurang",
+          "sub": "Kalau 3 atau lebih terasa familiar, masalahnya ada di sistem, bukan di nominal gaji."
+        },
+        {
+          "type": "point",
+          "n": 1,
+          "title": "Saldo menipis sebelum tanggal 20",
+          "body": "Padahal nggak ada belanja besar bulan ini. Yang ada: puluhan belanja kecil."
+        },
+        {
+          "type": "point",
+          "n": 2,
+          "title": "Nggak bisa jawab \"habis ke mana?\"",
+          "body": "Kalau kamu nggak tahu tiga pengeluaran terbesarmu, uangnya belum punya alamat."
+        },
+        {
+          "type": "point",
+          "n": 3,
+          "title": "Nabung dari \"sisa\"",
+          "body": "Sisa hampir selalu nol. Tabungan yang menunggu sisa jarang terisi."
+        },
+        {
+          "type": "point",
+          "n": 4,
+          "title": "Paylater jadi penyelamat rutin",
+          "body": "Sekali-dua kali wajar. Tiap bulan berarti gaji bulan depan sudah terpakai duluan."
+        },
+        {
+          "type": "point",
+          "n": 5,
+          "title": "Promo terasa seperti kewajiban",
+          "body": "\"Sayang kalau nggak dipakai\" adalah kalimat favorit kebocoran."
+        },
+        {
+          "type": "cta",
+          "title": "Berapa yang kamu centang?",
+          "body": "Tulis angkanya di komen. Mau tahu bocornya ke mana? Komen **BOCOR**, kalkulatornya aku kirim lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Gaji yang bocor sering terasa seperti gaji yang kurang.\nBedanya: bocor bisa ditambal tanpa harus naik gaji dulu.\nBerapa tanda yang kamu alami? Tulis angkanya di komen.\nKomen BOCOR untuk Kalkulator Kebocoran gratis.",
+      "hashtags": [
+        "keuanganpribadi",
+        "gajian",
+        "tanggaltua",
+        "aturuang"
+      ],
+      "calc": []
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "jajan sore",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Jajan sore **Rp18 ribu**",
+          "sub": "5 kali seminggu. Kecil, kan?"
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp18.000 × 5 × 4 minggu",
+          "value": "Rp360.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp360.000 × 12",
+          "value": "Rp4.320.000",
+          "note": "Itu bisa jadi dana darurat tahap pertama."
+        },
+        {
+          "type": "statement",
+          "text": "Jajannya boleh. Asal punya **jatah sendiri**.",
+          "sub": "Taruh di Pos Bebas, bukan diambil dari uang makan."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung punyamu",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Rp18.000 terasa kecil. Rp4.320.000 setahun terasa beda.\nJajan sore tetap boleh, asal punya jatah sendiri di Pos Bebas.\nKomen BOCOR untuk hitung kebiasaan kecilmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "jajan"
+      ],
+      "calc": [
+        {
+          "expr": "18000*5*4",
+          "expect": 360000
+        },
+        {
+          "expr": "360000*12",
+          "expect": 4320000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "spine_day": 1,
+      "topic": "perkenalan Nara",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hari 1 dari 100",
+          "title": "Gaji habis sebelum **tanggal 25**?",
+          "sub": "Bukan cuma kamu."
+        },
+        {
+          "type": "statement",
+          "text": "Aku Nara, **pemandu AI**.",
+          "sub": "Aku bukan manusia, dan aku nggak akan pura-pura jadi manusia."
+        },
+        {
+          "type": "list",
+          "title": "Tugasku sederhana",
+          "items": [
+            "Satu langkah kecil setiap hari",
+            "Pakai angka, bukan motivasi",
+            "Sampai gajimu cukup sampai gajian berikutnya"
+          ],
+          "marks": [
+            "→",
+            "→",
+            "→"
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Mulai dari cek kebocoran",
+          "body": "Komen **BOCOR**, aku kirim kalkulator gratis buat cek uangmu bocor ke mana.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Halo, aku Nara, pemandu AI untuk urusan uang sehari-hari.\nSetiap hari satu langkah kecil, supaya gajimu cukup sampai gajian berikutnya.\nKomen BOCOR untuk Kalkulator Kebocoran gratis.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "kontenAI"
+      ],
+      "calc": [],
+      "evergreen": false
+    }
+  ]
+}

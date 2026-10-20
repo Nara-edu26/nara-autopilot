@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-29",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "C",
+      "topic": "mental accounting",
+      "cek_fakta": "Konsep mental accounting dari Richard Thaler (ekonomi perilaku). Penjelasan umum, tanpa klaim angka penelitian.",
+      "frames": [
+        {"type": "cover", "kicker": "Kenapa begitu?", "title": "Kenapa uang receh terasa **bukan uang**?", "sub": "Rp10 ribu kembalian dan Rp10 ribu dari gaji: nilainya sama, rasanya beda."},
+        {"type": "point", "title": "Otak kita punya \"kantong-kantong\"", "body": "Peneliti perilaku menyebutnya mental accounting: uang diperlakukan berbeda tergantung asal dan wadahnya."},
+        {"type": "compare", "title": "Contohnya", "left": {"h": "Uang \"serius\"", "t": "Gaji dan tabungan. Dipikir dua kali sebelum dipakai."}, "right": {"h": "Uang \"receh\"", "t": "Kembalian, cashback, sisa saldo. Gampang habis tanpa dicatat."}},
+        {"type": "point", "title": "Padahal nilainya sama", "body": "Rp1.000 dari cashback dan Rp1.000 dari gaji sama-sama bisa jadi tabungan."},
+        {"type": "statement", "text": "Triknya: beri **semua** uang kantong resmi.", "sub": "Cashback dan kembalian juga punya pos. Misalnya, langsung ke Pos Masa Depan."},
+        {"type": "cta", "title": "Uang recehmu biasanya habis ke mana?", "body": "Tulis di komen, biar yang lain juga sadar kebiasaannya.", "pill": "Tulis di komen"}
+      ],
+      "caption": "Uang kembalian, cashback, sisa saldo e-wallet: sering terasa seperti bonus, jadi cepat habis.\nPadahal nilainya sama dengan uang gaji.\nUang recehmu biasanya habis ke mana? Tulis di komen.",
+      "hashtags": ["keuanganpribadi", "psikologiuang", "tipskeuangan", "gajian"],
+      "given": [10000, 1000],
+      "calc": []
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "E",
+      "topic": "jatah harian pos hidup",
+      "frames": [
+        {"type": "cover", "kicker": "Pecah target", "title": "Gaji **Rp4,5 juta**: berapa jatah harianmu?", "sub": "Pakai panduan 25% untuk Pos Hidup."},
+        {"type": "number", "label": "Pos Hidup (25%)", "eq": "Rp4.500.000 × 25%", "value": "Rp1.125.000"},
+        {"type": "number", "label": "Per minggu", "eq": "Rp1.125.000 ÷ 4", "value": "Rp281.250"},
+        {"type": "number", "label": "Per hari", "eq": "Rp1.125.000 ÷ 30", "value": "Rp37.500", "note": "Untuk makan dan transport. Sisa hari ini boleh dibawa ke besok."},
+        {"type": "cta", "title": "Simpan, lalu hitung versimu", "body": "Ganti Rp4,5 juta dengan gajimu sendiri. Rumusnya sama.", "pill": "Simpan"}
+      ],
+      "caption": "Tahu jatah harian bikin tanggal tua nggak datang tiba-tiba.\nGaji Rp4.500.000 × 25% = Rp1.125.000 untuk Pos Hidup. Dibagi 30 hari = Rp37.500 sehari.\nSimpan, lalu ganti dengan angkamu sendiri.",
+      "hashtags": ["keuanganpribadi", "budgeting", "gajian", "aturuang"],
+      "calc": [
+        {"expr": "4500000*0.25", "expect": 1125000},
+        {"expr": "1125000/4", "expect": 281250},
+        {"expr": "1125000/30", "expect": 37500}
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 4,
+      "topic": "5 pos gaji",
+      "frames": [
+        {"type": "cover", "kicker": "Peta pemula", "title": "**5 pos** gaji", "sub": "yang bikin setiap rupiah punya alamat."},
+        {"type": "point", "n": 1, "title": "Pos Wajib", "body": "Tagihan tetap: kos, listrik, pulsa, iuran. Panduan: di bawah 40% gaji."},
+        {"type": "point", "n": 2, "title": "Pos Hidup", "body": "Makan dan transport harian. Sekitar 25%. Bagi per minggu."},
+        {"type": "point", "n": 3, "title": "Pos Cicilan", "body": "Semua cicilan dan paylater. Maksimal 15%, dan targetnya turun."},
+        {"type": "point", "n": 4, "title": "Pos Masa Depan", "body": "Dana darurat. Mulai 5%, dikirim di hari gajian, bukan dari sisa."},
+        {"type": "point", "n": 5, "title": "Pos Bebas", "body": "Jajan, nongkrong, belanja. Sekitar 15%. Boleh dipakai tanpa rasa bersalah."},
+        {"type": "cta", "title": "Persen ini panduan, bukan aturan", "body": "Simpan dulu, lalu isi dengan angkamu sendiri. Komen **BOCOR** untuk kalkulator gratis.", "pill": "Komen BOCOR"}
+      ],
+      "caption": "Gaji yang nggak punya alamat biasanya \"kebetulan\" habis.\nLima pos ini bisa jadi titik awal. Persennya panduan, sesuaikan dengan kondisimu.\nSimpan untuk hari gajian berikutnya.",
+      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "aturuang", "budgeting"],
+      "calc": []
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Metrik harian
+# Mengambil reach, simpan, share, komentar setiap malam lalu menyusun data/laporan.md.
+
+on:
+  schedule:
+    - cron: "37 15 * * *"   # 22.37 WIB
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  metrik:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.3
+      - name: Ambil metrik
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python engine/metrics.py
+      - name: Susun laporan
+        run: python engine/laporan.py
+      - name: Simpan
+        run: |
+          bash .github/scripts/commit.sh "metrik: $(TZ=Asia/Jakarta date +%F)" data

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Nara frame</title>
+<style>
+@font-face{font-family:"InterDisplay";font-weight:700;src:url("../fonts/InterDisplay-Bold.woff2") format("woff2")}
+@font-face{font-family:"InterDisplay";font-weight:800;src:url("../fonts/InterDisplay-ExtraBold.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:400;src:url("../fonts/Inter-Regular.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;src:url("../fonts/Inter-Medium.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;src:url("../fonts/Inter-SemiBold.woff2") format("woff2")}
+
+:root{
+  --olive:#6B7B4F; --olive-dark:#4E5A39; --cream:#F3EDE2; --paper:#FBF8F2;
+  --ink:#2B2B26; --muted:#6E6B5E; --line:#DDD5C4; --sage:#C9D1B5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+body{font-family:"Inter",sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1,"cv11" 1}
+
+#f{position:relative;overflow:hidden;display:flex;flex-direction:column}
+#f.carousel{width:1080px;height:1350px;padding:88px 96px 84px}
+#f.reel{width:1080px;height:1920px;padding:250px 92px 420px}
+
+/* tema warna */
+#f.t-cream{background:var(--cream);color:var(--ink);--accent:var(--olive-dark);--soft:var(--muted);--hlbg:#E4DCC8}
+#f.t-olive{background:var(--olive);color:var(--cream);--accent:#F3EDE2;--soft:#E2E6D3;--hlbg:rgba(243,237,226,.18)}
+#f.t-dark{background:var(--olive-dark);color:var(--cream);--accent:var(--sage);--soft:#D5DBC3;--hlbg:rgba(201,209,181,.2)}
+
+/* tekstur halus: lingkaran besar samar di pojok supaya latar tidak datar */
+#f::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;right:-420px;top:-380px;
+  background:radial-gradient(circle,rgba(255,255,255,.07),rgba(255,255,255,0) 70%);pointer-events:none}
+#f.t-cream::before{background:radial-gradient(circle,rgba(107,123,79,.08),rgba(107,123,79,0) 70%)}
+
+.top{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:26px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--soft);position:relative;z-index:1}
+.reel .top{font-size:30px}
+.top .sig{display:flex;align-items:center;gap:14px}
+.top .dot{width:18px;height:18px;border-radius:50%;background:currentColor;opacity:.9}
+.top .pg{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px;position:relative;z-index:1;min-height:0}
+.reel .body{gap:44px}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:28px;font-weight:600;color:var(--soft);position:relative;z-index:1;min-height:40px}
+.reel .foot{display:none}
+
+.kicker{align-self:flex-start;font-weight:600;font-size:30px;letter-spacing:.02em;padding:12px 26px;border-radius:999px;
+  border:2px solid currentColor;color:var(--accent)}
+.reel .kicker{font-size:36px}
+.title{font-family:"InterDisplay";font-weight:800;line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+.h2{font-family:"InterDisplay";font-weight:700;line-height:1.06;letter-spacing:-.02em;text-wrap:balance}
+.sub{font-weight:500;line-height:1.32;color:var(--soft);text-wrap:pretty}
+.txt{font-weight:500;line-height:1.38;text-wrap:pretty}
+.muted{color:var(--soft)}
+em.hl{font-style:normal;color:var(--accent);background:linear-gradient(transparent 62%,var(--hlbg) 62%);padding:0 .06em}
+.t-olive em.hl,.t-dark em.hl{background:none;text-decoration:underline;text-decoration-thickness:.08em;text-underline-offset:.12em}
+
+/* number */
+.label{font-weight:600;font-size:34px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.reel .label{font-size:40px}
+.eq{align-self:flex-start;font-weight:600;font-variant-numeric:tabular-nums;border:2px solid var(--line);background:var(--paper);
+  border-radius:22px;padding:22px 30px;line-height:1.25;color:var(--ink)}
+.value{font-family:"InterDisplay";font-weight:800;letter-spacing:-.035em;line-height:.95;color:var(--accent);font-variant-numeric:tabular-nums}
+.t-olive .eq,.t-dark .eq{background:rgba(255,255,255,.08);border-color:rgba(243,237,226,.35);color:var(--cream)}
+
+/* point */
+.idx{font-family:"InterDisplay";font-weight:800;font-size:120px;color:var(--accent);letter-spacing:-.04em;line-height:.9;opacity:.9}
+.reel .idx{font-size:140px}
+.rule{height:6px;width:120px;border-radius:3px;background:var(--accent);opacity:.9}
+
+/* list */
+ul.items{list-style:none;display:flex;flex-direction:column;gap:22px}
+ul.items li{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;font-weight:500;line-height:1.3}
+ul.items li .b{font-family:"InterDisplay";font-weight:800;color:var(--accent);min-width:1.2em;font-variant-numeric:tabular-nums}
+ul.items li + li{padding-top:22px;border-top:2px solid var(--line)}
+.t-olive ul.items li + li,.t-dark ul.items li + li{border-color:rgba(243,237,226,.25)}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.reel .cmp{grid-template-columns:1fr;gap:28px}
+.card{border-radius:28px;padding:34px 32px;display:flex;flex-direction:column;gap:16px}
+.card.l{background:var(--paper);border:2px solid var(--line);color:var(--ink)}
+.card.r{background:var(--olive);color:var(--cream)}
+.card .ch{font-family:"InterDisplay";font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.card .ct{font-weight:500;line-height:1.33}
+
+/* statement */
+.quote-mark{font-family:"InterDisplay";font-weight:800;font-size:180px;line-height:.6;color:var(--accent);opacity:.6;height:80px}
+
+/* cta */
+.pill{align-self:flex-start;display:flex;align-items:center;gap:18px;background:var(--cream);color:var(--olive-dark);
+  font-weight:700;border-radius:999px;padding:24px 40px;font-family:"InterDisplay";letter-spacing:-.01em}
+.pill .arrow{font-family:"Inter";font-weight:600}
+.t-cream .pill{background:var(--olive);color:var(--cream)}
+.closing{font-family:"InterDisplay";font-weight:700;letter-spacing:-.015em;color:var(--accent)}
+
+.reveal{transition:none}
+.stage0 .reveal{opacity:0}
+</style>
+</head>
+<body>
+<div id="f"></div>
+<script>
+// Ukuran dasar (px) per format. fit() mengecilkan semua elemen .fit bersama-sama bila isi kepanjangan.
+const S = {
+  carousel:{title:124, h2:92, sub:44, txt:48, value:160, eq:48, item:48, ch:56, ct:40, stmt:90, pill:48, closing:58},
+  reel:    {title:140, h2:100, sub:52, txt:54, value:190, eq:56, item:56, ch:66, ct:48, stmt:104, pill:56, closing:66}
+};
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+// **teks** -> sorotan; baris baru dipertahankan
+function rich(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<em class="hl">$1</em>').replace(/\n/g,"<br>")}
+function el(tag,cls,html,size,extra){return `<${tag} class="${cls} fit" data-base="${size}" style="font-size:${size}px" ${extra||""}>${html}</${tag}>`}
+
+window.renderFrame = function(d){
+  const f=document.getElementById("f");
+  const fmt=d.format, z=S[fmt], fr=d.frame;
+  const theme = fr.theme || ({cover:"olive",cta:"olive",statement:"dark"}[fr.type]||"cream");
+  f.className = `${fmt} t-${theme} ${d.stage===0?"stage0":""}`;
+  const pg = fmt==="carousel" ? `<span class="pg">${d.index+1}/${d.total}</span>` : "";
+  let top = `<div class="top"><span class="sig"><span class="dot"></span>${esc(d.signature)}</span>${pg}</div>`;
+  let b="", foot="";
+  switch(fr.type){
+    case "cover":
+      b += fr.kicker ? `<div class="kicker">${esc(fr.kicker)}</div>` : "";
+      b += el("div","title",rich(fr.title),z.title);
+      if(fr.sub) b += el("div","sub",rich(fr.sub),z.sub);
+      foot = fmt==="carousel" && d.total>1 ? `<span>${esc(fr.footer||"Simpan dulu, baca pelan-pelan")}</span><span>Geser →</span>` : "";
+      break;
+    case "number":
+      if(fr.label) b += el("div","label",rich(fr.label),fmt==="reel"?40:34);
+      if(fr.eq) b += el("div","eq",rich(fr.eq),z.eq);
+      b += el("div","value reveal",rich(fr.value),z.value);
+      if(fr.note) b += el("div","txt muted reveal",rich(fr.note),z.sub);
+      break;
+    case "point":
+      if(fr.n) b += `<div class="idx">${esc(String(fr.n).padStart(2,"0"))}</div>`;
+      b += el("div","h2",rich(fr.title),z.h2);
+      b += `<div class="rule"></div>`;
+      if(fr.body) b += el("div","txt reveal",rich(fr.body),z.txt);
+      break;
+    case "list":
+      if(fr.title) b += el("div","h2",rich(fr.title),z.h2);
+      b += `<ul class="items">` + (fr.items||[]).map((it,i)=>{
+        const mark = fr.marks ? esc(fr.marks[i]??"•") : String(i+1);
+        return `<li class="fit ${i>0?"reveal":""}" data-base="${z.item}" style="font-size:${z.item}px"><span class="b">${mark}</span><span>${rich(it)}</span></li>`;
+      }).join("") + `</ul>`;
+      break;
+    case "compare":
+      if(fr.title) b += el("div","h2",rich(fr.title),z.h2);
+      b += `<div class="cmp">
+        <div class="card l">${el("div","ch",rich(fr.left.h),z.ch)}${el("div","ct",rich(fr.left.t),z.ct)}</div>
+        <div class="card r reveal">${el("div","ch",rich(fr.right.h),z.ch)}${el("div","ct",rich(fr.right.t),z.ct)}</div>
+      </div>`;
+      break;
+    case "statement":
+      b += `<div class="quote-mark">“</div>`;
+      b += el("div","h2",rich(fr.text),z.stmt);
+      if(fr.sub) b += el("div","sub reveal",rich(fr.sub),z.sub);
+      break;
+    case "cta":
+      if(fr.title) b += el("div","title",rich(fr.title),fmt==="reel"?110:96);
+      if(fr.body) b += el("div","txt",rich(fr.body),z.txt);
+      if(fr.pill) b += `<div class="pill fit reveal" data-base="${z.pill}" style="font-size:${z.pill}px">${rich(fr.pill)} <span class="arrow">→</span></div>`;
+      b += el("div","closing",esc(d.closing),z.closing);
+      foot = fmt==="carousel" ? `<span>${esc(d.signature)}</span><span>Karakter AI · bukan nasihat investasi</span>` : "";
+      break;
+    default:
+      b += el("div","h2",rich(fr.title||fr.text||""),z.h2);
+  }
+  f.innerHTML = top + `<div class="body">${b}</div>` + `<div class="foot">${foot}</div>`;
+  fit();
+  return true;
+};
+
+function fit(){
+  const body=document.querySelector("#f .body");
+  const nodes=[...document.querySelectorAll("#f .fit")];
+  let s=1;
+  const apply=()=>nodes.forEach(n=>n.style.fontSize=(parseFloat(n.dataset.base)*s)+"px");
+  apply();
+  // stage0 menyembunyikan dengan opacity, jadi ukuran tetap dihitung dari isi lengkap
+  for(let i=0;i<40 && body.scrollHeight>body.clientHeight+1;i++){ s-=0.025; apply(); }
+  // judul tidak boleh meluber horizontal (kata panjang)
+  document.querySelectorAll("#f .title,#f .value").forEach(n=>{
+    let k=0; while(n.scrollWidth>n.clientWidth+1 && k<30){ n.style.fontSize=(parseFloat(n.style.fontSize)*0.96)+"px"; k++; }
+  });
+  window.__fitScale=s;
+}
+</script>
+</body>
+</html>

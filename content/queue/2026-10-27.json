@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-27",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "E",
+      "topic": "target sebelum tahun baru",
+      "evergreen": false,
+      "frames": [
+        {"type": "cover", "kicker": "Pecah target", "title": "**Rp1 juta** sebelum tahun baru", "sub": "Masih 66 hari. Ini cara memecahnya supaya terasa ringan."},
+        {"type": "number", "label": "Per hari", "eq": "Rp1.000.000 ÷ 66 hari", "value": "±Rp15.200", "note": "Kira-kira seharga satu kali jajan sore."},
+        {"type": "number", "label": "Atau per gajian", "eq": "Rp1.000.000 ÷ 2 gajian", "value": "Rp500.000", "note": "Gajian November dan Desember. Transfer di hari gajian, sebelum belanja apa pun."},
+        {"type": "list", "title": "Supaya benar-benar terkumpul", "items": ["Pisahkan ke rekening atau kantong lain", "Kirim di hari gajian, bukan dari sisa", "Jangan dipakai untuk promo akhir tahun", "Cek saldonya tiap Minggu malam"]},
+        {"type": "statement", "text": "Target besar terasa mungkin kalau **dipecah**.", "sub": "Yang menentukan bukan nominalnya, tapi rutinnya."},
+        {"type": "cta", "title": "Simpan dulu", "body": "Buka lagi di hari gajian. Mau cari sumber dananya dari kebocoran kecil? Komen **BOCOR**.", "pill": "Komen BOCOR"}
+      ],
+      "caption": "Rp1 juta sebelum tahun baru masih mungkin.\nRp1.000.000 ÷ 66 hari ≈ Rp15.200 sehari. Atau Rp500.000 di tiap gajian November dan Desember.\nSimpan, lalu buka lagi di hari gajian.\nKomen BOCOR untuk cari sumber dananya dari kebocoran kecil.",
+      "hashtags": ["keuanganpribadi", "menabung", "gajian", "targetkeuangan"],
+      "calc": [
+        {"expr": "round(1000000/66, -2)", "expect": 15200},
+        {"expr": "1000000/2", "expect": 500000}
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "checkout setelah gajian",
+      "frames": [
+        {"type": "cover", "kicker": "POV", "title": "Gajian **tanggal 25**", "sub": "Tanggal 26: sudah checkout 4 kali."},
+        {"type": "list", "title": "Isi keranjang hari pertama", "items": ["Baju yang \"lagi diskon\"", "Skincare stok 3 bulan", "Makan enak \"self reward\"", "Barang yang lupa kenapa dibeli"]},
+        {"type": "statement", "text": "Hari gajian itu bukan hari **belanja**.", "sub": "Itu hari membagi gaji ke pos-pos, sebelum gajinya membagi dirinya sendiri."},
+        {"type": "cta", "title": "Tag teman yang begini", "body": "Atau kamu sendiri? Nggak apa-apa. Bulan depan: bagi dulu, baru belanja.", "pill": "Tag 1 teman"}
+      ],
+      "caption": "Hari pertama setelah gajian rasanya kaya.\nHari ke-20 rasanya beda.\nTag teman yang keranjangnya selalu penuh tiap tanggal 26.",
+      "hashtags": ["gajian", "tanggaltua", "relate", "keuanganpribadi"],
+      "calc": []
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "spine_day": 2,
+      "topic": "kopi harian",
+      "frames": [
+        {"type": "cover", "kicker": "Hitung kebocoran", "title": "Kopi **Rp25 ribu** tiap hari kerja", "sub": "Kelihatannya kecil, kan?"},
+        {"type": "number", "label": "Sebulan", "eq": "Rp25.000 × 22 hari kerja", "value": "Rp550.000"},
+        {"type": "number", "label": "Tambah makan online 3× seminggu", "eq": "Rp35.000 × 12", "value": "Rp420.000"},
+        {"type": "number", "label": "Dua kebiasaan", "eq": "Rp550.000 + Rp420.000", "value": "Rp970.000", "note": "Kopinya boleh, asal punya pos sendiri."},
+        {"type": "cta", "title": "Hitung punyamu", "body": "Komen **BOCOR**, aku kirim kalkulator buat hitung kebocoranmu sendiri.", "pill": "Komen BOCOR"}
+      ],
+      "caption": "Bukan kopinya yang salah. Yang bikin bocor adalah kopi yang nggak punya pos.\nKopi Rp25.000 × 22 hari kerja = Rp550.000 sebulan.\nKomen BOCOR untuk hitung kebocoranmu sendiri.",
+      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "kopi"],
+      "calc": [
+        {"expr": "25000*22", "expect": 550000},
+        {"expr": "35000*12", "expect": 420000},
+        {"expr": "550000+420000", "expect": 970000}
+      ]
+    }
+  ]
+}
