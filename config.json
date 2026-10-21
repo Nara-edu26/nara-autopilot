@@ -6,7 +6,7 @@
     "signature_caption": "— Nara, pemandu AI"
   },
   "pages_base_url": "https://nara-edu26.github.io/nara-autopilot",
-  "email_kontak": "EMAIL-KAMU@contoh.com",
+  "email_kontak": "",
   "zona_waktu": "Asia/Jakarta",
   "slot": {
     "pagi":  {"jam_wib": "07:00", "format_default": "carousel"},

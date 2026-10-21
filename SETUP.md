@@ -38,7 +38,7 @@ Foto profil: `assets/profil-nara.png`.
 
 Di GitHub, buka `config.json` → ikon pensil. Ganti:
 - `Nara-edu26` (3 tempat) dengan username GitHub-mu.
-- `email_kontak` dengan email untuk halaman privasi.
+- `email_kontak` boleh dikosongkan: halaman privasi mengarahkan ke DM Instagram Nara.
 - `tautan.toko` dan `tautan.template_5_pos` diisi setelah langkah 8 (boleh diubah nanti).
 
 Commit langsung ke `main`.
