@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: "17 1 * * 1"   # Senin 08.17 WIB
   workflow_dispatch:
+    inputs:
+      hanya_cek:
+        description: "Hanya cek GH_PAT, tanpa memperpanjang token"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -19,7 +24,18 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests==2.32.3
+      - name: Cek GH_PAT
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "✗ Secret GH_PAT belum diisi. Token Instagram baru tidak akan bisa disimpan."
+            exit 1
+          fi
+          gh secret list --repo "$GITHUB_REPOSITORY" > /dev/null
+          echo "✓ GH_PAT berfungsi: bisa mengakses secret repo ini."
       - name: Perpanjang
+        if: ${{ !inputs.hanya_cek }}
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
