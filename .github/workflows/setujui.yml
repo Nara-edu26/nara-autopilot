@@ -1,0 +1,50 @@
+name: Setujui post
+# Tekan "Run workflow" setelah membaca halaman tinjau (<situs>/tinjau/).
+# Konten AI wajib diverifikasi manusia sebelum terbit (POJK 6/2026).
+# Semua post yang menunggu dalam 15 hari ke depan disetujui, kecuali kode yang ditulis di "lewati".
+
+on:
+  workflow_dispatch:
+    inputs:
+      lewati:
+        description: "Kode post yang TIDAK disetujui, pisahkan koma. Kosongkan kalau semua oke. Contoh: 2026-10-27-siang"
+        required: false
+        default: ""
+      oleh:
+        description: "Nama penyetuju (boleh kosong)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: setujui
+  cancel-in-progress: false
+
+jobs:
+  setujui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Setujui
+        env:
+          LEWATI: ${{ inputs.lewati }}
+          OLEH: ${{ inputs.oleh }}
+        run: |
+          python engine/setujui.py --lewati "$LEWATI" --oleh "$OLEH"
+      - name: Simpan
+        run: |
+          bash .github/scripts/commit.sh "tinjau: post disetujui" content/queue
+      - name: Perbarui halaman tinjau
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run render.yml --ref main --repo "${{ github.repository }}"

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import datetime as dt
 import json
 import os
@@ -100,3 +101,35 @@ def media_files(post: dict) -> list[str]:
 def env(name: str, default: str | None = None) -> str | None:
     v = os.environ.get(name)
     return v if v not in (None, "") else default
+
+
+# --- Tinjauan manusia (POJK 6/2026: konten AI diverifikasi manusia sebelum terbit) ---
+ISI_KEYS = ("format", "frames", "caption", "hashtags", "calc", "given")
+
+
+def content_hash(post: dict) -> str:
+    """Sidik jari isi post (frame, caption, hashtag, hitungan). Slot/tanggal tidak ikut,
+    jadi salinan evergreen dari post yang sudah disetujui tetap sah."""
+    isi = {k: post[k] for k in ISI_KEYS if k in post}
+    raw = json.dumps(isi, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
+
+
+def approval_state(post: dict) -> str:
+    """'disetujui' | 'berubah' (isi berubah setelah disetujui) | 'menunggu' | 'dilewati'."""
+    if post.get("skip"):
+        return "dilewati"
+    ok = post.get("disetujui")
+    if not isinstance(ok, dict) or not ok.get("hash"):
+        return "menunggu"
+    return "disetujui" if ok["hash"] == content_hash(post) else "berubah"
+
+
+def repo_slug(cfg: dict) -> str:
+    slug = env("GITHUB_REPOSITORY")
+    if slug:
+        return slug
+    # https://<owner>.github.io/<repo>  ->  <owner>/<repo>
+    base = cfg["pages_base_url"].rstrip("/").split("//", 1)[-1]
+    host, _, repo = base.partition("/")
+    return f"{host.split('.')[0]}/{repo}"

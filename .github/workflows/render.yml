@@ -85,6 +85,9 @@ jobs:
       - name: Isi tautan situs dari config.json
         run: python engine/situs.py
 
+      - name: Halaman tinjau (post yang menunggu persetujuan)
+        run: python engine/tinjau.py
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

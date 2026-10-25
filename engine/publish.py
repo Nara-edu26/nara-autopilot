@@ -17,8 +17,8 @@ from pathlib import Path
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import (SLOTS, append_posted, build_caption, env, find_post, iter_posts, load_config,  # noqa: E402
-                    media_files, now_wib, post_id, read_posted, today_wib)
+from common import (SLOTS, append_posted, approval_state, build_caption, env, find_post, iter_posts,  # noqa: E402
+                    load_config, media_files, now_wib, post_id, read_posted, repo_slug, today_wib)
 from ig import IG, IGError  # noqa: E402
 from validate import validate_post  # noqa: E402
 
@@ -81,7 +81,10 @@ def main() -> int:
         return 0
 
     post = find_post(pid)
-    if not post or post.get("skip"):
+    if post and post.get("skip"):
+        summary(f"⏭ {pid} dilewati pemilik saat tinjauan. Tidak ada yang diterbitkan.")
+        return 0
+    if not post:
         summary(f"✗ Antrean kosong untuk {pid}. Isi content/queue/{a.tanggal}.json "
                 "atau jalankan workflow 'Render & situs' supaya slot kosong diisi konten evergreen.")
         return 1
@@ -89,6 +92,24 @@ def main() -> int:
     if errs:
         summary(f"✗ {pid} gagal validasi, tidak diterbitkan:\n- " + "\n- ".join(errs))
         return 1
+
+    # Tinjauan manusia wajib sebelum terbit (POJK 6/2026). Gagal di sini sengaja membuat workflow merah,
+    # supaya GitHub mengirim email pengingat ke pemilik.
+    state = approval_state(post)
+    if cfg.get("wajib_tinjau", True) and state != "disetujui":
+        why = ("isinya berubah setelah disetujui" if state == "berubah" else "belum disetujui pemilik")
+        base_url = cfg["pages_base_url"].rstrip("/")
+        msg = (f"✋ {pid} TIDAK diterbitkan: {why}.\n\n"
+               f"1. Baca post-nya di {base_url}/tinjau/\n"
+               f"2. Setujui di https://github.com/{repo_slug(cfg)}/actions/workflows/setujui.yml "
+               "(tombol Run workflow), atau minta Claude menyetujuinya untukmu.\n"
+               "Setelah disetujui, slot berikutnya terbit normal. Slot yang sudah lewat bisa diterbitkan "
+               "dengan tombol Re-run jobs di halaman run yang gagal ini (di hari yang sama).")
+        if a.uji:
+            summary("(uji kering) " + msg)
+        else:
+            summary(msg)
+            return 1
 
     base = cfg["pages_base_url"].rstrip("/")
     files = media_files(post)

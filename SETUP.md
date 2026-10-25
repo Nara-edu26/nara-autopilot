@@ -113,10 +113,10 @@ Kalau GitHub belum tersambung saat tugas berjalan, tugas berhenti dan melaporkan
 
 | Kapan | Apa | Waktu |
 |---|---|---|
-| Jumat (opsional) | Lihat `content/queue/` minggu depan; tandai `"skip": true` bila ada yang tidak cocok | 10 menit |
+| Jumat–Minggu (wajib) | Buka `https://nara-edu26.github.io/nara-autopilot/tinjau/`, baca post minggu depan, lalu tekan tombol **Setujui post** (atau minta Claude). Post yang belum disetujui tidak terbit (POJK 6/2026: konten AI wajib diverifikasi manusia) | 15 menit |
 | Tiap minggu | Baca `data/laporan.md` dan `claude/catatan-mingguan.md` | 5 menit |
 | Awal bulan | Baca `claude/ide-produk.md`; kalau setuju, minta Claude membuat produknya lalu unggah ke Lynk | 30 menit |
-| Kapan saja email "workflow failed" masuk | Buka Actions, baca ringkasan merah. Penyebab paling umum: token mati (ulangi langkah 5) | 10 menit |
+| Kapan saja email "workflow failed" masuk | Buka Actions, baca ringkasan merah. Penyebab paling umum: post belum disetujui (buka halaman tinjau), atau token mati (ulangi langkah 5) | 10 menit |
 | Oktober 2027 | Perbarui `GH_PAT` | 5 menit |
 
 GitHub mengirim email otomatis setiap kali workflow gagal, jadi kamu tidak perlu memantau setiap hari.

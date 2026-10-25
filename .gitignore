@@ -2,3 +2,4 @@ docs/media/
 __pycache__/
 *.pyc
 .DS_Store
+docs/tinjau/

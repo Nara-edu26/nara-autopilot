@@ -109,3 +109,11 @@ Di reel, frame `number`, `point`, `list`, `compare`, `statement`, `cta` muncul d
 1. `python3 engine/validate.py --semua` → 0 gagal.
 2. Baca ulang setiap hook: apakah orang berhenti menggulir dalam 1 detik? Apakah ada angka rupiah atau situasi yang dikenali?
 3. Tidak ada janji, tidak ada merek, tidak ada nasihat investasi.
+
+## Persetujuan pemilik (wajib, POJK 6/2026)
+
+Konten keuangan buatan AI wajib diverifikasi manusia sebelum terbit. Mesin konten hanya menulis post; yang menyetujui selalu pemilik.
+- Jangan pernah menambah, mengubah, atau menghapus field `disetujui` atau `skip`. Post baru selalu ditulis tanpa field itu (status "menunggu").
+- Jangan mengubah post yang sudah ada. Mengubah isi post yang sudah disetujui membatalkan persetujuannya, dan post itu tidak terbit.
+- Pemilik membaca halaman tinjau (`<pages_base_url>/tinjau/`) lalu menekan workflow "Setujui post". Post yang belum disetujui tidak terbit, dan workflow Terbit sengaja gagal supaya pemilik mendapat email pengingat.
+- Setiap batch mingguan harus sudah ada di repo paling lambat Kamis malam, supaya pemilik punya Jumat–Minggu untuk meninjau.
