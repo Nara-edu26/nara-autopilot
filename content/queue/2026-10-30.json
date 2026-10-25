@@ -7,25 +7,99 @@
       "pattern": "B",
       "topic": "contoh alokasi 5 pos gaji 4,5 juta",
       "frames": [
-        {"type": "cover", "kicker": "Contoh angka", "title": "Gaji **Rp4,5 juta** dibagi ke 5 pos", "sub": "Pakai panduan persen 5 pos. Ganti dengan angkamu sendiri."},
-        {"type": "number", "label": "Pos Wajib · 40%", "eq": "Rp4.500.000 × 40%", "value": "Rp1.800.000", "note": "Kos, listrik, pulsa, iuran."},
-        {"type": "number", "label": "Pos Hidup · 25%", "eq": "Rp4.500.000 × 25%", "value": "Rp1.125.000", "note": "Sekitar Rp281.250 per minggu."},
-        {"type": "number", "label": "Pos Cicilan · 15%", "eq": "Rp4.500.000 × 15%", "value": "Rp675.000", "note": "Batas atas. Kalau bisa, lebih kecil."},
-        {"type": "number", "label": "Pos Masa Depan · 5%", "eq": "Rp4.500.000 × 5%", "value": "Rp225.000", "note": "Dikirim pertama, di hari gajian."},
-        {"type": "number", "label": "Pos Bebas · 15%", "eq": "Rp4.500.000 × 15%", "value": "Rp675.000", "note": "Jajan dan nongkrong, tanpa rasa bersalah."},
-        {"type": "number", "label": "Jumlah kelima pos", "eq": "40% + 25% + 15% + 5% + 15%", "value": "Rp4.500.000", "note": "Setiap rupiah sudah punya alamat. Nggak ada \"sisa\" yang menunggu dihabiskan."},
-        {"type": "cta", "title": "Mau dihitung otomatis?", "body": "Template 5 Pos membagi gajimu dan menghitung jatah harian. Komen **TEMPLATE**, aku kirim tautannya.", "pill": "Komen TEMPLATE"}
+        {
+          "type": "cover",
+          "kicker": "Contoh angka",
+          "title": "Gaji **Rp4,5 juta** dibagi ke 5 pos",
+          "sub": "Pakai panduan persen 5 pos. Ganti dengan angkamu sendiri."
+        },
+        {
+          "type": "number",
+          "label": "Pos Wajib · 40%",
+          "eq": "Rp4.500.000 × 40%",
+          "value": "Rp1.800.000",
+          "note": "Kos, listrik, pulsa, iuran."
+        },
+        {
+          "type": "number",
+          "label": "Pos Hidup · 25%",
+          "eq": "Rp4.500.000 × 25%",
+          "value": "Rp1.125.000",
+          "note": "Sekitar Rp281.250 per minggu."
+        },
+        {
+          "type": "number",
+          "label": "Pos Cicilan · 15%",
+          "eq": "Rp4.500.000 × 15%",
+          "value": "Rp675.000",
+          "note": "Batas atas. Kalau bisa, lebih kecil."
+        },
+        {
+          "type": "number",
+          "label": "Pos Masa Depan · 5%",
+          "eq": "Rp4.500.000 × 5%",
+          "value": "Rp225.000",
+          "note": "Dikirim pertama, di hari gajian."
+        },
+        {
+          "type": "number",
+          "label": "Pos Bebas · 15%",
+          "eq": "Rp4.500.000 × 15%",
+          "value": "Rp675.000",
+          "note": "Jajan dan nongkrong, tanpa rasa bersalah."
+        },
+        {
+          "type": "number",
+          "label": "Jumlah kelima pos",
+          "eq": "40% + 25% + 15% + 5% + 15%",
+          "value": "Rp4.500.000",
+          "note": "Setiap rupiah sudah punya alamat. Nggak ada \"sisa\" yang menunggu dihabiskan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau dihitung otomatis?",
+          "body": "Template 5 Pos membagi gajimu dan menghitung jatah harian. Komen **TEMPLATE**, aku kirim tautannya.",
+          "pill": "Komen TEMPLATE"
+        }
       ],
       "caption": "Contoh pembagian gaji Rp4.500.000 ke 5 pos. Ini contoh, bukan aturan: sesuaikan persennya dengan kondisimu.\nSimpan untuk hari gajian.\nKomen TEMPLATE kalau mau versi spreadsheet yang menghitung otomatis.",
-      "hashtags": ["keuanganpribadi", "budgeting", "gajian", "aturuang"],
+      "hashtags": [
+        "keuanganpribadi",
+        "budgeting",
+        "gajian",
+        "aturuang"
+      ],
       "calc": [
-        {"expr": "4500000*0.40", "expect": 1800000},
-        {"expr": "4500000*0.25", "expect": 1125000},
-        {"expr": "4500000*0.15", "expect": 675000},
-        {"expr": "4500000*0.05", "expect": 225000},
-        {"expr": "1125000/4", "expect": 281250},
-        {"expr": "1800000+1125000+675000+225000+675000", "expect": 4500000}
-      ]
+        {
+          "expr": "4500000*0.40",
+          "expect": 1800000
+        },
+        {
+          "expr": "4500000*0.25",
+          "expect": 1125000
+        },
+        {
+          "expr": "4500000*0.15",
+          "expect": 675000
+        },
+        {
+          "expr": "4500000*0.05",
+          "expect": 225000
+        },
+        {
+          "expr": "1125000/4",
+          "expect": 281250
+        },
+        {
+          "expr": "1800000+1125000+675000+225000+675000",
+          "expect": 4500000
+        }
+      ],
+      "disetujui": {
+        "hash": "2222d67ba00b83a3",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -33,18 +107,58 @@
       "pattern": "A",
       "topic": "hiburan akhir pekan",
       "frames": [
-        {"type": "cover", "kicker": "Hitung kebocoran", "title": "Nonton + jajan **Rp100 ribu**", "sub": "Tiap akhir pekan."},
-        {"type": "number", "label": "Sebulan", "eq": "Rp100.000 × 4 akhir pekan", "value": "Rp400.000"},
-        {"type": "number", "label": "Setahun", "eq": "Rp400.000 × 12", "value": "Rp4.800.000"},
-        {"type": "statement", "text": "Hiburan itu **perlu**. Yang bikin bocor: nggak ada batasnya.", "sub": "Tentukan jatahnya di Pos Bebas di awal bulan. Habis, ya selesai sampai gajian."},
-        {"type": "cta", "title": "Hitung punyamu", "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.", "pill": "Komen BOCOR"}
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Nonton + jajan **Rp100 ribu**",
+          "sub": "Tiap akhir pekan."
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp100.000 × 4 akhir pekan",
+          "value": "Rp400.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp400.000 × 12",
+          "value": "Rp4.800.000"
+        },
+        {
+          "type": "statement",
+          "text": "Hiburan itu **perlu**. Yang bikin bocor: nggak ada batasnya.",
+          "sub": "Tentukan jatahnya di Pos Bebas di awal bulan. Habis, ya selesai sampai gajian."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung punyamu",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
       ],
       "caption": "Hiburan bukan musuh. Hiburan tanpa batas yang bikin tanggal tua datang lebih cepat.\nRp100.000 × 4 akhir pekan = Rp400.000 sebulan, Rp4.800.000 setahun.\nKomen BOCOR untuk hitung kebiasaanmu sendiri.",
-      "hashtags": ["keuanganpribadi", "tipskeuangan", "weekend", "gajian"],
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "weekend",
+        "gajian"
+      ],
       "calc": [
-        {"expr": "100000*4", "expect": 400000},
-        {"expr": "400000*12", "expect": 4800000}
-      ]
+        {
+          "expr": "100000*4",
+          "expect": 400000
+        },
+        {
+          "expr": "400000*12",
+          "expect": 4800000
+        }
+      ],
+      "disetujui": {
+        "hash": "531c41813ee5ada2",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -53,15 +167,50 @@
       "spine_day": 5,
       "topic": "tantangan audit 20 menit",
       "frames": [
-        {"type": "cover", "kicker": "Tantangan hari ini", "title": "**20 menit** yang menjelaskan ke mana gajimu pergi", "sub": "Cuma butuh mutasi rekening bulan lalu."},
-        {"type": "point", "n": 1, "title": "Buka mutasi rekening bulan lalu", "body": "Plus riwayat e-wallet. Semua tempat uangmu keluar."},
-        {"type": "point", "n": 2, "title": "Kelompokkan ke 5 pos", "body": "Wajib, Hidup, Cicilan, Masa Depan, Bebas."},
-        {"type": "point", "n": 3, "title": "Ragu? Masukkan ke Pos Bebas", "body": "Jangan menilai diri sendiri. Ini peta, bukan rapor."},
-        {"type": "cta", "title": "Komen pos terbesarmu", "body": "Selain Pos Wajib, mana yang paling besar? Komen **SUDAH** kalau tantangannya selesai.", "pill": "Komen SUDAH"}
+        {
+          "type": "cover",
+          "kicker": "Tantangan hari ini",
+          "title": "**20 menit** yang menjelaskan ke mana gajimu pergi",
+          "sub": "Cuma butuh mutasi rekening bulan lalu."
+        },
+        {
+          "type": "point",
+          "n": 1,
+          "title": "Buka mutasi rekening bulan lalu",
+          "body": "Plus riwayat e-wallet. Semua tempat uangmu keluar."
+        },
+        {
+          "type": "point",
+          "n": 2,
+          "title": "Kelompokkan ke 5 pos",
+          "body": "Wajib, Hidup, Cicilan, Masa Depan, Bebas."
+        },
+        {
+          "type": "point",
+          "n": 3,
+          "title": "Ragu? Masukkan ke Pos Bebas",
+          "body": "Jangan menilai diri sendiri. Ini peta, bukan rapor."
+        },
+        {
+          "type": "cta",
+          "title": "Komen pos terbesarmu",
+          "body": "Selain Pos Wajib, mana yang paling besar? Komen **SUDAH** kalau tantangannya selesai.",
+          "pill": "Komen SUDAH"
+        }
       ],
       "caption": "20 menit hari ini bisa menjelaskan kenapa gajimu habis bulan lalu.\nKelompokkan ke 5 pos, tanpa menghakimi diri sendiri.\nKomen pos terbesarmu, atau SUDAH kalau tantangannya selesai.",
-      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "tantangan"],
-      "calc": []
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "tantangan"
+      ],
+      "calc": [],
+      "disetujui": {
+        "hash": "f767efa63d5a100e",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

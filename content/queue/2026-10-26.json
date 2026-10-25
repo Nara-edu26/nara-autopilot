@@ -112,7 +112,12 @@
           "expr": "360000*12",
           "expect": 4320000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "ef3b9a188fbfe9c6",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -161,7 +166,12 @@
         "kontenAI"
       ],
       "calc": [],
-      "evergreen": false
+      "evergreen": false,
+      "disetujui": {
+        "hash": "9fe9f6763bfe2cb5",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

@@ -7,18 +7,66 @@
       "pattern": "D",
       "topic": "tipe orang tanggal tua",
       "frames": [
-        {"type": "cover", "kicker": "Kamu yang mana?", "title": "5 tipe orang saat **tanggal tua**", "sub": "Jujur, pernah jadi nomor berapa?"},
-        {"type": "point", "n": 1, "title": "Si Pura-pura Kenyang", "body": "\"Aku udah makan kok.\" Belum. Cuma lagi hemat."},
-        {"type": "point", "n": 2, "title": "Si Rajin Cek Saldo", "body": "Buka aplikasi bank enam kali sehari, berharap angkanya berubah sendiri."},
-        {"type": "point", "n": 3, "title": "Si Penyelamat Paylater", "body": "\"Bayarnya nanti aja.\" Nanti itu artinya gaji bulan depan."},
-        {"type": "point", "n": 4, "title": "Si Pemburu Gratis Ongkir", "body": "Belanja lebih banyak biar gratis ongkir. Hemat Rp10 ribu, keluar Rp150 ribu."},
-        {"type": "point", "n": 5, "title": "Si Tenang", "body": "Tanggal tua tetap aman, karena jatah tiap pos sudah ditentukan di hari gajian."},
-        {"type": "cta", "title": "Kamu nomor berapa?", "body": "Tulis di komen, lalu tag teman yang paling mirip nomor 3.", "pill": "Tag 1 teman"}
+        {
+          "type": "cover",
+          "kicker": "Kamu yang mana?",
+          "title": "5 tipe orang saat **tanggal tua**",
+          "sub": "Jujur, pernah jadi nomor berapa?"
+        },
+        {
+          "type": "point",
+          "n": 1,
+          "title": "Si Pura-pura Kenyang",
+          "body": "\"Aku udah makan kok.\" Belum. Cuma lagi hemat."
+        },
+        {
+          "type": "point",
+          "n": 2,
+          "title": "Si Rajin Cek Saldo",
+          "body": "Buka aplikasi bank enam kali sehari, berharap angkanya berubah sendiri."
+        },
+        {
+          "type": "point",
+          "n": 3,
+          "title": "Si Penyelamat Paylater",
+          "body": "\"Bayarnya nanti aja.\" Nanti itu artinya gaji bulan depan."
+        },
+        {
+          "type": "point",
+          "n": 4,
+          "title": "Si Pemburu Gratis Ongkir",
+          "body": "Belanja lebih banyak biar gratis ongkir. Hemat Rp10 ribu, keluar Rp150 ribu."
+        },
+        {
+          "type": "point",
+          "n": 5,
+          "title": "Si Tenang",
+          "body": "Tanggal tua tetap aman, karena jatah tiap pos sudah ditentukan di hari gajian."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu nomor berapa?",
+          "body": "Tulis di komen, lalu tag teman yang paling mirip nomor 3.",
+          "pill": "Tag 1 teman"
+        }
       ],
       "caption": "Semua orang pernah jadi salah satu dari mereka.\nTujuannya pelan-pelan pindah ke nomor 5.\nKamu nomor berapa? Tag teman yang paling mirip nomor 3.",
-      "hashtags": ["tanggaltua", "relate", "keuanganpribadi", "gajian"],
-      "given": [10000, 150000],
-      "calc": []
+      "hashtags": [
+        "tanggaltua",
+        "relate",
+        "keuanganpribadi",
+        "gajian"
+      ],
+      "given": [
+        10000,
+        150000
+      ],
+      "calc": [],
+      "disetujui": {
+        "hash": "c95f0f8a4a8eba5b",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -26,18 +74,61 @@
       "pattern": "D",
       "topic": "nongkrong bentar",
       "frames": [
-        {"type": "cover", "kicker": "Rencana vs kenyataan", "title": "\"Nongkrong **bentar** doang\"", "sub": "Rencananya: satu kopi."},
-        {"type": "list", "title": "Kenyataannya", "items": ["Kopi Rp38.000", "Makan Rp62.000", "Parkir Rp5.000", "Ojek pulang Rp30.000"]},
-        {"type": "number", "label": "Total \"bentar doang\"", "eq": "Rp38.000 + Rp62.000 + Rp5.000 + Rp30.000", "value": "Rp135.000"},
-        {"type": "statement", "text": "Nongkrong tetap jalan. Pasang **jatah** sebelum berangkat.", "sub": "Misalnya Rp100 ribu. Lewat dari itu, pamit pulang."},
-        {"type": "cta", "title": "Tag teman nongkrongmu", "body": "Biar minggu depan kalian pasang jatah bareng.", "pill": "Tag 1 teman"}
+        {
+          "type": "cover",
+          "kicker": "Rencana vs kenyataan",
+          "title": "\"Nongkrong **bentar** doang\"",
+          "sub": "Rencananya: satu kopi."
+        },
+        {
+          "type": "list",
+          "title": "Kenyataannya",
+          "items": [
+            "Kopi Rp38.000",
+            "Makan Rp62.000",
+            "Parkir Rp5.000",
+            "Ojek pulang Rp30.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Total \"bentar doang\"",
+          "eq": "Rp38.000 + Rp62.000 + Rp5.000 + Rp30.000",
+          "value": "Rp135.000"
+        },
+        {
+          "type": "statement",
+          "text": "Nongkrong tetap jalan. Pasang **jatah** sebelum berangkat.",
+          "sub": "Misalnya Rp100 ribu. Lewat dari itu, pamit pulang."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman nongkrongmu",
+          "body": "Biar minggu depan kalian pasang jatah bareng.",
+          "pill": "Tag 1 teman"
+        }
       ],
       "caption": "Yang bikin mahal biasanya bukan kopinya, tapi semua yang ikut setelahnya.\nPasang jatah sebelum berangkat, bukan setelah lihat struk.\nTag teman nongkrongmu.",
-      "hashtags": ["relate", "keuanganpribadi", "nongkrong", "tipskeuangan"],
-      "given": [100000],
+      "hashtags": [
+        "relate",
+        "keuanganpribadi",
+        "nongkrong",
+        "tipskeuangan"
+      ],
+      "given": [
+        100000
+      ],
       "calc": [
-        {"expr": "38000+62000+5000+30000", "expect": 135000}
-      ]
+        {
+          "expr": "38000+62000+5000+30000",
+          "expect": 135000
+        }
+      ],
+      "disetujui": {
+        "hash": "2511caa1d111f2b8",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -46,16 +137,52 @@
       "spine_day": 6,
       "topic": "ongkir",
       "frames": [
-        {"type": "cover", "kicker": "Hitung kebocoran", "title": "Ongkir **Rp12 ribu**", "sub": "Siapa yang mikirin?"},
-        {"type": "number", "label": "Sebulan", "eq": "Rp12.000 × 3 × 4 minggu", "value": "Rp144.000", "note": "Belum termasuk biaya layanan."},
-        {"type": "list", "title": "Dua cara menahan", "items": ["Gabung pesanan dalam satu kali checkout", "Ambil sendiri kalau tempatnya dekat"]},
-        {"type": "cta", "title": "Cek riwayat belanjamu", "body": "Berapa kali ongkir minggu ini? Komen **BOCOR** untuk hitung semuanya sekaligus.", "pill": "Komen BOCOR"}
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Ongkir **Rp12 ribu**",
+          "sub": "Siapa yang mikirin?"
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp12.000 × 3 × 4 minggu",
+          "value": "Rp144.000",
+          "note": "Belum termasuk biaya layanan."
+        },
+        {
+          "type": "list",
+          "title": "Dua cara menahan",
+          "items": [
+            "Gabung pesanan dalam satu kali checkout",
+            "Ambil sendiri kalau tempatnya dekat"
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Cek riwayat belanjamu",
+          "body": "Berapa kali ongkir minggu ini? Komen **BOCOR** untuk hitung semuanya sekaligus.",
+          "pill": "Komen BOCOR"
+        }
       ],
       "caption": "Ongkir kecil, tapi rutin.\nRp12.000 × 3 kali seminggu × 4 minggu = Rp144.000 sebulan.\nSimpan, lalu cek riwayat belanjamu minggu ini.",
-      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "belanjaonline"],
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "belanjaonline"
+      ],
       "calc": [
-        {"expr": "12000*3*4", "expect": 144000}
-      ]
+        {
+          "expr": "12000*3*4",
+          "expect": 144000
+        }
+      ],
+      "disetujui": {
+        "hash": "311fe1ddcda9b413",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

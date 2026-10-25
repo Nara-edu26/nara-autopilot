@@ -8,17 +8,67 @@
       "topic": "peluncuran Template 5 Pos",
       "evergreen": false,
       "frames": [
-        {"type": "cover", "kicker": "Baru dari Nara", "title": "Template **5 Pos**: gajimu dibagi otomatis", "sub": "Spreadsheet untuk Google Sheets dan Excel."},
-        {"type": "list", "title": "Yang kamu isi", "items": ["Gaji bersih dan tanggal gajian", "Persen tiap pos, atau pakai panduan", "Pengeluaran harian, 10 detik per catatan"]},
-        {"type": "list", "title": "Yang dihitung otomatis", "items": ["Jatah tiap pos dalam rupiah", "Sisa tiap pos, langsung terlihat", "Jatah aman per hari sampai gajian", "Kebocoran per bulan dan per tahun"]},
-        {"type": "statement", "theme": "cream", "text": "Bukan aplikasi baru yang harus dipelajari. **Satu file**, kamu yang pegang.", "sub": "Datanya tetap di Google Drive atau laptopmu sendiri."},
-        {"type": "number", "label": "Harga", "eq": "Sekali beli, tanpa langganan", "value": "Rp29.000", "note": "Dipakai ulang setiap bulan."},
-        {"type": "cta", "title": "Mau tautannya?", "body": "Komen **TEMPLATE**, aku kirim lewat DM. Atau buka link di bio.", "pill": "Komen TEMPLATE"}
+        {
+          "type": "cover",
+          "kicker": "Baru dari Nara",
+          "title": "Template **5 Pos**: gajimu dibagi otomatis",
+          "sub": "Spreadsheet untuk Google Sheets dan Excel."
+        },
+        {
+          "type": "list",
+          "title": "Yang kamu isi",
+          "items": [
+            "Gaji bersih dan tanggal gajian",
+            "Persen tiap pos, atau pakai panduan",
+            "Pengeluaran harian, 10 detik per catatan"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Yang dihitung otomatis",
+          "items": [
+            "Jatah tiap pos dalam rupiah",
+            "Sisa tiap pos, langsung terlihat",
+            "Jatah aman per hari sampai gajian",
+            "Kebocoran per bulan dan per tahun"
+          ]
+        },
+        {
+          "type": "statement",
+          "theme": "cream",
+          "text": "Bukan aplikasi baru yang harus dipelajari. **Satu file**, kamu yang pegang.",
+          "sub": "Datanya tetap di Google Drive atau laptopmu sendiri."
+        },
+        {
+          "type": "number",
+          "label": "Harga",
+          "eq": "Sekali beli, tanpa langganan",
+          "value": "Rp29.000",
+          "note": "Dipakai ulang setiap bulan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tautannya?",
+          "body": "Komen **TEMPLATE**, aku kirim lewat DM. Atau buka link di bio.",
+          "pill": "Komen TEMPLATE"
+        }
       ],
       "caption": "Banyak yang tanya: \"5 pos itu dicatatnya di mana?\"\nIni jawabannya: Template 5 Pos, spreadsheet yang membagi gaji, menghitung sisa tiap pos, dan jatah aman per hari sampai gajian.\nRp29.000 sekali beli. Komen TEMPLATE atau buka link di bio.",
-      "hashtags": ["keuanganpribadi", "templatekeuangan", "budgeting", "gajian"],
-      "given": [29000],
-      "calc": []
+      "hashtags": [
+        "keuanganpribadi",
+        "templatekeuangan",
+        "budgeting",
+        "gajian"
+      ],
+      "given": [
+        29000
+      ],
+      "calc": [],
+      "disetujui": {
+        "hash": "dbf089978df1f0b3",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -26,18 +76,63 @@
       "pattern": "E",
       "topic": "transfer di hari gajian",
       "frames": [
-        {"type": "cover", "kicker": "Hari gajian", "title": "Gaji **Rp5 juta**? Kirim Rp250 ribu dulu.", "sub": "Sebelum belanja apa pun."},
-        {"type": "number", "label": "Pos Masa Depan · 5%", "eq": "Rp5.000.000 × 5%", "value": "Rp250.000"},
-        {"type": "number", "label": "Setahun", "eq": "Rp250.000 × 12", "value": "Rp3.000.000", "note": "Dari uang yang nggak sempat kamu lihat."},
-        {"type": "list", "title": "Caranya", "items": ["Buka aplikasi bank", "Atur transfer terjadwal tiap tanggal gajian", "Ke rekening atau kantong terpisah"]},
-        {"type": "cta", "title": "Sudah diatur?", "body": "Komen **SUDAH** kalau transfernya sudah terjadwal.", "pill": "Komen SUDAH"}
+        {
+          "type": "cover",
+          "kicker": "Hari gajian",
+          "title": "Gaji **Rp5 juta**? Kirim Rp250 ribu dulu.",
+          "sub": "Sebelum belanja apa pun."
+        },
+        {
+          "type": "number",
+          "label": "Pos Masa Depan · 5%",
+          "eq": "Rp5.000.000 × 5%",
+          "value": "Rp250.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp250.000 × 12",
+          "value": "Rp3.000.000",
+          "note": "Dari uang yang nggak sempat kamu lihat."
+        },
+        {
+          "type": "list",
+          "title": "Caranya",
+          "items": [
+            "Buka aplikasi bank",
+            "Atur transfer terjadwal tiap tanggal gajian",
+            "Ke rekening atau kantong terpisah"
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Sudah diatur?",
+          "body": "Komen **SUDAH** kalau transfernya sudah terjadwal.",
+          "pill": "Komen SUDAH"
+        }
       ],
       "caption": "Menabung dari sisa hampir selalu gagal, karena sisanya hampir selalu nol.\nBalik urutannya: kirim dulu di hari gajian, baru belanja.\nGaji Rp5.000.000 × 5% = Rp250.000. Komen SUDAH kalau transfer terjadwalmu sudah aktif.",
-      "hashtags": ["keuanganpribadi", "menabung", "gajian", "danadarurat"],
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "gajian",
+        "danadarurat"
+      ],
       "calc": [
-        {"expr": "5000000*0.05", "expect": 250000},
-        {"expr": "250000*12", "expect": 3000000}
-      ]
+        {
+          "expr": "5000000*0.05",
+          "expect": 250000
+        },
+        {
+          "expr": "250000*12",
+          "expect": 3000000
+        }
+      ],
+      "disetujui": {
+        "hash": "1a49bc7dd0922a28",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -47,15 +142,54 @@
       "topic": "rasa sakit saat membayar",
       "cek_fakta": "Konsep 'pain of paying' (Prelec & Loewenstein, 1998). Penjelasan umum, tanpa klaim angka penelitian.",
       "frames": [
-        {"type": "cover", "kicker": "Kenapa begitu?", "title": "Kenapa bayar pakai HP terasa **lebih ringan**?", "sub": "Dibanding mengeluarkan uang tunai."},
-        {"type": "compare", "title": "Rasanya beda", "left": {"h": "Tunai", "t": "Kamu lihat uangnya berpindah tangan. Dompet makin tipis."}, "right": {"h": "Digital", "t": "Yang berubah cuma angka di layar. Rasa kehilangannya kecil."}},
-        {"type": "statement", "text": "\"Rasa sakit saat **membayar**\"", "sub": "Begitu peneliti perilaku menyebutnya. Makin kecil rasa sakitnya, makin gampang kita belanja."},
-        {"type": "point", "title": "Triknya", "body": "Sebelum bayar, cek dulu saldo pos yang dipakai. Biar angka itu terasa lagi."},
-        {"type": "cta", "title": "Kamu lebih boros yang mana?", "body": "Tunai atau digital? Tulis di komen.", "pill": "Tulis di komen"}
+        {
+          "type": "cover",
+          "kicker": "Kenapa begitu?",
+          "title": "Kenapa bayar pakai HP terasa **lebih ringan**?",
+          "sub": "Dibanding mengeluarkan uang tunai."
+        },
+        {
+          "type": "compare",
+          "title": "Rasanya beda",
+          "left": {
+            "h": "Tunai",
+            "t": "Kamu lihat uangnya berpindah tangan. Dompet makin tipis."
+          },
+          "right": {
+            "h": "Digital",
+            "t": "Yang berubah cuma angka di layar. Rasa kehilangannya kecil."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "\"Rasa sakit saat **membayar**\"",
+          "sub": "Begitu peneliti perilaku menyebutnya. Makin kecil rasa sakitnya, makin gampang kita belanja."
+        },
+        {
+          "type": "point",
+          "title": "Triknya",
+          "body": "Sebelum bayar, cek dulu saldo pos yang dipakai. Biar angka itu terasa lagi."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu lebih boros yang mana?",
+          "body": "Tunai atau digital? Tulis di komen.",
+          "pill": "Tulis di komen"
+        }
       ],
       "caption": "Bayar digital itu praktis, tapi rasa kehilangannya kecil.\nSebelum bayar, cek dulu saldo pos yang dipakai.\nKamu lebih boros pakai tunai atau digital? Tulis di komen.",
-      "hashtags": ["keuanganpribadi", "tipskeuangan", "gajian", "psikologiuang"],
-      "calc": []
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "psikologiuang"
+      ],
+      "calc": [],
+      "disetujui": {
+        "hash": "d1729aa12db7a8c7",
+        "pada": "2026-10-25T17:59+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }
