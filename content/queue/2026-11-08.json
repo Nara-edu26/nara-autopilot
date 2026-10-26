@@ -1,0 +1,170 @@
+{
+ "date": "2026-11-08",
+ "posts": [
+  {
+   "slot": "pagi",
+   "format": "carousel",
+   "pattern": "B",
+   "topic": "rutinitas uang hari Minggu",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Peta pemula",
+     "title": "4 hal 10 menit di **hari Minggu**",
+     "sub": "Biar uang minggu depan nggak jalan sendiri."
+    },
+    {
+     "type": "point",
+     "n": 1,
+     "title": "Cek sisa jatah minggu ini",
+     "body": "Berapa yang tersisa dari jatah Pos Hidup? Sisanya boleh pindah ke minggu depan."
+    },
+    {
+     "type": "point",
+     "n": 2,
+     "title": "Rencanakan 5 makan siang",
+     "body": "Berapa hari bawa bekal, berapa hari beli. Tulis angkanya."
+    },
+    {
+     "type": "point",
+     "n": 3,
+     "title": "Isi saldo transport sekali",
+     "body": "Untuk lima hari kerja. Lebih jarang isi ulang, lebih jarang \"sekalian belanja\"."
+    },
+    {
+     "type": "point",
+     "n": 4,
+     "title": "Tandai tagihan minggu depan",
+     "body": "Masukkan tanggal jatuh tempo ke kalender HP, lengkap dengan nominalnya."
+    },
+    {
+     "type": "statement",
+     "text": "Yang paling sering dilewati: **nomor 1**.",
+     "sub": "Padahal sisa jatah itu yang kasih tahu kamu aman atau nggak."
+    },
+    {
+     "type": "cta",
+     "title": "Simpan untuk Minggu malam",
+     "body": "Simpan post ini, lalu pasang pengingat **Minggu 19.00** di HP.",
+     "pill": "Simpan"
+    }
+   ],
+   "caption": "10 menit di hari Minggu bisa bikin minggu depan lebih tenang.\nCek sisa jatah, rencanakan makan siang, isi saldo transport, tandai tagihan.\nSimpan dan pasang pengingat Minggu malam.",
+   "hashtags": [
+    "keuanganpribadi",
+    "tipskeuangan",
+    "gajian",
+    "rutinitas"
+   ],
+   "calc": []
+  },
+  {
+   "slot": "siang",
+   "format": "reel",
+   "pattern": "A",
+   "topic": "biaya admin transfer",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Hitung kebocoran",
+     "title": "Biaya admin transfer **Rp6.500**",
+     "sub": "Kirim ke teman, bayar kos, patungan. Sering, kan?"
+    },
+    {
+     "type": "number",
+     "label": "Sebulan, 6 kali transfer",
+     "eq": "Rp6.500 × 6",
+     "value": "Rp39.000"
+    },
+    {
+     "type": "number",
+     "label": "Setahun",
+     "eq": "Rp39.000 × 12",
+     "value": "Rp468.000"
+    },
+    {
+     "type": "statement",
+     "text": "Cek dulu **pilihan transfer** di aplikasimu.",
+     "sub": "Sering ada pilihan dengan biaya lebih kecil. Atau gabungkan transfer supaya lebih jarang."
+    },
+    {
+     "type": "cta",
+     "title": "Cari kebocoran kecil lainnya",
+     "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+     "pill": "Komen BOCOR"
+    }
+   ],
+   "caption": "Biaya admin Rp6.500 terasa receh. Enam kali sebulan = Rp39.000, setahun Rp468.000.\nCek pilihan transfer yang lebih murah, atau gabungkan transfer supaya lebih jarang.\nKomen BOCOR untuk hitung kebocoran kecil lainnya.",
+   "hashtags": [
+    "keuanganpribadi",
+    "tipskeuangan",
+    "gajian",
+    "hemat"
+   ],
+   "calc": [
+    {
+     "expr": "6500*6",
+     "expect": 39000
+    },
+    {
+     "expr": "39000*12",
+     "expect": 468000
+    }
+   ]
+  },
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "C",
+   "spine_day": 14,
+   "topic": "promo hanya hari ini",
+   "cek_fakta": "Tanpa klaim angka penelitian. Konsep umum (batas waktu memicu rasa takut ketinggalan), disampaikan sebagai pengalaman sehari-hari.",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Kenapa begitu?",
+     "title": "Kenapa promo \"hanya hari ini\" bikin kita **buru-buru**?",
+     "sub": "Padahal kemarin barang itu nggak terpikir sama sekali."
+    },
+    {
+     "type": "statement",
+     "text": "Batas waktu **mengubah** pertanyaannya.",
+     "sub": "Dari \"aku butuh nggak?\" jadi \"nanti nyesel nggak?\""
+    },
+    {
+     "type": "statement",
+     "text": "Takut ketinggalan terasa lebih kuat dari **rasa butuh**.",
+     "sub": "Itu yang bikin jari cepat ke tombol bayar."
+    },
+    {
+     "type": "list",
+     "title": "Tanya ini sebelum checkout",
+     "items": [
+      "Kemarin aku mencari barang ini nggak?",
+      "Kalau besok harganya normal, masih mau?",
+      "Uangnya dari pos mana?"
+     ]
+    },
+    {
+     "type": "point",
+     "title": "Belum yakin? **Lewatkan**.",
+     "body": "Promo biasanya datang lagi. Uang yang sudah keluar biasanya nggak."
+    },
+    {
+     "type": "cta",
+     "title": "Pernah kebawa promo apa?",
+     "body": "Tulis di komen: barang apa yang akhirnya **jarang dipakai**?",
+     "pill": "Tulis di komen"
+    }
+   ],
+   "caption": "Promo \"hanya hari ini\" mengubah pertanyaan dari \"aku butuh nggak?\" jadi \"nanti nyesel nggak?\".\nSebelum checkout, tanya: kalau besok harganya normal, masih mau?\nKamu pernah kebawa promo apa? Tulis di komen.",
+   "hashtags": [
+    "keuanganpribadi",
+    "belanjabijak",
+    "promo",
+    "tipskeuangan"
+   ],
+   "calc": []
+  }
+ ]
+}

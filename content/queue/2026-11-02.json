@@ -1,0 +1,194 @@
+{
+ "date": "2026-11-02",
+ "posts": [
+  {
+   "slot": "pagi",
+   "format": "carousel",
+   "pattern": "B",
+   "topic": "dana darurat vs tabungan tujuan vs pos bebas",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Peta pemula",
+     "title": "3 kantong uang yang **sering dicampur**",
+     "sub": "Kalau dicampur, dana darurat bisa habis untuk liburan."
+    },
+    {
+     "type": "point",
+     "n": 1,
+     "title": "Dana darurat",
+     "body": "Untuk kejadian yang nggak direncanakan: sakit, motor rusak, kehilangan kerja. Bukan untuk diskon."
+    },
+    {
+     "type": "point",
+     "n": 2,
+     "title": "Tabungan tujuan",
+     "body": "Untuk hal yang direncanakan dan punya tanggal: HP baru, liburan, biaya nikah. Boleh dipakai saat tujuannya tercapai."
+    },
+    {
+     "type": "point",
+     "n": 3,
+     "title": "Pos Bebas",
+     "body": "Untuk jajan dan nongkrong bulan ini. Boleh habis tanpa rasa bersalah, lalu terisi lagi saat gajian."
+    },
+    {
+     "type": "statement",
+     "text": "Yang paling sering salah: **dana darurat** dipakai untuk tujuan.",
+     "sub": "Liburan itu penting. Tapi kalau minggu depan motor rusak, uangnya sudah nggak ada."
+    },
+    {
+     "type": "list",
+     "title": "Cara mulai hari ini",
+     "items": [
+      "Beri nama terpisah untuk tiap kantong",
+      "Pisahkan rekening, atau minimal catatannya",
+      "Tulis aturan pakainya di catatan HP"
+     ]
+    },
+    {
+     "type": "cta",
+     "title": "Simpan untuk nanti",
+     "body": "Simpan post ini, lalu tulis nama tiga kantongmu di catatan HP. Mulai dari **satu kantong** juga boleh.",
+     "pill": "Simpan"
+    }
+   ],
+   "caption": "Dana darurat, tabungan tujuan, dan Pos Bebas punya tugas yang beda.\nKalau dicampur, yang paling sering terpakai duluan justru dana darurat.\nSimpan post ini, lalu pisahkan minimal di catatan HP.",
+   "hashtags": [
+    "keuanganpribadi",
+    "danadarurat",
+    "tipskeuangan",
+    "gajian"
+   ],
+   "calc": []
+  },
+  {
+   "slot": "siang",
+   "format": "reel",
+   "pattern": "A",
+   "topic": "paket data harian",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Hitung kebocoran",
+     "title": "Paket data harian **Rp10 ribu**",
+     "sub": "Beli tiap hari, karena \"nanti aja yang bulanan\"."
+    },
+    {
+     "type": "number",
+     "label": "Sebulan",
+     "eq": "Rp10.000 × 30 hari",
+     "value": "Rp300.000"
+    },
+    {
+     "type": "number",
+     "label": "Selisih dengan contoh paket bulanan Rp100 ribu",
+     "eq": "Rp300.000 − Rp100.000",
+     "value": "Rp200.000",
+     "note": "Itu sebulan. Setahun: Rp2.400.000."
+    },
+    {
+     "type": "statement",
+     "text": "Bukan soal pelit. Soal **bayar sekali** di hari gajian.",
+     "sub": "Masukkan paket bulanan ke Pos Wajib, dibayar bersama tagihan lain."
+    },
+    {
+     "type": "cta",
+     "title": "Hitung punyamu",
+     "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+     "pill": "Komen BOCOR"
+    }
+   ],
+   "caption": "Rp10.000 sehari terasa ringan. Rp300.000 sebulan nggak.\nContoh: dibanding paket bulanan Rp100.000, selisihnya Rp2.400.000 setahun.\nKomen BOCOR untuk hitung kebiasaan kecilmu.",
+   "hashtags": [
+    "keuanganpribadi",
+    "tipskeuangan",
+    "kuota",
+    "gajian"
+   ],
+   "calc": [
+    {
+     "expr": "10000*30",
+     "expect": 300000
+    },
+    {
+     "expr": "300000-100000",
+     "expect": 200000
+    },
+    {
+     "expr": "200000*12",
+     "expect": 2400000
+    }
+   ]
+  },
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "E",
+   "spine_day": 8,
+   "topic": "dana darurat dipecah harian",
+   "frames": [
+    {
+     "type": "cover",
+     "kicker": "Pecah target",
+     "title": "Dana darurat **Rp1,8 juta**",
+     "sub": "Kedengarannya jauh. Kita pecah dulu."
+    },
+    {
+     "type": "number",
+     "label": "Kalau 30 hari",
+     "eq": "Rp1.800.000 ÷ 30",
+     "value": "Rp60.000",
+     "note": "Sehari. Cepat, tapi berat untuk banyak gaji."
+    },
+    {
+     "type": "number",
+     "label": "Kalau 90 hari",
+     "eq": "Rp1.800.000 ÷ 90",
+     "value": "Rp20.000",
+     "note": "Sehari. Lebih pelan, lebih mungkin selesai."
+    },
+    {
+     "type": "statement",
+     "text": "Kirim jatahnya di **hari gajian**, bukan dari sisa.",
+     "sub": "Rp600.000 sebulan selama 3 bulan, dipisah dari rekening harian."
+    },
+    {
+     "type": "point",
+     "title": "Kenapa angkanya **Rp1,8 juta**?",
+     "body": "Ini contoh tahap pertama: kira-kira satu bulan biaya wajib. Angkamu boleh beda."
+    },
+    {
+     "type": "cta",
+     "title": "Simpan dulu",
+     "body": "Simpan post ini, lalu tulis angka tahap pertamamu di catatan HP. Mulai dari **90 hari** pun boleh.",
+     "pill": "Simpan"
+    }
+   ],
+   "caption": "Dana darurat Rp1.800.000 terasa jauh sampai dipecah.\n30 hari = Rp60.000 sehari. 90 hari = Rp20.000 sehari.\nPilih yang sanggup kamu jalani, lalu kirim jatahnya di hari gajian.",
+   "hashtags": [
+    "danadarurat",
+    "keuanganpribadi",
+    "tipskeuangan",
+    "gajian"
+   ],
+   "calc": [
+    {
+     "expr": "1800000/30",
+     "expect": 60000
+    },
+    {
+     "expr": "1800000/90",
+     "expect": 20000
+    },
+    {
+     "expr": "20000*30",
+     "expect": 600000
+    },
+    {
+     "expr": "600000*3",
+     "expect": 1800000
+    }
+   ]
+  }
+ ]
+}
