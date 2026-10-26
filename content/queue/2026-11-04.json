@@ -1,228 +1,243 @@
 {
- "date": "2026-11-04",
- "posts": [
-  {
-   "slot": "pagi",
-   "format": "carousel",
-   "pattern": "F",
-   "topic": "tantangan jatah aman per hari",
-   "frames": [
+  "date": "2026-11-04",
+  "posts": [
     {
-     "type": "cover",
-     "kicker": "Tantangan hari ini",
-     "title": "Berapa yang **aman** kamu pakai hari ini?",
-     "sub": "5 menit. Cuma butuh saldo dan tanggal gajian."
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "F",
+      "topic": "tantangan jatah aman per hari",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tantangan hari ini",
+          "title": "Berapa yang **aman** kamu pakai hari ini?",
+          "sub": "5 menit. Cuma butuh saldo dan tanggal gajian."
+        },
+        {
+          "type": "point",
+          "n": 1,
+          "title": "Cek saldo harianmu",
+          "body": "Hanya rekening yang dipakai sehari-hari. Kurangi dulu tagihan yang belum dibayar sampai gajian."
+        },
+        {
+          "type": "point",
+          "n": 2,
+          "title": "Hitung hari ke gajian",
+          "body": "Dari hari ini sampai sehari sebelum gajian berikutnya."
+        },
+        {
+          "type": "number",
+          "label": "Contoh",
+          "eq": "Rp900.000 ÷ 18 hari",
+          "value": "Rp50.000",
+          "note": "Itu jatah aman per hari: makan, transport, dan jajan."
+        },
+        {
+          "type": "point",
+          "n": 3,
+          "title": "Tulis angkanya di **layar kunci**",
+          "body": "Atau di catatan HP. Lihat dulu sebelum bayar apa pun hari ini."
+        },
+        {
+          "type": "cta",
+          "title": "Sudah ketemu angkamu?",
+          "body": "Komen **SUDAH** kalau angkanya sudah tertulis. Nggak perlu sebut nominalnya.",
+          "pill": "Komen SUDAH"
+        }
+      ],
+      "caption": "Tantangan 5 menit: saldo harian dibagi jumlah hari ke gajian.\nContoh: Rp900.000 ÷ 18 hari = Rp50.000 sehari.\nTulis angkanya di tempat yang kelihatan. Komen SUDAH kalau selesai.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tanggaltua",
+        "gajian",
+        "tantangan"
+      ],
+      "calc": [
+        {
+          "expr": "900000/18",
+          "expect": 50000
+        }
+      ],
+      "disetujui": {
+        "hash": "c11fc4484d136e22",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "point",
-     "n": 1,
-     "title": "Cek saldo harianmu",
-     "body": "Hanya rekening yang dipakai sehari-hari. Kurangi dulu tagihan yang belum dibayar sampai gajian."
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "makan siang beli vs bekal",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Makan siang **Rp30 ribu**",
+          "sub": "Tiap hari kerja. Wajar, kan?"
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp30.000 × 22 hari kerja",
+          "value": "Rp660.000"
+        },
+        {
+          "type": "number",
+          "label": "Bawa bekal 2 hari seminggu",
+          "eq": "(Rp30.000 − Rp12.000) × 8 hari",
+          "value": "Rp144.000",
+          "note": "Hemat sebulan, dengan contoh biaya bekal Rp12.000."
+        },
+        {
+          "type": "statement",
+          "text": "Nggak harus tiap hari. **Dua hari** seminggu sudah terasa.",
+          "sub": "Rp144.000 sebulan = Rp1.728.000 setahun."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung punyamu",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Makan siang Rp30.000 × 22 hari kerja = Rp660.000 sebulan.\nBawa bekal dua hari seminggu saja sudah hemat Rp144.000 sebulan.\nKomen BOCOR untuk hitung kebiasaanmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "makansiang",
+        "bekal",
+        "tipskeuangan"
+      ],
+      "calc": [
+        {
+          "expr": "30000*22",
+          "expect": 660000
+        },
+        {
+          "expr": "(30000-12000)*8",
+          "expect": 144000
+        },
+        {
+          "expr": "144000*12",
+          "expect": 1728000
+        }
+      ],
+      "disetujui": {
+        "hash": "5954f48c6300302f",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "point",
-     "n": 2,
-     "title": "Hitung hari ke gajian",
-     "body": "Dari hari ini sampai sehari sebelum gajian berikutnya."
-    },
-    {
-     "type": "number",
-     "label": "Contoh",
-     "eq": "Rp900.000 ÷ 18 hari",
-     "value": "Rp50.000",
-     "note": "Itu jatah aman per hari: makan, transport, dan jajan."
-    },
-    {
-     "type": "point",
-     "n": 3,
-     "title": "Tulis angkanya di **layar kunci**",
-     "body": "Atau di catatan HP. Lihat dulu sebelum bayar apa pun hari ini."
-    },
-    {
-     "type": "cta",
-     "title": "Sudah ketemu angkamu?",
-     "body": "Komen **SUDAH** kalau angkanya sudah tertulis. Nggak perlu sebut nominalnya.",
-     "pill": "Komen SUDAH"
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 10,
+      "topic": "kebutuhan atau keinginan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Peta pemula",
+          "title": "6 pengeluaran yang sering **ketuker**",
+          "sub": "Kebutuhan atau keinginan? Barangnya sama, alasannya yang beda."
+        },
+        {
+          "type": "compare",
+          "title": "Makan",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Makan siang yang bikin kenyang dan kuat kerja."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Menu kekinian yang dipilih karena lagi ramai."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Transport",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Ongkos ke kantor tiap hari."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Naik ojek untuk jarak yang biasanya kamu jalan kaki."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "HP dan internet",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Kuota cukup untuk kerja dan kabar keluarga."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Ganti HP padahal yang lama masih lancar."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Pakaian",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Sepatu kerja yang sudah jebol."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Sepatu ketiga karena warnanya beda."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Perawatan diri",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Potong rambut dan sabun sehari-hari."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Produk baru karena lihat ulasan semalam."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Hiburan",
+          "left": {
+            "h": "Kebutuhan",
+            "t": "Waktu istirahat yang bikin kamu tetap waras."
+          },
+          "right": {
+            "h": "Keinginan",
+            "t": "Langganan keempat yang jarang dibuka."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "Satu pertanyaan: **kalau nggak dibeli** minggu ini, apa yang terjadi?",
+          "sub": "Kalau jawabannya \"nggak apa-apa\", itu keinginan. Boleh dibeli, asal dari Pos Bebas."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan untuk sebelum checkout",
+          "body": "Simpan post ini. Buka lagi saat jempolmu sudah di tombol **bayar**.",
+          "pill": "Simpan"
+        }
+      ],
+      "caption": "Kebutuhan dan keinginan sering ketuker karena barangnya sama, alasannya yang beda.\nSatu pertanyaan: kalau nggak dibeli minggu ini, apa yang terjadi?\nKeinginan boleh, asal dari Pos Bebas. Simpan untuk sebelum checkout.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "belanjabijak",
+        "gajian"
+      ],
+      "calc": [],
+      "disetujui": {
+        "hash": "458efea4e626a1aa",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
-   ],
-   "caption": "Tantangan 5 menit: saldo harian dibagi jumlah hari ke gajian.\nContoh: Rp900.000 ÷ 18 hari = Rp50.000 sehari.\nTulis angkanya di tempat yang kelihatan. Komen SUDAH kalau selesai.",
-   "hashtags": [
-    "keuanganpribadi",
-    "tanggaltua",
-    "gajian",
-    "tantangan"
-   ],
-   "calc": [
-    {
-     "expr": "900000/18",
-     "expect": 50000
-    }
-   ]
-  },
-  {
-   "slot": "siang",
-   "format": "reel",
-   "pattern": "A",
-   "topic": "makan siang beli vs bekal",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Hitung kebocoran",
-     "title": "Makan siang **Rp30 ribu**",
-     "sub": "Tiap hari kerja. Wajar, kan?"
-    },
-    {
-     "type": "number",
-     "label": "Sebulan",
-     "eq": "Rp30.000 × 22 hari kerja",
-     "value": "Rp660.000"
-    },
-    {
-     "type": "number",
-     "label": "Bawa bekal 2 hari seminggu",
-     "eq": "(Rp30.000 − Rp12.000) × 8 hari",
-     "value": "Rp144.000",
-     "note": "Hemat sebulan, dengan contoh biaya bekal Rp12.000."
-    },
-    {
-     "type": "statement",
-     "text": "Nggak harus tiap hari. **Dua hari** seminggu sudah terasa.",
-     "sub": "Rp144.000 sebulan = Rp1.728.000 setahun."
-    },
-    {
-     "type": "cta",
-     "title": "Hitung punyamu",
-     "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
-     "pill": "Komen BOCOR"
-    }
-   ],
-   "caption": "Makan siang Rp30.000 × 22 hari kerja = Rp660.000 sebulan.\nBawa bekal dua hari seminggu saja sudah hemat Rp144.000 sebulan.\nKomen BOCOR untuk hitung kebiasaanmu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "makansiang",
-    "bekal",
-    "tipskeuangan"
-   ],
-   "calc": [
-    {
-     "expr": "30000*22",
-     "expect": 660000
-    },
-    {
-     "expr": "(30000-12000)*8",
-     "expect": 144000
-    },
-    {
-     "expr": "144000*12",
-     "expect": 1728000
-    }
-   ]
-  },
-  {
-   "slot": "malam",
-   "format": "carousel",
-   "pattern": "B",
-   "spine_day": 10,
-   "topic": "kebutuhan atau keinginan",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Peta pemula",
-     "title": "6 pengeluaran yang sering **ketuker**",
-     "sub": "Kebutuhan atau keinginan? Barangnya sama, alasannya yang beda."
-    },
-    {
-     "type": "compare",
-     "title": "Makan",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Makan siang yang bikin kenyang dan kuat kerja."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Menu kekinian yang dipilih karena lagi ramai."
-     }
-    },
-    {
-     "type": "compare",
-     "title": "Transport",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Ongkos ke kantor tiap hari."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Naik ojek untuk jarak yang biasanya kamu jalan kaki."
-     }
-    },
-    {
-     "type": "compare",
-     "title": "HP dan internet",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Kuota cukup untuk kerja dan kabar keluarga."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Ganti HP padahal yang lama masih lancar."
-     }
-    },
-    {
-     "type": "compare",
-     "title": "Pakaian",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Sepatu kerja yang sudah jebol."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Sepatu ketiga karena warnanya beda."
-     }
-    },
-    {
-     "type": "compare",
-     "title": "Perawatan diri",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Potong rambut dan sabun sehari-hari."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Produk baru karena lihat ulasan semalam."
-     }
-    },
-    {
-     "type": "compare",
-     "title": "Hiburan",
-     "left": {
-      "h": "Kebutuhan",
-      "t": "Waktu istirahat yang bikin kamu tetap waras."
-     },
-     "right": {
-      "h": "Keinginan",
-      "t": "Langganan keempat yang jarang dibuka."
-     }
-    },
-    {
-     "type": "statement",
-     "text": "Satu pertanyaan: **kalau nggak dibeli** minggu ini, apa yang terjadi?",
-     "sub": "Kalau jawabannya \"nggak apa-apa\", itu keinginan. Boleh dibeli, asal dari Pos Bebas."
-    },
-    {
-     "type": "cta",
-     "title": "Simpan untuk sebelum checkout",
-     "body": "Simpan post ini. Buka lagi saat jempolmu sudah di tombol **bayar**.",
-     "pill": "Simpan"
-    }
-   ],
-   "caption": "Kebutuhan dan keinginan sering ketuker karena barangnya sama, alasannya yang beda.\nSatu pertanyaan: kalau nggak dibeli minggu ini, apa yang terjadi?\nKeinginan boleh, asal dari Pos Bebas. Simpan untuk sebelum checkout.",
-   "hashtags": [
-    "keuanganpribadi",
-    "tipskeuangan",
-    "belanjabijak",
-    "gajian"
-   ],
-   "calc": []
-  }
- ]
+  ]
 }

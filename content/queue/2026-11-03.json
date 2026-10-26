@@ -1,189 +1,204 @@
 {
- "date": "2026-11-03",
- "posts": [
-  {
-   "slot": "pagi",
-   "format": "carousel",
-   "pattern": "C",
-   "topic": "pesan makan saat capek",
-   "cek_fakta": "Tanpa klaim angka penelitian. Disampaikan sebagai pengalaman sehari-hari (keputusan cepat saat capek dan lapar), bukan data.",
-   "frames": [
+  "date": "2026-11-03",
+  "posts": [
     {
-     "type": "cover",
-     "kicker": "Kenapa begitu?",
-     "title": "Kenapa pesan makan malam saat capek selalu **lebih mahal**?",
-     "sub": "Bukan karena kamu boros. Ada polanya."
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "C",
+      "topic": "pesan makan saat capek",
+      "cek_fakta": "Tanpa klaim angka penelitian. Disampaikan sebagai pengalaman sehari-hari (keputusan cepat saat capek dan lapar), bukan data.",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kenapa begitu?",
+          "title": "Kenapa pesan makan malam saat capek selalu **lebih mahal**?",
+          "sub": "Bukan karena kamu boros. Ada polanya."
+        },
+        {
+          "type": "statement",
+          "text": "Saat capek, kita cari jalan **paling cepat**, bukan paling hemat.",
+          "sub": "Pilihan pertama yang muncul di layar biasanya yang dipesan."
+        },
+        {
+          "type": "list",
+          "title": "Yang sering ikut masuk keranjang",
+          "items": [
+            "Minuman manis karena \"sekalian\"",
+            "Porsi besar karena lapar banget",
+            "Pencuci mulut karena \"hari ini berat\"",
+            "Ongkir lebih mahal karena malas keluar"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh satu malam",
+          "eq": "Rp35.000 + Rp15.000 + Rp20.000",
+          "value": "Rp70.000",
+          "note": "Niatnya cuma makan Rp35.000."
+        },
+        {
+          "type": "point",
+          "title": "Putuskan menunya **sebelum lapar**",
+          "body": "Tentukan makan malam saat istirahat siang. Malamnya tinggal jalan, nggak perlu mikir lagi."
+        },
+        {
+          "type": "point",
+          "title": "Pasang jatah makan malam",
+          "body": "Contoh: Rp40.000 dari Pos Hidup. Lewat dari itu, pilih menu lain."
+        },
+        {
+          "type": "cta",
+          "title": "Biasanya kebobolan di mana?",
+          "body": "Tulis di komen: **minuman**, porsi, atau pencuci mulut?",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Capek dan lapar bikin kita pilih yang paling cepat, bukan yang paling hemat.\nContoh: niatnya makan Rp35.000, jadinya Rp70.000.\nPutuskan menu sebelum lapar. Kamu biasanya kebobolan di bagian mana?",
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "hemat"
+      ],
+      "calc": [
+        {
+          "expr": "35000+15000+20000",
+          "expect": 70000
+        }
+      ],
+      "given": [
+        40000
+      ],
+      "disetujui": {
+        "hash": "0ee8d5c592d7d5ca",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "statement",
-     "text": "Saat capek, kita cari jalan **paling cepat**, bukan paling hemat.",
-     "sub": "Pilihan pertama yang muncul di layar biasanya yang dipesan."
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "patungan bagi rata",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "POV",
+          "title": "Makan **Rp35 ribu**, bayar patungan Rp70 ribu",
+          "sub": "Karena katanya \"bagi rata aja biar gampang\"."
+        },
+        {
+          "type": "number",
+          "label": "Total satu meja, 4 orang",
+          "eq": "Rp280.000 ÷ 4",
+          "value": "Rp70.000"
+        },
+        {
+          "type": "number",
+          "label": "Selisih yang kamu tanggung",
+          "eq": "Rp70.000 − Rp35.000",
+          "value": "Rp35.000",
+          "note": "Kalau terjadi 4 kali sebulan: Rp140.000."
+        },
+        {
+          "type": "statement",
+          "text": "Bagi rata itu adil kalau **pesanannya** mirip.",
+          "sub": "Kalau beda jauh, bilang sejak awal: \"Aku bayar pesananku aja, ya.\" Singkat, tanpa drama."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman patunganmu",
+          "body": "Tag teman yang selalu bilang \"bagi rata aja\". Biar makan berikutnya **lebih jelas**.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Bagi rata itu praktis, tapi nggak selalu adil.\nMakan Rp35.000, bayar Rp70.000. Empat kali sebulan, selisihnya Rp140.000.\nTag teman patunganmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "patungan",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "280000/4",
+          "expect": 70000
+        },
+        {
+          "expr": "70000-35000",
+          "expect": 35000
+        },
+        {
+          "expr": "35000*4",
+          "expect": 140000
+        }
+      ],
+      "disetujui": {
+        "hash": "9286ad968c769f0a",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "list",
-     "title": "Yang sering ikut masuk keranjang",
-     "items": [
-      "Minuman manis karena \"sekalian\"",
-      "Porsi besar karena lapar banget",
-      "Pencuci mulut karena \"hari ini berat\"",
-      "Ongkir lebih mahal karena malas keluar"
-     ]
-    },
-    {
-     "type": "number",
-     "label": "Contoh satu malam",
-     "eq": "Rp35.000 + Rp15.000 + Rp20.000",
-     "value": "Rp70.000",
-     "note": "Niatnya cuma makan Rp35.000."
-    },
-    {
-     "type": "point",
-     "title": "Putuskan menunya **sebelum lapar**",
-     "body": "Tentukan makan malam saat istirahat siang. Malamnya tinggal jalan, nggak perlu mikir lagi."
-    },
-    {
-     "type": "point",
-     "title": "Pasang jatah makan malam",
-     "body": "Contoh: Rp40.000 dari Pos Hidup. Lewat dari itu, pilih menu lain."
-    },
-    {
-     "type": "cta",
-     "title": "Biasanya kebobolan di mana?",
-     "body": "Tulis di komen: **minuman**, porsi, atau pencuci mulut?",
-     "pill": "Tulis di komen"
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "spine_day": 9,
+      "topic": "gaya hidup ikut naik",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Relate",
+          "title": "Gaji naik **Rp500 ribu**, kok tetap habis?",
+          "sub": "Tiga bulan kemudian, rasanya sama saja."
+        },
+        {
+          "type": "list",
+          "title": "Ke mana larinya?",
+          "items": [
+            "Kopi naik kelas",
+            "Langganan nambah satu",
+            "Pesan antar lebih sering",
+            "Belanja karena \"sekarang kan mampu\""
+          ]
+        },
+        {
+          "type": "statement",
+          "text": "Uangnya nggak hilang. Ia pindah ke **kebiasaan baru**.",
+          "sub": "Kebiasaan baru cepat terasa wajar, jadi nggak terasa sebagai pengeluaran tambahan."
+        },
+        {
+          "type": "number",
+          "label": "Kunci separuhnya di hari pertama",
+          "eq": "Rp500.000 ÷ 2",
+          "value": "Rp250.000",
+          "note": "Kirim ke Pos Masa Depan sebelum dipakai. Separuhnya boleh dinikmati."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman yang baru naik gaji",
+          "body": "Kirim ini sebelum kenaikannya **habis duluan**.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Gaji naik Rp500.000, tapi tiga bulan kemudian tetap habis. Kenapa?\nUangnya pindah ke kebiasaan baru yang cepat terasa wajar.\nKunci Rp250.000 di hari pertama, nikmati sisanya. Tag teman yang baru naik gaji.",
+      "hashtags": [
+        "keuanganpribadi",
+        "gajian",
+        "naikgaji",
+        "tipskeuangan"
+      ],
+      "calc": [
+        {
+          "expr": "500000/2",
+          "expect": 250000
+        }
+      ],
+      "disetujui": {
+        "hash": "8efccecd1a987145",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
-   ],
-   "caption": "Capek dan lapar bikin kita pilih yang paling cepat, bukan yang paling hemat.\nContoh: niatnya makan Rp35.000, jadinya Rp70.000.\nPutuskan menu sebelum lapar. Kamu biasanya kebobolan di bagian mana?",
-   "hashtags": [
-    "keuanganpribadi",
-    "tipskeuangan",
-    "gajian",
-    "hemat"
-   ],
-   "calc": [
-    {
-     "expr": "35000+15000+20000",
-     "expect": 70000
-    }
-   ],
-   "given": [
-    40000
-   ]
-  },
-  {
-   "slot": "siang",
-   "format": "reel",
-   "pattern": "D",
-   "topic": "patungan bagi rata",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "POV",
-     "title": "Makan **Rp35 ribu**, bayar patungan Rp70 ribu",
-     "sub": "Karena katanya \"bagi rata aja biar gampang\"."
-    },
-    {
-     "type": "number",
-     "label": "Total satu meja, 4 orang",
-     "eq": "Rp280.000 ÷ 4",
-     "value": "Rp70.000"
-    },
-    {
-     "type": "number",
-     "label": "Selisih yang kamu tanggung",
-     "eq": "Rp70.000 − Rp35.000",
-     "value": "Rp35.000",
-     "note": "Kalau terjadi 4 kali sebulan: Rp140.000."
-    },
-    {
-     "type": "statement",
-     "text": "Bagi rata itu adil kalau **pesanannya** mirip.",
-     "sub": "Kalau beda jauh, bilang sejak awal: \"Aku bayar pesananku aja, ya.\" Singkat, tanpa drama."
-    },
-    {
-     "type": "cta",
-     "title": "Tag teman patunganmu",
-     "body": "Tag teman yang selalu bilang \"bagi rata aja\". Biar makan berikutnya **lebih jelas**.",
-     "pill": "Tag 1 teman"
-    }
-   ],
-   "caption": "Bagi rata itu praktis, tapi nggak selalu adil.\nMakan Rp35.000, bayar Rp70.000. Empat kali sebulan, selisihnya Rp140.000.\nTag teman patunganmu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "patungan",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "280000/4",
-     "expect": 70000
-    },
-    {
-     "expr": "70000-35000",
-     "expect": 35000
-    },
-    {
-     "expr": "35000*4",
-     "expect": 140000
-    }
-   ]
-  },
-  {
-   "slot": "malam",
-   "format": "reel",
-   "pattern": "D",
-   "spine_day": 9,
-   "topic": "gaya hidup ikut naik",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Relate",
-     "title": "Gaji naik **Rp500 ribu**, kok tetap habis?",
-     "sub": "Tiga bulan kemudian, rasanya sama saja."
-    },
-    {
-     "type": "list",
-     "title": "Ke mana larinya?",
-     "items": [
-      "Kopi naik kelas",
-      "Langganan nambah satu",
-      "Pesan antar lebih sering",
-      "Belanja karena \"sekarang kan mampu\""
-     ]
-    },
-    {
-     "type": "statement",
-     "text": "Uangnya nggak hilang. Ia pindah ke **kebiasaan baru**.",
-     "sub": "Kebiasaan baru cepat terasa wajar, jadi nggak terasa sebagai pengeluaran tambahan."
-    },
-    {
-     "type": "number",
-     "label": "Kunci separuhnya di hari pertama",
-     "eq": "Rp500.000 ÷ 2",
-     "value": "Rp250.000",
-     "note": "Kirim ke Pos Masa Depan sebelum dipakai. Separuhnya boleh dinikmati."
-    },
-    {
-     "type": "cta",
-     "title": "Tag teman yang baru naik gaji",
-     "body": "Kirim ini sebelum kenaikannya **habis duluan**.",
-     "pill": "Tag 1 teman"
-    }
-   ],
-   "caption": "Gaji naik Rp500.000, tapi tiga bulan kemudian tetap habis. Kenapa?\nUangnya pindah ke kebiasaan baru yang cepat terasa wajar.\nKunci Rp250.000 di hari pertama, nikmati sisanya. Tag teman yang baru naik gaji.",
-   "hashtags": [
-    "keuanganpribadi",
-    "gajian",
-    "naikgaji",
-    "tipskeuangan"
-   ],
-   "calc": [
-    {
-     "expr": "500000/2",
-     "expect": 250000
-    }
-   ]
-  }
- ]
+  ]
 }

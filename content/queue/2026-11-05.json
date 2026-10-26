@@ -1,192 +1,207 @@
 {
- "date": "2026-11-05",
- "posts": [
-  {
-   "slot": "pagi",
-   "format": "carousel",
-   "pattern": "S",
-   "topic": "Template 5 Pos: cara kerja",
-   "evergreen": false,
-   "frames": [
+  "date": "2026-11-05",
+  "posts": [
     {
-     "type": "cover",
-     "kicker": "Template 5 Pos",
-     "title": "Isi **2 angka**, sisanya dihitung",
-     "sub": "Gaji dan tanggal gajian. Lalu catat pengeluaran, 10 detik per catatan."
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "S",
+      "topic": "Template 5 Pos: cara kerja",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Template 5 Pos",
+          "title": "Isi **2 angka**, sisanya dihitung",
+          "sub": "Gaji dan tanggal gajian. Lalu catat pengeluaran, 10 detik per catatan."
+        },
+        {
+          "type": "list",
+          "title": "Yang kamu isi",
+          "items": [
+            "Gaji bersih per bulan",
+            "Tanggal gajian",
+            "Pengeluaran, saat terjadi"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh: gaji Rp5 juta, Pos Hidup 25%",
+          "eq": "Rp5.000.000 × 25%",
+          "value": "Rp1.250.000",
+          "note": "Dibagi 4 minggu: Rp312.500 per minggu."
+        },
+        {
+          "type": "list",
+          "title": "Yang dihitung otomatis",
+          "items": [
+            "Sisa tiap pos setiap kali kamu mencatat",
+            "Jatah aman per hari sampai gajian",
+            "Kebocoran kecil per bulan dan per tahun",
+            "Riwayat 6 siklus gaji terakhir"
+          ]
+        },
+        {
+          "type": "statement",
+          "text": "Bisa dibuka di **Google Sheets** dan Excel.",
+          "sub": "Lewat HP atau laptop. Sekali beli, dipakai terus."
+        },
+        {
+          "type": "statement",
+          "theme": "cream",
+          "text": "Persen 5 pos itu **panduan**, bukan aturan.",
+          "sub": "Ubah sesuai kondisimu. Ini alat bantu mencatat, bukan nasihat keuangan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tautannya?",
+          "body": "Komen **TEMPLATE**, aku kirim lewat DM. Rp29.000, sekali beli.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Template 5 Pos: isi gaji dan tanggal gajian sekali, catat pengeluaran 10 detik, sisanya dihitung.\nContoh gaji Rp5.000.000: Pos Hidup Rp1.250.000, atau Rp312.500 per minggu.\nRp29.000 sekali beli. Komen TEMPLATE, aku kirim tautannya lewat DM.",
+      "hashtags": [
+        "keuanganpribadi",
+        "templatekeuangan",
+        "budgeting",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "5000000*0.25",
+          "expect": 1250000
+        },
+        {
+          "expr": "1250000/4",
+          "expect": 312500
+        }
+      ],
+      "given": [
+        29000
+      ],
+      "disetujui": {
+        "hash": "2e2953a317869b54",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "list",
-     "title": "Yang kamu isi",
-     "items": [
-      "Gaji bersih per bulan",
-      "Tanggal gajian",
-      "Pengeluaran, saat terjadi"
-     ]
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "E",
+      "topic": "HP baru tanpa cicilan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "HP baru **Rp3,6 juta** tanpa cicilan",
+          "sub": "Bisa, asal dipecah dulu."
+        },
+        {
+          "type": "number",
+          "label": "Kalau 12 bulan",
+          "eq": "Rp3.600.000 ÷ 12",
+          "value": "Rp300.000",
+          "note": "Sebulan."
+        },
+        {
+          "type": "number",
+          "label": "Sehari",
+          "eq": "Rp300.000 ÷ 30",
+          "value": "Rp10.000"
+        },
+        {
+          "type": "statement",
+          "text": "Taruh di **tabungan tujuan**, bukan dana darurat.",
+          "sub": "Kirim Rp300.000 di hari gajian. HP lama dipakai sampai targetnya penuh."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan targetmu",
+          "body": "Simpan post ini, lalu ganti angkanya dengan **barang incaranmu**.",
+          "pill": "Simpan"
+        }
+      ],
+      "caption": "HP baru Rp3.600.000 tanpa cicilan: Rp300.000 sebulan selama 12 bulan, atau Rp10.000 sehari.\nTaruh di tabungan tujuan, bukan dana darurat.\nSimpan dan ganti angkanya dengan barang incaranmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "3600000/12",
+          "expect": 300000
+        },
+        {
+          "expr": "300000/30",
+          "expect": 10000
+        }
+      ],
+      "disetujui": {
+        "hash": "a68cf39ff6220dbc",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "number",
-     "label": "Contoh: gaji Rp5 juta, Pos Hidup 25%",
-     "eq": "Rp5.000.000 × 25%",
-     "value": "Rp1.250.000",
-     "note": "Dibagi 4 minggu: Rp312.500 per minggu."
-    },
-    {
-     "type": "list",
-     "title": "Yang dihitung otomatis",
-     "items": [
-      "Sisa tiap pos setiap kali kamu mencatat",
-      "Jatah aman per hari sampai gajian",
-      "Kebocoran kecil per bulan dan per tahun",
-      "Riwayat 6 siklus gaji terakhir"
-     ]
-    },
-    {
-     "type": "statement",
-     "text": "Bisa dibuka di **Google Sheets** dan Excel.",
-     "sub": "Lewat HP atau laptop. Sekali beli, dipakai terus."
-    },
-    {
-     "type": "statement",
-     "theme": "cream",
-     "text": "Persen 5 pos itu **panduan**, bukan aturan.",
-     "sub": "Ubah sesuai kondisimu. Ini alat bantu mencatat, bukan nasihat keuangan."
-    },
-    {
-     "type": "cta",
-     "title": "Mau tautannya?",
-     "body": "Komen **TEMPLATE**, aku kirim lewat DM. Rp29.000, sekali beli.",
-     "pill": "Komen TEMPLATE"
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "spine_day": 11,
+      "topic": "langganan lupa dibatalkan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Langganan **Rp55 ribu** yang lupa dibatalkan",
+          "sub": "Masa coba gratisnya sudah lewat entah kapan."
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp55.000 × 12",
+          "value": "Rp660.000"
+        },
+        {
+          "type": "list",
+          "title": "Cara cek langganan aktif",
+          "items": [
+            "Cari tagihan berulang di mutasi 3 bulan terakhir",
+            "Buka menu langganan di pengaturan HP",
+            "Cari email berisi kata \"perpanjangan\" atau \"tagihan\""
+          ]
+        },
+        {
+          "type": "statement",
+          "text": "Dibuka sebulan sekali? **Batalkan** dulu.",
+          "sub": "Bisa langganan lagi saat benar-benar perlu. Yang tetap dipakai, masukkan ke Pos Bebas."
+        },
+        {
+          "type": "cta",
+          "title": "Berapa langgananmu?",
+          "body": "Komen **jumlah langganan** aktifmu setelah dicek. Banyak yang kaget sendiri.",
+          "pill": "Komen jumlahnya"
+        }
+      ],
+      "caption": "Langganan Rp55.000 yang lupa dibatalkan = Rp660.000 setahun.\nCek mutasi 3 bulan terakhir dan menu langganan di HP.\nKomen jumlah langganan aktifmu setelah dicek.",
+      "hashtags": [
+        "keuanganpribadi",
+        "langganan",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "55000*12",
+          "expect": 660000
+        }
+      ],
+      "disetujui": {
+        "hash": "e9815ee9ad46ec0c",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
-   ],
-   "caption": "Template 5 Pos: isi gaji dan tanggal gajian sekali, catat pengeluaran 10 detik, sisanya dihitung.\nContoh gaji Rp5.000.000: Pos Hidup Rp1.250.000, atau Rp312.500 per minggu.\nRp29.000 sekali beli. Komen TEMPLATE, aku kirim tautannya lewat DM.",
-   "hashtags": [
-    "keuanganpribadi",
-    "templatekeuangan",
-    "budgeting",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "5000000*0.25",
-     "expect": 1250000
-    },
-    {
-     "expr": "1250000/4",
-     "expect": 312500
-    }
-   ],
-   "given": [
-    29000
-   ]
-  },
-  {
-   "slot": "siang",
-   "format": "reel",
-   "pattern": "E",
-   "topic": "HP baru tanpa cicilan",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Pecah target",
-     "title": "HP baru **Rp3,6 juta** tanpa cicilan",
-     "sub": "Bisa, asal dipecah dulu."
-    },
-    {
-     "type": "number",
-     "label": "Kalau 12 bulan",
-     "eq": "Rp3.600.000 ÷ 12",
-     "value": "Rp300.000",
-     "note": "Sebulan."
-    },
-    {
-     "type": "number",
-     "label": "Sehari",
-     "eq": "Rp300.000 ÷ 30",
-     "value": "Rp10.000"
-    },
-    {
-     "type": "statement",
-     "text": "Taruh di **tabungan tujuan**, bukan dana darurat.",
-     "sub": "Kirim Rp300.000 di hari gajian. HP lama dipakai sampai targetnya penuh."
-    },
-    {
-     "type": "cta",
-     "title": "Simpan targetmu",
-     "body": "Simpan post ini, lalu ganti angkanya dengan **barang incaranmu**.",
-     "pill": "Simpan"
-    }
-   ],
-   "caption": "HP baru Rp3.600.000 tanpa cicilan: Rp300.000 sebulan selama 12 bulan, atau Rp10.000 sehari.\nTaruh di tabungan tujuan, bukan dana darurat.\nSimpan dan ganti angkanya dengan barang incaranmu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "menabung",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "3600000/12",
-     "expect": 300000
-    },
-    {
-     "expr": "300000/30",
-     "expect": 10000
-    }
-   ]
-  },
-  {
-   "slot": "malam",
-   "format": "reel",
-   "pattern": "A",
-   "spine_day": 11,
-   "topic": "langganan lupa dibatalkan",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Hitung kebocoran",
-     "title": "Langganan **Rp55 ribu** yang lupa dibatalkan",
-     "sub": "Masa coba gratisnya sudah lewat entah kapan."
-    },
-    {
-     "type": "number",
-     "label": "Setahun",
-     "eq": "Rp55.000 × 12",
-     "value": "Rp660.000"
-    },
-    {
-     "type": "list",
-     "title": "Cara cek langganan aktif",
-     "items": [
-      "Cari tagihan berulang di mutasi 3 bulan terakhir",
-      "Buka menu langganan di pengaturan HP",
-      "Cari email berisi kata \"perpanjangan\" atau \"tagihan\""
-     ]
-    },
-    {
-     "type": "statement",
-     "text": "Dibuka sebulan sekali? **Batalkan** dulu.",
-     "sub": "Bisa langganan lagi saat benar-benar perlu. Yang tetap dipakai, masukkan ke Pos Bebas."
-    },
-    {
-     "type": "cta",
-     "title": "Berapa langgananmu?",
-     "body": "Komen **jumlah langganan** aktifmu setelah dicek. Banyak yang kaget sendiri.",
-     "pill": "Komen jumlahnya"
-    }
-   ],
-   "caption": "Langganan Rp55.000 yang lupa dibatalkan = Rp660.000 setahun.\nCek mutasi 3 bulan terakhir dan menu langganan di HP.\nKomen jumlah langganan aktifmu setelah dicek.",
-   "hashtags": [
-    "keuanganpribadi",
-    "langganan",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "55000*12",
-     "expect": 660000
-    }
-   ]
-  }
- ]
+  ]
 }

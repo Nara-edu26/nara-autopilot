@@ -1,210 +1,225 @@
 {
- "date": "2026-11-06",
- "posts": [
-  {
-   "slot": "pagi",
-   "format": "carousel",
-   "pattern": "B",
-   "topic": "belanja bulanan vs mingguan",
-   "frames": [
+  "date": "2026-11-06",
+  "posts": [
     {
-     "type": "cover",
-     "kicker": "Peta pemula",
-     "title": "Belanja bulanan atau **mingguan**?",
-     "sub": "Yang bikin Pos Hidup awet biasanya gabungan keduanya."
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "belanja bulanan vs mingguan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Peta pemula",
+          "title": "Belanja bulanan atau **mingguan**?",
+          "sub": "Yang bikin Pos Hidup awet biasanya gabungan keduanya."
+        },
+        {
+          "type": "compare",
+          "title": "Belanja bulanan",
+          "left": {
+            "h": "Enaknya",
+            "t": "Sekali jalan, stok aman, lebih jarang mampir ke toko."
+          },
+          "right": {
+            "h": "Risikonya",
+            "t": "Uang besar keluar di awal. Stok sering habis lebih cepat dari rencana."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Belanja mingguan",
+          "left": {
+            "h": "Enaknya",
+            "t": "Jatahnya kelihatan. Sayur dan lauk lebih segar."
+          },
+          "right": {
+            "h": "Risikonya",
+            "t": "Lebih sering ke toko, lebih sering \"sekalian beli\"."
+          }
+        },
+        {
+          "type": "list",
+          "title": "Gabungan yang sering berhasil",
+          "items": [
+            "Bulanan: beras, minyak, sabun, kebutuhan kering",
+            "Mingguan: sayur, lauk, buah",
+            "Bawa daftar, beli sesuai daftar"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh jatah belanja Rp1,25 juta",
+          "eq": "Rp450.000 + Rp200.000 × 4",
+          "value": "Rp1.250.000",
+          "note": "Rp450.000 belanja bulanan, lalu Rp200.000 tiap minggu."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan sebelum belanja",
+          "body": "Simpan post ini dan coba gabungannya **bulan ini**.",
+          "pill": "Simpan"
+        }
+      ],
+      "caption": "Belanja bulanan bikin stok aman, belanja mingguan bikin jatah kelihatan.\nGabungkan: kebutuhan kering bulanan, sayur dan lauk mingguan.\nSimpan sebelum belanja berikutnya.",
+      "hashtags": [
+        "keuanganpribadi",
+        "belanjabulanan",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "450000+200000*4",
+          "expect": 1250000
+        }
+      ],
+      "disetujui": {
+        "hash": "ba21203c66cf6685",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "compare",
-     "title": "Belanja bulanan",
-     "left": {
-      "h": "Enaknya",
-      "t": "Sekali jalan, stok aman, lebih jarang mampir ke toko."
-     },
-     "right": {
-      "h": "Risikonya",
-      "t": "Uang besar keluar di awal. Stok sering habis lebih cepat dari rencana."
-     }
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "ojek jarak dekat",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Ojek jarak dekat **Rp10 ribu**",
+          "sub": "Pulang-pergi, tiap hari kerja."
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp10.000 × 2 × 22 hari",
+          "value": "Rp440.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp440.000 × 12",
+          "value": "Rp5.280.000"
+        },
+        {
+          "type": "statement",
+          "text": "Nggak harus jalan tiap hari. Mulai dari **2 hari** seminggu.",
+          "sub": "Hemat Rp160.000 sebulan untuk jarak yang memang dekat."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung punyamu",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Ojek jarak dekat Rp10.000, pulang-pergi tiap hari kerja = Rp440.000 sebulan.\nSetahun Rp5.280.000.\nJalan kaki 2 hari seminggu sudah hemat Rp160.000. Komen BOCOR untuk hitung punyamu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "transportasi",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "10000*2*22",
+          "expect": 440000
+        },
+        {
+          "expr": "440000*12",
+          "expect": 5280000
+        },
+        {
+          "expr": "10000*2*2*4",
+          "expect": 160000
+        }
+      ],
+      "disetujui": {
+        "hash": "364e2195819d8f6e",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "compare",
-     "title": "Belanja mingguan",
-     "left": {
-      "h": "Enaknya",
-      "t": "Jatahnya kelihatan. Sayur dan lauk lebih segar."
-     },
-     "right": {
-      "h": "Risikonya",
-      "t": "Lebih sering ke toko, lebih sering \"sekalian beli\"."
-     }
-    },
-    {
-     "type": "list",
-     "title": "Gabungan yang sering berhasil",
-     "items": [
-      "Bulanan: beras, minyak, sabun, kebutuhan kering",
-      "Mingguan: sayur, lauk, buah",
-      "Bawa daftar, beli sesuai daftar"
-     ]
-    },
-    {
-     "type": "number",
-     "label": "Contoh jatah belanja Rp1,25 juta",
-     "eq": "Rp450.000 + Rp200.000 × 4",
-     "value": "Rp1.250.000",
-     "note": "Rp450.000 belanja bulanan, lalu Rp200.000 tiap minggu."
-    },
-    {
-     "type": "cta",
-     "title": "Simpan sebelum belanja",
-     "body": "Simpan post ini dan coba gabungannya **bulan ini**.",
-     "pill": "Simpan"
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "spine_day": 12,
+      "topic": "demo Kalkulator Kebocoran",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Gratis",
+          "title": "Uangmu bocor ke mana? Cek dalam **2 menit**",
+          "sub": "Kalkulator Kebocoran dari Nara."
+        },
+        {
+          "type": "list",
+          "title": "Cara pakainya",
+          "items": [
+            "Tulis kebiasaan kecilmu",
+            "Isi harga dan seberapa sering",
+            "Lihat totalnya per bulan dan per tahun"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh 3 kebiasaan, sebulan",
+          "eq": "Rp300.000 + Rp80.000 + Rp55.000",
+          "value": "Rp435.000",
+          "note": "Jajan Rp15.000 × 20, ongkir Rp10.000 × 8, satu langganan."
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp435.000 × 12",
+          "value": "Rp5.220.000"
+        },
+        {
+          "type": "statement",
+          "text": "Tujuannya bukan **menghapus** semuanya.",
+          "sub": "Pilih satu yang paling besar, kecilkan sedikit. Itu cukup untuk minggu ini."
+        },
+        {
+          "type": "cta",
+          "title": "Mau kalkulatornya?",
+          "body": "Komen **BOCOR**, aku kirim tautannya lewat DM. Gratis.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Kalkulator Kebocoran: tulis kebiasaan kecilmu, lihat totalnya per bulan dan per tahun.\nContoh 3 kebiasaan = Rp435.000 sebulan, Rp5.220.000 setahun.\nKomen BOCOR, aku kirim tautannya lewat DM.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tipskeuangan",
+        "gajian",
+        "hemat"
+      ],
+      "calc": [
+        {
+          "expr": "15000*20",
+          "expect": 300000
+        },
+        {
+          "expr": "10000*8",
+          "expect": 80000
+        },
+        {
+          "expr": "300000+80000+55000",
+          "expect": 435000
+        },
+        {
+          "expr": "435000*12",
+          "expect": 5220000
+        }
+      ],
+      "disetujui": {
+        "hash": "81cc84e48232eb5d",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
-   ],
-   "caption": "Belanja bulanan bikin stok aman, belanja mingguan bikin jatah kelihatan.\nGabungkan: kebutuhan kering bulanan, sayur dan lauk mingguan.\nSimpan sebelum belanja berikutnya.",
-   "hashtags": [
-    "keuanganpribadi",
-    "belanjabulanan",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "450000+200000*4",
-     "expect": 1250000
-    }
-   ]
-  },
-  {
-   "slot": "siang",
-   "format": "reel",
-   "pattern": "A",
-   "topic": "ojek jarak dekat",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Hitung kebocoran",
-     "title": "Ojek jarak dekat **Rp10 ribu**",
-     "sub": "Pulang-pergi, tiap hari kerja."
-    },
-    {
-     "type": "number",
-     "label": "Sebulan",
-     "eq": "Rp10.000 × 2 × 22 hari",
-     "value": "Rp440.000"
-    },
-    {
-     "type": "number",
-     "label": "Setahun",
-     "eq": "Rp440.000 × 12",
-     "value": "Rp5.280.000"
-    },
-    {
-     "type": "statement",
-     "text": "Nggak harus jalan tiap hari. Mulai dari **2 hari** seminggu.",
-     "sub": "Hemat Rp160.000 sebulan untuk jarak yang memang dekat."
-    },
-    {
-     "type": "cta",
-     "title": "Hitung punyamu",
-     "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
-     "pill": "Komen BOCOR"
-    }
-   ],
-   "caption": "Ojek jarak dekat Rp10.000, pulang-pergi tiap hari kerja = Rp440.000 sebulan.\nSetahun Rp5.280.000.\nJalan kaki 2 hari seminggu sudah hemat Rp160.000. Komen BOCOR untuk hitung punyamu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "transportasi",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "10000*2*22",
-     "expect": 440000
-    },
-    {
-     "expr": "440000*12",
-     "expect": 5280000
-    },
-    {
-     "expr": "10000*2*2*4",
-     "expect": 160000
-    }
-   ]
-  },
-  {
-   "slot": "malam",
-   "format": "reel",
-   "pattern": "S",
-   "spine_day": 12,
-   "topic": "demo Kalkulator Kebocoran",
-   "evergreen": false,
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Gratis",
-     "title": "Uangmu bocor ke mana? Cek dalam **2 menit**",
-     "sub": "Kalkulator Kebocoran dari Nara."
-    },
-    {
-     "type": "list",
-     "title": "Cara pakainya",
-     "items": [
-      "Tulis kebiasaan kecilmu",
-      "Isi harga dan seberapa sering",
-      "Lihat totalnya per bulan dan per tahun"
-     ]
-    },
-    {
-     "type": "number",
-     "label": "Contoh 3 kebiasaan, sebulan",
-     "eq": "Rp300.000 + Rp80.000 + Rp55.000",
-     "value": "Rp435.000",
-     "note": "Jajan Rp15.000 × 20, ongkir Rp10.000 × 8, satu langganan."
-    },
-    {
-     "type": "number",
-     "label": "Setahun",
-     "eq": "Rp435.000 × 12",
-     "value": "Rp5.220.000"
-    },
-    {
-     "type": "statement",
-     "text": "Tujuannya bukan **menghapus** semuanya.",
-     "sub": "Pilih satu yang paling besar, kecilkan sedikit. Itu cukup untuk minggu ini."
-    },
-    {
-     "type": "cta",
-     "title": "Mau kalkulatornya?",
-     "body": "Komen **BOCOR**, aku kirim tautannya lewat DM. Gratis.",
-     "pill": "Komen BOCOR"
-    }
-   ],
-   "caption": "Kalkulator Kebocoran: tulis kebiasaan kecilmu, lihat totalnya per bulan dan per tahun.\nContoh 3 kebiasaan = Rp435.000 sebulan, Rp5.220.000 setahun.\nKomen BOCOR, aku kirim tautannya lewat DM.",
-   "hashtags": [
-    "keuanganpribadi",
-    "tipskeuangan",
-    "gajian",
-    "hemat"
-   ],
-   "calc": [
-    {
-     "expr": "15000*20",
-     "expect": 300000
-    },
-    {
-     "expr": "10000*8",
-     "expect": 80000
-    },
-    {
-     "expr": "300000+80000+55000",
-     "expect": 435000
-    },
-    {
-     "expr": "435000*12",
-     "expect": 5220000
-    }
-   ]
-  }
- ]
+  ]
 }

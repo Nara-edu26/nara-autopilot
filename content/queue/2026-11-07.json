@@ -1,183 +1,198 @@
 {
- "date": "2026-11-07",
- "posts": [
-  {
-   "slot": "pagi",
-   "format": "carousel",
-   "pattern": "E",
-   "topic": "sepatu kerja tanpa bayar nanti",
-   "frames": [
+  "date": "2026-11-07",
+  "posts": [
     {
-     "type": "cover",
-     "kicker": "Pecah target",
-     "title": "Sepatu kerja **Rp480 ribu** tanpa bayar nanti",
-     "sub": "12 minggu lagi, sudah dipakai."
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "E",
+      "topic": "sepatu kerja tanpa bayar nanti",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Sepatu kerja **Rp480 ribu** tanpa bayar nanti",
+          "sub": "12 minggu lagi, sudah dipakai."
+        },
+        {
+          "type": "number",
+          "label": "Per minggu",
+          "eq": "Rp480.000 ÷ 12 minggu",
+          "value": "Rp40.000"
+        },
+        {
+          "type": "number",
+          "label": "Per hari kerja",
+          "eq": "Rp40.000 ÷ 5",
+          "value": "Rp8.000",
+          "note": "Kira-kira harga satu minuman manis."
+        },
+        {
+          "type": "list",
+          "title": "Taruh di mana?",
+          "items": [
+            "Tabungan tujuan, terpisah dari uang harian",
+            "Kirim tiap Senin, sebelum jajan",
+            "Beri nama: \"Sepatu kerja\""
+          ]
+        },
+        {
+          "type": "compare",
+          "title": "Nabung dulu atau bayar nanti?",
+          "left": {
+            "h": "Nabung dulu",
+            "t": "Barang datang 12 minggu lagi. Gaji bulan depan tetap utuh."
+          },
+          "right": {
+            "h": "Bayar nanti",
+            "t": "Barang datang hari ini. Pos Cicilan bulan depan ikut terisi."
+          }
+        },
+        {
+          "type": "cta",
+          "title": "Hitung incaranmu",
+          "body": "Ganti sepatunya dengan barang incaranmu, lalu hitung per minggunya. **Simpan** dulu.",
+          "pill": "Simpan"
+        }
+      ],
+      "caption": "Sepatu kerja Rp480.000 tanpa bayar nanti: Rp40.000 seminggu selama 12 minggu.\nAtau Rp8.000 per hari kerja.\nSimpan dan hitung ulang dengan barang incaranmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "tipskeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "480000/12",
+          "expect": 40000
+        },
+        {
+          "expr": "40000/5",
+          "expect": 8000
+        }
+      ],
+      "disetujui": {
+        "hash": "26eab7da863c2d61",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "number",
-     "label": "Per minggu",
-     "eq": "Rp480.000 ÷ 12 minggu",
-     "value": "Rp40.000"
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "hadiah untuk diri sendiri",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Relate",
+          "title": "Awal bulan: \"aku **pantas** dapat ini.\"",
+          "sub": "Akhir bulan: \"kenapa aku beli itu?\""
+        },
+        {
+          "type": "statement",
+          "text": "Hadiah untuk diri sendiri itu **boleh**.",
+          "sub": "Yang bikin nyesel bukan hadiahnya, tapi nggak ada batasnya."
+        },
+        {
+          "type": "number",
+          "label": "Contoh: gaji Rp5 juta, Pos Bebas 15%",
+          "eq": "Rp5.000.000 × 15%",
+          "value": "Rp750.000",
+          "note": "Itu batas \"aku pantas\" bulan ini. Satu barang atau banyak jajan, terserah."
+        },
+        {
+          "type": "point",
+          "title": "Tulis hadiahnya **sebelum** gajian",
+          "body": "Satu barang, satu harga. Kalau masih ingin setelah 3 hari, beli dari Pos Bebas."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman yang suka \"self reward\"",
+          "body": "Biar hadiahnya tetap enak sampai **akhir bulan**.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Awal bulan: \"aku pantas dapat ini.\" Akhir bulan: \"kenapa aku beli itu?\"\nHadiah untuk diri sendiri boleh, asal ada batasnya di Pos Bebas.\nTag teman yang paling sering bilang self reward.",
+      "hashtags": [
+        "keuanganpribadi",
+        "selfreward",
+        "gajian",
+        "tipskeuangan"
+      ],
+      "calc": [
+        {
+          "expr": "5000000*0.15",
+          "expect": 750000
+        }
+      ],
+      "disetujui": {
+        "hash": "0c5007d91398f4c3",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
-     "type": "number",
-     "label": "Per hari kerja",
-     "eq": "Rp40.000 ÷ 5",
-     "value": "Rp8.000",
-     "note": "Kira-kira harga satu minuman manis."
-    },
-    {
-     "type": "list",
-     "title": "Taruh di mana?",
-     "items": [
-      "Tabungan tujuan, terpisah dari uang harian",
-      "Kirim tiap Senin, sebelum jajan",
-      "Beri nama: \"Sepatu kerja\""
-     ]
-    },
-    {
-     "type": "compare",
-     "title": "Nabung dulu atau bayar nanti?",
-     "left": {
-      "h": "Nabung dulu",
-      "t": "Barang datang 12 minggu lagi. Gaji bulan depan tetap utuh."
-     },
-     "right": {
-      "h": "Bayar nanti",
-      "t": "Barang datang hari ini. Pos Cicilan bulan depan ikut terisi."
-     }
-    },
-    {
-     "type": "cta",
-     "title": "Hitung incaranmu",
-     "body": "Ganti sepatunya dengan barang incaranmu, lalu hitung per minggunya. **Simpan** dulu.",
-     "pill": "Simpan"
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "spine_day": 13,
+      "topic": "jatah nongkrong Jumat",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Relate",
+          "title": "Diajak nongkrong tiap **Jumat**",
+          "sub": "Dompet nangis tiap Senin."
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp100.000 × 4 Jumat",
+          "value": "Rp400.000",
+          "note": "Contoh: makan, minum, parkir, patungan."
+        },
+        {
+          "type": "statement",
+          "text": "Solusinya bukan berhenti nongkrong. Kasih **jatah resmi**.",
+          "sub": "Teman itu penting. Yang perlu diatur cuma angkanya."
+        },
+        {
+          "type": "number",
+          "label": "Contoh Pos Bebas Rp750 ribu",
+          "eq": "Rp750.000 − Rp400.000",
+          "value": "Rp350.000",
+          "note": "Sisa untuk jajan dan hal lain bulan ini."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman nongkrongmu",
+          "body": "Tag yang paling sering ngajak. Bilang jatahmu **Rp100.000** per Jumat.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Diajak nongkrong tiap Jumat, dompet nangis tiap Senin.\nRp100.000 × 4 Jumat = Rp400.000 sebulan. Masukkan sebagai jatah resmi di Pos Bebas.\nTag teman nongkrongmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "nongkrong",
+        "gajian",
+        "tipskeuangan"
+      ],
+      "calc": [
+        {
+          "expr": "100000*4",
+          "expect": 400000
+        },
+        {
+          "expr": "750000-400000",
+          "expect": 350000
+        }
+      ],
+      "disetujui": {
+        "hash": "73abade63e3d0eab",
+        "pada": "2026-10-26T18:25+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
-   ],
-   "caption": "Sepatu kerja Rp480.000 tanpa bayar nanti: Rp40.000 seminggu selama 12 minggu.\nAtau Rp8.000 per hari kerja.\nSimpan dan hitung ulang dengan barang incaranmu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "menabung",
-    "tipskeuangan",
-    "gajian"
-   ],
-   "calc": [
-    {
-     "expr": "480000/12",
-     "expect": 40000
-    },
-    {
-     "expr": "40000/5",
-     "expect": 8000
-    }
-   ]
-  },
-  {
-   "slot": "siang",
-   "format": "reel",
-   "pattern": "D",
-   "topic": "hadiah untuk diri sendiri",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Relate",
-     "title": "Awal bulan: \"aku **pantas** dapat ini.\"",
-     "sub": "Akhir bulan: \"kenapa aku beli itu?\""
-    },
-    {
-     "type": "statement",
-     "text": "Hadiah untuk diri sendiri itu **boleh**.",
-     "sub": "Yang bikin nyesel bukan hadiahnya, tapi nggak ada batasnya."
-    },
-    {
-     "type": "number",
-     "label": "Contoh: gaji Rp5 juta, Pos Bebas 15%",
-     "eq": "Rp5.000.000 × 15%",
-     "value": "Rp750.000",
-     "note": "Itu batas \"aku pantas\" bulan ini. Satu barang atau banyak jajan, terserah."
-    },
-    {
-     "type": "point",
-     "title": "Tulis hadiahnya **sebelum** gajian",
-     "body": "Satu barang, satu harga. Kalau masih ingin setelah 3 hari, beli dari Pos Bebas."
-    },
-    {
-     "type": "cta",
-     "title": "Tag teman yang suka \"self reward\"",
-     "body": "Biar hadiahnya tetap enak sampai **akhir bulan**.",
-     "pill": "Tag 1 teman"
-    }
-   ],
-   "caption": "Awal bulan: \"aku pantas dapat ini.\" Akhir bulan: \"kenapa aku beli itu?\"\nHadiah untuk diri sendiri boleh, asal ada batasnya di Pos Bebas.\nTag teman yang paling sering bilang self reward.",
-   "hashtags": [
-    "keuanganpribadi",
-    "selfreward",
-    "gajian",
-    "tipskeuangan"
-   ],
-   "calc": [
-    {
-     "expr": "5000000*0.15",
-     "expect": 750000
-    }
-   ]
-  },
-  {
-   "slot": "malam",
-   "format": "reel",
-   "pattern": "D",
-   "spine_day": 13,
-   "topic": "jatah nongkrong Jumat",
-   "frames": [
-    {
-     "type": "cover",
-     "kicker": "Relate",
-     "title": "Diajak nongkrong tiap **Jumat**",
-     "sub": "Dompet nangis tiap Senin."
-    },
-    {
-     "type": "number",
-     "label": "Sebulan",
-     "eq": "Rp100.000 × 4 Jumat",
-     "value": "Rp400.000",
-     "note": "Contoh: makan, minum, parkir, patungan."
-    },
-    {
-     "type": "statement",
-     "text": "Solusinya bukan berhenti nongkrong. Kasih **jatah resmi**.",
-     "sub": "Teman itu penting. Yang perlu diatur cuma angkanya."
-    },
-    {
-     "type": "number",
-     "label": "Contoh Pos Bebas Rp750 ribu",
-     "eq": "Rp750.000 − Rp400.000",
-     "value": "Rp350.000",
-     "note": "Sisa untuk jajan dan hal lain bulan ini."
-    },
-    {
-     "type": "cta",
-     "title": "Tag teman nongkrongmu",
-     "body": "Tag yang paling sering ngajak. Bilang jatahmu **Rp100.000** per Jumat.",
-     "pill": "Tag 1 teman"
-    }
-   ],
-   "caption": "Diajak nongkrong tiap Jumat, dompet nangis tiap Senin.\nRp100.000 × 4 Jumat = Rp400.000 sebulan. Masukkan sebagai jatah resmi di Pos Bebas.\nTag teman nongkrongmu.",
-   "hashtags": [
-    "keuanganpribadi",
-    "nongkrong",
-    "gajian",
-    "tipskeuangan"
-   ],
-   "calc": [
-    {
-     "expr": "100000*4",
-     "expect": 400000
-    },
-    {
-     "expr": "750000-400000",
-     "expect": 350000
-    }
-   ]
-  }
- ]
+  ]
 }
