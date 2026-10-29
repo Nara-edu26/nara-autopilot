@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-09",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "C",
+      "topic": "gratis ongkir",
+      "cek_fakta": "Tanpa klaim angka penelitian. Disampaikan sebagai pola belanja sehari-hari, bukan data.",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kenapa begitu?",
+          "title": "Kenapa \"gratis ongkir\" bikin keranjang **lebih penuh**?",
+          "sub": "Bukan karena kamu boros. Hitungannya yang sering kebalik."
+        },
+        {
+          "type": "statement",
+          "text": "Kita menambah barang supaya **ongkirnya hilang**.",
+          "sub": "Padahal barang tambahannya sering lebih mahal dari ongkirnya."
+        },
+        {
+          "type": "number",
+          "label": "Contoh: kurang sedikit lagi",
+          "eq": "Minimal Rp100.000 − belanja Rp85.000",
+          "value": "Rp15.000",
+          "note": "Ditambah barang yang tadinya nggak ada di daftar."
+        },
+        {
+          "type": "compare",
+          "title": "Mana yang lebih murah?",
+          "left": {
+            "h": "Bayar ongkir",
+            "t": "Rp85.000 + ongkir Rp10.000 = Rp95.000"
+          },
+          "right": {
+            "h": "Tambah barang",
+            "t": "Rp100.000, ongkir gratis, plus barang yang belum tentu dipakai"
+          }
+        },
+        {
+          "type": "point",
+          "title": "Hitung dulu, **baru tambah**",
+          "body": "Kalau barang tambahannya lebih mahal dari ongkir, bayar ongkir saja. Kecuali barang itu memang ada di daftarmu."
+        },
+        {
+          "type": "cta",
+          "title": "Pernah nambah barang demi gratis ongkir?",
+          "body": "Tulis di komen: **sering**, kadang, atau nggak pernah.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Gratis ongkir sering bikin kita nambah barang.\nContoh: bayar ongkir Rp10.000 jadi total Rp95.000, atau tambah barang jadi Rp100.000.\nHitung dulu sebelum menambah. Kamu tim yang mana?",
+      "hashtags": [
+        "keuanganpribadi",
+        "belanjaonline",
+        "tipskeuangan",
+        "hemat"
+      ],
+      "calc": [
+        {
+          "expr": "100000-85000",
+          "expect": 15000
+        },
+        {
+          "expr": "85000+10000",
+          "expect": 95000
+        }
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "parkir harian",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Parkir **Rp5 ribu**",
+          "sub": "Sekali sehari. Kecil, kan?"
+        },
+        {
+          "type": "number",
+          "label": "Sebulan (22 hari kerja)",
+          "eq": "Rp5.000 × 22",
+          "value": "Rp110.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp110.000 × 12",
+          "value": "Rp1.320.000",
+          "note": "Parkirnya nggak salah. Yang bikin bocor: nggak masuk hitungan Pos Hidup."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung kebiasaan kecilmu",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Parkir Rp5.000 sehari terasa kecil.\nSebulan Rp110.000, setahun Rp1.320.000.\nBukan untuk dihapus, tapi untuk dihitung di Pos Hidup.\nKomen BOCOR untuk hitung kebiasaan kecilmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "5000*22",
+          "expect": 110000
+        },
+        {
+          "expr": "110000*12",
+          "expect": 1320000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 15,
+      "topic": "tiga tempat uang tercatat",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hari 15",
+          "title": "3 tempat uangmu tercatat yang **jarang dicek** sekaligus",
+          "sub": "Uangnya nggak hilang. Catatannya yang tercecer."
+        },
+        {
+          "type": "point",
+          "n": "1",
+          "title": "Rekening gaji",
+          "body": "Saldo dilihat tiap hari, tapi riwayat transaksinya jarang dibaca sampai habis."
+        },
+        {
+          "type": "point",
+          "n": "2",
+          "title": "Dompet digital",
+          "body": "Isi ulang kecil-kecil, sering lupa sudah berapa kali dalam sebulan."
+        },
+        {
+          "type": "point",
+          "n": "3",
+          "title": "Bayar nanti",
+          "body": "Belanjanya bulan ini, tagihannya baru terasa bulan depan. Paling mudah terlupa."
+        },
+        {
+          "type": "list",
+          "title": "Cara menyatukannya (15 menit)",
+          "items": [
+            "Buka ketiganya di hari yang sama",
+            "Salin total keluar bulan ini ke satu catatan",
+            "Tandai: Pos Hidup, Cicilan, atau Bebas",
+            "Ulangi tiap Minggu malam"
+          ]
+        },
+        {
+          "type": "statement",
+          "text": "Satu catatan lebih jujur daripada **tiga saldo**.",
+          "sub": "Yang dilihat sekaligus, lebih gampang dikendalikan."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan untuk Minggu malam",
+          "body": "Buka ketiganya, satukan jadi **satu catatan**.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Uangmu tercatat di tiga tempat: rekening, dompet digital, dan bayar nanti.\nMasalahnya, jarang dicek sekaligus.\nSatukan jadi satu catatan, 15 menit tiap Minggu malam.\nSimpan dulu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "catatkeuangan",
+        "gajian",
+        "aturuang"
+      ]
+    }
+  ]
+}

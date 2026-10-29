@@ -1,0 +1,169 @@
+{
+  "date": "2026-11-11",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "E",
+      "topic": "siap kenaikan uang kos",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Uang kos naik **Rp200 ribu** tahun depan?",
+          "sub": "Latih dari sekarang, biar Januari nggak kaget."
+        },
+        {
+          "type": "number",
+          "label": "Kenaikan setahun",
+          "eq": "Rp200.000 × 12",
+          "value": "Rp2.400.000",
+          "note": "Itu tambahan Pos Wajib, bukan pengeluaran baru."
+        },
+        {
+          "type": "point",
+          "title": "Mulai **gajian November**",
+          "body": "Sisihkan Rp200.000 ke kantong terpisah, seolah kos sudah naik."
+        },
+        {
+          "type": "number",
+          "label": "Hasilnya di bulan Januari",
+          "eq": "Rp200.000 × 2 gajian",
+          "value": "Rp400.000",
+          "note": "Kamu sudah terbiasa, dan punya cadangan untuk bulan pertama."
+        },
+        {
+          "type": "statement",
+          "text": "Kenaikan terasa berat kalau **datang tiba-tiba**.",
+          "sub": "Kalau sudah dilatih, rasanya biasa saja."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan dulu",
+          "body": "Ada tagihan yang akan **naik** tahun depan? Tulis di komen.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Uang kos naik Rp200.000 tahun depan? Setahun jadi Rp2.400.000.\nLatih dari gajian November: sisihkan Rp200.000 seolah sudah naik.\nJanuari nanti kamu punya cadangan Rp400.000.\nSimpan dulu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "anakkos",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "200000*12",
+          "expect": 2400000
+        },
+        {
+          "expr": "200000*2",
+          "expect": 400000
+        }
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "biaya layanan aplikasi",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Biaya layanan **Rp4 ribu**",
+          "sub": "Per pesanan. Hampir nggak kelihatan."
+        },
+        {
+          "type": "number",
+          "label": "15 pesanan sebulan",
+          "eq": "Rp4.000 × 15",
+          "value": "Rp60.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp60.000 × 12",
+          "value": "Rp720.000",
+          "note": "Belum termasuk ongkir. Gabungkan pesanan kalau bisa."
+        },
+        {
+          "type": "cta",
+          "title": "Cek riwayat pesananmu",
+          "body": "Berapa pesanan bulan ini? Tulis **angkanya** di komen.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Biaya layanan Rp4.000 per pesanan nggak terasa.\n15 pesanan sebulan = Rp60.000. Setahun Rp720.000.\nGabungkan pesanan kalau bisa.\nBerapa pesananmu bulan ini?",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "belanjaonline",
+        "hemat"
+      ],
+      "calc": [
+        {
+          "expr": "4000*15",
+          "expect": 60000
+        },
+        {
+          "expr": "60000*12",
+          "expect": 720000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 17,
+      "topic": "aturan 11.11",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "11.11 hari ini",
+          "title": "**4 aturan** sebelum checkout",
+          "sub": "Biar promo hari ini nggak jadi tagihan bulan depan."
+        },
+        {
+          "type": "point",
+          "n": "1",
+          "title": "Belanja dari **Pos Bebas**",
+          "body": "Bukan dari Pos Hidup, apalagi dari tabungan Masa Depan."
+        },
+        {
+          "type": "point",
+          "n": "2",
+          "title": "Hanya yang ada di daftar",
+          "body": "Daftar dibuat sebelum promo, bukan sambil melihat promo."
+        },
+        {
+          "type": "point",
+          "n": "3",
+          "title": "Di luar daftar? **Tunggu 72 jam**",
+          "body": "Masukkan keranjang, tunggu 3 hari. Kalau masih butuh, baru beli. Promo serupa biasanya datang lagi."
+        },
+        {
+          "type": "point",
+          "n": "4",
+          "title": "Tanpa **bayar nanti**",
+          "body": "Kalau harus dicicil, berarti uangnya belum ada bulan ini."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan sebelum checkout",
+          "body": "Kirim ke teman yang lagi **pegang keranjang**.",
+          "pill": "Simpan & bagikan"
+        }
+      ],
+      "caption": "11.11 hari ini. Sebelum checkout:\n1. Belanja dari Pos Bebas.\n2. Hanya yang ada di daftar.\n3. Di luar daftar, tunggu 72 jam.\n4. Tanpa bayar nanti.",
+      "hashtags": [
+        "keuanganpribadi",
+        "1111",
+        "belanjaonline",
+        "aturuang"
+      ]
+    }
+  ]
+}

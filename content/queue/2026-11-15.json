@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-15",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "F",
+      "topic": "kirim ke Masa Depan hari ini",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tantangan Minggu",
+          "title": "Pindahkan **Rp50 ribu** ke kantong Masa Depan",
+          "sub": "Hari ini. Bukan nunggu gajian."
+        },
+        {
+          "type": "statement",
+          "text": "Bukan soal besarnya. Soal **mulainya**.",
+          "sub": "Kebiasaan yang dimulai kecil lebih gampang diulang."
+        },
+        {
+          "type": "list",
+          "title": "Caranya",
+          "items": [
+            "Buka kantong atau rekening terpisah",
+            "Kirim Rp50.000 (atau berapa pun yang aman)",
+            "Beri nama: \"Masa Depan\"",
+            "Jangan diambil sampai ada alasan darurat"
+          ]
+        },
+        {
+          "type": "point",
+          "title": "Kalau Rp50 ribu terlalu berat",
+          "body": "Kirim Rp10.000. Yang penting kantongnya hidup dan namanya kelihatan tiap buka aplikasi."
+        },
+        {
+          "type": "cta",
+          "title": "Sudah dikirim?",
+          "body": "Komen **SUDAH**, nggak perlu sebut nominalnya.",
+          "pill": "Komen SUDAH"
+        }
+      ],
+      "caption": "Tantangan Minggu: pindahkan Rp50.000 ke kantong Masa Depan hari ini.\nKalau terlalu berat, Rp10.000 juga boleh.\nYang penting kantongnya hidup.\nKomen SUDAH kalau sudah dikirim.",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "tantangan",
+        "gajian"
+      ],
+      "given": [
+        50000,
+        10000
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "top up game",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Top up game **Rp15 ribu**",
+          "sub": "Dua kali seminggu. \"Cuma buat event.\""
+        },
+        {
+          "type": "number",
+          "label": "Sebulan (8 kali)",
+          "eq": "Rp15.000 × 8",
+          "value": "Rp120.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp120.000 × 12",
+          "value": "Rp1.440.000",
+          "note": "Main game itu hiburan. Kasih jatah resmi di Pos Bebas."
+        },
+        {
+          "type": "cta",
+          "title": "Punya kebiasaan kecil lain?",
+          "body": "Komen **BOCOR**, aku kirim kalkulatornya.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Top up game Rp15.000, dua kali seminggu.\nSebulan Rp120.000, setahun Rp1.440.000.\nHiburan itu boleh. Kasih jatah resmi di Pos Bebas.\nKomen BOCOR untuk hitung kebiasaanmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "gamer",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "15000*8",
+          "expect": 120000
+        },
+        {
+          "expr": "120000*12",
+          "expect": 1440000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "spine_day": 21,
+      "topic": "paylater dan pos cicilan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung dulu",
+          "title": "Paylater **Rp300 ribu** hari ini",
+          "sub": "Rasanya belum keluar uang sama sekali."
+        },
+        {
+          "type": "number",
+          "label": "Contoh gaji Rp4,5 juta, Pos Cicilan 15%",
+          "eq": "Rp4.500.000 × 15%",
+          "value": "Rp675.000"
+        },
+        {
+          "type": "number",
+          "label": "Ruang cicilan bulan depan",
+          "eq": "Rp675.000 − Rp300.000",
+          "value": "Rp375.000",
+          "note": "Hampir setengahnya sudah terpakai sebelum gajian."
+        },
+        {
+          "type": "statement",
+          "text": "Belanja hari ini, dibayar **gaji berikutnya**.",
+          "sub": "Persen 15% itu panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Pernah kaget tagihan bulan depan?",
+          "body": "Tulis di komen: **pernah** atau belum.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Paylater Rp300.000 hari ini terasa ringan.\nDengan gaji Rp4.500.000, Pos Cicilan Rp675.000 tinggal Rp375.000 bulan depan.\nBelanja hari ini dibayar gaji berikutnya.\nPernah kaget tagihan bulan depan?",
+      "hashtags": [
+        "keuanganpribadi",
+        "paylater",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "4500000*15/100",
+          "expect": 675000
+        },
+        {
+          "expr": "675000-300000",
+          "expect": 375000
+        }
+      ]
+    }
+  ]
+}

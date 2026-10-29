@@ -1,0 +1,143 @@
+{
+  "date": "2026-11-14",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "sebelum ikut arisan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Peta pemula",
+          "title": "3 pertanyaan sebelum ikut **arisan** baru",
+          "sub": "Arisan bisa membantu, bisa juga jadi beban tiap bulan."
+        },
+        {
+          "type": "point",
+          "n": "1",
+          "title": "Berapa per bulan, dan **berapa lama**?",
+          "body": "Kalikan iurannya dengan jumlah peserta. Itu berapa bulan kamu terikat."
+        },
+        {
+          "type": "point",
+          "n": "2",
+          "title": "Dari **pos mana** bayarnya?",
+          "body": "Iuran arisan itu cicilan rutin. Masukkan ke Pos Cicilan atau Pos Bebas, bukan dari jatah makan."
+        },
+        {
+          "type": "point",
+          "n": "3",
+          "title": "Kalau dapat giliran awal, **buat apa**?",
+          "body": "Tentukan sebelum uangnya datang. Kalau belum ada rencana, uangnya cepat habis."
+        },
+        {
+          "type": "statement",
+          "text": "Arisan itu **bukan tabungan**.",
+          "sub": "Kamu menerima kembali uang yang sama, dan tetap wajib bayar sampai selesai."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu ikut arisan berapa?",
+          "body": "Tulis **jumlahnya** di komen. Nol juga boleh.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Sebelum ikut arisan baru, tanya 3 hal:\nBerapa lama terikat, dari pos mana bayarnya, dan kalau dapat giliran awal untuk apa.\nArisan bukan tabungan, tapi kewajiban rutin.\nKamu ikut arisan berapa?",
+      "hashtags": [
+        "keuanganpribadi",
+        "arisan",
+        "tipskeuangan",
+        "aturuang"
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "E",
+      "topic": "kacamata baru",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Kacamata baru **Rp800 ribu**",
+          "sub": "Tanpa bayar nanti. Caranya?"
+        },
+        {
+          "type": "number",
+          "label": "Dalam 8 minggu",
+          "eq": "Rp800.000 ÷ 8",
+          "value": "Rp100.000",
+          "note": "Per minggu, dari Pos Bebas."
+        },
+        {
+          "type": "statement",
+          "text": "Barang yang **dipakai tiap hari** layak direncanakan.",
+          "sub": "Tapi dibayar sebelum dibeli, bukan sesudahnya."
+        },
+        {
+          "type": "cta",
+          "title": "Lagi nabung buat apa?",
+          "body": "Tulis **barangnya** di komen, aku bantu pecah.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Kacamata baru Rp800.000 tanpa bayar nanti.\nSisihkan Rp100.000 per minggu selama 8 minggu.\nDibayar sebelum dibeli, bukan sesudahnya.\nLagi nabung buat apa?",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "targetkeuangan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "800000/8",
+          "expect": 100000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "F",
+      "spine_day": 20,
+      "topic": "hapus kartu tersimpan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tantangan",
+          "title": "Hapus **1 kartu** tersimpan di aplikasi belanja",
+          "sub": "Lima menit. Malam ini."
+        },
+        {
+          "type": "statement",
+          "text": "Bayar terlalu gampang = **beli terlalu gampang**.",
+          "sub": "Satu langkah tambahan memberi waktu untuk berpikir."
+        },
+        {
+          "type": "list",
+          "title": "Caranya",
+          "items": [
+            "Buka aplikasi belanja yang paling sering dipakai",
+            "Masuk ke metode pembayaran",
+            "Hapus satu kartu atau akun tersimpan",
+            "Lain kali bayar, ketik ulang. Itu jedanya."
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Sudah dihapus?",
+          "body": "Komen **SUDAH** kalau satu kartu sudah hilang dari aplikasimu.",
+          "pill": "Komen SUDAH"
+        }
+      ],
+      "caption": "Tantangan malam ini: hapus 1 kartu tersimpan di aplikasi belanja.\nBayar terlalu gampang bikin beli terlalu gampang.\nSatu langkah tambahan = waktu untuk berpikir.\nKomen SUDAH kalau selesai.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tantangan",
+        "belanjaonline",
+        "aturuang"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-13",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "S",
+      "topic": "Template 5 Pos: tab Kebocoran",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Template 5 Pos",
+          "title": "Kebiasaan kecilmu, dalam hitungan **setahun**",
+          "sub": "Tab Kebocoran menghitungnya otomatis."
+        },
+        {
+          "type": "list",
+          "title": "Yang kamu isi",
+          "items": [
+            "Nama kebiasaan (contoh: es kopi)",
+            "Harga sekali beli",
+            "Berapa kali sebulan"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh hasil",
+          "eq": "Rp30.000 × 8 × 12",
+          "value": "Rp2.880.000",
+          "note": "Setahun, untuk 8 kopi sebulan."
+        },
+        {
+          "type": "point",
+          "title": "Plus **6 tab** lain",
+          "body": "Pembagian 5 pos, catatan harian, jatah aman per hari, pos tahunan, dan riwayat 6 siklus gaji."
+        },
+        {
+          "type": "statement",
+          "text": "Rp29.000 sekali beli. Bisa dibuka di **Google Sheets** dan Excel.",
+          "sub": "Persen 5 pos adalah panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tautannya?",
+          "body": "Komen **TEMPLATE**, aku kirim lewat DM.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Template 5 Pos punya tab Kebocoran: isi kebiasaan, harga, dan berapa kali sebulan.\nContoh: kopi Rp30.000, 8 kali sebulan = Rp2.880.000 setahun.\nRp29.000 sekali beli.\nKomen TEMPLATE untuk tautannya.",
+      "hashtags": [
+        "keuanganpribadi",
+        "templatekeuangan",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "30000*8*12",
+          "expect": 2880000
+        }
+      ],
+      "given": [
+        29000
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "pinjam uang teman",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "POV",
+          "title": "\"Pinjam **Rp100 ribu**, nanti aku ganti ya\"",
+          "sub": "Dua minggu kemudian: hening."
+        },
+        {
+          "type": "statement",
+          "text": "Mau nagih, **nggak enak**. Nggak nagih, kepikiran.",
+          "sub": "Semua pernah di posisi ini."
+        },
+        {
+          "type": "point",
+          "title": "Aturan kecil: pinjamkan yang **siap direlakan**",
+          "body": "Ambil dari Pos Bebas, bukan dari Pos Hidup. Kalau kembali, anggap bonus."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman yang selalu bayar tepat waktu",
+          "body": "Teman seperti itu **langka**. Kasih apresiasi.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "\"Pinjam Rp100.000, nanti aku ganti ya.\" Lalu hening.\nAturan kecil: pinjamkan yang siap direlakan, dari Pos Bebas.\nKalau kembali, anggap bonus.\nTag teman yang selalu bayar tepat waktu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "relate",
+        "tanggaltua",
+        "gajian"
+      ],
+      "given": [
+        100000
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "spine_day": 19,
+      "topic": "keranjang tanggal muda vs tua",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Relate",
+          "title": "Isi keranjang: **tanggal muda** vs tanggal tua",
+          "sub": "Orangnya sama. Keranjangnya beda dunia."
+        },
+        {
+          "type": "compare",
+          "title": "Bedanya",
+          "left": {
+            "h": "Tanggal muda",
+            "t": "Perawatan wajah, sepatu, kopi susu, buku yang belum tentu dibaca."
+          },
+          "right": {
+            "h": "Tanggal tua",
+            "t": "Mi instan, telur, sabun, isi ulang kuota paling kecil."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "Masalahnya bukan gaya hidup. **Jatahnya** nggak dibagi per minggu.",
+          "sub": "Pos Hidup dibagi 4 minggu, jadi minggu terakhir tetap punya jatah."
+        },
+        {
+          "type": "cta",
+          "title": "Bagikan ke teman",
+          "body": "Kirim ke teman yang keranjangnya **berubah total** tiap tanggal 20.",
+          "pill": "Bagikan"
+        }
+      ],
+      "caption": "Keranjang tanggal muda: perawatan wajah, sepatu, kopi susu.\nKeranjang tanggal tua: mi instan, telur, sabun.\nBagi Pos Hidup per minggu, biar minggu terakhir tetap punya jatah.\nBagikan ke temanmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tanggaltua",
+        "relate",
+        "gajian"
+      ]
+    }
+  ]
+}

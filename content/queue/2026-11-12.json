@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-12",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "pengembalian barang setelah 11.11",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Sehari setelah 11.11",
+          "title": "4 tanda belanjaan kemarin **perlu dikembalikan**",
+          "sub": "Cek sebelum batas pengembaliannya lewat."
+        },
+        {
+          "type": "list",
+          "title": "Tandanya",
+          "items": [
+            "Belum dibuka, dan kamu sudah lupa kenapa beli",
+            "Ukuran atau warnanya ternyata salah",
+            "Dibeli karena diskon, bukan karena butuh",
+            "Ternyata sudah punya yang mirip"
+          ]
+        },
+        {
+          "type": "point",
+          "title": "Cek **batas waktunya** hari ini",
+          "body": "Buka halaman pesanan, lihat syarat pengembalian. Banyak yang batasnya cuma beberapa hari."
+        },
+        {
+          "type": "point",
+          "title": "Uang kembali → **pos asalnya**",
+          "body": "Kalau dibeli dari Pos Bebas, kembalikan ke Pos Bebas. Jangan jadi alasan belanja lagi."
+        },
+        {
+          "type": "statement",
+          "text": "Mengembalikan barang itu **bukan malu-maluin**.",
+          "sub": "Itu tanda kamu mengecek, bukan cuma membeli."
+        },
+        {
+          "type": "cta",
+          "title": "Ada yang mau dikembalikan?",
+          "body": "Tulis di komen: **iya** atau aman semua.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Sehari setelah 11.11, cek belanjaanmu.\nBelum dibuka, ukuran salah, beli karena diskon, atau sudah punya yang mirip?\nCek batas pengembaliannya hari ini.\nAda yang mau dikembalikan?",
+      "hashtags": [
+        "keuanganpribadi",
+        "1111",
+        "belanjaonline",
+        "tipskeuangan"
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "gorengan harian",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Gorengan **Rp2 ribu**",
+          "sub": "Ambil tiga, tiap hari kerja."
+        },
+        {
+          "type": "number",
+          "label": "Sehari",
+          "eq": "Rp2.000 × 3",
+          "value": "Rp6.000"
+        },
+        {
+          "type": "number",
+          "label": "Sebulan (22 hari kerja)",
+          "eq": "Rp6.000 × 22",
+          "value": "Rp132.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp132.000 × 12",
+          "value": "Rp1.584.000",
+          "note": "Tetap boleh. Masukkan ke jatah jajan di Pos Hidup."
+        },
+        {
+          "type": "cta",
+          "title": "Jajan kecil favoritmu apa?",
+          "body": "Tulis di komen, nanti aku **hitungkan**.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Gorengan Rp2.000, ambil tiga, tiap hari kerja.\nSebulan Rp132.000. Setahun Rp1.584.000.\nTetap boleh, asal masuk jatah jajan.\nJajan kecil favoritmu apa?",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "jajan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "2000*3",
+          "expect": 6000
+        },
+        {
+          "expr": "6000*22",
+          "expect": 132000
+        },
+        {
+          "expr": "132000*12",
+          "expect": 1584000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "spine_day": 18,
+      "topic": "liburan dipecah mingguan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Liburan **Rp3 juta** dalam 6 bulan",
+          "sub": "Kedengarannya jauh. Coba dipecah."
+        },
+        {
+          "type": "number",
+          "label": "Per bulan",
+          "eq": "Rp3.000.000 ÷ 6",
+          "value": "Rp500.000"
+        },
+        {
+          "type": "number",
+          "label": "Per minggu (±24 minggu)",
+          "eq": "Rp3.000.000 ÷ 24",
+          "value": "Rp125.000",
+          "note": "Kirim tiap Senin pagi ke kantong liburan."
+        },
+        {
+          "type": "statement",
+          "text": "Target besar terasa mungkin kalau **dipecah**.",
+          "sub": "Ambil dari Pos Bebas, bukan dari sisa akhir minggu."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan dulu",
+          "body": "Liburan impianmu ke mana? Tulis **tujuannya** di komen.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Liburan Rp3.000.000 dalam 6 bulan.\nPer bulan Rp500.000, per minggu Rp125.000.\nKirim tiap Senin pagi ke kantong liburan.\nSimpan dulu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "liburan",
+        "targetkeuangan"
+      ],
+      "calc": [
+        {
+          "expr": "3000000/6",
+          "expect": 500000
+        },
+        {
+          "expr": "3000000/24",
+          "expect": 125000
+        }
+      ]
+    }
+  ]
+}

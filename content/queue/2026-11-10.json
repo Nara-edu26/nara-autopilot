@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-10",
+  "posts": [
+    {
+      "slot": "pagi",
+      "format": "carousel",
+      "pattern": "B",
+      "topic": "daftar belanja sebelum 11.11",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Persiapan 11.11",
+          "title": "Malam ini: **3 kolom** daftar belanja",
+          "sub": "Biar besok kamu beli yang dicari, bukan yang muncul di layar."
+        },
+        {
+          "type": "list",
+          "title": "Kolom 1: yang memang dibutuhkan",
+          "items": [
+            "Yang habis bulan ini",
+            "Yang rusak dan dipakai tiap hari",
+            "Yang sudah lama ditunda"
+          ]
+        },
+        {
+          "type": "point",
+          "title": "Kolom 2: **harga normal** hari ini",
+          "body": "Catat sekarang, sebelum harga berubah. Besok kamu bisa lihat diskonnya asli atau tidak."
+        },
+        {
+          "type": "point",
+          "title": "Kolom 3: **batas harga**",
+          "body": "Harga paling tinggi yang mau kamu bayar. Lewat dari itu, lewati."
+        },
+        {
+          "type": "number",
+          "label": "Contoh",
+          "eq": "Harga normal Rp150.000 − batas Rp120.000",
+          "value": "Rp30.000",
+          "note": "Kalau besok harganya di atas Rp120.000, tunggu promo berikutnya."
+        },
+        {
+          "type": "statement",
+          "text": "Yang nggak ada di daftar = **nggak dibeli**.",
+          "sub": "Termasuk yang \"mumpung murah\"."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan untuk besok",
+          "body": "Isi daftarnya malam ini, buka lagi **besok pagi**.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "11.11 tinggal sehari.\nBikin daftar 3 kolom malam ini: butuh apa, harga normalnya, dan batas harganya.\nYang nggak ada di daftar, nggak dibeli.\nSimpan untuk besok.",
+      "hashtags": [
+        "keuanganpribadi",
+        "1111",
+        "belanjaonline",
+        "hemat"
+      ],
+      "calc": [
+        {
+          "expr": "150000-120000",
+          "expect": 30000
+        }
+      ]
+    },
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "notifikasi flash sale",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "POV",
+          "title": "Notifikasi **flash sale** jam 12 siang",
+          "sub": "Lagi makan siang. Nggak lagi butuh apa-apa."
+        },
+        {
+          "type": "statement",
+          "text": "Jari sudah di tombol **checkout**.",
+          "sub": "Deskripsi barangnya bahkan belum dibaca."
+        },
+        {
+          "type": "point",
+          "title": "Trik kecil: tunda **10 menit**",
+          "body": "Habiskan makan siang dulu. Kalau 10 menit lagi masih kepikiran, cek daftar belanjamu. Kalau nggak ada di daftar, tutup."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman yang paling cepat checkout",
+          "body": "Biar dia ingat **trik 10 menit** ini.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Notifikasi flash sale datang pas makan siang.\nJari langsung ke checkout, padahal nggak butuh.\nTunda 10 menit. Kalau nggak ada di daftar, tutup.\nTag teman yang paling cepat checkout.",
+      "hashtags": [
+        "keuanganpribadi",
+        "belanjaonline",
+        "tanggaltua",
+        "relate"
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "spine_day": 16,
+      "topic": "es kopi kekinian",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Es kopi **Rp30 ribu**",
+          "sub": "16 kali sebulan. Rasanya cuma \"sekali-sekali\"."
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp30.000 × 16",
+          "value": "Rp480.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp480.000 × 12",
+          "value": "Rp5.760.000",
+          "note": "Nggak harus berhenti. Turun ke 8 kali sebulan sudah hemat Rp240.000."
+        },
+        {
+          "type": "cta",
+          "title": "Hitung kebiasaanmu",
+          "body": "Komen **BOCOR**, aku kirim Kalkulator Kebocoran lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Es kopi Rp30.000, 16 kali sebulan = Rp480.000.\nSetahun Rp5.760.000.\nNggak harus berhenti. 8 kali sebulan sudah hemat Rp240.000.\nKomen BOCOR untuk hitung kebiasaanmu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "ngopi",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "30000*16",
+          "expect": 480000
+        },
+        {
+          "expr": "480000*12",
+          "expect": 5760000
+        },
+        {
+          "expr": "30000*8",
+          "expect": 240000
+        }
+      ]
+    }
+  ]
+}
