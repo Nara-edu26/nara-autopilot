@@ -66,7 +66,12 @@
           "expr": "85000+10000",
           "expect": 95000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "fbcf262f5292d60d",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -116,7 +121,12 @@
           "expr": "110000*12",
           "expect": 1320000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "fd125625bb20280c",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -177,7 +187,12 @@
         "catatkeuangan",
         "gajian",
         "aturuang"
-      ]
+      ],
+      "disetujui": {
+        "hash": "ace0f3bf1ddab396",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

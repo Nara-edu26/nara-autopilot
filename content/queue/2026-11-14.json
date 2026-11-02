@@ -49,7 +49,12 @@
         "arisan",
         "tipskeuangan",
         "aturuang"
-      ]
+      ],
+      "disetujui": {
+        "hash": "d4086b68acdd5b04",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -94,7 +99,12 @@
           "expr": "800000/8",
           "expect": 100000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "f126231aaf710cf5",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -137,7 +147,12 @@
         "tantangan",
         "belanjaonline",
         "aturuang"
-      ]
+      ],
+      "disetujui": {
+        "hash": "c37155d756d8758a",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

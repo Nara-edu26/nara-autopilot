@@ -50,7 +50,12 @@
       "given": [
         50000,
         10000
-      ]
+      ],
+      "disetujui": {
+        "hash": "2e44173ad91d8d78",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -100,7 +105,12 @@
           "expr": "120000*12",
           "expect": 1440000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "36c1dc53b27ddfee",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -156,7 +166,12 @@
           "expr": "675000-300000",
           "expect": 375000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "751dddf08a96402c",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

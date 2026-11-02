@@ -52,7 +52,12 @@
         "1111",
         "belanjaonline",
         "tipskeuangan"
-      ]
+      ],
+      "disetujui": {
+        "hash": "9e368e7e287bcdb4",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -112,7 +117,12 @@
           "expr": "132000*12",
           "expect": 1584000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "a4cfc48aa786a965",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -168,7 +178,12 @@
           "expr": "3000000/24",
           "expect": 125000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "5552c313e5f4a2ec",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

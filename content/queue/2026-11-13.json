@@ -62,7 +62,12 @@
       ],
       "given": [
         29000
-      ]
+      ],
+      "disetujui": {
+        "hash": "299f1da479a89db1",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "siang",
@@ -102,7 +107,12 @@
       ],
       "given": [
         100000
-      ]
+      ],
+      "disetujui": {
+        "hash": "2f975e3d87afff41",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -147,7 +157,12 @@
         "tanggaltua",
         "relate",
         "gajian"
-      ]
+      ],
+      "disetujui": {
+        "hash": "1148d567a585bdee",
+        "pada": "2026-11-02T21:22+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }
