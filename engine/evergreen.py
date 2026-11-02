@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import DATA, MEDIA, QUEUE, SLOTS, iter_posts, load_config, read_posted, today_wib  # noqa: E402
+from common import DATA, MEDIA, QUEUE, SLOTS, iter_posts, load_config, read_posted, slot_aktif, today_wib  # noqa: E402
 
 
 def isi(hari: int) -> int:
@@ -62,7 +62,7 @@ def isi(hari: int) -> int:
     for k in range(hari):
         date = (today + dt.timedelta(days=k)).isoformat()
         for slot in SLOTS:
-            if f"{date}-{slot}" in posts:
+            if f"{date}-{slot}" in posts or not slot_aktif(cfg, slot):
                 continue
             fmt = cfg["slot"][slot]["format_default"]
             pool = candidates(fmt) or candidates("reel" if fmt == "carousel" else "carousel")

@@ -37,6 +37,16 @@ body{font-family:"Inter",sans-serif;-webkit-font-smoothing:antialiased;font-feat
 .reel .top{font-size:30px}
 .top .sig{display:flex;align-items:center;gap:14px}
 .top .dot{width:18px;height:18px;border-radius:50%;background:currentColor;opacity:.9}
+.top .ava{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid currentColor}
+.carousel .top .ava{width:46px;height:46px}
+/* wajah Nara di frame pembuka */
+.presenter{display:flex;align-items:center;gap:34px}
+.presenter img{width:300px;height:300px;border-radius:50%;object-fit:cover;border:6px solid var(--accent);flex:none}
+.carousel .presenter img{width:190px;height:190px;border-width:5px}
+.presenter .hi{font-family:"InterDisplay";font-weight:800;font-size:66px;line-height:1.02;letter-spacing:-.02em;color:var(--accent)}
+.carousel .presenter .hi{font-size:50px}
+.presenter .role{font-weight:600;font-size:34px;line-height:1.25;color:var(--soft);margin-top:12px}
+.carousel .presenter .role{font-size:28px}
 .top .pg{font-variant-numeric:tabular-nums;letter-spacing:.04em}
 
 .body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px;position:relative;z-index:1;min-height:0}
@@ -117,10 +127,12 @@ window.renderFrame = function(d){
   const theme = fr.theme || ({cover:"olive",cta:"olive",statement:"dark"}[fr.type]||"cream");
   f.className = `${fmt} t-${theme} ${d.stage===0?"stage0":""}`;
   const pg = fmt==="carousel" ? `<span class="pg">${d.index+1}/${d.total}</span>` : "";
-  let top = `<div class="top"><span class="sig"><span class="dot"></span>${esc(d.signature)}</span>${pg}</div>`;
+  const mark = d.avatar ? `<img class="ava" src="${esc(d.avatar)}" alt="">` : `<span class="dot"></span>`;
+  let top = `<div class="top"><span class="sig">${mark}${esc(d.signature)}</span>${pg}</div>`;
   let b="", foot="";
   switch(fr.type){
     case "cover":
+      if(d.avatar && d.index===0) b += `<div class="presenter"><img src="${esc(d.avatar)}" alt="Nara"><div><div class="hi">${esc(d.greeting||"")}</div><div class="role">${esc(d.role||"")}</div></div></div>`;
       b += fr.kicker ? `<div class="kicker">${esc(fr.kicker)}</div>` : "";
       b += el("div","title",rich(fr.title),z.title);
       if(fr.sub) b += el("div","sub",rich(fr.sub),z.sub);

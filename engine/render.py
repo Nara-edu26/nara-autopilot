@@ -4,8 +4,11 @@ carousel -> media/<id>/01.jpg ... NN.jpg   (1080x1350, JPEG)
 reel     -> media/<id>/reel.mp4 + cover.jpg (1080x1920, H.264/AAC, 30 fps)
 
 Reel dibuat dari frame yang sama: tiap frame muncul dua tahap (judul dulu, lalu angka/isi),
-diberi transisi halus dan garis progres di atas. Musik opsional: taruh file .mp3/.m4a bebas royalti
-di assets/music/, satu dipilih otomatis per post. Tanpa musik, reel diberi trek audio senyap.
+diberi transisi halus dan garis progres di atas. Frame pembuka menampilkan wajah Nara (config brand.avatar).
+Musik: file di assets/music/, satu dipilih otomatis per post. Suara Nara: bila config suara.aktif,
+suara.voice_id terisi, dan secret ELEVENLABS_API_KEY ada, setiap frame dibacakan (lihat suara.py);
+durasi frame menyesuaikan panjang suara dan musik dikecilkan di bawahnya. Tanpa kunci, reel tetap jadi
+dengan musik saja.
 
 Pakai:  python engine/render.py                 (render semua post mulai hari ini yang medianya belum ada)
         python engine/render.py --id 2026-10-26-pagi --paksa
@@ -23,8 +26,9 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ROOT, iter_posts, load_config, media_dir, media_files, today_wib  # noqa: E402
+from common import ROOT, iter_posts, load_config, media_dir, media_files, slot_aktif, today_wib  # noqa: E402
 from validate import validate_post  # noqa: E402
+import suara  # noqa: E402
 
 TEMPLATE = ROOT / "engine" / "templates" / "frame.html"
 MUSIC = ROOT / "assets" / "music"
@@ -63,6 +67,9 @@ class Renderer:
         self.page = self.browser.new_page(device_scale_factor=1)
         self.page.goto(TEMPLATE.as_uri())
         self.cfg = load_config()
+        av = self.cfg["brand"].get("avatar")
+        self.avatar = (ROOT / av).as_uri() if av and (ROOT / av).exists() else ""
+        self.voice = suara.Suara(self.cfg)
 
     def close(self):
         self.browser.close()
@@ -71,10 +78,16 @@ class Renderer:
     def shot(self, fmt: str, fr: dict, idx: int, total: int, stage: int, out: Path, jpeg: bool):
         w, h = (1080, 1350) if fmt == "carousel" else (1080, 1920)
         self.page.set_viewport_size({"width": w, "height": h})
+        b = self.cfg["brand"]
         payload = {"format": fmt, "frame": fr, "index": idx, "total": total, "stage": stage,
-                   "signature": self.cfg["brand"]["tanda_tangan"], "closing": self.cfg["brand"]["penutup"]}
+                   "signature": b["tanda_tangan"], "closing": b["penutup"],
+                   "avatar": self.avatar, "greeting": b.get("sapaan", ""), "role": b.get("peran", "")}
         self.page.evaluate("d => renderFrame(d)", payload)
         self.page.evaluate("() => document.fonts.ready")
+        self.page.evaluate("() => Promise.all([...document.images].map(i => i.complete ? 1 :"
+                           " new Promise(r => { i.onload = i.onerror = r; })))")
+        if self.avatar:   # tata letak dihitung ulang setelah foto termuat
+            self.page.evaluate("() => fit()")
         clip = {"x": 0, "y": 0, "width": w, "height": h}
         if jpeg:
             self.page.screenshot(path=str(out), type="jpeg", quality=92, clip=clip)
@@ -88,11 +101,17 @@ class Renderer:
 
     def reel(self, post: dict, out: Path):
         frames = post["frames"]
+        voices = self.voice.frames(post)          # [Path|None] per frame, atau [] tanpa suara
         with tempfile.TemporaryDirectory() as td:
             td = Path(td)
             clips: list[tuple[Path, float]] = []
+            cues: list[tuple[Path, int]] = []      # (file suara, indeks klip pertama frame itu)
             for i, fr in enumerate(frames):
                 d = frame_duration(fr, i)
+                v = voices[i] if voices else None
+                if v:
+                    d = max(d, suara.durasi(v) + 0.55)
+                    cues.append((v, len(clips)))
                 if i > 0 and has_reveal(fr):
                     a = td / f"{i:02d}a.png"
                     self.shot("reel", fr, i, len(frames), 0, a, False)
@@ -102,7 +121,7 @@ class Renderer:
                 self.shot("reel", fr, i, len(frames), 1, b, False)
                 clips.append((b, d))
             self.shot("reel", frames[0], 0, len(frames), 1, out / "cover.jpg", True)
-            encode_reel(clips, out / "reel.mp4", pick_music(post["id"]))
+            encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)
 
 
 def pick_music(pid: str) -> Path | None:
@@ -114,7 +133,18 @@ def pick_music(pid: str) -> Path | None:
     return tracks[int(hashlib.sha1(pid.encode()).hexdigest(), 16) % len(tracks)]
 
 
-def encode_reel(clips: list[tuple[Path, float]], dst: Path, music: Path | None):
+def clip_starts(clips: list[tuple[Path, float]]) -> list[float]:
+    """Detik mulai tiap klip di video jadi (klip saling bertumpuk XFADE detik)."""
+    out, t = [], 0.0
+    for _, d in clips:
+        out.append(t)
+        t += d - XFADE
+    return out
+
+
+def encode_reel(clips: list[tuple[Path, float]], dst: Path, music: Path | None,
+                cues: list[tuple[Path, int]] | None = None):
+    cues = cues or []
     args = ["ffmpeg", "-y", "-loglevel", "error"]
     for p, d in clips:
         args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{d:.3f}", "-i", str(p)]
@@ -129,13 +159,29 @@ def encode_reel(clips: list[tuple[Path, float]], dst: Path, music: Path | None):
     fg.append(f"color=c=0xC9D1B5:s=1080x10:r={FPS}:d={total:.3f}[bar]")
     fg.append(f"[{last}][bar]overlay=x='-w+w*t/{total:.3f}':y=0:shortest=1,format=yuv420p[vout]")
     n = len(clips)
+    # alas audio: musik (diulang bila kurang panjang) atau senyap
     if music:
-        args += ["-i", str(music)]
-        fg.append(f"[{n}:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume=0.55,"
-                  f"afade=t=in:d=0.4,afade=t=out:st={max(0, total - 1.2):.3f}:d=1.2,aresample=48000[aout]")
+        args += ["-stream_loop", "-1", "-i", str(music)]
+        vol = 0.14 if cues else 0.9
+        fg.append(f"[{n}:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,volume={vol},"
+                  f"afade=t=in:d=0.4,afade=t=out:st={max(0, total - 1.2):.3f}:d=1.2,"
+                  f"aresample=48000,aformat=channel_layouts=stereo[bed]")
     else:
         args += ["-f", "lavfi", "-t", f"{total:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
-        fg.append(f"[{n}:a]anull[aout]")
+        fg.append(f"[{n}:a]anull[bed]")
+    if cues:
+        starts = clip_starts(clips)
+        labels = ["[bed]"]
+        for j, (vf, k) in enumerate(cues):
+            args += ["-i", str(vf)]
+            ms = int((starts[k] + 0.18) * 1000)
+            fg.append(f"[{n + 1 + j}:a]aresample=48000,aformat=channel_layouts=stereo,"
+                      f"adelay={ms}|{ms}[s{j}]")
+            labels.append(f"[s{j}]")
+        fg.append("".join(labels) + f"amix=inputs={len(labels)}:duration=first:normalize=0,"
+                  f"atrim=0:{total:.3f}[aout]")
+    else:
+        fg.append("[bed]anull[aout]")
     args += ["-filter_complex", ";".join(fg), "-map", "[vout]", "-map", "[aout]",
              "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-profile:v", "high", "-r", str(FPS),
              "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart",
@@ -153,6 +199,10 @@ def needs_render(post: dict) -> bool:
 
 def content_hash(post: dict) -> str:
     keep = {k: post.get(k) for k in ("format", "frames")}
+    cfg = load_config()
+    keep["_suara"] = suara.sidik(cfg) if post.get("format") == "reel" else ""
+    keep["_brand"] = {k: cfg["brand"].get(k) for k in ("avatar", "sapaan", "peran")}
+    keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
 
@@ -165,6 +215,7 @@ def main() -> int:
     ap.add_argument("--paksa", action="store_true")
     a = ap.parse_args()
 
+    cfg = load_config()
     everything = list(iter_posts())
     todo = []
     for p in everything:
@@ -172,7 +223,7 @@ def main() -> int:
             continue
         if not a.id and (p["date"] < a.dari or (a.sampai and p["date"] > a.sampai)):
             continue
-        if p.get("skip"):
+        if p.get("skip") or not slot_aktif(cfg, p["slot"]):
             continue
         if a.paksa or needs_render(p):
             todo.append(p)
@@ -195,7 +246,8 @@ def main() -> int:
             out.mkdir(parents=True)
             try:
                 (r.carousel if p["format"] == "carousel" else r.reel)(p, out)
-                (out / "sumber.sha1").write_text(content_hash(p))
+                # suara gagal → cap sengaja tidak cocok, supaya render berikutnya mencoba lagi
+                (out / "sumber.sha1").write_text("ulang-suara" if r.voice.gagal else content_hash(p))
                 print(f"✓ {p['id']} ({p['format']}, {len(p['frames'])} frame)")
             except Exception as e:  # noqa: BLE001
                 failed += 1

@@ -18,16 +18,19 @@ Wajib ≤40% · Hidup ±25% (dibagi per minggu) · Cicilan ≤15% (target turun)
 
 | Slot | Jam WIB | Format | Fungsi | Pola yang cocok |
 |---|---|---|---|---|
-| pagi | 07.07 | carousel 6–8 slide | disimpan & dibagikan | B, E, C, D |
+| pagi | 07.07 | NONAKTIF sejak 3 Nov 2026 (median reach 10; `"aktif": false` di config.json). Jangan tulis post pagi. | – | – |
 | siang | 12.07 | reel 4–5 frame (±15–20 dtk) | jangkauan ke non-follower | A, D, E |
 | malam | 19.07 | ikut kalender 100 hari (tulang punggung) | arah besar & peluncuran | sesuai kalender; pola B jadi carousel, lainnya reel |
 
 Slot malam WAJIB mengikuti baris kalender untuk tanggal itu (hook, isi, CTA). Isi `spine_day` dengan nomor harinya. Hari 1 = 26 Okt 2026.
 
-## Campuran per minggu (21 post)
+## Campuran per minggu (14 post, sejak 3 Nov 2026)
 
-- 7 tulang punggung dari kalender.
-- 14 tambahan, titik awal: 4 A · 3 B · 2 E · 2 D · 1 C · 1 F · ≤1 S.
+- 7 tulang punggung dari kalender (malam).
+- 7 tambahan di slot siang (reel), titik awal: 2 A · 2 D · 2 E · ≤1 S. Pola B dan C masuk lewat slot malam bila kalender memintanya.
+- Suara: reel dibacakan otomatis dari teks frame (judul, angka utama, ajakan). Tulis judul frame sebagai kalimat lisan yang enak didengar; hindari singkatan yang sulit dibaca mesin.
+
+Catatan lama (sebelum 3 Nov): 21 post, 4 A · 3 B · 2 E · 2 D · 1 C · 1 F · ≤1 S.
 - Jualan (pola S, atau CTA beli) maksimal 1 dari 5 post. Pengecualian: minggu peluncuran kursus Hari 65–74.
 - Jangan memakai hook yang sudah ada di kalender untuk 30 hari ke depan di slot lain.
 

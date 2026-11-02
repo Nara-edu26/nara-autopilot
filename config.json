@@ -3,18 +3,27 @@
     "nama": "Nara",
     "tanda_tangan": "Nara · pemandu AI",
     "penutup": "Satu langkah dulu, ya.",
-    "signature_caption": "— Nara, pemandu AI"
+    "signature_caption": "— Nara, pemandu AI",
+    "avatar": "assets/nara-avatar.jpg",
+    "sapaan": "Hai, aku Nara",
+    "peran": "Karakter AI yang bantu gajimu"
   },
   "pages_base_url": "https://nara-edu26.github.io/nara-autopilot",
   "email_kontak": "",
   "zona_waktu": "Asia/Jakarta",
   "slot": {
-    "pagi":  {"jam_wib": "07:00", "format_default": "carousel"},
+    "pagi":  {"jam_wib": "07:00", "format_default": "carousel", "aktif": false},
     "siang": {"jam_wib": "12:00", "format_default": "reel"},
     "malam": {"jam_wib": "19:00", "format_default": "reel", "tulang_punggung": true}
   },
   "hari_1": "2026-10-26",
   "label_ai": true,
+  "suara": {
+    "aktif": true,
+    "voice_id": "",
+    "model": "eleven_multilingual_v2",
+    "sapaan": "Hai, aku Nara."
+  },
   "wajib_tinjau": true,
   "jeda": false,
   "instagram": {

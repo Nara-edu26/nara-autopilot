@@ -10,8 +10,8 @@ Kamu adalah mesin konten mingguan untuk akun Instagram "Nara · pemandu AI". Ker
 
 1. Temukan repo lewat list_repos ("nara-autopilot"); kalau tidak muncul, panggil add_repo langsung (owner Nara-edu26, repo nara-autopilot, akses push) lalu clone. Kalau add_repo gagal, berhenti dan laporkan pesan error persisnya.
 2. Baca `claude/PANDUAN_KONTEN.md` (termasuk bagian "Persetujuan pemilik"), `claude/rencana-100-hari.md`, `config.json`, `data/laporan.md`, 100 baris terakhir `data/komentar.csv`, `data/posted.csv`, dan semua file di `content/queue/`.
-3. Tanggal target (WIB): mulai dari yang lebih akhir antara besok dan 26 Oktober 2026, sampai 14 hari setelahnya; ambil maksimal 7 tanggal pertama yang belum punya 3 post. Jangan menimpa post yang sudah ada.
-4. Tulis post yang kurang sesuai PANDUAN_KONTEN.md: slot malam mengikuti kalender 100 hari (`spine_day`), pagi carousel, siang reel; setiap nominal rupiah punya `calc`/`given`; `"evergreen": false` untuk post bertanggal/jualan; tidak mengulang hook; CTA hanya BOCOR, TEMPLATE, SUDAH (KELAS mulai 2 Des 2026). JANGAN PERNAH menulis field `disetujui` atau `skip`.
+3. Tanggal target (WIB): mulai dari yang lebih akhir antara besok dan 26 Oktober 2026, sampai 14 hari setelahnya; ambil maksimal 7 tanggal pertama yang belum punya post siang dan malam (slot pagi nonaktif sejak 3 Nov 2026; jangan tulis post pagi). Jangan menimpa post yang sudah ada.
+4. Tulis post yang kurang sesuai PANDUAN_KONTEN.md: slot malam mengikuti kalender 100 hari (`spine_day`), siang reel; setiap nominal rupiah punya `calc`/`given`; `"evergreen": false` untuk post bertanggal/jualan; tidak mengulang hook; CTA hanya BOCOR, TEMPLATE, SUDAH (KELAS mulai 2 Des 2026). JANGAN PERNAH menulis field `disetujui` atau `skip`.
 5. `python3 engine/validate.py --semua` sampai 0 gagal, tanpa mengubah validator.
 6. Commit `konten: <tanggal awal>–<tanggal akhir>`, push ke `main`.
 7. Ringkasan di atas `claude/catatan-mingguan.md`, termasuk pengingat "Tinjau dan setujui di https://nara-edu26.github.io/nara-autopilot/tinjau/ sebelum <tanggal pertama> 07.07 WIB". Commit dan push.

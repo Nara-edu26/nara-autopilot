@@ -18,7 +18,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (SLOTS, append_posted, approval_state, build_caption, env, find_post, iter_posts,  # noqa: E402
-                    load_config, media_files, now_wib, post_id, read_posted, repo_slug, today_wib)
+                    load_config, media_files, now_wib, post_id, read_posted, repo_slug, slot_aktif, today_wib)
 from ig import IG, IGError  # noqa: E402
 from validate import validate_post  # noqa: E402
 
@@ -62,6 +62,9 @@ def main() -> int:
         return 2
     if cfg.get("jeda"):
         summary("⏸ config.json: jeda=true. Tidak ada yang diterbitkan.")
+        return 0
+    if not slot_aktif(cfg, slot):
+        summary(f"⏸ Slot {slot} nonaktif di config.json (\"aktif\": false). Tidak ada yang diterbitkan.")
         return 0
     if not a.tanggal:
         # Cron GitHub bisa telat. Kalau jadwal malam baru jalan lewat tengah malam,

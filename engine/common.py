@@ -32,6 +32,11 @@ def today_wib() -> str:
     return now_wib().date().isoformat()
 
 
+def slot_aktif(cfg: dict, slot: str) -> bool:
+    """Slot dengan "aktif": false di config.json tidak dirender, tidak diisi evergreen, dan tidak diterbitkan."""
+    return bool(cfg.get("slot", {}).get(slot, {}).get("aktif", True))
+
+
 def post_id(date: str, slot: str) -> str:
     return f"{date}-{slot}"
 

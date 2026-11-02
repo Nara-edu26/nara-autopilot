@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (ROOT, approval_state, build_caption, content_hash, iter_posts, load_config,  # noqa: E402
-                    media_dir, media_files, now_wib, read_posted, repo_slug, today_wib)
+                    media_dir, media_files, now_wib, read_posted, repo_slug, slot_aktif, today_wib)
 from validate import frame_texts, validate_post  # noqa: E402
 
 OUT = ROOT / "docs" / "tinjau" / "index.html"
@@ -99,7 +99,8 @@ def main() -> int:
     end = (dt.date.fromisoformat(today) + dt.timedelta(days=15)).isoformat()
     posted = {r["post_id"] for r in read_posted()}
     everything = list(iter_posts())
-    posts = [p for p in everything if today <= p["date"] <= end and p["id"] not in posted]
+    posts = [p for p in everything if today <= p["date"] <= end and p["id"] not in posted
+             and slot_aktif(cfg, p["slot"])]
     posts.sort(key=lambda p: (p["date"], ["pagi", "siang", "malam"].index(p["slot"])))
 
     counts = {k: 0 for k in STATUS}
