@@ -26,7 +26,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ROOT, iter_posts, load_config, media_dir, media_files, slot_aktif, today_wib  # noqa: E402
+from common import MEDIA as MEDIA_DIR, ROOT, iter_posts, load_config, media_dir, media_files, slot_aktif, today_wib  # noqa: E402
 from validate import validate_post  # noqa: E402
 import suara  # noqa: E402
 
@@ -72,19 +72,20 @@ class Renderer:
         self.avatar = (ROOT / av).as_uri() if av and (ROOT / av).exists() else ""
         self.voice = suara.Suara(self.cfg)
         self.animasi = bool(self.cfg["brand"].get("avatar_animasi")) and bool(self.avatar)
+        self.bicara = bool(self.cfg["brand"].get("avatar_bicara"))
 
     def close(self):
         self.browser.close()
         self._pw.stop()
 
-    def shot(self, fmt: str, fr: dict, idx: int, total: int, stage: int, out: Path, jpeg: bool):
+    def shot(self, fmt: str, fr: dict, idx: int, total: int, stage: int, out: Path, jpeg: bool, talker: bool = False):
         w, h = (1080, 1350) if fmt == "carousel" else (1080, 1920)
         self.page.set_viewport_size({"width": w, "height": h})
         b = self.cfg["brand"]
         payload = {"format": fmt, "frame": fr, "index": idx, "total": total, "stage": stage,
                    "signature": b["tanda_tangan"], "closing": b["penutup"],
                    "avatar": self.avatar, "greeting": b.get("sapaan", ""), "role": b.get("peran", ""),
-                   "topAvatar": not (fmt == "reel" and self.animasi)}
+                   "topAvatar": not (fmt == "reel" and self.animasi), "talker": talker}
         self.page.evaluate("d => renderFrame(d)", payload)
         self.page.evaluate("() => document.fonts.ready")
         self.page.evaluate("() => Promise.all([...document.images].map(i => i.complete ? 1 :"
@@ -105,6 +106,10 @@ class Renderer:
     def reel(self, post: dict, out: Path):
         frames = post["frames"]
         voices = self.voice.frames(post)          # [Path|None] per frame, atau [] tanpa suara
+        talk = None
+        if self.bicara:
+            import bicara
+            talk = bicara.clip_for(post["id"])
         with tempfile.TemporaryDirectory() as td:
             td = Path(td)
             clips: list[tuple[Path, float]] = []
@@ -121,9 +126,18 @@ class Renderer:
                     clips.append((a, 0.9))
                     d = max(1.6, d - 0.9 + XFADE)
                 b = td / f"{i:02d}b.png"
-                self.shot("reel", fr, i, len(frames), 1, b, False)
+                self.shot("reel", fr, i, len(frames), 1, b, False, talker=bool(talk) and i == 0)
                 clips.append((b, d))
             self.shot("reel", frames[0], 0, len(frames), 1, out / "cover.jpg", True)
+            if talk:
+                import bicara
+                base = td / "dasar.mp4"
+                encode_reel(clips, base, pick_music(post["id"]), cues)
+                starts = clip_starts(clips)
+                total = sum(d for _, d in clips) - XFADE * (len(clips) - 1)
+                end = min(suara.durasi(talk), (starts[1] + XFADE) if len(starts) > 1 else total)
+                bicara.overlay(base, talk, out / "reel.mp4", end, total, td)
+                return
             if not self.animasi:
                 encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)
                 return
@@ -221,6 +235,11 @@ def content_hash(post: dict) -> str:
     keep["_brand"] = {k: cfg["brand"].get(k) for k in ("avatar", "sapaan", "peran", "avatar_animasi")}
     keep["_anim"] = hashlib.sha1((ROOT / "engine" / "avatar.py").read_bytes()).hexdigest()[:10] \
         if cfg["brand"].get("avatar_animasi") and post.get("format") == "reel" else ""
+    keep["_bicara"] = ""
+    if cfg["brand"].get("avatar_bicara") and post.get("format") == "reel":
+        clip = MEDIA_DIR / "_bicara" / f"{post.get('id')}.mp4"
+        keep["_bicara"] = hashlib.sha1((ROOT / "engine" / "bicara.py").read_bytes()
+                                       + (clip.read_bytes() if clip.exists() else b"")).hexdigest()[:12]
     keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()

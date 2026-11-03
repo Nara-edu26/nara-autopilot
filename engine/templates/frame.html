@@ -21,6 +21,7 @@ body{font-family:"Inter",sans-serif;-webkit-font-smoothing:antialiased;font-feat
 #f{position:relative;overflow:hidden;display:flex;flex-direction:column}
 #f.carousel{width:1080px;height:1350px;padding:88px 96px 84px}
 #f.reel{width:1080px;height:1920px;padding:250px 92px 420px}
+#f.reel.talker{padding-bottom:800px}   /* ruang untuk Nara berbicara di kanan bawah */
 
 /* tema warna */
 #f.t-cream{background:var(--cream);color:var(--ink);--accent:var(--olive-dark);--soft:var(--muted);--hlbg:#E4DCC8}
@@ -125,14 +126,14 @@ window.renderFrame = function(d){
   const f=document.getElementById("f");
   const fmt=d.format, z=S[fmt], fr=d.frame;
   const theme = fr.theme || ({cover:"olive",cta:"olive",statement:"dark"}[fr.type]||"cream");
-  f.className = `${fmt} t-${theme} ${d.stage===0?"stage0":""}`;
+  f.className = `${fmt} t-${theme} ${d.stage===0?"stage0":""} ${d.talker?"talker":""}`;
   const pg = fmt==="carousel" ? `<span class="pg">${d.index+1}/${d.total}</span>` : "";
   const mark = (d.avatar && d.topAvatar !== false) ? `<img class="ava" src="${esc(d.avatar)}" alt="">` : `<span class="dot"></span>`;
   let top = `<div class="top"><span class="sig">${mark}${esc(d.signature)}</span>${pg}</div>`;
   let b="", foot="";
   switch(fr.type){
     case "cover":
-      if(d.avatar && d.index===0) b += `<div class="presenter"><img src="${esc(d.avatar)}" alt="Nara"><div><div class="hi">${esc(d.greeting||"")}</div><div class="role">${esc(d.role||"")}</div></div></div>`;
+      if(d.avatar && d.index===0 && !d.talker) b += `<div class="presenter"><img src="${esc(d.avatar)}" alt="Nara"><div><div class="hi">${esc(d.greeting||"")}</div><div class="role">${esc(d.role||"")}</div></div></div>`;
       b += fr.kicker ? `<div class="kicker">${esc(fr.kicker)}</div>` : "";
       b += el("div","title",rich(fr.title),z.title);
       if(fr.sub) b += el("div","sub",rich(fr.sub),z.sub);
