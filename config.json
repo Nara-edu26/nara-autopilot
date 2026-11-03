@@ -34,7 +34,7 @@
   },
   "wajib_tinjau": true,
   "jeda": true,
-  "tahan_render": true,
+  "tahan_render": false,
   "instagram": {
     "api_host": "https://graph.instagram.com",
     "api_versi": "",
