@@ -1,0 +1,58 @@
+name: Contoh reel (satu post)
+# Merender SATU post dengan pengaturan config.json saat ini, untuk ditinjau pemilik sebelum render massal.
+# Hasil di-push ke branch contoh-reel; branch media dan situs tidak diubah.
+
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "id post, mis. 2026-11-03-malam"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contoh-reel
+  cancel-in-progress: true
+
+jobs:
+  contoh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ambil cache suara dari branch media
+        run: |
+          mkdir -p docs/media
+          if git ls-remote --exit-code --heads origin media >/dev/null 2>&1; then
+            git fetch --depth 1 origin media
+            git --work-tree=docs/media checkout origin/media -- _suara 2>/dev/null || true
+            git reset -q
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: engine/requirements.txt
+      - name: Pasang Chromium & ffmpeg
+        run: |
+          pip install -r engine/requirements.txt
+          python -m playwright install --with-deps chromium
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Render satu post
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          POST: ${{ inputs.post }}
+        run: python engine/render.py --id "$POST" --paksa
+      - name: Simpan ke branch contoh-reel
+        env:
+          POST: ${{ inputs.post }}
+        run: |
+          mkdir -p out && cp -r "docs/media/$POST" out/ && cp -r docs/media/_suara out/ 2>/dev/null || true
+          cd out
+          git init -q -b contoh-reel
+          git config user.name "nara-autopilot[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "contoh $POST $(date -u +%FT%TZ)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" contoh-reel

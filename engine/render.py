@@ -234,6 +234,9 @@ def main() -> int:
     a = ap.parse_args()
 
     cfg = load_config()
+    if cfg.get("tahan_render") and not a.id:
+        print("⏸ config.json: tahan_render=true. Render massal ditahan sampai contoh disetujui pemilik.")
+        return 0
     everything = list(iter_posts())
     todo = []
     for p in everything:
