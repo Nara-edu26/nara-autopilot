@@ -1,0 +1,83 @@
+name: Nara berbicara (pasang klip pembuka)
+# Dijalankan manual setelah video lip-sync dibuat di ElevenLabs (Image & Video › Lip sync):
+# unduh klip → buang latar (engine/potong.py) → simpan di branch media (_bicara) → render ulang.
+# Klip hanya tampil bila config.json brand.avatar_bicara = true.
+
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "id post, mis. 2026-11-05-malam"
+        required: true
+      url:
+        description: "tautan unduhan video lip-sync (mp4)"
+        required: true
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: bicara
+  cancel-in-progress: false
+
+jobs:
+  pasang:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unduh klip
+        env:
+          URL: ${{ inputs.url }}
+          POST: ${{ inputs.post }}
+        run: |
+          mkdir -p docs/media/_bicara
+          curl -sSfL --retry 3 -o "docs/media/_bicara/$POST.mp4" "$URL"
+          ls -l "docs/media/_bicara/$POST.mp4"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pasang alat
+        run: |
+          pip install -q onnxruntime==1.20.1 "numpy>=1.26,<3" "Pillow>=10.4,<13" "scipy>=1.13,<2"
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - uses: actions/cache@v4
+        with:
+          path: ~/model
+          key: isnet-general-use-v1
+      - name: Buang latar
+        env:
+          POST: ${{ inputs.post }}
+        run: |
+          mkdir -p ~/model
+          [ -s ~/model/isnet-general-use.onnx ] || curl -sSfL --retry 3 -o ~/model/isnet-general-use.onnx \
+            https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx
+          python engine/potong.py --id "$POST" --model ~/model/isnet-general-use.onnx
+      - name: Tunggu render yang sedang jalan (render menimpa branch media)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 90); do
+            n=$(gh api "repos/${{ github.repository }}/actions/workflows/render.yml/runs?per_page=10" \
+                --jq '[.workflow_runs[] | select(.status != "completed")] | length')
+            [ "$n" = "0" ] && exit 0
+            echo "render masih jalan ($n), tunggu..."; sleep 20
+          done
+          echo "::error::render tidak selesai dalam 30 menit"; exit 1
+      - name: Simpan di branch media
+        env:
+          POST: ${{ inputs.post }}
+        run: |
+          git fetch --depth 1 origin +media:refs/remotes/origin/media
+          git worktree add -f ../media origin/media
+          mkdir -p ../media/_bicara
+          cp docs/media/_bicara/"$POST".* ../media/_bicara/
+          cd ../media
+          git config user.name "nara-autopilot[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _bicara && git commit -q -m "bicara: $POST" && git push -q origin HEAD:media
+      - name: Render ulang
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run render.yml --ref main
