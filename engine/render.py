@@ -34,6 +34,7 @@ TEMPLATE = ROOT / "engine" / "templates" / "frame.html"
 MUSIC = ROOT / "assets" / "music"
 FPS = 30
 XFADE = 0.28
+LOUD = "loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000"   # standar kekerasan media sosial (±-14 LUFS)
 
 
 def words(fr: dict) -> int:
@@ -192,12 +193,12 @@ def encode_reel(clips: list[tuple[Path, float]], dst: Path, music: Path | None,
             args += ["-i", str(vf)]
             ms = int((starts[k] + 0.18) * 1000)
             fg.append(f"[{n + 1 + j}:a]aresample=48000,aformat=channel_layouts=stereo,"
-                      f"adelay={ms}|{ms}[s{j}]")
+                      f"volume={suara.penguat_db(vf):.1f}dB,adelay={ms}|{ms}[s{j}]")
             labels.append(f"[s{j}]")
         fg.append("".join(labels) + f"amix=inputs={len(labels)}:duration=first:normalize=0,"
-                  f"atrim=0:{total:.3f}[aout]")
+                  f"atrim=0:{total:.3f},{LOUD}[aout]")
     else:
-        fg.append("[bed]anull[aout]")
+        fg.append(f"[bed]{LOUD}[aout]")
     args += ["-filter_complex", ";".join(fg), "-map", "[vout]", "-map", "[aout]",
              "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-profile:v", "high", "-r", str(FPS),
              "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart",

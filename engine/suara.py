@@ -163,6 +163,17 @@ def sidik(cfg: dict) -> str:
     return hashlib.sha1(raw.encode()).hexdigest()[:12]
 
 
+def penguat_db(path: Path, target: float = -17.0) -> float:
+    """Gain (dB) supaya rata-rata kekerasan suara ±target dBFS. Suara tiap pengisi suara berbeda kerasnya."""
+    err = subprocess.run(["ffmpeg", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    for line in err.splitlines():
+        if "mean_volume:" in line:
+            mean = float(line.split("mean_volume:")[1].split("dB")[0])
+            return max(-6.0, min(15.0, target - mean))
+    return 0.0
+
+
 def durasi(path: Path) -> float:
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                           str(path)], capture_output=True, text=True, check=True).stdout
