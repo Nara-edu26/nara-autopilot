@@ -127,7 +127,7 @@ window.renderFrame = function(d){
   const theme = fr.theme || ({cover:"olive",cta:"olive",statement:"dark"}[fr.type]||"cream");
   f.className = `${fmt} t-${theme} ${d.stage===0?"stage0":""}`;
   const pg = fmt==="carousel" ? `<span class="pg">${d.index+1}/${d.total}</span>` : "";
-  const mark = d.avatar ? `<img class="ava" src="${esc(d.avatar)}" alt="">` : `<span class="dot"></span>`;
+  const mark = (d.avatar && d.topAvatar !== false) ? `<img class="ava" src="${esc(d.avatar)}" alt="">` : `<span class="dot"></span>`;
   let top = `<div class="top"><span class="sig">${mark}${esc(d.signature)}</span>${pg}</div>`;
   let b="", foot="";
   switch(fr.type){

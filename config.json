@@ -5,6 +5,7 @@
     "penutup": "Satu langkah dulu, ya.",
     "signature_caption": "— Nara, pemandu AI",
     "avatar": "assets/nara-avatar.jpg",
+    "avatar_animasi": false,
     "sapaan": "Hai, aku Nara",
     "peran": "Karakter AI yang bantu gajimu"
   },

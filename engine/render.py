@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, iter_posts, load_config, media_dir, media_files, slot_aktif, today_wib  # noqa: E402
 from validate import validate_post  # noqa: E402
 import suara  # noqa: E402
+import avatar as avatar_anim  # noqa: E402
 
 TEMPLATE = ROOT / "engine" / "templates" / "frame.html"
 MUSIC = ROOT / "assets" / "music"
@@ -70,6 +71,7 @@ class Renderer:
         av = self.cfg["brand"].get("avatar")
         self.avatar = (ROOT / av).as_uri() if av and (ROOT / av).exists() else ""
         self.voice = suara.Suara(self.cfg)
+        self.animasi = bool(self.cfg["brand"].get("avatar_animasi")) and bool(self.avatar)
 
     def close(self):
         self.browser.close()
@@ -81,7 +83,8 @@ class Renderer:
         b = self.cfg["brand"]
         payload = {"format": fmt, "frame": fr, "index": idx, "total": total, "stage": stage,
                    "signature": b["tanda_tangan"], "closing": b["penutup"],
-                   "avatar": self.avatar, "greeting": b.get("sapaan", ""), "role": b.get("peran", "")}
+                   "avatar": self.avatar, "greeting": b.get("sapaan", ""), "role": b.get("peran", ""),
+                   "topAvatar": not (fmt == "reel" and self.animasi)}
         self.page.evaluate("d => renderFrame(d)", payload)
         self.page.evaluate("() => document.fonts.ready")
         self.page.evaluate("() => Promise.all([...document.images].map(i => i.complete ? 1 :"
@@ -121,7 +124,20 @@ class Renderer:
                 self.shot("reel", fr, i, len(frames), 1, b, False)
                 clips.append((b, d))
             self.shot("reel", frames[0], 0, len(frames), 1, out / "cover.jpg", True)
-            encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)
+            if not self.animasi:
+                encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)
+                return
+            box = self.page.evaluate("""() => { const i = document.querySelector('.presenter img');
+                if (!i) return null; const r = i.getBoundingClientRect();
+                return [r.x + r.width / 2, r.y + r.height / 2, r.width / 2 - 6]; }""")
+            base = td / "dasar.mp4"
+            encode_reel(clips, base, pick_music(post["id"]), cues)
+            starts = clip_starts(clips)
+            total = sum(d for _, d in clips) - XFADE * (len(clips) - 1)
+            cover_end = (starts[1] + XFADE / 2) if len(starts) > 1 else total
+            sec_cues = [(v, starts[k] + 0.18) for v, k in cues]
+            avatar_anim.animate(base, out / "reel.mp4", ROOT / self.cfg["brand"]["avatar"], sec_cues, total,
+                                tuple(box) if box else None, cover_end)
 
 
 def pick_music(pid: str) -> Path | None:
@@ -201,7 +217,9 @@ def content_hash(post: dict) -> str:
     keep = {k: post.get(k) for k in ("format", "frames")}
     cfg = load_config()
     keep["_suara"] = suara.sidik(cfg) if post.get("format") == "reel" else ""
-    keep["_brand"] = {k: cfg["brand"].get(k) for k in ("avatar", "sapaan", "peran")}
+    keep["_brand"] = {k: cfg["brand"].get(k) for k in ("avatar", "sapaan", "peran", "avatar_animasi")}
+    keep["_anim"] = hashlib.sha1((ROOT / "engine" / "avatar.py").read_bytes()).hexdigest()[:10] \
+        if cfg["brand"].get("avatar_animasi") and post.get("format") == "reel" else ""
     keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
