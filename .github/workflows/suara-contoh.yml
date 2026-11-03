@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       aksi:
-        description: "daftar atau contoh"
+        description: "daftar, contoh, atau gaya"
         required: true
         default: "daftar"
       voice:
@@ -25,6 +25,10 @@ on:
         description: "id post yang naskahnya dibacakan"
         required: false
         default: "2026-11-03-siang"
+      varian:
+        description: "untuk aksi gaya: varian dipisah koma (v2-alami, v4-alami, v3-alami)"
+        required: false
+        default: "v2-alami,v4-alami,v3-alami"
 
 permissions:
   contents: write
@@ -47,6 +51,7 @@ jobs:
           MODEL: ${{ inputs.model }}
           POST: ${{ inputs.post }}
           CARI: ${{ inputs.cari }}
+          VARIAN: ${{ inputs.varian }}
         run: python engine/suara_contoh.py "$AKSI" --voice "$VOICE" --model "$MODEL" --post "$POST"
       - name: Simpan hasil ke branch suara-contoh (bisa diambil lewat git)
         if: always()

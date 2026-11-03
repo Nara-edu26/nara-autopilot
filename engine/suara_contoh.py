@@ -115,11 +115,57 @@ def contoh(voices: list[str], model: str, pid: str) -> int:
     return 1 if gagal and gagal == len([v for v in voices if v.strip()]) else 0
 
 
+VARIAN = {
+    # nama: (model, gaya naskah, voice_settings)
+    "v2-alami": ("eleven_multilingual_v2", "alami",
+                 {"stability": 0.32, "similarity_boost": 0.8, "style": 0.4, "use_speaker_boost": True}),
+    "v4-alami": ("eleven_v4", "alami_tag", {"stability": 0.5, "similarity_boost": 0.8}),
+    "v3-alami": ("eleven_v3", "alami_tag", {"stability": 0.5, "similarity_boost": 0.8}),
+}
+
+
+def gaya(voice: str, pid: str, varian: list[str]) -> int:
+    """Contoh nada bicara: seluruh naskah dibacakan sekali jalan (bukan per frame), dengan waktu per huruf
+    supaya nanti bisa dipotong per frame. Hasil: suara/<varian>.mp3 + .json."""
+    import base64
+    OUT.mkdir(exist_ok=True)
+    cfg = load_config()
+    post = find_post(pid)
+    if not post:
+        sys.exit(f"post {pid} tidak ditemukan")
+    ok = 0
+    for nama in varian:
+        model, g, vs = VARIAN[nama]
+        lines = suara.naskah(post, cfg, g)
+        teks = " ".join(lines)
+        body = {"text": teks, "model_id": model, "voice_settings": vs}
+        if model != "eleven_multilingual_v2":
+            body["language_code"] = "id"
+        r = requests.post(f"{API}/v1/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_128", json=body,
+                          headers={**hdr(), "accept": "application/json"}, timeout=180)
+        biaya = {k: v for k, v in r.headers.items() if "character" in k.lower() or "cost" in k.lower()}
+        if r.status_code != 200:
+            print(f"✗ {nama} ({model}): {r.status_code} {r.text[:300]}")
+            continue
+        d = r.json()
+        (OUT / f"{nama}.mp3").write_bytes(base64.b64decode(d["audio_base64"]))
+        (OUT / f"{nama}.json").write_text(json.dumps({"model": model, "gaya": g, "voice_settings": vs, "baris": lines,
+                                                      "alignment": d.get("alignment"), "biaya": biaya},
+                                                     ensure_ascii=False))
+        ok += 1
+        print(f"✓ {nama} ({model}) {len(teks)} karakter, header biaya: {biaya}")
+        print("   " + teks)
+    return 0 if ok else 1
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("aksi", choices=["daftar", "contoh"])
+    ap.add_argument("aksi", choices=["daftar", "contoh", "gaya"])
     ap.add_argument("--voice", default="")
     ap.add_argument("--model", default="eleven_multilingual_v2")
     ap.add_argument("--post", default="2026-11-03-siang")
     a = ap.parse_args()
+    if a.aksi == "gaya":
+        sys.exit(gaya(a.voice or load_config()["suara"]["voice_id"], a.post,
+                      [v.strip() for v in (os.environ.get("VARIAN") or "v2-alami,v4-alami").split(",") if v.strip()]))
     sys.exit(daftar() if a.aksi == "daftar" else contoh(a.voice.split(","), a.model, a.post))

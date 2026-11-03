@@ -135,15 +135,71 @@ def naskah_frame(fr: dict, i: int, sapaan: str, lengkap: bool = False) -> str:
     return _kapital(bacaan(s))
 
 
+_URUT = ["", "Pertama", "Kedua", "Ketiga", "Keempat", "Kelima", "Keenam", "Ketujuh", "Kedelapan", "Kesembilan"]
+
+
+def _gabung_daftar(items: list[str]) -> str:
+    items = [i.strip().rstrip(".") for i in items if i and i.strip()]
+    items = items[:1] + [i[:1].lower() + i[1:] if not i[:2].isupper() else i for i in items[1:]]
+    if len(items) <= 1:
+        return "".join(items)
+    return ", ".join(items[:-1]) + ", sama " + items[-1]
+
+
+def naskah_frame_alami(fr: dict, i: int, sapaan: str, tag: bool = False) -> str:
+    """Seperti naskah_frame, tetapi disambung seperti orang bicara (koma, jeda '…', urutan 'Pertama').
+    Tidak menambah klaim baru: kata yang dibaca tetap dari teks frame. tag=True menambah tag emosi
+    ElevenLabs v3/v4 (mis. [warmly]) yang tidak ikut diucapkan."""
+    t = fr.get("type")
+    if t == "cover":
+        s = _kalimat(sapaan if i == 0 else "", fr.get("title"))
+    elif t == "number":
+        lab, val = (fr.get("label") or "").strip().rstrip(".:"), (fr.get("value") or "").strip()
+        s = _kalimat(f"{lab}… {val}" if lab and val else (lab or val))
+    elif t == "point":
+        n = fr.get("n")
+        urut = _URUT[int(n)] if str(n).isdigit() and 0 < int(n) < len(_URUT) else ""
+        title = (fr.get("title") or "").strip()
+        s = _kalimat(f"{urut}, {title[:1].lower() + title[1:]}" if urut else title)
+    elif t == "list":
+        items = fr.get("items") or []
+        s = _kalimat(fr.get("title"), _gabung_daftar(items) if len(items) <= 4 else "")
+    elif t == "compare":
+        l, r = fr.get("left") or {}, fr.get("right") or {}
+        s = _kalimat(fr.get("title"), f"{l.get('h', '')}, {l.get('t', '')}; {r.get('h', '')}, {r.get('t', '')}")
+    elif t == "statement":
+        s = _kalimat(fr.get("text"))
+    elif t == "cta":
+        pill = fr.get("pill") if _KATA_KUNCI.search(fr.get("pill") or "") else None
+        s = _kalimat(fr.get("title"), pill)
+    else:
+        s = _kalimat(fr.get("title") or fr.get("text"))
+    s = re.sub(r"\b([A-Z]{3,})\b", lambda m: '"' + m[1].lower() + '"', s)   # Komen BOCOR → Komen "bocor"
+    s = _kapital(bacaan(s))
+    if tag:
+        if i == 0:
+            s = "[warmly] " + s
+        elif t == "cta":
+            s = "[cheerfully] " + s
+        elif s.rstrip().endswith("?"):
+            s = "[curious] " + s
+    return s
+
+
 def _kapital(t: str) -> str:
     """Huruf besar di awal kalimat (setelah angka diubah jadi kata)."""
     return re.sub(r"(^|[.!?]\s+)([a-z])", lambda m: m[1] + m[2].upper(), t)
 
 
-def naskah(post: dict, cfg: dict) -> list[str]:
-    sapaan = cfg.get("suara", {}).get("sapaan", "")
-    lengkap = cfg.get("suara", {}).get("mode") == "lengkap"
-    lines = [naskah_frame(fr, i, sapaan, lengkap) for i, fr in enumerate(post["frames"])]
+def naskah(post: dict, cfg: dict, gaya: str | None = None) -> list[str]:
+    """gaya: None/"ringkas" (bawaan), "lengkap", "alami", "alami_tag" (alami + tag emosi v3/v4)."""
+    s = cfg.get("suara", {})
+    sapaan = s.get("sapaan", "")
+    gaya = gaya or s.get("mode") or "ringkas"
+    if gaya.startswith("alami"):
+        lines = [naskah_frame_alami(fr, i, sapaan, gaya == "alami_tag") for i, fr in enumerate(post["frames"])]
+    else:
+        lines = [naskah_frame(fr, i, sapaan, gaya == "lengkap") for i, fr in enumerate(post["frames"])]
     if lines and post["frames"][-1].get("type") == "cta":
         lines[-1] = _kalimat(lines[-1], bacaan(cfg["brand"].get("penutup", "")))
     return lines
