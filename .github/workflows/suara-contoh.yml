@@ -23,7 +23,7 @@ on:
         default: "2026-11-03-siang"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   suara:
@@ -43,6 +43,17 @@ jobs:
           MODEL: ${{ inputs.model }}
           POST: ${{ inputs.post }}
         run: python engine/suara_contoh.py "$AKSI" --voice "$VOICE" --model "$MODEL" --post "$POST"
+      - name: Simpan hasil ke branch suara-contoh (bisa diambil lewat git)
+        if: always()
+        run: |
+          [ -d suara ] || exit 0
+          cd suara
+          git init -q -b suara-contoh
+          git config user.name "nara-autopilot[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "suara contoh $(date -u +%FT%TZ)" || exit 0
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" suara-contoh
+          rm -rf .git
       - uses: actions/upload-artifact@v4
         if: always()
         with:
