@@ -109,7 +109,7 @@ class Renderer:
         talk = None
         if self.bicara:
             import bicara
-            talk = bicara.clip_for(post["id"])
+            talk = bicara.clip_for(post["id"], voices[0] if voices else None)
         with tempfile.TemporaryDirectory() as td:
             td = Path(td)
             clips: list[tuple[Path, float]] = []
@@ -244,6 +244,8 @@ def content_hash(post: dict) -> str:
                                        + str(cfg["brand"].get("bicara_gaya", "potong")).encode()
                                        + (clip.read_bytes() if clip.exists() else b"")
                                        + (mask.read_bytes() if mask.exists() else b"")
+                                       + (mask.with_name(f"{post.get('id')}.suara").read_bytes()
+                                          if mask.with_name(f"{post.get('id')}.suara").exists() else b"")
                                        + (mask.with_name(f"{post.get('id')}.depan.mp4").read_bytes()
                                           if mask.with_name(f"{post.get('id')}.depan.mp4").exists() else b"")
                                        ).hexdigest()[:12]

@@ -40,7 +40,7 @@ jobs:
           python-version: "3.12"
       - name: Pasang alat
         run: |
-          pip install -q onnxruntime==1.20.1 "numpy>=1.26,<3" "Pillow>=10.4,<13" "scipy>=1.13,<2"
+          pip install -q onnxruntime==1.20.1 "numpy>=1.26,<3" "Pillow>=10.4,<13" "scipy>=1.13,<2" requests==2.32.3
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
       - uses: actions/cache@v4
         with:
@@ -54,6 +54,17 @@ jobs:
           [ -s ~/model/isnet-general-use.onnx ] || curl -sSfL --retry 3 -o ~/model/isnet-general-use.onnx \
             https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx
           python engine/potong.py --id "$POST" --model ~/model/isnet-general-use.onnx
+      - name: Catat suara pembuka yang dipakai klip (bibir harus cocok dengan suara reel)
+        env:
+          POST: ${{ inputs.post }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          git fetch --depth 1 origin +media:refs/remotes/origin/media
+          git --work-tree=docs/media checkout origin/media -- _suara 2>/dev/null || true
+          git reset -q
+          v=$(python engine/suara.py --id "$POST" --pembuka | tail -1)
+          basename "$v" > "docs/media/_bicara/$POST.suara"
+          cat "docs/media/_bicara/$POST.suara"
       - name: Tunggu render yang sedang jalan (render menimpa branch media)
         env:
           GH_TOKEN: ${{ github.token }}

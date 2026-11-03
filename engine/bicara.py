@@ -28,9 +28,17 @@ CX = 690                          # pusat horizontal Nara (di kiri kolom tombol 
 CREAM = (243, 237, 226, 255)
 
 
-def clip_for(pid: str) -> Path | None:
+def clip_for(pid: str, pembuka: Path | None = None) -> Path | None:
+    """Klip hanya dipakai bila dibuat dari suara pembuka yang sama dengan reel ini (_bicara/<id>.suara
+    berisi nama file suara frame 0). Suara berganti → gerak bibir tidak cocok → klip dilewati."""
     p = FOLDER / f"{pid}.mp4"
-    return p if p.exists() and p.stat().st_size > 10_000 else None
+    if not (p.exists() and p.stat().st_size > 10_000) or pembuka is None:
+        return None
+    tag = FOLDER / f"{pid}.suara"
+    if not tag.exists() or tag.read_text().strip() != Path(pembuka).name:
+        print(f"! {pid}: klip Nara berbicara dibuat dari suara lain; dilewati sampai klip baru dipasang.")
+        return None
+    return p
 
 
 def mask_for(pid: str) -> Path | None:

@@ -215,12 +215,16 @@ def sidik(cfg: dict) -> str:
     """Berubah bila suara dinyalakan/dimatikan atau pengaturannya diganti → reel dirender ulang."""
     s = cfg.get("suara", {})
     raw = json.dumps({"on": aktif(cfg), "v": s.get("voice_id"), "m": s.get("model"), "s": s.get("sapaan"),
-                      "x": VERSI_TEKS}, sort_keys=True)
+                      "x": VERSI_TEKS, "g": s.get("mode"), "vs": s.get("voice_settings"),
+                      "1": bool(s.get("sekali_jalan"))}, sort_keys=True)
     return hashlib.sha1(raw.encode()).hexdigest()[:12]
 
 
 def penguat_db(path: Path, target: float = -17.0) -> float:
-    """Gain (dB) supaya rata-rata kekerasan suara ±target dBFS. Suara tiap pengisi suara berbeda kerasnya."""
+    """Gain (dB) supaya rata-rata kekerasan suara ±target dBFS. Suara tiap pengisi suara berbeda kerasnya.
+    Potongan dari pembacaan sekali jalan (<sidik>-f<n>.mp3) sudah disamakan saat dipotong → 0."""
+    if re.search(r"-f\d+\.mp3$", Path(path).name):
+        return 0.0
     err = subprocess.run(["ffmpeg", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"],
                          capture_output=True, text=True).stderr
     for line in err.splitlines():
@@ -236,6 +240,31 @@ def durasi(path: Path) -> float:
     return float(out.strip())
 
 
+def _jeda_terdekat(path: Path, perkiraan: float, kiri: float = 0.6, kanan: float = 0.3) -> float:
+    """Waktu alignment ElevenLabs bisa meleset 0,1–0,3 dtk; potong di titik paling sunyi di sekitarnya
+    (tengah bagian sunyi), supaya tidak memotong awal/akhir kata."""
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+    hop, win = 160, 480
+    a, b = max(0, int((perkiraan - kiri) * 100)), int((perkiraan + kanan) * 100)
+    e = np.array([20 * np.log10(np.sqrt(np.mean(x[i * hop:i * hop + win] ** 2)) + 1e-9)
+                  for i in range(a, min(b, (len(x) - win) // hop))])
+    if not len(e):
+        return perkiraan
+    k = int(np.argmin(e))
+    lo = hi = k
+    while lo > 0 and e[lo - 1] < e[k] + 4:
+        lo -= 1
+    while hi < len(e) - 1 and e[hi + 1] < e[k] + 4:
+        hi += 1
+    return (a + (lo + hi) / 2) * hop / 16000 + win / 2 / 16000
+
+
+BAWAAN = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.15, "use_speaker_boost": True}
+
+
 class Suara:
     def __init__(self, cfg: dict):
         self.cfg = cfg
@@ -243,6 +272,8 @@ class Suara:
         self.on = aktif(cfg)
         self.voice = s.get("voice_id", "")
         self.model = s.get("model") or "eleven_multilingual_v2"
+        self.vs = s.get("voice_settings") or BAWAAN
+        self.sekali = bool(s.get("sekali_jalan"))
         self.key = env("ELEVENLABS_API_KEY")
         self.gagal = False
         if s.get("aktif") and not self.on:
@@ -254,10 +285,8 @@ class Suara:
         path = CACHE / name
         if path.exists() and path.stat().st_size > 1000:
             return path
-        body = {"text": teks, "model_id": self.model,
-                "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "style": 0.15,
-                                   "use_speaker_boost": True}}
-        if "v2_5" in self.model or "flash" in self.model or "turbo" in self.model:
+        body = {"text": teks, "model_id": self.model, "voice_settings": self.vs}
+        if self.model != "eleven_multilingual_v2":
             body["language_code"] = "id"
         r = requests.post(API.format(voice=self.voice), json=body, timeout=120,
                           headers={"xi-api-key": self.key, "accept": "audio/mpeg"})
@@ -267,12 +296,63 @@ class Suara:
         path.write_bytes(r.content)
         return path
 
+    def _sekali(self, lines: list[str]) -> list[Path | None]:
+        """Seluruh naskah dibacakan sekali jalan (intonasi menyambung seperti orang bicara), lalu dipotong
+        per frame di tengah jeda antar-frame memakai waktu per huruf dari ElevenLabs."""
+        isi = [(i, t) for i, t in enumerate(lines) if t]
+        teks = " ".join(t for _, t in isi)
+        key = hashlib.sha1(f"{self.model}|{self.voice}|{json.dumps(self.vs, sort_keys=True)}|{teks}"
+                           .encode()).hexdigest()[:20]
+        full, meta = CACHE / f"{key}.mp3", CACHE / f"{key}.json"
+        segs = {i: CACHE / f"{key}-f{i}.mp3" for i, _ in isi}
+        out: list[Path | None] = [segs.get(i) for i in range(len(lines))]
+        if all(p.exists() and p.stat().st_size > 500 for p in segs.values()):
+            return out
+        if not (full.exists() and meta.exists()):
+            body = {"text": teks, "model_id": self.model, "voice_settings": self.vs}
+            if self.model != "eleven_multilingual_v2":
+                body["language_code"] = "id"
+            r = requests.post(API.replace("?", "/with-timestamps?").format(voice=self.voice), json=body, timeout=180,
+                              headers={"xi-api-key": self.key, "accept": "application/json"})
+            if r.status_code != 200:
+                raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
+            d = r.json()
+            import base64
+            CACHE.mkdir(parents=True, exist_ok=True)
+            full.write_bytes(base64.b64decode(d["audio_base64"]))
+            meta.write_text(json.dumps({"teks": teks, "alignment": d["alignment"]}, ensure_ascii=False))
+        al = json.loads(meta.read_text())["alignment"]
+        st, en = al["character_start_times_seconds"], al["character_end_times_seconds"]
+        total = durasi(full)
+        # batas potong: tengah jeda antara huruf terakhir frame sebelumnya dan huruf ucapan pertama frame ini
+        batas, off, akhir_prev = [], 0, None
+        for i, t in isi:
+            a = off
+            if t.startswith("["):                    # lewati tag emosi, mis. "[warmly] "
+                a = off + t.index("]") + 1
+            while a < off + len(t) - 1 and teks[a] == " ":
+                a += 1
+            batas.append(0.0 if akhir_prev is None else (akhir_prev + st[a]) / 2)
+            akhir_prev = en[off + len(t) - 1]
+            off += len(t) + 1
+        batas = [0.0] + [_jeda_terdekat(full, b) for b in batas[1:]]
+        batas.append(total)
+        gain = penguat_db(full)
+        for (i, _), b0, b1 in zip(isi, batas, batas[1:]):
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(full), "-af",
+                            f"atrim=start={b0:.3f}:end={b1:.3f},asetpts=PTS-STARTPTS,volume={gain:.1f}dB,"
+                            f"afade=t=in:d=0.02,afade=t=out:st={max(0.0, b1 - b0 - 0.04):.3f}:d=0.04",
+                            "-c:a", "libmp3lame", "-b:a", "128k", str(segs[i])], check=True)
+        return out
+
     def frames(self, post: dict) -> list[Path | None]:
         """Satu file suara per frame. [] bila suara mati atau gagal (reel tetap jadi dengan musik)."""
         self.gagal = False
         if not self.on or post.get("format") != "reel":
             return []
         try:
+            if self.sekali:
+                return self._sekali(naskah(post, self.cfg))
             return [self._buat(t) if t else None for t in naskah(post, self.cfg)]
         except Exception as e:  # noqa: BLE001
             self.gagal = True
@@ -283,11 +363,18 @@ class Suara:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--id", required=True)
+    ap.add_argument("--pembuka", action="store_true", help="cetak file suara frame pembuka (membuatnya bila perlu)")
     a = ap.parse_args()
     p = find_post(a.id)
     if not p:
         sys.exit(f"Post {a.id} tidak ditemukan")
     cfg = load_config()
+    if a.pembuka:
+        v = Suara(cfg).frames(p)
+        if not v or not v[0]:
+            sys.exit("suara pembuka tidak bisa dibuat")
+        print(v[0])
+        sys.exit(0)
     lines = naskah(p, cfg)
     for i, line in enumerate(lines):
         print(f"[{i}] {line}")

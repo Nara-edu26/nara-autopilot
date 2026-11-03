@@ -25,12 +25,16 @@
     "aktif": true,
     "voice_id": "kSzQ9oZF2iytkgNNztpH",
     "nama_suara": "Kanna - Warm, Calm and Clear (Voice Library, dipilih pemilik 3 Nov 2026; menggantikan Cahaya)",
-    "model": "eleven_multilingual_v2",
+    "model": "eleven_v4",
+    "mode": "alami_tag",
+    "voice_settings": {"stability": 0.5, "similarity_boost": 0.8},
+    "sekali_jalan": true,
+    "catatan": "Nada 3 dipilih pemilik 3 Nov 2026 18.50: model v4, naskah disambung seperti orang bicara + tag emosi, dibacakan sekali jalan lalu dipotong per frame.",
     "sapaan": "Hai, aku Nara."
   },
   "wajib_tinjau": true,
   "jeda": true,
-  "tahan_render": false,
+  "tahan_render": true,
   "instagram": {
     "api_host": "https://graph.instagram.com",
     "api_versi": "",
