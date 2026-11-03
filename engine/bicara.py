@@ -35,10 +35,49 @@ def clip_for(pid: str, pembuka: Path | None = None) -> Path | None:
     if not (p.exists() and p.stat().st_size > 10_000) or pembuka is None:
         return None
     tag = FOLDER / f"{pid}.suara"
-    if not tag.exists() or tag.read_text().strip() != Path(pembuka).name:
+    if not tag.exists() or tag.read_text().split("\n")[0].strip() != Path(pembuka).name:
         print(f"! {pid}: klip Nara berbicara dibuat dari suara lain; dilewati sampai klip baru dipasang.")
         return None
     return p
+
+
+LEAD = 0.18                       # suara frame pembuka mulai 0,18 dtk setelah reel mulai (render.encode_reel)
+
+
+def _pcm(path: Path, sr: int = 16000, t: float = 6.0):
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-t", f"{t}", "-i", str(path), "-ac", "1", "-ar", str(sr),
+                          "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32)
+
+
+def selaraskan(pid: str, pembuka: Path) -> float:
+    """Ukur selisih waktu suara di klip lip-sync terhadap suara pembuka reel (dengan jeda LEAD), lalu catat di
+    _bicara/<id>.suara (baris 1 nama file suara, baris 2 geser dalam detik; + = klip terlambat → dipotong)."""
+    import numpy as np
+    sr, hop = 16000, 80
+    ref = np.concatenate([np.zeros(int(LEAD * sr), np.float32), _pcm(pembuka, sr)])
+    klip = _pcm(FOLDER / f"{pid}.mp4", sr)
+
+    def env(x):
+        n = len(x) // hop
+        e = np.sqrt((x[:n * hop].reshape(n, hop) ** 2).mean(1))
+        return (e - e.mean()) / (e.std() + 1e-9)
+    a, b = env(ref), env(klip)
+    n = min(len(a), len(b))
+    a, b = a[:n], b[:n]
+    best = max(range(-60, 61), key=lambda d: float(np.dot(a[max(0, -d):n - max(0, d)], b[max(0, d):n - max(0, -d)])))
+    geser = best * hop / sr
+    (FOLDER / f"{pid}.suara").write_text(f"{Path(pembuka).name}\n{geser:.3f}\n")
+    return geser
+
+
+def _geser(pid_or_mask: Path) -> float:
+    tag = pid_or_mask.with_name(pid_or_mask.name.split(".")[0] + ".suara")
+    try:
+        return float(tag.read_text().split("\n")[1])
+    except (OSError, IndexError, ValueError):
+        return 0.0
 
 
 def mask_for(pid: str) -> Path | None:
@@ -60,8 +99,12 @@ def _fades(end: float) -> str:
     return f"fade=t=in:st=0:d=0.25:alpha=1,fade=t=out:st={fo:.3f}:d=0.3:alpha=1"
 
 
-def _trim(end: float) -> str:
-    return f"trim=0:{end:.3f},setpts=PTS-STARTPTS,fps=30"
+def _trim(end: float, geser: float = 0.0) -> str:
+    """Potong [0, end] dari klip; geser > 0 = klip terlambat (buang awal), < 0 = klip terlalu cepat (tahan
+    frame pertama)."""
+    if geser >= 0:
+        return f"trim={geser:.3f}:{geser + end:.3f},setpts=PTS-STARTPTS,fps=30"
+    return f"tpad=start_duration={-geser:.3f}:start_mode=clone,trim=0:{end:.3f},setpts=PTS-STARTPTS,fps=30"
 
 
 # --- gaya "potong" ------------------------------------------------------------------------------
@@ -80,6 +123,7 @@ def _bbox_top(mask: Path) -> float:
 
 
 def _potong(base: Path, talk: Path, mask: Path, dst: Path, end: float, total: float) -> None:
+    g = _geser(mask)
     top = _bbox_top(mask)
     size = int(min(900, (1920 - TOP) / max(0.5, 1 - top)))
     size -= size % 2
@@ -87,9 +131,9 @@ def _potong(base: Path, talk: Path, mask: Path, dst: Path, end: float, total: fl
     rise = 50
     y = f"'{y0}+{rise}*pow(max(0,1-t/0.35),2)'"
     fg = (
-        f"[1:v]{_trim(end)},scale={size}:{size},format=rgba[tv];"
+        f"[1:v]{_trim(end, g)},scale={size}:{size},format=rgba[tv];"
         # masker dikikis ±2 px dan dipertegas supaya sisa latar krem di tepi rambut tidak jadi lingkaran terang
-        f"[2:v]{_trim(end)},scale={size}:{size},format=gray,erosion,erosion,"
+        f"[2:v]{_trim(end, g)},scale={size}:{size},format=gray,erosion,erosion,"
         f"lutyuv=y='clip((val-45)*255/190,0,255)',split[m1][m2];"
         f"[tv][m1]alphamerge,{_fades(end)}[tm];"
         # bayangan lembut di belakang Nara supaya tidak terlihat 'tertempel'
@@ -174,3 +218,12 @@ def overlay(base: Path, talk: Path, dst: Path, end: float, total: float, td: Pat
         _kotak(base, talk, dst, end, total, td)
     else:
         _pudar(base, talk, dst, end, total, td)
+
+
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--selaraskan", nargs=2, metavar=("ID", "SUARA_PEMBUKA"))
+    a = ap.parse_args()
+    if a.selaraskan:
+        print(f"geser {selaraskan(a.selaraskan[0], Path(a.selaraskan[1])):+.3f} dtk")

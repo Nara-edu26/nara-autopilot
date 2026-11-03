@@ -63,7 +63,7 @@ jobs:
           git --work-tree=docs/media checkout origin/media -- _suara 2>/dev/null || true
           git reset -q
           v=$(python engine/suara.py --id "$POST" --pembuka | tail -1)
-          basename "$v" > "docs/media/_bicara/$POST.suara"
+          python engine/bicara.py --selaraskan "$POST" "$v"
           cat "docs/media/_bicara/$POST.suara"
       - name: Tunggu render yang sedang jalan (render menimpa branch media)
         env:
