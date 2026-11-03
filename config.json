@@ -21,8 +21,8 @@
   "label_ai": true,
   "suara": {
     "aktif": true,
-    "voice_id": "iWydkXKoiVtvdn4vLKp9",
-    "nama_suara": "Cahaya - Youthful, Clear and Engaging (Voice Library, dipilih pemilik 3 Nov 2026)",
+    "voice_id": "kSzQ9oZF2iytkgNNztpH",
+    "nama_suara": "Kanna - Warm, Calm and Clear (Voice Library, dipilih pemilik 3 Nov 2026; menggantikan Cahaya)",
     "model": "eleven_multilingual_v2",
     "sapaan": "Hai, aku Nara."
   },
