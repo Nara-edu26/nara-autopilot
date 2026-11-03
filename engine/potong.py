@@ -49,19 +49,26 @@ def _info(src: Path) -> tuple[int, int, str]:
 
 
 def rapikan(src: Path, kasar: Path, dst_mask: Path, dst_depan: Path) -> None:
+    """Dikerjakan per frame (dialirkan lewat ffmpeg) supaya muat di memori kecil."""
     from scipy import ndimage as ndi
     w, h, fps = _info(src)
-    I = _baca(src, "rgb24", 3, w, h).astype(np.float32)
-    A = _baca(kasar, "gray", 1, w, h).astype(np.float32) / 255.0
-    n = min(len(I), len(A))
-    M = np.empty((n, h, w), np.float32)
-    F = np.empty((n, h, w, 3), np.float32)
+    A = _baca(kasar, "gray", 1, w, h)                       # uint8, kecil
+    rd = subprocess.Popen(["ffmpeg", "-v", "error", "-i", str(src), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                          stdout=subprocess.PIPE)
+    wr = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}",
+                           "-r", fps, "-i", "-", "-c:v", "libx264", "-crf", "14", "-pix_fmt", "yuv420p", str(dst_depan)],
+                          stdin=subprocess.PIPE)
+    M = []
     bahu = int(h * 0.805)                      # di bawah garis ini kardigan/kemeja, bukan rambut
-    for k in range(n):
-        im, a = I[k], A[k]
+    sm = lambda x: ndi.gaussian_filter(x[::4, ::4], 12)   # noqa: E731
+    for k in range(len(A)):
+        buf = rd.stdout.read(w * h * 3)
+        if len(buf) < w * h * 3:
+            break
+        im = np.frombuffer(buf, np.uint8).reshape(h, w, 3).astype(np.float32)
+        a = A[k].astype(np.float32) / 255.0
         # warna latar setempat (krem), diburamkan dari piksel latar saja
         wt = (a < 0.05).astype(np.float32)
-        sm = lambda x: ndi.gaussian_filter(x[::4, ::4], 12)   # noqa: E731
         ww = sm(wt) + 1e-4
         B = np.stack([sm(im[..., c] * wt) / ww for c in range(3)], -1)
         B = np.repeat(np.repeat(B, 4, 0), 4, 1)[:h, :w]
@@ -78,12 +85,26 @@ def rapikan(src: Path, kasar: Path, dst_mask: Path, dst_depan: Path) -> None:
         a2 = np.where(rambut, np.minimum(a2, al), a2)
         a2 = ndi.gaussian_filter(a2, 0.8)
         aa = np.clip(a2, 0.25, 1)[..., None]
-        F[k] = np.where((a2 < 0.98)[..., None], np.clip((im - (1 - aa) * B) / aa, 0, 255), im)
-        M[k] = a2
+        f = np.where((a2 < 0.98)[..., None], np.clip((im - (1 - aa) * B) / aa, 0, 255), im)
+        wr.stdin.write(f.astype(np.uint8).tobytes())
+        M.append((np.clip(a2, 0, 1) * 255).astype(np.uint8))
+    rd.stdout.close()
+    rd.wait()
+    wr.stdin.close()
+    if wr.wait() != 0:
+        raise RuntimeError("ffmpeg gagal menulis depan")
+    M = np.stack(M).astype(np.float32) / 255.0
+    # Amplop kepala-sampai-dada: siluet yang ada di sebagian besar frame (median), dilebarkan ±20 px untuk
+    # gerak kepala. Gerakan tangan yang hanya sesaat muncul di luar siluet (dan pecah saat latar dibuang)
+    # ikut terbuang, jadi yang tampil hanya kepala sampai dada.
+    kecil = np.median(M[:, ::4, ::4], axis=0) > 0.5
+    kecil = ndi.binary_dilation(kecil, iterations=5)
+    amplop = np.repeat(np.repeat(kecil.astype(np.float32), 4, 0), 4, 1)[:h, :w]
+    amplop = np.clip(ndi.gaussian_filter(amplop, 5), 0, 1)
+    M *= amplop[None]
     Ms = M.copy()
     Ms[1:-1] = 0.25 * M[:-2] + 0.5 * M[1:-1] + 0.25 * M[2:]
     _tulis((np.clip(Ms, 0, 1) * 255).astype(np.uint8), "gray", w, h, fps, dst_mask, 12)
-    _tulis(F.astype(np.uint8), "rgb24", w, h, fps, dst_depan, 14)
 
 
 def masker(src: Path, dst: Path, model: Path) -> None:
