@@ -35,8 +35,12 @@ def clip_for(pid: str, pembuka: Path | None = None) -> Path | None:
     if not (p.exists() and p.stat().st_size > 10_000) or pembuka is None:
         return None
     tag = FOLDER / f"{pid}.suara"
-    if not tag.exists() or tag.read_text().split("\n")[0].strip() != Path(pembuka).name:
+    baris = tag.read_text().split("\n") if tag.exists() else []
+    if not baris or baris[0].strip() != Path(pembuka).name:
         print(f"! {pid}: klip Nara berbicara dibuat dari suara lain; dilewati sampai klip baru dipasang.")
+        return None
+    if len(baris) < 3 or not baris[2].startswith("qc ok"):
+        print(f"! {pid}: klip Nara berbicara belum lolos pemeriksaan glitch; dilewati.")
         return None
     return p
 
@@ -68,8 +72,62 @@ def selaraskan(pid: str, pembuka: Path) -> float:
     a, b = a[:n], b[:n]
     best = max(range(-60, 61), key=lambda d: float(np.dot(a[max(0, -d):n - max(0, d)], b[max(0, d):n - max(0, -d)])))
     geser = best * hop / sr
-    (FOLDER / f"{pid}.suara").write_text(f"{Path(pembuka).name}\n{geser:.3f}\n")
+    ok, alasan = periksa(FOLDER / f"{pid}.mp4")
+    (FOLDER / f"{pid}.suara").write_text(f"{Path(pembuka).name}\n{geser:.3f}\n{alasan if ok else 'qc gagal: ' + alasan}\n")
+    if not ok:
+        raise SystemExit(f"✗ {pid}: klip ditolak — {alasan}")
     return geser
+
+
+# --- pemeriksa glitch ---------------------------------------------------------------------------
+# Klip lip-sync dibuat dengan Veed Lipsync di atas salah satu video dasar yang sudah disetujui
+# (assets/bicara/dasar-*.mp4: rekaman utuh tanpa tangan, tanpa sambungan). Veed hanya mengganti mulut,
+# jadi di luar area mulut klip harus identik dengan video dasarnya, frame demi frame. Klip yang
+# menyimpang (glitch, lompatan, gambar bertumpuk, bukan dari video dasar resmi) ditolak dan tidak dipakai.
+DASAR = Path(__file__).resolve().parent.parent / "assets" / "bicara"
+
+
+def _abu(path: Path, s: int = 270):
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-vf", f"scale={s}:{s},format=gray",
+                          "-f", "rawvideo", "-"], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.uint8).reshape(-1, s, s).astype(np.float32)
+
+
+def periksa(clip: Path) -> tuple[bool, str]:
+    import numpy as np
+    s = 270
+    o = _abu(clip, s)
+    if len(o) < 60:
+        return False, f"klip terlalu pendek ({len(o)} frame)"
+    luar = np.zeros((s, s), bool)
+    luar[: int(0.40 * s)] = True                     # dahi, mata, rambut atas
+    luar[:, : int(0.20 * s)] = True                  # rambut kiri
+    luar[:, int(0.80 * s):] = True                   # rambut kanan
+    terbaik = None
+    for dasar in sorted(DASAR.glob("dasar-*.mp4")):
+        b = _abu(dasar, s)
+        n = min(len(o), len(b))
+        if n < len(o):
+            continue                                 # klip lebih panjang dari dasarnya: bukan dari dasar ini
+        per = np.array([np.abs(o[t] - b[t])[luar].mean() for t in range(n)])
+        if terbaik is None or per.mean() < terbaik[1].mean():
+            terbaik = (dasar.name, per)
+    if terbaik is None:
+        return False, "tidak ada video dasar yang cocok panjangnya"
+    nama, per = terbaik
+    if np.median(per) > 1.5 or per.max() > 2.5:
+        t = int(per.argmax())
+        return False, (f"di luar mulut menyimpang dari {nama} (median {np.median(per):.2f}, maks {per.max():.2f} "
+                       f"di detik {t / 25:.2f})")
+    y0, y1, x0, x1 = int(0.40 * s), int(0.80 * s), int(0.25 * s), int(0.75 * s)
+    m = o[:, y0:y1, x0:x1]
+    pat = np.abs(m[1:-1] - 0.5 * (m[:-2] + m[2:])).mean((1, 2))
+    med = float(np.median(pat))
+    if pat.max() > 12 or pat.max() > 5 * max(med, 1.0):
+        t = int(pat.argmax()) + 1
+        return False, f"gerak mulut patah di detik {t / 25:.2f} (patahan {pat.max():.2f}, median {med:.2f})"
+    return True, f"qc ok {nama} (luar mulut maks {per.max():.2f}, patahan mulut maks {pat.max():.2f})"
 
 
 def _geser(pid_or_mask: Path) -> float:
@@ -224,6 +282,11 @@ if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--selaraskan", nargs=2, metavar=("ID", "SUARA_PEMBUKA"))
+    ap.add_argument("--periksa", metavar="KLIP")
     a = ap.parse_args()
+    if a.periksa:
+        ok, alasan = periksa(Path(a.periksa))
+        print(("✓ " if ok else "✗ ") + alasan)
+        raise SystemExit(0 if ok else 1)
     if a.selaraskan:
         print(f"geser {selaraskan(a.selaraskan[0], Path(a.selaraskan[1])):+.3f} dtk")
