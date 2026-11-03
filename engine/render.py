@@ -136,7 +136,8 @@ class Renderer:
                 starts = clip_starts(clips)
                 total = sum(d for _, d in clips) - XFADE * (len(clips) - 1)
                 end = min(suara.durasi(talk), (starts[1] + XFADE) if len(starts) > 1 else total)
-                bicara.overlay(base, talk, out / "reel.mp4", end, total, td)
+                bicara.overlay(base, talk, out / "reel.mp4", end, total, td,
+                               gaya=self.cfg["brand"].get("bicara_gaya", "potong"), mask=bicara.mask_for(post["id"]))
                 return
             if not self.animasi:
                 encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)
@@ -238,8 +239,11 @@ def content_hash(post: dict) -> str:
     keep["_bicara"] = ""
     if cfg["brand"].get("avatar_bicara") and post.get("format") == "reel":
         clip = MEDIA_DIR / "_bicara" / f"{post.get('id')}.mp4"
+        mask = MEDIA_DIR / "_bicara" / f"{post.get('id')}.masker.mp4"
         keep["_bicara"] = hashlib.sha1((ROOT / "engine" / "bicara.py").read_bytes()
-                                       + (clip.read_bytes() if clip.exists() else b"")).hexdigest()[:12]
+                                       + str(cfg["brand"].get("bicara_gaya", "potong")).encode()
+                                       + (clip.read_bytes() if clip.exists() else b"")
+                                       + (mask.read_bytes() if mask.exists() else b"")).hexdigest()[:12]
     keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
