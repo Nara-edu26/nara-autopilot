@@ -17,6 +17,10 @@ on:
         description: "model_id"
         required: false
         default: "eleven_multilingual_v2"
+      cari:
+        description: "kata kunci Voice Library dipisah koma (untuk aksi daftar)"
+        required: false
+        default: ""
       post:
         description: "id post yang naskahnya dibacakan"
         required: false
@@ -42,6 +46,7 @@ jobs:
           VOICE: ${{ inputs.voice }}
           MODEL: ${{ inputs.model }}
           POST: ${{ inputs.post }}
+          CARI: ${{ inputs.cari }}
         run: python engine/suara_contoh.py "$AKSI" --voice "$VOICE" --model "$MODEL" --post "$POST"
       - name: Simpan hasil ke branch suara-contoh (bisa diambil lewat git)
         if: always()
