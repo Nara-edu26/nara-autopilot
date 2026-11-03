@@ -29,7 +29,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, iter_posts, load_config, media_dir, media_files, slot_aktif, today_wib  # noqa: E402
 from validate import validate_post  # noqa: E402
 import suara  # noqa: E402
-import avatar as avatar_anim  # noqa: E402
 
 TEMPLATE = ROOT / "engine" / "templates" / "frame.html"
 MUSIC = ROOT / "assets" / "music"
@@ -130,6 +129,7 @@ class Renderer:
             box = self.page.evaluate("""() => { const i = document.querySelector('.presenter img');
                 if (!i) return null; const r = i.getBoundingClientRect();
                 return [r.x + r.width / 2, r.y + r.height / 2, r.width / 2 - 6]; }""")
+            import avatar as avatar_anim  # butuh numpy & Pillow; diimpor hanya saat animasi aktif
             base = td / "dasar.mp4"
             encode_reel(clips, base, pick_music(post["id"]), cues)
             starts = clip_starts(clips)
