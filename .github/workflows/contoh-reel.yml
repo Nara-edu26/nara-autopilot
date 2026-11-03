@@ -8,6 +8,10 @@ on:
       post:
         description: "id post, mis. 2026-11-03-malam"
         required: true
+      bicara_url:
+        description: "opsional: tautan unduhan video lip-sync (mp4) untuk frame pembuka post ini"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -28,8 +32,19 @@ jobs:
           if git ls-remote --exit-code --heads origin media >/dev/null 2>&1; then
             git fetch --depth 1 origin media
             git --work-tree=docs/media checkout origin/media -- _suara 2>/dev/null || true
+            git --work-tree=docs/media checkout origin/media -- _bicara 2>/dev/null || true
             git reset -q
           fi
+      - name: Unduh video Nara berbicara (bila tautan diisi)
+        if: inputs.bicara_url != ''
+        env:
+          URL: ${{ inputs.bicara_url }}
+          POST: ${{ inputs.post }}
+        run: |
+          mkdir -p docs/media/_bicara
+          curl -sSfL --retry 3 -o "docs/media/_bicara/$POST.mp4" "$URL"
+          ls -l "docs/media/_bicara/$POST.mp4"
+          head -c 12 "docs/media/_bicara/$POST.mp4" | od -c | head -1
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -50,6 +65,7 @@ jobs:
           POST: ${{ inputs.post }}
         run: |
           mkdir -p out && cp -r "docs/media/$POST" out/ && cp -r docs/media/_suara out/ 2>/dev/null || true
+          cp -r docs/media/_bicara out/ 2>/dev/null || true
           cd out
           git init -q -b contoh-reel
           git config user.name "nara-autopilot[bot]"
