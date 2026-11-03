@@ -1,0 +1,52 @@
+name: Suara contoh (ElevenLabs)
+# Dijalankan manual. "daftar" = lihat model & suara yang tersedia; "contoh" = buat mp3 contoh untuk voice_id tertentu.
+# Kunci API hanya dibaca dari secret ELEVENLABS_API_KEY; hasil diunggah sebagai artifact "suara".
+
+on:
+  workflow_dispatch:
+    inputs:
+      aksi:
+        description: "daftar atau contoh"
+        required: true
+        default: "daftar"
+      voice:
+        description: "voice_id dipisah koma (untuk aksi contoh)"
+        required: false
+        default: ""
+      model:
+        description: "model_id"
+        required: false
+        default: "eleven_multilingual_v2"
+      post:
+        description: "id post yang naskahnya dibacakan"
+        required: false
+        default: "2026-11-03-siang"
+
+permissions:
+  contents: read
+
+jobs:
+  suara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests==2.32.3
+      - name: Jalankan
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          AKSI: ${{ inputs.aksi }}
+          VOICE: ${{ inputs.voice }}
+          MODEL: ${{ inputs.model }}
+          POST: ${{ inputs.post }}
+        run: python engine/suara_contoh.py "$AKSI" --voice "$VOICE" --model "$MODEL" --post "$POST"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suara
+          path: suara/
+          if-no-files-found: ignore
+          retention-days: 7
