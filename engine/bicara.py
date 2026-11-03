@@ -160,7 +160,8 @@ def overlay(base: Path, talk: Path, dst: Path, end: float, total: float, td: Pat
             gaya: str = "potong", mask: Path | None = None) -> None:
     """Tumpuk video bicara di [0, end]: muncul 0,25 dtk, hilang 0,3 dtk."""
     if gaya == "potong" and mask:
-        _potong(base, talk, mask, dst, end, total)
+        depan = mask.with_name(mask.name.replace(".masker.mp4", ".depan.mp4"))   # warna tepi sudah dibersihkan
+        _potong(base, depan if depan.exists() else talk, mask, dst, end, total)
     elif gaya == "kotak":
         _kotak(base, talk, dst, end, total, td)
     else:

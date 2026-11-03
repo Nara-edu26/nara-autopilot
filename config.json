@@ -7,6 +7,7 @@
     "avatar": "assets/nara-avatar.jpg",
     "avatar_animasi": false,
     "avatar_bicara": true,
+    "bicara_gaya": "potong",
     "sapaan": "Hai, aku Nara",
     "peran": "Karakter AI yang bantu gajimu"
   },
@@ -29,7 +30,7 @@
   },
   "wajib_tinjau": true,
   "jeda": true,
-  "tahan_render": true,
+  "tahan_render": false,
   "instagram": {
     "api_host": "https://graph.instagram.com",
     "api_versi": "",

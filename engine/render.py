@@ -243,7 +243,10 @@ def content_hash(post: dict) -> str:
         keep["_bicara"] = hashlib.sha1((ROOT / "engine" / "bicara.py").read_bytes()
                                        + str(cfg["brand"].get("bicara_gaya", "potong")).encode()
                                        + (clip.read_bytes() if clip.exists() else b"")
-                                       + (mask.read_bytes() if mask.exists() else b"")).hexdigest()[:12]
+                                       + (mask.read_bytes() if mask.exists() else b"")
+                                       + (mask.with_name(f"{post.get('id')}.depan.mp4").read_bytes()
+                                          if mask.with_name(f"{post.get('id')}.depan.mp4").exists() else b"")
+                                       ).hexdigest()[:12]
     keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
