@@ -49,7 +49,12 @@
           "expr": "240000*12",
           "expect": 2880000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "d1400e3e06245b82",
+        "pada": "2026-11-06T00:24+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -107,7 +112,12 @@
         "danadarurat",
         "gajian",
         "aturuang"
-      ]
+      ],
+      "disetujui": {
+        "hash": "14904347759d914d",
+        "pada": "2026-11-06T00:24+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }

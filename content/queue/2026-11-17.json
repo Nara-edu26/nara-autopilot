@@ -44,7 +44,12 @@
           "expr": "400000/4",
           "expect": 100000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "e4dc07dc20c300a6",
+        "pada": "2026-11-06T00:24+07:00",
+        "oleh": "Nara-edu26"
+      }
     },
     {
       "slot": "malam",
@@ -95,7 +100,12 @@
           "expr": "300000*12",
           "expect": 3600000
         }
-      ]
+      ],
+      "disetujui": {
+        "hash": "f3f9bea68af53273",
+        "pada": "2026-11-06T00:24+07:00",
+        "oleh": "Nara-edu26"
+      }
     }
   ]
 }
