@@ -1,5 +1,20 @@
 # Catatan mingguan mesin konten Nara
 
+## 5 Nov 2026 · batch 16–22 Nov (Hari 22–28)
+
+Ditulis dari sesi Claude utama. Format baru sejak 3 Nov: 14 post/minggu (slot pagi nonaktif), reel dibacakan suara Nara (Nada 3).
+
+- Tanggal diisi: 16–22 Nov 2026, 14 post, semua berstatus "menunggu".
+- Tulang punggung (malam): Hari 22 F (SUDAH/total), 23 A (BOCOR), 24 B (carousel dana darurat), 25 S (cara membaca Kalkulator, BOCOR), 26 E, 27 D, 28 B (carousel checklist gajian).
+- Tambahan siang (reel): 2 A · 2 D · 2 E · 1 S (Template 5 Pos, Minggu 22 Nov, menjelang gajian 25).
+- CTA beli: 1 (TEMPLATE). Lead magnet BOCOR: 3.
+- Data: laporan 4 Nov pertama kali cukup (21 post dinilai, median reach 22). Sinyal minggu pertama: D 2,43× median, reel 1,36×, carousel 0,20×, B 0,20×. Aturan penyesuaian butuh dua minggu berturut-turut, jadi belum diterapkan. Bila laporan berikutnya mengulang pola ini: tambah D, dan uji pola B sebagai reel satu minggu.
+- Catatan: `jeda: true` sejak 3 Nov (menunggu balasan "terbit" pemilik setelah pratinjau suara/lip-sync).
+- Pertanyaan audiens: komentar masih 0.
+- Validasi: `python3 engine/validate.py --semua` → 77 post dicek, 0 gagal.
+
+Tinjau dan setujui di https://nara-edu26.github.io/nara-autopilot/tinjau/ sebelum 16 Nov 2026 12.07 WIB.
+
 ## 29 Okt 2026 · batch 9–15 Nov (Hari 15–21)
 
 Ditulis dari sesi Claude utama (tugas terjadwal sesi baru masih nonaktif: tidak bisa push).
