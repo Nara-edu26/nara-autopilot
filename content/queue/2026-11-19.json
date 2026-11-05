@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-19",
+  "posts": [
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "iuran kado kantor",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Relate",
+          "title": "Grup kantor: \"Iuran kado ulang tahun, ya!\"",
+          "sub": "Ketiga kalinya bulan ini."
+        },
+        {
+          "type": "number",
+          "label": "Bulan ini",
+          "eq": "Rp50.000 × 3",
+          "value": "Rp150.000",
+          "note": "Nggak direncanakan, tapi nggak enak menolak."
+        },
+        {
+          "type": "point",
+          "title": "Bikin **jatah iuran** di Pos Bebas",
+          "body": "Iuran kantor itu rutin, jadi kasih jatah tiap bulan. Kalau nggak terpakai, sisanya bonus."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman sekantor",
+          "body": "Tag teman yang selalu jadi **bendahara iuran**.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Iuran kado kantor Rp50.000, tiga kali bulan ini = Rp150.000.\nNggak direncanakan, tapi nggak enak menolak.\nKasih jatah iuran tiap bulan di Pos Bebas.\nTag teman yang selalu jadi bendahara iuran.",
+      "hashtags": [
+        "keuanganpribadi",
+        "relate",
+        "anakkantor",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "50000*3",
+          "expect": 150000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "spine_day": 25,
+      "topic": "membaca hasil Kalkulator Kebocoran",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kalkulator Kebocoran",
+          "title": "Hasil kalkulatormu **tinggi**? Ini cara membacanya",
+          "sub": "Angka besar bukan vonis. Itu peta."
+        },
+        {
+          "type": "list",
+          "title": "Tiga langkah",
+          "items": [
+            "Urutkan kebiasaan dari yang paling besar",
+            "Pilih satu saja, potong setengahnya",
+            "Yang lain biarkan dulu bulan ini"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Contoh: kebiasaan terbesar",
+          "eq": "Rp200.000 ÷ 2",
+          "value": "Rp100.000",
+          "note": "Hemat Rp100.000 sebulan dari satu kebiasaan, tanpa berhenti total."
+        },
+        {
+          "type": "statement",
+          "text": "Satu kebiasaan yang berubah **lebih kuat** dari lima yang dicoba sekaligus.",
+          "sub": "Bulan depan, baru pilih yang kedua."
+        },
+        {
+          "type": "cta",
+          "title": "Belum coba kalkulatornya?",
+          "body": "Komen **BOCOR**, aku kirim gratis lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Hasil Kalkulator Kebocoranmu tinggi? Itu peta, bukan vonis.\nUrutkan dari yang terbesar, pilih satu, potong setengahnya.\nContoh: Rp200.000 jadi Rp100.000 sebulan.\nKomen BOCOR untuk kalkulatornya.",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "200000/2",
+          "expect": 100000
+        }
+      ]
+    }
+  ]
+}

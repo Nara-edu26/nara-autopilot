@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-20",
+  "posts": [
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "E",
+      "topic": "servis motor rutin",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Servis motor **Rp450 ribu** tiap 3 bulan",
+          "sub": "Selalu terasa mendadak, padahal jadwalnya sudah tahu."
+        },
+        {
+          "type": "number",
+          "label": "Per bulan",
+          "eq": "Rp450.000 ÷ 3",
+          "value": "Rp150.000"
+        },
+        {
+          "type": "number",
+          "label": "Per minggu (±12 minggu)",
+          "eq": "Rp450.000 ÷ 12",
+          "value": "Rp37.500",
+          "note": "Taruh di pos tahunan, jangan ambil dari dana darurat."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan dulu",
+          "body": "Biaya rutin apa yang **selalu terasa mendadak**? Tulis di komen.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Servis motor Rp450.000 tiap 3 bulan selalu terasa mendadak.\nPecah jadi Rp150.000 per bulan, atau Rp37.500 per minggu.\nTaruh di pos tahunan.\nSimpan dulu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "targetkeuangan",
+        "motor",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "450000/3",
+          "expect": 150000
+        },
+        {
+          "expr": "450000/12",
+          "expect": 37500
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "spine_day": 26,
+      "topic": "lima persen gaji",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Pecah target",
+          "title": "Gaji **Rp4,5 juta**, sisihkan 5 persen",
+          "sub": "Kedengarannya kecil. Coba lihat per hari."
+        },
+        {
+          "type": "number",
+          "label": "Per bulan",
+          "eq": "Rp4.500.000 × 5%",
+          "value": "Rp225.000"
+        },
+        {
+          "type": "number",
+          "label": "Per hari",
+          "eq": "Rp225.000 ÷ 30",
+          "value": "Rp7.500",
+          "note": "Kira-kira harga satu gorengan dan teh. Kirim di hari gajian, sebelum belanja apa pun."
+        },
+        {
+          "type": "statement",
+          "text": "Menabung terasa kecil kalau **dipecah**.",
+          "sub": "Mulai 5 persen. Itu panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan untuk hari gajian",
+          "body": "Gajianmu tanggal berapa? Tulis **tanggalnya** di komen.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Gaji Rp4.500.000, sisihkan 5 persen = Rp225.000 sebulan.\nPer hari cuma Rp7.500.\nKirim di hari gajian, sebelum belanja apa pun.\nSimpan untuk hari gajian.",
+      "hashtags": [
+        "keuanganpribadi",
+        "menabung",
+        "gajian",
+        "aturuang"
+      ],
+      "calc": [
+        {
+          "expr": "4500000*5/100",
+          "expect": 225000
+        },
+        {
+          "expr": "225000/30",
+          "expect": 7500
+        }
+      ]
+    }
+  ]
+}

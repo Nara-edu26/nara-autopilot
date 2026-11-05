@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-18",
+  "posts": [
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "A",
+      "topic": "camilan minimarket",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hitung kebocoran",
+          "title": "Camilan minimarket **Rp15 ribu**",
+          "sub": "Empat kali seminggu, pulang kerja."
+        },
+        {
+          "type": "number",
+          "label": "Sebulan",
+          "eq": "Rp15.000 × 4 × 4",
+          "value": "Rp240.000"
+        },
+        {
+          "type": "number",
+          "label": "Setahun",
+          "eq": "Rp240.000 × 12",
+          "value": "Rp2.880.000",
+          "note": "Camilannya boleh. Kasih jatah, jangan dianggap receh."
+        },
+        {
+          "type": "cta",
+          "title": "Camilan favoritmu apa?",
+          "body": "Tulis di komen, nanti aku **hitungkan**.",
+          "pill": "Tulis di komen"
+        }
+      ],
+      "caption": "Camilan minimarket Rp15.000, empat kali seminggu.\nSebulan Rp240.000, setahun Rp2.880.000.\nCamilannya boleh. Kasih jatah resmi.\nCamilan favoritmu apa?",
+      "hashtags": [
+        "keuanganpribadi",
+        "kebocorankecil",
+        "jajan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "15000*4*4",
+          "expect": 240000
+        },
+        {
+          "expr": "240000*12",
+          "expect": 2880000
+        }
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 24,
+      "topic": "kapan dana darurat boleh dipakai",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hari 24",
+          "title": "Dana darurat: **4 alasan** boleh dipakai, 4 yang bukan",
+          "sub": "Biar nggak habis untuk yang \"terasa\" darurat."
+        },
+        {
+          "type": "list",
+          "title": "Boleh dipakai",
+          "items": [
+            "Kehilangan penghasilan",
+            "Sakit atau kecelakaan yang tidak ditanggung",
+            "Perbaikan mendesak untuk kerja (motor, laptop)",
+            "Keluarga inti butuh bantuan mendadak"
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Bukan darurat",
+          "items": [
+            "Promo besar yang \"cuma setahun sekali\"",
+            "Liburan dadakan bareng teman",
+            "HP baru karena yang lama lambat",
+            "Tagihan yang sebenarnya sudah tahu dari jauh hari"
+          ]
+        },
+        {
+          "type": "point",
+          "title": "Tagihan yang sudah tahu? Masuk **pos tahunan**",
+          "body": "Pajak kendaraan, iuran tahunan, perpanjangan dokumen. Dicicil tiap bulan, bukan diambil dari dana darurat."
+        },
+        {
+          "type": "statement",
+          "text": "Kalau terpakai, **isi ulang dulu** sebelum target lain.",
+          "sub": "Dana darurat itu bantalan, bukan tabungan belanja."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan sebelum kepakai",
+          "body": "Kirim ke teman yang dana daruratnya **sering bocor**.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Dana darurat boleh dipakai untuk: kehilangan penghasilan, sakit, perbaikan mendesak untuk kerja, dan keluarga inti yang butuh bantuan.\nBukan untuk promo, liburan dadakan, atau HP baru.\nKalau terpakai, isi ulang dulu.\nSimpan dulu.",
+      "hashtags": [
+        "keuanganpribadi",
+        "danadarurat",
+        "gajian",
+        "aturuang"
+      ]
+    }
+  ]
+}

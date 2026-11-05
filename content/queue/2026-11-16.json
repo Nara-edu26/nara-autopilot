@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-16",
+  "posts": [
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "D",
+      "topic": "cek saldo senin pagi",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "POV",
+          "title": "Senin pagi, buka saldo sambil **tahan napas**",
+          "sub": "Akhir pekan kemarin rasanya biasa saja."
+        },
+        {
+          "type": "statement",
+          "text": "Lihat saldo setelah akhir pekan rasanya kayak **buka rapor**.",
+          "sub": "Kaget, padahal semuanya kamu sendiri yang beli."
+        },
+        {
+          "type": "point",
+          "title": "Cek sebentar tiap **Jumat sore**",
+          "body": "Satu menit lihat sisa jatah sebelum akhir pekan. Senin pagi jadi nggak ada kejutan."
+        },
+        {
+          "type": "cta",
+          "title": "Tag teman yang sama",
+          "body": "Tag teman yang tiap Senin **kaget lihat saldo**.",
+          "pill": "Tag 1 teman"
+        }
+      ],
+      "caption": "Senin pagi, buka saldo sambil tahan napas.\nKagetnya karena akhir pekan nggak dicek.\nCoba cek satu menit tiap Jumat sore.\nTag teman yang tiap Senin kaget lihat saldo.",
+      "hashtags": [
+        "keuanganpribadi",
+        "relate",
+        "gajian",
+        "tanggaltua"
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "F",
+      "spine_day": 22,
+      "topic": "transaksi kecil seminggu",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tantangan",
+          "title": "Hitung semua belanja di bawah **Rp50 ribu** minggu lalu",
+          "sub": "Lima menit. Dari riwayat transaksimu."
+        },
+        {
+          "type": "statement",
+          "text": "Yang kecil-kecil itu yang **paling sering lolos**.",
+          "sub": "Satu-satu nggak terasa. Dijumlah, baru kelihatan."
+        },
+        {
+          "type": "list",
+          "title": "Caranya",
+          "items": [
+            "Buka riwayat transaksi 7 hari terakhir",
+            "Tandai semua yang di bawah Rp50.000",
+            "Jumlahkan semuanya",
+            "Bandingkan dengan jatah Pos Hidup mingguanmu"
+          ]
+        },
+        {
+          "type": "cta",
+          "title": "Berapa totalnya?",
+          "body": "Tulis **totalnya** di komen. Nggak usah malu, ini latihan.",
+          "pill": "Komen totalnya"
+        }
+      ],
+      "caption": "Tantangan malam ini: hitung semua belanja di bawah Rp50.000 minggu lalu.\nSatu-satu nggak terasa. Dijumlah, baru kelihatan.\nBandingkan dengan jatah Pos Hidup mingguanmu.\nTulis totalnya di komen.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tantangan",
+        "kebocorankecil",
+        "gajian"
+      ],
+      "given": [
+        50000
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-22",
+  "posts": [
+    {
+      "slot": "siang",
+      "format": "reel",
+      "pattern": "S",
+      "topic": "Template 5 Pos sebelum gajian",
+      "evergreen": false,
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Template 5 Pos",
+          "title": "Gajian tanggal 25? Siapkan **pembagiannya** hari ini",
+          "sub": "Biar hari gajian tinggal transfer, nggak mikir lagi."
+        },
+        {
+          "type": "list",
+          "title": "Yang dihitung otomatis",
+          "items": [
+            "Jatah tiap pos dalam rupiah",
+            "Sisa tiap pos setiap kali kamu mencatat",
+            "Jatah aman per hari sampai gajian berikutnya"
+          ]
+        },
+        {
+          "type": "statement",
+          "text": "Rp29.000 sekali beli. Bisa dibuka di **Google Sheets** dan Excel.",
+          "sub": "Persen 5 pos adalah panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tautannya?",
+          "body": "Komen **TEMPLATE**, aku kirim lewat DM.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Gajian tanggal 25? Siapkan pembagiannya hari ini.\nTemplate 5 Pos menghitung jatah tiap pos, sisanya, dan jatah aman per hari.\nRp29.000 sekali beli.\nKomen TEMPLATE untuk tautannya.",
+      "hashtags": [
+        "keuanganpribadi",
+        "templatekeuangan",
+        "gajian",
+        "aturuang"
+      ],
+      "given": [
+        29000
+      ]
+    },
+    {
+      "slot": "malam",
+      "format": "carousel",
+      "pattern": "B",
+      "spine_day": 28,
+      "topic": "checklist hari gajian",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Hari 28",
+          "title": "Checklist hari gajian: **4 langkah** sebelum belanja apa pun",
+          "sub": "Urutannya yang bikin beda."
+        },
+        {
+          "type": "point",
+          "n": "1",
+          "title": "Kirim **Masa Depan** duluan",
+          "body": "Mulai 5 persen. Pindahkan ke kantong terpisah sebelum yang lain."
+        },
+        {
+          "type": "point",
+          "n": "2",
+          "title": "Bayar **Pos Wajib**",
+          "body": "Kos, listrik, tagihan rutin. Yang pasti datang, dibayar di awal."
+        },
+        {
+          "type": "point",
+          "n": "3",
+          "title": "Lunasi **Pos Cicilan**",
+          "body": "Cicilan dan bayar nanti bulan ini. Jangan tambah yang baru sebelum lunas."
+        },
+        {
+          "type": "point",
+          "n": "4",
+          "title": "Pisahkan **Pos Hidup minggu pertama**",
+          "body": "Bagi Pos Hidup jadi 4. Ambil jatah minggu ini saja, sisanya disimpan dulu."
+        },
+        {
+          "type": "statement",
+          "text": "Belanja datang **terakhir**, bukan pertama.",
+          "sub": "Persen tiap pos adalah panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Simpan untuk tanggal 25",
+          "body": "Buka lagi **di hari gajian**, centang satu per satu.",
+          "pill": "Simpan dulu"
+        }
+      ],
+      "caption": "Checklist hari gajian, sebelum belanja apa pun:\n1. Kirim Masa Depan duluan.\n2. Bayar Pos Wajib.\n3. Lunasi Pos Cicilan.\n4. Pisahkan Pos Hidup minggu pertama.",
+      "hashtags": [
+        "keuanganpribadi",
+        "gajian",
+        "checklist",
+        "aturuang"
+      ]
+    }
+  ]
+}
