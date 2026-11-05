@@ -51,10 +51,21 @@ jobs:
           cache: pip
           cache-dependency-path: engine/requirements.txt
       - name: Pasang Chromium & ffmpeg
+        # apt-get di runner GitHub kadang macet puluhan menit: utamakan jalur tanpa apt, semua dibatasi waktu.
+        timeout-minutes: 15
         run: |
-          pip install -r engine/requirements.txt
-          python -m playwright install --with-deps chromium
-          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          timeout 300 pip install -q -r engine/requirements.txt
+          # runner ubuntu sudah membawa pustaka Chrome; --with-deps (apt) hanya cadangan
+          timeout 300 python -m playwright install chromium || timeout 420 python -m playwright install --with-deps chromium
+          if ! which ffmpeg >/dev/null; then
+            mkdir -p "$HOME/ffmpeg"
+            if timeout 180 curl -sSfL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
+                 | tar -xJ -C "$HOME/ffmpeg" --strip-components=1; then
+              echo "$HOME/ffmpeg" >> "$GITHUB_PATH"
+            else
+              timeout 300 sudo apt-get update -qq && timeout 300 sudo apt-get install -y -qq ffmpeg
+            fi
+          fi
       - name: Render satu post
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
