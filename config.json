@@ -33,7 +33,7 @@
     "sapaan": "Hai, aku Nara."
   },
   "wajib_tinjau": true,
-  "jeda": true,
+  "jeda": false,
   "tahan_render": false,
   "instagram": {
     "api_host": "https://graph.instagram.com",
