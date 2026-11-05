@@ -17,8 +17,10 @@ permissions:
   contents: write
   actions: write
 
+# Satu antrean per post: GitHub hanya menyimpan satu run menunggu per grup, jadi grup bersama membatalkan
+# klip lain yang dikirim berdekatan. Tabrakan push ke branch media ditangani dengan coba ulang di bawah.
 concurrency:
-  group: bicara
+  group: bicara-${{ inputs.post }}
   cancel-in-progress: false
 
 jobs:
@@ -80,14 +82,20 @@ jobs:
         env:
           POST: ${{ inputs.post }}
         run: |
-          git fetch --depth 1 origin +media:refs/remotes/origin/media
-          git worktree add -f ../media origin/media
-          mkdir -p ../media/_bicara
-          cp docs/media/_bicara/"$POST".* ../media/_bicara/
-          cd ../media
-          git config user.name "nara-autopilot[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _bicara && git commit -q -m "bicara: $POST" && git push -q origin HEAD:media
+          git config --global user.name "nara-autopilot[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for coba in 1 2 3 4 5 6; do
+            git fetch -q --depth 1 origin +media:refs/remotes/origin/media
+            rm -rf ../media; git worktree prune
+            git worktree add -q -f ../media origin/media
+            mkdir -p ../media/_bicara
+            cp docs/media/_bicara/"$POST".* ../media/_bicara/
+            if (cd ../media && git add _bicara && git commit -q -m "bicara: $POST" && git push -q origin HEAD:media); then
+              echo "tersimpan (percobaan $coba)"; exit 0
+            fi
+            echo "push bertabrakan, coba lagi..."; sleep $((10 * coba))
+          done
+          echo "::error::gagal menyimpan klip ke branch media"; exit 1
       - name: Render ulang
         env:
           GH_TOKEN: ${{ github.token }}
