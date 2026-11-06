@@ -1,36 +1,36 @@
-# Laporan performa Nara · 2026-11-05
+# Laporan performa Nara · 2026-11-06
 
-Post terbit: 25 · punya data: 25 · sudah ≥72 jam (dinilai): 24
+Post terbit: 27 · punya data: 27 · sudah ≥72 jam (dinilai): 25
 Follower: 4 (awal data 2026-10-21: 1).
 
-Median reach akun: **19**
+Median reach akun: **16**
 
 ## Per pola
 
 | pola | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| D | 4 | 54 | 2.82 | 0.0 | 0.0 |
-| F | 1 | 27 | 1.42 | 0.0 | 0.0 |
-| E | 4 | 26 | 1.39 | 0.0 | 0.0 |
-| C | 2 | 26 | 1.39 | 0.0 | 0.0 |
-| S | 2 | 20 | 1.08 | 0.0 | 0.0 |
-| A | 6 | 18 | 0.97 | 0.0 | 0.0 |
-| B | 5 | 7 | 0.37 | 0.0 | 0.0 |
+| D | 5 | 30 | 1.88 | 0.0 | 0.0 |
+| F | 1 | 27 | 1.69 | 0.0 | 0.0 |
+| E | 4 | 26 | 1.66 | 0.0 | 0.0 |
+| C | 2 | 26 | 1.66 | 0.0 | 0.0 |
+| S | 2 | 20 | 1.28 | 0.0 | 0.0 |
+| A | 6 | 18 | 1.16 | 0.0 | 0.0 |
+| B | 5 | 7 | 0.44 | 0.0 | 0.0 |
 
 ## Per format
 
 | format | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| reel | 15 | 30 | 1.58 | 0.0 | 0.0 |
-| carousel | 9 | 7 | 0.37 | 0.0 | 0.0 |
+| reel | 16 | 28 | 1.78 | 0.0 | 0.0 |
+| carousel | 9 | 7 | 0.44 | 0.0 | 0.0 |
 
 ## Per slot
 
 | slot | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| malam | 8 | 34 | 1.79 | 0.0 | 0.0 |
-| siang | 8 | 24 | 1.29 | 0.0 | 0.0 |
-| pagi | 8 | 5 | 0.26 | 0.0 | 0.0 |
+| malam | 8 | 34 | 2.12 | 0.0 | 0.0 |
+| siang | 9 | 23 | 1.44 | 0.0 | 0.0 |
+| pagi | 8 | 5 | 0.31 | 0.0 | 0.0 |
 
 ## Pemenang (reach ≥ 5× median) → buat 3 variasi dalam 7 hari
 
