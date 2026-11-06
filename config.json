@@ -35,6 +35,7 @@
   "wajib_tinjau": true,
   "jeda": false,
   "tahan_render": false,
+  "tiktok": {"mulai": "2026-11-06", "catatan": "Halaman unggah manual docs/tiktok/. Mulai 6 Nov: reel bersuara Nada 3 saja (aturan pemilik: jangan campur suara)."},
   "instagram": {
     "api_host": "https://graph.instagram.com",
     "api_versi": "",

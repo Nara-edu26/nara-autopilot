@@ -101,6 +101,9 @@ jobs:
       - name: Halaman tinjau (post yang menunggu persetujuan)
         run: python engine/tinjau.py
 
+      - name: Halaman unggah TikTok (reel yang sama, diunggah manual)
+        run: python engine/tiktok.py
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
