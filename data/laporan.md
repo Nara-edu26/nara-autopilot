@@ -1,6 +1,6 @@
-# Laporan performa Nara · 2026-11-06
+# Laporan performa Nara · 2026-11-07
 
-Post terbit: 27 · punya data: 27 · sudah ≥72 jam (dinilai): 25
+Post terbit: 29 · punya data: 29 · sudah ≥72 jam (dinilai): 25
 Follower: 4 (awal data 2026-10-21: 1).
 
 Median reach akun: **16**
