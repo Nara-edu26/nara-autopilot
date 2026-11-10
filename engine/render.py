@@ -117,6 +117,23 @@ class Renderer:
         else:
             self.page.screenshot(path=str(out), type="png", clip=clip)
 
+    def shot_depan(self, fr: dict, total: int, out: Path) -> bool:
+        """Gaya baru: benda di frame pembuka saja, latar transparan (ditumpuk di atas Nara yang berbicara)."""
+        self.shot("reel", fr, 0, total, 1, out, False, talker=True)
+        if not self.page.evaluate("() => lapisanDepan()"):
+            return False
+        self.page.screenshot(path=str(out), type="png", omit_background=True,
+                             clip={"x": 0, "y": 0, "width": 1080, "height": 1920})
+        return True
+
+    def geometri_bicara(self, fr: dict) -> dict | None:
+        """Posisi Nara berbicara = posisi foto Nara di cover gaya baru (lebar 1000 px, menempel di bawah).
+        Kanan: pusat x 810; kiri: pusat x 270. Puncak kepala di y 962 (tinggi foto 958 px)."""
+        if not self.seri:
+            return None
+        sisi = fr.get("nara") or {"tanggal-tua": "kiri"}.get(self.seri["seri"], "kanan")
+        return {"cx": 270 if sisi == "kiri" else 810, "puncak": 962}
+
     def pakai_seri(self, post: dict):
         """Gaya baru aktif bila post punya "seri". Chip di pojok = kicker frame pembuka (mis. "Bedah Gaji #01")."""
         seri = post.get("seri")
@@ -161,8 +178,13 @@ class Renderer:
                 starts = clip_starts(clips)
                 total = sum(d for _, d in clips) - XFADE * (len(clips) - 1)
                 end = min(suara.durasi(talk), (starts[1] + XFADE) if len(starts) > 1 else total)
+                depan = td / "depan.png"
+                geo = self.geometri_bicara(frames[0])
+                if not (geo and self.shot_depan(frames[0], len(frames), depan)):
+                    depan = None
                 bicara.overlay(base, talk, out / "reel.mp4", end, total, td,
-                               gaya=self.cfg["brand"].get("bicara_gaya", "potong"), mask=bicara.mask_for(post["id"]))
+                               gaya=self.cfg["brand"].get("bicara_gaya", "potong"), mask=bicara.mask_for(post["id"]),
+                               geo=geo, depan=depan)
                 return
             if not self.animasi:
                 encode_reel(clips, out / "reel.mp4", pick_music(post["id"]), cues)

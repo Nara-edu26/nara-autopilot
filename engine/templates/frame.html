@@ -326,6 +326,17 @@ function renderG2(d){
   return true;
 }
 
+// Lapisan depan gaya baru: hanya benda (struk/mutasi/polling) di atas latar transparan, supaya benda tetap
+// berada di depan Nara yang berbicara (urutan sama seperti foto diam).
+window.lapisanDepan = function(){
+  const f=document.getElementById("f");
+  document.documentElement.style.background="transparent"; document.body.style.background="transparent";
+  f.style.background="transparent";
+  f.querySelectorAll(":scope > *").forEach(n=>{ if(!n.classList.contains("body")) n.style.visibility="hidden"; });
+  f.querySelectorAll(".body > *").forEach(n=>{ if(!n.classList.contains("obj")) n.style.visibility="hidden"; });
+  return !!f.querySelector(".obj");
+};
+
 window.renderFrame = function(d){
   if(d.seri) return renderG2(d);
   const f=document.getElementById("f");

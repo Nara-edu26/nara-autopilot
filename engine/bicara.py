@@ -180,12 +180,20 @@ def _bbox_top(mask: Path) -> float:
     return (rows.index(1) / 270) if 1 in rows else 0.0
 
 
-def _potong(base: Path, talk: Path, mask: Path, dst: Path, end: float, total: float) -> None:
+def _potong(base: Path, talk: Path, mask: Path, dst: Path, end: float, total: float,
+            geo: dict | None = None, depan: Path | None = None) -> None:
+    """geo (gaya baru): {"cx": pusat x, "puncak": y puncak kepala} supaya Nara berbicara menempati posisi foto
+    Nara di cover. depan: PNG transparan berisi benda (struk/mutasi/polling) yang ditumpuk di atas Nara."""
     g = _geser(mask)
     top = _bbox_top(mask)
-    size = int(min(900, (1920 - TOP) / max(0.5, 1 - top)))
+    if geo:
+        size = int(min(1150, (1920 - geo["puncak"]) / max(0.5, 1 - top)))
+        cx = geo["cx"]
+    else:
+        size = int(min(900, (1920 - TOP) / max(0.5, 1 - top)))
+        cx = CX
     size -= size % 2
-    x0, y0 = CX - size // 2, 1920 - size
+    x0, y0 = cx - size // 2, 1920 - size
     rise = 50
     y = f"'{y0}+{rise}*pow(max(0,1-t/0.35),2)'"
     fg = (
@@ -199,9 +207,16 @@ def _potong(base: Path, talk: Path, mask: Path, dst: Path, end: float, total: fl
         f"color=c=0x1d2414:s={size}x{size}:r=30:d={end:.3f},format=rgba[sc];"
         f"[sc][sm]alphamerge,{_fades(end)}[sh];"
         f"[0:v][sh]overlay=x={x0 - 14}:y={y}:eval=frame:eof_action=pass[b1];"
-        f"[b1][tm]overlay=x={x0}:y={y}:eval=frame:eof_action=pass,format=yuv420p[v]"
     )
-    _run(["ffmpeg", "-y", "-v", "error", "-i", str(base), "-i", str(talk), "-i", str(mask),
+    extra: list[str] = []
+    if depan:
+        fg += (f"[b1][tm]overlay=x={x0}:y={y}:eval=frame:eof_action=pass[b2];"
+               f"[3:v]format=rgba,{_fades(end)}[dp];"
+               f"[b2][dp]overlay=0:0:eof_action=pass,format=yuv420p[v]")
+        extra = ["-loop", "1", "-framerate", "30", "-t", f"{end:.3f}", "-i", str(depan)]
+    else:
+        fg += f"[b1][tm]overlay=x={x0}:y={y}:eval=frame:eof_action=pass,format=yuv420p[v]"
+    _run(["ffmpeg", "-y", "-v", "error", "-i", str(base), "-i", str(talk), "-i", str(mask), *extra,
           "-filter_complex", fg, *_enc(total, dst)])
 
 
@@ -267,11 +282,12 @@ def _kotak(base: Path, talk: Path, dst: Path, end: float, total: float, td: Path
 
 
 def overlay(base: Path, talk: Path, dst: Path, end: float, total: float, td: Path,
-            gaya: str = "potong", mask: Path | None = None) -> None:
+            gaya: str = "potong", mask: Path | None = None, geo: dict | None = None,
+            depan: Path | None = None) -> None:
     """Tumpuk video bicara di [0, end]: muncul 0,25 dtk, hilang 0,3 dtk."""
     if gaya == "potong" and mask:
-        depan = mask.with_name(mask.name.replace(".masker.mp4", ".depan.mp4"))   # warna tepi sudah dibersihkan
-        _potong(base, depan if depan.exists() else talk, mask, dst, end, total)
+        bersih = mask.with_name(mask.name.replace(".masker.mp4", ".depan.mp4"))   # warna tepi sudah dibersihkan
+        _potong(base, bersih if bersih.exists() else talk, mask, dst, end, total, geo=geo, depan=depan)
     elif gaya == "kotak":
         _kotak(base, talk, dst, end, total, td)
     else:
