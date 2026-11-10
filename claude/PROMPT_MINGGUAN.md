@@ -1,5 +1,7 @@
 # Instruksi tugas terjadwal mingguan
 
+> **Catatan 11 Nov 2026:** tugas terjadwal di bawah ini nonaktif sejak 26 Okt. Batch mingguan sekarang ditulis lewat pengingat "Tulis batch konten Nara minggu berikutnya" (Kamis 19.00 WIB), yang sudah diperbarui ke GAYA BARU: 1 reel/hari di slot malam, seri bedah → tim → tanggal-tua (lihat bagian GAYA BARU di PANDUAN_KONTEN.md). Langkah 3–4 di bawah (3 slot per hari, kalender 100 hari wajib) sudah tidak berlaku.
+
 Terpasang sebagai tugas terjadwal "Mesin konten mingguan Nara": setiap Kamis 19.51 WIB, berjalan tanpa menunggu persetujuan. Teks di bawah adalah salinannya (diperbarui 25 Okt 2026); ubah lewat Claude, bukan lewat file ini.
 
 Catatan 25 Okt 2026: run 22 Okt dan run ulang 25 Okt selesai < 1 menit tanpa commit (kemungkinan besar sesi baru tidak bisa mendapat akses push ke repo). Sementara itu batch mingguan ditulis oleh sesi Claude utama; post baru tetap berstatus "menunggu" sampai pemilik menyetujui di halaman tinjau.
