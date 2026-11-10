@@ -11,6 +11,26 @@
     "sapaan": "Hai, aku Nara",
     "peran": "Karakter AI yang bantu gajimu"
   },
+  "gaya_baru": {
+    "catatan": "Gaya baru (disetujui pemilik 10 Nov 2026: ketiga seri). Hanya berlaku untuk post yang punya field \"seri\"; post lama tetap gaya olive.",
+    "nara": "assets/nara-potong.png",
+    "handle": "@edukasinarasi",
+    "label_ai": "Konten AI · dicek manusia",
+    "seri": {
+      "bedah": {
+        "nama": "Bedah Gaji",
+        "warna": "krem"
+      },
+      "tanggal-tua": {
+        "nama": "Tanggal tua",
+        "warna": "hitam"
+      },
+      "tim": {
+        "nama": "Kamu tim mana?",
+        "warna": "kuning"
+      }
+    }
+  },
   "pages_base_url": "https://nara-edu26.github.io/nara-autopilot",
   "email_kontak": "",
   "zona_waktu": "Asia/Jakarta",
@@ -48,6 +68,7 @@
   },
   "kata_kunci": {
     "BOCOR": "Kalkulator Kebocoran gratis",
+    "BEDAH": "Kirim data gaji untuk seri Bedah Gaji (dipilih 1/minggu, tanpa nama)",
     "KELAS": "Daftar tunggu kursus Gajian Aman",
     "SUDAH": "Tanda selesai tantangan (tidak ada DM)",
     "TEMPLATE": "Link Template 5 Pos"
