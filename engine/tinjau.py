@@ -100,7 +100,7 @@ def main() -> int:
     posted = {r["post_id"] for r in read_posted()}
     everything = list(iter_posts())
     posts = [p for p in everything if today <= p["date"] <= end and p["id"] not in posted
-             and slot_aktif(cfg, p["slot"])]
+             and slot_aktif(cfg, p["slot"], p["date"])]
     posts.sort(key=lambda p: (p["date"], ["pagi", "siang", "malam"].index(p["slot"])))
 
     counts = {k: 0 for k in STATUS}

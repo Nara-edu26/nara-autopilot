@@ -1,177 +1,126 @@
 {
-  "date": "2026-11-15",
-  "posts": [
+ "date": "2026-11-15",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "A",
+   "seri": "tanggal-tua",
+   "evergreen": true,
+   "topic": "saldo tinggal Rp612 ribu 9 hari setelah gajian, cicilan paylater",
+   "frames": [
     {
-      "slot": "pagi",
-      "format": "carousel",
-      "pattern": "F",
-      "topic": "kirim ke Masa Depan hari ini",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Tantangan Minggu",
-          "title": "Pindahkan **Rp50 ribu** ke kantong Masa Depan",
-          "sub": "Hari ini. Bukan nunggu gajian."
-        },
-        {
-          "type": "statement",
-          "text": "Bukan soal besarnya. Soal **mulainya**.",
-          "sub": "Kebiasaan yang dimulai kecil lebih gampang diulang."
-        },
-        {
-          "type": "list",
-          "title": "Caranya",
-          "items": [
-            "Buka kantong atau rekening terpisah",
-            "Kirim Rp50.000 (atau berapa pun yang aman)",
-            "Beri nama: \"Masa Depan\"",
-            "Jangan diambil sampai ada alasan darurat"
-          ]
-        },
-        {
-          "type": "point",
-          "title": "Kalau Rp50 ribu terlalu berat",
-          "body": "Kirim Rp10.000. Yang penting kantongnya hidup dan namanya kelihatan tiap buka aplikasi."
-        },
-        {
-          "type": "cta",
-          "title": "Sudah dikirim?",
-          "body": "Komen **SUDAH**, nggak perlu sebut nominalnya.",
-          "pill": "Komen SUDAH"
-        }
+     "type": "cover",
+     "kicker": "Tanggal tua",
+     "ekspresi": "kaget",
+     "title": "Gajian 9 hari lalu. Kok tinggal **Rp612 ribu?**",
+     "obj": {
+      "type": "mutasi",
+      "title": "Mutasi rekening · simulasi",
+      "rows": [
+       [
+        "Gaji masuk",
+        "1 Nov",
+        "+5.200.000"
+       ],
+       [
+        "Bayar kos",
+        "1 Nov",
+        "-1.400.000"
+       ],
+       [
+        "Transfer ke Ibu",
+        "2 Nov",
+        "-1.000.000"
+       ],
+       [
+        "Cicilan PayLater",
+        "4 Nov",
+        "-840.000"
+       ],
+       [
+        "Makan & jajan",
+        "1–10 Nov",
+        "-950.000"
+       ],
+       [
+        "Transport",
+        "1–10 Nov",
+        "-398.000"
+       ]
       ],
-      "caption": "Tantangan Minggu: pindahkan Rp50.000 ke kantong Masa Depan hari ini.\nKalau terlalu berat, Rp10.000 juga boleh.\nYang penting kantongnya hidup.\nKomen SUDAH kalau sudah dikirim.",
-      "hashtags": [
-        "keuanganpribadi",
-        "menabung",
-        "tantangan",
-        "gajian"
-      ],
-      "given": [
-        50000,
-        10000
-      ],
-      "disetujui": {
-        "hash": "2e44173ad91d8d78",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "saldo": [
+       "Saldo 10 Nov",
+       "612.000"
+      ]
+     }
     },
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "A",
-      "topic": "top up game",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Hitung kebocoran",
-          "title": "Top up game **Rp15 ribu**",
-          "sub": "Dua kali seminggu. \"Cuma buat event.\""
-        },
-        {
-          "type": "number",
-          "label": "Sebulan (8 kali)",
-          "eq": "Rp15.000 × 8",
-          "value": "Rp120.000"
-        },
-        {
-          "type": "number",
-          "label": "Setahun",
-          "eq": "Rp120.000 × 12",
-          "value": "Rp1.440.000",
-          "note": "Main game itu hiburan. Kasih jatah resmi di Pos Bebas."
-        },
-        {
-          "type": "cta",
-          "title": "Punya kebiasaan kecil lain?",
-          "body": "Komen **BOCOR**, aku kirim kalkulatornya.",
-          "pill": "Komen BOCOR"
-        }
+     "type": "mutasi",
+     "title": "Yang paling berat: **cicilan**",
+     "head": "Simulasi",
+     "rows": [
+      [
+       "PayLater HP",
+       "4 Nov",
+       "-540.000"
       ],
-      "caption": "Top up game Rp15.000, dua kali seminggu.\nSebulan Rp120.000, setahun Rp1.440.000.\nHiburan itu boleh. Kasih jatah resmi di Pos Bebas.\nKomen BOCOR untuk hitung kebiasaanmu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "kebocorankecil",
-        "gamer",
-        "gajian"
-      ],
-      "calc": [
-        {
-          "expr": "15000*8",
-          "expect": 120000
-        },
-        {
-          "expr": "120000*12",
-          "expect": 1440000
-        }
-      ],
-      "disetujui": {
-        "hash": "36c1dc53b27ddfee",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "PayLater sepatu",
+       "4 Nov",
+       "-300.000"
+      ]
+     ],
+     "saldo": [
+      "Total cicilan",
+      "840.000"
+     ]
     },
     {
-      "slot": "malam",
-      "format": "reel",
-      "pattern": "A",
-      "spine_day": 21,
-      "topic": "paylater dan pos cicilan",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Hitung dulu",
-          "title": "Paylater **Rp300 ribu** hari ini",
-          "sub": "Rasanya belum keluar uang sama sekali."
-        },
-        {
-          "type": "number",
-          "label": "Contoh gaji Rp4,5 juta, Pos Cicilan 15%",
-          "eq": "Rp4.500.000 × 15%",
-          "value": "Rp675.000"
-        },
-        {
-          "type": "number",
-          "label": "Ruang cicilan bulan depan",
-          "eq": "Rp675.000 − Rp300.000",
-          "value": "Rp375.000",
-          "note": "Hampir setengahnya sudah terpakai sebelum gajian."
-        },
-        {
-          "type": "statement",
-          "text": "Belanja hari ini, dibayar **gaji berikutnya**.",
-          "sub": "Persen 15% itu panduan, bukan aturan."
-        },
-        {
-          "type": "cta",
-          "title": "Pernah kaget tagihan bulan depan?",
-          "body": "Tulis di komen: **pernah** atau belum.",
-          "pill": "Tulis di komen"
-        }
-      ],
-      "caption": "Paylater Rp300.000 hari ini terasa ringan.\nDengan gaji Rp4.500.000, Pos Cicilan Rp675.000 tinggal Rp375.000 bulan depan.\nBelanja hari ini dibayar gaji berikutnya.\nPernah kaget tagihan bulan depan?",
-      "hashtags": [
-        "keuanganpribadi",
-        "paylater",
-        "gajian",
-        "aturuang"
-      ],
-      "calc": [
-        {
-          "expr": "4500000*15/100",
-          "expect": 675000
-        },
-        {
-          "expr": "675000-300000",
-          "expect": 375000
-        }
-      ],
-      "disetujui": {
-        "hash": "751dddf08a96402c",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+     "type": "number",
+     "label": "Cicilan dibanding gaji",
+     "eq": "Rp840.000 ÷ Rp5.200.000",
+     "value": "16%",
+     "note": "Panduan 5 Pos: cicilan **maksimal 15%**. Ini sudah lewat."
+    },
+    {
+     "type": "list",
+     "title": "Sebelum checkout cicilan baru",
+     "items": [
+      "Hitung total cicilan, bukan per barang",
+      "Lewat 15% gaji? Tunda dulu",
+      "Satu lunas, baru tambah"
+     ]
+    },
+    {
+     "type": "cta",
+     "title": "Cicilanmu berapa persen dari gaji?",
+     "ekspresi": "tertawa",
+     "body": "Komen **BOCOR**, aku kirim kalkulator gratis buat cek semua kebocoran bulananmu.",
+     "pill": "Komen BOCOR"
     }
-  ]
+   ],
+   "caption": "Gajian 9 hari lalu, saldo tinggal Rp612 ribu.\n\nSimulasi mutasi: gaji Rp5.200.000, kos Rp1.400.000, transfer ke Ibu Rp1.000.000, cicilan PayLater Rp840.000, makan & jajan Rp950.000, transport Rp398.000.\n\nYang paling berat: cicilan Rp840.000, atau 16% gaji. Panduan 5 Pos: cicilan maksimal 15% (panduan, bukan aturan).\n\nSebelum checkout cicilan baru, hitung totalnya dulu, bukan per barang.\n\nKomen BOCOR untuk kalkulator gratis.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "tanggaltua",
+    "gajian",
+    "keuanganpribadi",
+    "cicilan"
+   ],
+   "calc": [
+    {
+     "expr": "5200000-1400000-1000000-840000-950000-398000",
+     "expect": 612000
+    },
+    {
+     "expr": "540000+300000",
+     "expect": 840000
+    },
+    {
+     "expr": "round(840000/5200000*100)",
+     "expect": 16
+    }
+   ]
+  }
+ ]
 }

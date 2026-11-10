@@ -1,103 +1,105 @@
 {
-  "date": "2026-11-21",
-  "posts": [
+ "date": "2026-11-21",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "S",
+   "seri": "tanggal-tua",
+   "evergreen": false,
+   "topic": "3 hari pertama setelah gajian + Template 5 Pos",
+   "frames": [
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "A",
-      "topic": "sarapan beli",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Hitung kebocoran",
-          "title": "Sarapan beli **Rp15 ribu**",
-          "sub": "Tiap hari kerja, sambil jalan ke kantor."
-        },
-        {
-          "type": "number",
-          "label": "Sebulan (22 hari kerja)",
-          "eq": "Rp15.000 × 22",
-          "value": "Rp330.000"
-        },
-        {
-          "type": "number",
-          "label": "Setahun",
-          "eq": "Rp330.000 × 12",
-          "value": "Rp3.960.000",
-          "note": "Sarapan itu perlu. Coba bawa dari rumah dua hari seminggu."
-        },
-        {
-          "type": "cta",
-          "title": "Hitung kebiasaanmu",
-          "body": "Komen **BOCOR**, aku kirim kalkulatornya lewat DM.",
-          "pill": "Komen BOCOR"
-        }
+     "type": "cover",
+     "kicker": "Sebelum gajian",
+     "ekspresi": "berpikir",
+     "title": "Gajian 25 Nov. **3 hari pertama** menentukan sebulan.",
+     "obj": {
+      "type": "mutasi",
+      "title": "Mutasi bulan lalu · simulasi",
+      "rows": [
+       [
+        "Gaji masuk",
+        "25 Okt",
+        "+5.000.000"
+       ],
+       [
+        "Checkout",
+        "25 Okt",
+        "-650.000"
+       ],
+       [
+        "Nongkrong gajian",
+        "25 Okt",
+        "-280.000"
+       ],
+       [
+        "Bayar kos",
+        "26 Okt",
+        "-1.300.000"
+       ],
+       [
+        "Checkout lagi",
+        "27 Okt",
+        "-420.000"
+       ]
       ],
-      "caption": "Sarapan beli Rp15.000 tiap hari kerja.\nSebulan Rp330.000, setahun Rp3.960.000.\nSarapannya perlu. Coba bawa dari rumah dua hari seminggu.\nKomen BOCOR untuk hitung kebiasaanmu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "kebocorankecil",
-        "sarapan",
-        "gajian"
-      ],
-      "calc": [
-        {
-          "expr": "15000*22",
-          "expect": 330000
-        },
-        {
-          "expr": "330000*12",
-          "expect": 3960000
-        }
-      ],
-      "disetujui": {
-        "hash": "9579716112d6ca0f",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "saldo": [
+       "Saldo 27 Okt",
+       "2.350.000"
+      ]
+     }
     },
     {
-      "slot": "malam",
-      "format": "reel",
-      "pattern": "D",
-      "spine_day": 27,
-      "topic": "kata orang tua soal gaji",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Relate",
-          "title": "Orang tua: \"Dulu gaji segini **cukup**, lho\"",
-          "sub": "Kamu: senyum, sambil buka aplikasi bank."
-        },
-        {
-          "type": "statement",
-          "text": "Zaman beda, harga beda, kebutuhan juga **beda**.",
-          "sub": "Membandingkan angka nggak bikin gajimu cukup."
-        },
-        {
-          "type": "point",
-          "title": "Yang bisa ditiru: **sistemnya**",
-          "body": "Dulu uang dibagi ke amplop: makan, sekolah, arisan. Sekarang namanya 5 pos. Idenya sama: dibagi dulu, baru dipakai."
-        },
-        {
-          "type": "cta",
-          "title": "Bagikan ke keluarga",
-          "body": "Kirim ke saudara yang sering dengar **kalimat ini**.",
-          "pill": "Bagikan"
-        }
-      ],
-      "caption": "\"Dulu gaji segini cukup, lho.\"\nZaman beda, harga beda. Membandingkan angka nggak bikin gaji cukup.\nYang bisa ditiru: sistem amplopnya. Dibagi dulu, baru dipakai.\nBagikan ke saudaramu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "relate",
-        "keluarga",
-        "gajian"
-      ],
-      "disetujui": {
-        "hash": "cee16a98110467a8",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+     "type": "number",
+     "label": "Habis dalam 3 hari",
+     "eq": "Rp5.000.000 − Rp2.350.000",
+     "value": "Rp2.650.000",
+     "note": "Lebih dari separuh gaji, **sebelum tanggal 28**."
+    },
+    {
+     "type": "list",
+     "title": "Urutan di hari gajian",
+     "items": [
+      "Kirim Masa Depan duluan",
+      "Bayar Wajib: kos, tagihan, cicilan",
+      "Bagi Pos Hidup per minggu",
+      "Baru Pos Bebas buat checkout"
+     ]
+    },
+    {
+     "type": "point",
+     "title": "Biar nggak ngitung manual",
+     "body": "Template 5 Pos: ketik gajimu sekali, jatah tiap pos langsung keluar. **Rp29.000**, sekali beli."
+    },
+    {
+     "type": "cta",
+     "title": "Siapkan sebelum tanggal 25",
+     "ekspresi": "tertawa",
+     "body": "Komen **TEMPLATE**, aku kirim tautannya lewat DM.",
+     "pill": "Komen TEMPLATE"
     }
-  ]
+   ],
+   "caption": "Gajian 25 Nov. Tiga hari pertama menentukan sebulan.\n\nSimulasi bulan lalu: gaji Rp5.000.000 masuk, lalu checkout Rp650.000, nongkrong gajian Rp280.000, kos Rp1.300.000, checkout lagi Rp420.000. Tanggal 27, saldo tinggal Rp2.350.000.\n\nUrutan di hari gajian: kirim Masa Depan duluan, bayar Wajib, bagi Pos Hidup per minggu, baru Pos Bebas.\n\nTemplate 5 Pos menghitungnya otomatis. Rp29.000, sekali beli. Komen TEMPLATE, aku kirim tautannya lewat DM.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "gajian",
+    "keuanganpribadi",
+    "budgeting",
+    "tanggaltua"
+   ],
+   "calc": [
+    {
+     "expr": "5000000-650000-280000-1300000-420000",
+     "expect": 2350000
+    },
+    {
+     "expr": "5000000-2350000",
+     "expect": 2650000
+    }
+   ],
+   "given": [
+    29000
+   ]
+  }
+ ]
 }

@@ -1,168 +1,150 @@
 {
-  "date": "2026-11-13",
-  "posts": [
+ "date": "2026-11-13",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "E",
+   "seri": "bedah",
+   "topic": "bedah gaji Rp4,8 juta, ngekos di Jakarta",
+   "frames": [
     {
-      "slot": "pagi",
-      "format": "carousel",
-      "pattern": "S",
-      "topic": "Template 5 Pos: tab Kebocoran",
-      "evergreen": false,
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Template 5 Pos",
-          "title": "Kebiasaan kecilmu, dalam hitungan **setahun**",
-          "sub": "Tab Kebocoran menghitungnya otomatis."
-        },
-        {
-          "type": "list",
-          "title": "Yang kamu isi",
-          "items": [
-            "Nama kebiasaan (contoh: es kopi)",
-            "Harga sekali beli",
-            "Berapa kali sebulan"
-          ]
-        },
-        {
-          "type": "number",
-          "label": "Contoh hasil",
-          "eq": "Rp30.000 × 8 × 12",
-          "value": "Rp2.880.000",
-          "note": "Setahun, untuk 8 kopi sebulan."
-        },
-        {
-          "type": "point",
-          "title": "Plus **6 tab** lain",
-          "body": "Pembagian 5 pos, catatan harian, jatah aman per hari, pos tahunan, dan riwayat 6 siklus gaji."
-        },
-        {
-          "type": "statement",
-          "text": "Rp29.000 sekali beli. Bisa dibuka di **Google Sheets** dan Excel.",
-          "sub": "Persen 5 pos adalah panduan, bukan aturan."
-        },
-        {
-          "type": "cta",
-          "title": "Mau tautannya?",
-          "body": "Komen **TEMPLATE**, aku kirim lewat DM.",
-          "pill": "Komen TEMPLATE"
-        }
+     "type": "cover",
+     "kicker": "Bedah Gaji #01",
+     "title": "Gaji **Rp4,8 juta**, ngekos di Jakarta. Cukup?",
+     "obj": {
+      "type": "struk",
+      "title": "Simulasi · sebulan",
+      "rows": [
+       [
+        "Gaji bersih",
+        "4.800.000"
+       ],
+       "---",
+       [
+        "Kos",
+        "-1.500.000"
+       ],
+       [
+        "Makan",
+        "-1.350.000"
+       ],
+       [
+        "Transport",
+        "-450.000"
+       ],
+       [
+        "Lainnya",
+        "?"
+       ]
       ],
-      "caption": "Template 5 Pos punya tab Kebocoran: isi kebiasaan, harga, dan berapa kali sebulan.\nContoh: kopi Rp30.000, 8 kali sebulan = Rp2.880.000 setahun.\nRp29.000 sekali beli.\nKomen TEMPLATE untuk tautannya.",
-      "hashtags": [
-        "keuanganpribadi",
-        "templatekeuangan",
-        "gajian",
-        "aturuang"
-      ],
-      "calc": [
-        {
-          "expr": "30000*8*12",
-          "expect": 2880000
-        }
-      ],
-      "given": [
-        29000
-      ],
-      "disetujui": {
-        "hash": "299f1da479a89db1",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "total": [
+       "SISA",
+       "Rp ???"
+      ]
+     },
+     "ekspresi": "berpikir"
     },
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "D",
-      "topic": "pinjam uang teman",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "POV",
-          "title": "\"Pinjam **Rp100 ribu**, nanti aku ganti ya\"",
-          "sub": "Dua minggu kemudian: hening."
-        },
-        {
-          "type": "statement",
-          "text": "Mau nagih, **nggak enak**. Nggak nagih, kepikiran.",
-          "sub": "Semua pernah di posisi ini."
-        },
-        {
-          "type": "point",
-          "title": "Aturan kecil: pinjamkan yang **siap direlakan**",
-          "body": "Ambil dari Pos Bebas, bukan dari Pos Hidup. Kalau kembali, anggap bonus."
-        },
-        {
-          "type": "cta",
-          "title": "Tag teman yang selalu bayar tepat waktu",
-          "body": "Teman seperti itu **langka**. Kasih apresiasi.",
-          "pill": "Tag 1 teman"
-        }
+     "type": "struk",
+     "title": "Biaya wajib sebulan",
+     "head": "Simulasi",
+     "rows": [
+      [
+       "Kos",
+       "1.500.000"
       ],
-      "caption": "\"Pinjam Rp100.000, nanti aku ganti ya.\" Lalu hening.\nAturan kecil: pinjamkan yang siap direlakan, dari Pos Bebas.\nKalau kembali, anggap bonus.\nTag teman yang selalu bayar tepat waktu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "relate",
-        "tanggaltua",
-        "gajian"
+      [
+       "Makan 45rb × 30",
+       "1.350.000"
       ],
-      "given": [
-        100000
+      [
+       "Transport",
+       "450.000"
       ],
-      "disetujui": {
-        "hash": "2f975e3d87afff41",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "Pulsa & internet",
+       "150.000"
+      ],
+      [
+       "Sabun, laundry, dll",
+       "300.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "3.750.000"
+     ]
     },
     {
-      "slot": "malam",
-      "format": "reel",
-      "pattern": "D",
-      "spine_day": 19,
-      "topic": "keranjang tanggal muda vs tua",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Relate",
-          "title": "Isi keranjang: **tanggal muda** vs tanggal tua",
-          "sub": "Orangnya sama. Keranjangnya beda dunia."
-        },
-        {
-          "type": "compare",
-          "title": "Bedanya",
-          "left": {
-            "h": "Tanggal muda",
-            "t": "Perawatan wajah, sepatu, kopi susu, buku yang belum tentu dibaca."
-          },
-          "right": {
-            "h": "Tanggal tua",
-            "t": "Mi instan, telur, sabun, isi ulang kuota paling kecil."
-          }
-        },
-        {
-          "type": "statement",
-          "text": "Masalahnya bukan gaya hidup. **Jatahnya** nggak dibagi per minggu.",
-          "sub": "Pos Hidup dibagi 4 minggu, jadi minggu terakhir tetap punya jatah."
-        },
-        {
-          "type": "cta",
-          "title": "Bagikan ke teman",
-          "body": "Kirim ke teman yang keranjangnya **berubah total** tiap tanggal 20.",
-          "pill": "Bagikan"
-        }
+     "type": "number",
+     "label": "Sisa",
+     "eq": "Rp4.800.000 − Rp3.750.000",
+     "value": "Rp1.050.000",
+     "note": "Cukup. Asal sisa ini **dibagi dari awal**, bukan ditunggu akhir bulan."
+    },
+    {
+     "type": "struk",
+     "title": "Sisa **Rp1.050.000** dibagi empat",
+     "head": "Begitu gajian",
+     "rows": [
+      [
+       "Dana darurat",
+       "400.000"
       ],
-      "caption": "Keranjang tanggal muda: perawatan wajah, sepatu, kopi susu.\nKeranjang tanggal tua: mi instan, telur, sabun.\nBagi Pos Hidup per minggu, biar minggu terakhir tetap punya jatah.\nBagikan ke temanmu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "tanggaltua",
-        "relate",
-        "gajian"
+      [
+       "Biaya tak rutin",
+       "250.000"
       ],
-      "disetujui": {
-        "hash": "1148d567a585bdee",
-        "pada": "2026-11-02T21:22+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "Senang-senang",
+       "250.000"
+      ],
+      [
+       "Tujuan (mudik, HP)",
+       "150.000"
+      ]
+     ]
+    },
+    {
+     "type": "statement",
+     "text": "Yang bikin gaji ini jebol biasanya **bukan jajan**.",
+     "sub": "Tapi kondangan, sakit, atau HP rusak yang nggak disiapkan."
+    },
+    {
+     "type": "cta",
+     "title": "Mau gajimu dibedah juga?",
+     "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+     "pill": "Komen BEDAH",
+     "ekspresi": "tertawa"
     }
-  ]
+   ],
+   "caption": "Gaji Rp4,8 juta, ngekos di Jakarta. Cukup?\n\nSimulasi biaya wajib sebulan:\nKos Rp1.500.000\nMakan Rp1.350.000 (Rp45 ribu × 30 hari)\nTransport Rp450.000\nPulsa & internet Rp150.000\nSabun, laundry, dll Rp300.000\nTotal Rp3.750.000. Sisa Rp1.050.000.\n\nCukup, asal sisanya dibagi begitu gajian:\nDana darurat Rp400.000\nBiaya tak rutin Rp250.000\nSenang-senang Rp250.000\nTujuan (mudik, HP) Rp150.000\n\nYang bikin jebol biasanya bukan jajan, tapi kondangan, sakit, atau HP rusak yang nggak disiapkan.\n\nMau gajimu dibedah juga? Komen BEDAH. Tiap minggu aku pilih satu, tanpa nama.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "keuanganpribadi",
+    "gajian",
+    "anakkos",
+    "budgeting"
+   ],
+   "calc": [
+    {
+     "expr": "45000*30",
+     "expect": 1350000
+    },
+    {
+     "expr": "1500000+1350000+450000+150000+300000",
+     "expect": 3750000
+    },
+    {
+     "expr": "4800000-3750000",
+     "expect": 1050000
+    },
+    {
+     "expr": "400000+250000+250000+150000",
+     "expect": 1050000
+    }
+   ],
+   "evergreen": false
+  }
+ ]
 }

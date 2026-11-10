@@ -1,123 +1,119 @@
 {
-  "date": "2026-11-18",
-  "posts": [
+ "date": "2026-11-18",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "E",
+   "seri": "tanggal-tua",
+   "evergreen": false,
+   "topic": "saldo Rp350 ribu untuk 7 hari sampai gajian 25",
+   "frames": [
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "A",
-      "topic": "camilan minimarket",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Hitung kebocoran",
-          "title": "Camilan minimarket **Rp15 ribu**",
-          "sub": "Empat kali seminggu, pulang kerja."
-        },
-        {
-          "type": "number",
-          "label": "Sebulan",
-          "eq": "Rp15.000 × 4 × 4",
-          "value": "Rp240.000"
-        },
-        {
-          "type": "number",
-          "label": "Setahun",
-          "eq": "Rp240.000 × 12",
-          "value": "Rp2.880.000",
-          "note": "Camilannya boleh. Kasih jatah, jangan dianggap receh."
-        },
-        {
-          "type": "cta",
-          "title": "Camilan favoritmu apa?",
-          "body": "Tulis di komen, nanti aku **hitungkan**.",
-          "pill": "Tulis di komen"
-        }
+     "type": "cover",
+     "kicker": "Tanggal tua",
+     "ekspresi": "khawatir",
+     "title": "Tanggal 18. Saldo **Rp350 ribu**. Gajian masih 7 hari.",
+     "obj": {
+      "type": "mutasi",
+      "title": "Rekening · simulasi",
+      "rows": [
+       [
+        "Makan siang",
+        "17 Nov",
+        "-28.000"
+       ],
+       [
+        "Bensin",
+        "17 Nov",
+        "-30.000"
+       ],
+       [
+        "Kopi",
+        "17 Nov",
+        "-18.000"
+       ]
       ],
-      "caption": "Camilan minimarket Rp15.000, empat kali seminggu.\nSebulan Rp240.000, setahun Rp2.880.000.\nCamilannya boleh. Kasih jatah resmi.\nCamilan favoritmu apa?",
-      "hashtags": [
-        "keuanganpribadi",
-        "kebocorankecil",
-        "jajan",
-        "gajian"
-      ],
-      "calc": [
-        {
-          "expr": "15000*4*4",
-          "expect": 240000
-        },
-        {
-          "expr": "240000*12",
-          "expect": 2880000
-        }
-      ],
-      "disetujui": {
-        "hash": "d1400e3e06245b82",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "saldo": [
+       "Saldo 18 Nov",
+       "350.000"
+      ]
+     }
     },
     {
-      "slot": "malam",
-      "format": "carousel",
-      "pattern": "B",
-      "spine_day": 24,
-      "topic": "kapan dana darurat boleh dipakai",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Hari 24",
-          "title": "Dana darurat: **4 alasan** boleh dipakai, 4 yang bukan",
-          "sub": "Biar nggak habis untuk yang \"terasa\" darurat."
-        },
-        {
-          "type": "list",
-          "title": "Boleh dipakai",
-          "items": [
-            "Kehilangan penghasilan",
-            "Sakit atau kecelakaan yang tidak ditanggung",
-            "Perbaikan mendesak untuk kerja (motor, laptop)",
-            "Keluarga inti butuh bantuan mendadak"
-          ]
-        },
-        {
-          "type": "list",
-          "title": "Bukan darurat",
-          "items": [
-            "Promo besar yang \"cuma setahun sekali\"",
-            "Liburan dadakan bareng teman",
-            "HP baru karena yang lama lambat",
-            "Tagihan yang sebenarnya sudah tahu dari jauh hari"
-          ]
-        },
-        {
-          "type": "point",
-          "title": "Tagihan yang sudah tahu? Masuk **pos tahunan**",
-          "body": "Pajak kendaraan, iuran tahunan, perpanjangan dokumen. Dicicil tiap bulan, bukan diambil dari dana darurat."
-        },
-        {
-          "type": "statement",
-          "text": "Kalau terpakai, **isi ulang dulu** sebelum target lain.",
-          "sub": "Dana darurat itu bantalan, bukan tabungan belanja."
-        },
-        {
-          "type": "cta",
-          "title": "Simpan sebelum kepakai",
-          "body": "Kirim ke teman yang dana daruratnya **sering bocor**.",
-          "pill": "Simpan dulu"
-        }
+     "type": "number",
+     "label": "Dibagi 7 hari",
+     "eq": "Rp350.000 ÷ 7",
+     "value": "Rp50.000/hari",
+     "note": "Ini **batas harianmu**, bukan target."
+    },
+    {
+     "type": "struk",
+     "title": "Rp50 ribu sehari, cukup?",
+     "head": "Contoh",
+     "rows": [
+      [
+       "Sarapan",
+       "8.000"
       ],
-      "caption": "Dana darurat boleh dipakai untuk: kehilangan penghasilan, sakit, perbaikan mendesak untuk kerja, dan keluarga inti yang butuh bantuan.\nBukan untuk promo, liburan dadakan, atau HP baru.\nKalau terpakai, isi ulang dulu.\nSimpan dulu.",
-      "hashtags": [
-        "keuanganpribadi",
-        "danadarurat",
-        "gajian",
-        "aturuang"
+      [
+       "Makan siang",
+       "20.000"
       ],
-      "disetujui": {
-        "hash": "14904347759d914d",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "Makan malam",
+       "12.000"
+      ],
+      [
+       "Transport",
+       "10.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "50.000"
+     ],
+     "note": "Hari libur tanpa transport? Sisanya **tambah ke hari terakhir**."
+    },
+    {
+     "type": "list",
+     "title": "3 aturan sampai gajian",
+     "items": [
+      "Pisahkan uang harian, sisanya jangan disentuh",
+      "Nggak ada checkout sampai gajian",
+      "Sisa hari ini ditambah ke besok"
+     ]
+    },
+    {
+     "type": "cta",
+     "title": "Biar tanggal tua nggak datang tiap bulan",
+     "ekspresi": "tertawa",
+     "body": "Komen **BOCOR**. Aku kirim kalkulator gratis buat cari ke mana gajimu bocor.",
+     "pill": "Komen BOCOR"
     }
-  ]
+   ],
+   "caption": "Tanggal 18. Saldo Rp350 ribu. Gajian masih 7 hari.\n\nRp350.000 ÷ 7 = Rp50.000 per hari. Anggap ini batas, bukan target.\n\nContoh: sarapan Rp8.000, makan siang Rp20.000, makan malam Rp12.000, transport Rp10.000.\n\nPisahkan uang harian, nggak ada checkout sampai gajian, dan sisa hari ini ditambah ke besok.\n\nKomen BOCOR untuk kalkulator gratis.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "tanggaltua",
+    "gajian",
+    "keuanganpribadi",
+    "hemat"
+   ],
+   "calc": [
+    {
+     "expr": "350000/7",
+     "expect": 50000
+    },
+    {
+     "expr": "8000+20000+12000+10000",
+     "expect": 50000
+    }
+   ],
+   "given": [
+    28000,
+    30000,
+    18000
+   ]
+  }
+ ]
 }

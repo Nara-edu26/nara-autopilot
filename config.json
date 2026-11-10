@@ -36,7 +36,8 @@
   "zona_waktu": "Asia/Jakarta",
   "slot": {
     "pagi":  {"jam_wib": "07:00", "format_default": "carousel", "aktif": false},
-    "siang": {"jam_wib": "12:00", "format_default": "reel"},
+    "siang": {"jam_wib": "12:00", "format_default": "reel", "nonaktif_mulai": "2026-11-13",
+              "catatan": "Mulai 13 Nov 2026: 1 reel/hari gaya baru di slot malam (median reach reel malam 31 vs siang 20)."},
     "malam": {"jam_wib": "19:00", "format_default": "reel", "tulang_punggung": true}
   },
   "hari_1": "2026-10-26",

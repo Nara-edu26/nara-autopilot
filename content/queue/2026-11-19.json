@@ -1,115 +1,174 @@
 {
-  "date": "2026-11-19",
-  "posts": [
+ "date": "2026-11-19",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "A",
+   "seri": "bedah",
+   "evergreen": true,
+   "topic": "bedah gaji Rp6,5 juta di Surabaya, gaya hidup naik",
+   "frames": [
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "D",
-      "topic": "iuran kado kantor",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Relate",
-          "title": "Grup kantor: \"Iuran kado ulang tahun, ya!\"",
-          "sub": "Ketiga kalinya bulan ini."
-        },
-        {
-          "type": "number",
-          "label": "Bulan ini",
-          "eq": "Rp50.000 × 3",
-          "value": "Rp150.000",
-          "note": "Nggak direncanakan, tapi nggak enak menolak."
-        },
-        {
-          "type": "point",
-          "title": "Bikin **jatah iuran** di Pos Bebas",
-          "body": "Iuran kantor itu rutin, jadi kasih jatah tiap bulan. Kalau nggak terpakai, sisanya bonus."
-        },
-        {
-          "type": "cta",
-          "title": "Tag teman sekantor",
-          "body": "Tag teman yang selalu jadi **bendahara iuran**.",
-          "pill": "Tag 1 teman"
-        }
+     "type": "cover",
+     "kicker": "Bedah Gaji #03",
+     "ekspresi": "kaget",
+     "title": "Gaji **Rp6,5 juta** di Surabaya. Kok tetap habis?",
+     "obj": {
+      "type": "struk",
+      "title": "Simulasi · sebulan",
+      "rows": [
+       [
+        "Gaji bersih",
+        "6.500.000"
+       ],
+       "---",
+       [
+        "Kontrakan berdua",
+        "-1.000.000"
+       ],
+       [
+        "Makan",
+        "-1.800.000"
+       ],
+       [
+        "Cicilan HP",
+        "-650.000"
+       ],
+       [
+        "Lainnya",
+        "?"
+       ]
       ],
-      "caption": "Iuran kado kantor Rp50.000, tiga kali bulan ini = Rp150.000.\nNggak direncanakan, tapi nggak enak menolak.\nKasih jatah iuran tiap bulan di Pos Bebas.\nTag teman yang selalu jadi bendahara iuran.",
-      "hashtags": [
-        "keuanganpribadi",
-        "relate",
-        "anakkantor",
-        "gajian"
-      ],
-      "calc": [
-        {
-          "expr": "50000*3",
-          "expect": 150000
-        }
-      ],
-      "disetujui": {
-        "hash": "3bf1a92d12267fa0",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "total": [
+       "SISA",
+       "Rp ???"
+      ]
+     }
     },
     {
-      "slot": "malam",
-      "format": "reel",
-      "pattern": "S",
-      "spine_day": 25,
-      "topic": "membaca hasil Kalkulator Kebocoran",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Kalkulator Kebocoran",
-          "title": "Hasil kalkulatormu **tinggi**? Ini cara membacanya",
-          "sub": "Angka besar bukan vonis. Itu peta."
-        },
-        {
-          "type": "list",
-          "title": "Tiga langkah",
-          "items": [
-            "Urutkan kebiasaan dari yang paling besar",
-            "Pilih satu saja, potong setengahnya",
-            "Yang lain biarkan dulu bulan ini"
-          ]
-        },
-        {
-          "type": "number",
-          "label": "Contoh: kebiasaan terbesar",
-          "eq": "Rp200.000 ÷ 2",
-          "value": "Rp100.000",
-          "note": "Hemat Rp100.000 sebulan dari satu kebiasaan, tanpa berhenti total."
-        },
-        {
-          "type": "statement",
-          "text": "Satu kebiasaan yang berubah **lebih kuat** dari lima yang dicoba sekaligus.",
-          "sub": "Bulan depan, baru pilih yang kedua."
-        },
-        {
-          "type": "cta",
-          "title": "Belum coba kalkulatornya?",
-          "body": "Komen **BOCOR**, aku kirim gratis lewat DM.",
-          "pill": "Komen BOCOR"
-        }
+     "type": "struk",
+     "title": "Ke mana Rp6,5 juta pergi",
+     "head": "Simulasi",
+     "rows": [
+      [
+       "Kontrakan berdua",
+       "1.000.000"
       ],
-      "caption": "Hasil Kalkulator Kebocoranmu tinggi? Itu peta, bukan vonis.\nUrutkan dari yang terbesar, pilih satu, potong setengahnya.\nContoh: Rp200.000 jadi Rp100.000 sebulan.\nKomen BOCOR untuk kalkulatornya.",
-      "hashtags": [
-        "keuanganpribadi",
-        "kebocorankecil",
-        "gajian",
-        "aturuang"
+      [
+       "Makan 60rb × 30",
+       "1.800.000"
       ],
-      "calc": [
-        {
-          "expr": "200000/2",
-          "expect": 100000
-        }
+      [
+       "Cicilan HP",
+       "650.000"
       ],
-      "disetujui": {
-        "hash": "6e6da8a820e85797",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "Transport",
+       "500.000"
+      ],
+      [
+       "Pulsa, listrik, air",
+       "400.000"
+      ],
+      [
+       "Langganan hiburan",
+       "250.000"
+      ],
+      [
+       "Nongkrong & pesan antar",
+       "1.500.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "6.100.000"
+     ]
+    },
+    {
+     "type": "number",
+     "label": "Sisa",
+     "eq": "Rp6.500.000 − Rp6.100.000",
+     "value": "Rp400.000",
+     "note": "Gaji naik, **gaya hidup ikut naik**."
+    },
+    {
+     "type": "struk",
+     "title": "Kalau pakai **5 Pos**",
+     "head": "Panduan, bukan aturan",
+     "rows": [
+      [
+       "Wajib (tempat, tagihan)",
+       "1.900.000"
+      ],
+      [
+       "Hidup (makan)",
+       "1.800.000"
+      ],
+      [
+       "Cicilan",
+       "650.000"
+      ],
+      [
+       "Masa Depan",
+       "650.000"
+      ],
+      [
+       "Bebas (nongkrong)",
+       "1.500.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "6.500.000"
+     ],
+     "note": "Cukup potong Rp250 ribu dari hiburan. Masa Depan jadi **Rp650 ribu**."
+    },
+    {
+     "type": "cta",
+     "title": "Mau gajimu dibedah juga?",
+     "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+     "pill": "Komen BEDAH",
+     "ekspresi": "tertawa"
     }
-  ]
+   ],
+   "caption": "Gaji Rp6,5 juta di Surabaya, tapi tetap habis.\n\nSimulasi sebulan: kontrakan berdua Rp1.000.000, makan Rp1.800.000 (Rp60 ribu × 30 hari), cicilan HP Rp650.000, transport Rp500.000, pulsa-listrik-air Rp400.000, langganan hiburan Rp250.000, nongkrong & pesan antar Rp1.500.000. Total Rp6.100.000, sisa Rp400.000.\n\nGaji naik, gaya hidup ikut naik.\n\nPakai 5 Pos: potong Rp250 ribu dari hiburan, Masa Depan jadi Rp650.000 dan dikirim di hari gajian.\n\nMau gajimu dibedah juga? Komen BEDAH. Tiap minggu aku pilih satu, tanpa nama.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "keuanganpribadi",
+    "gajian",
+    "budgeting",
+    "surabaya"
+   ],
+   "calc": [
+    {
+     "expr": "60000*30",
+     "expect": 1800000
+    },
+    {
+     "expr": "1000000+1800000+650000+500000+400000+250000+1500000",
+     "expect": 6100000
+    },
+    {
+     "expr": "6500000-6100000",
+     "expect": 400000
+    },
+    {
+     "expr": "1000000+500000+400000",
+     "expect": 1900000
+    },
+    {
+     "expr": "250000+1500000-250000",
+     "expect": 1500000
+    },
+    {
+     "expr": "400000+250000",
+     "expect": 650000
+    },
+    {
+     "expr": "1900000+1800000+650000+650000+1500000",
+     "expect": 6500000
+    }
+   ]
+  }
+ ]
 }

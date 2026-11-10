@@ -132,7 +132,9 @@ ul.items li + li{padding-top:22px;border-top:2px solid var(--line)}
 .g2 .sub,.g2 .txt.muted{color:var(--soft)}
 .g2 em.hl{color:inherit;background:linear-gradient(transparent 58%,var(--mark) 58%);text-decoration:none;padding:0 .04em}
 .s-tanggal-tua em.hl{color:var(--mark);background:none}
-.s-tim em.hl{color:#fff;background:var(--mark);padding:0 .14em;border-radius:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.s-tim em.hl{color:#fff;background:var(--mark);padding:0 .12em;border-radius:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.s-tim .hook,.s-tim .h2,.s-tim .title{line-height:1.16}
+.s-tim .txt,.s-tim .sub{line-height:1.45}
 .g2 .value{color:var(--val)}
 .g2 .label{color:var(--soft)}
 .g2 .eq{background:rgba(255,255,255,.55);border-color:var(--line);color:var(--ink)}
@@ -193,11 +195,11 @@ ul.items li + li{padding-top:22px;border-top:2px solid var(--line)}
 .hp.lebar{width:820px;font-size:38px;transform:rotate(1.5deg)}
 .hp.lebar h4{font-size:28px}.hp.lebar .tx small{font-size:27px}.hp.lebar .saldo{font-size:34px}.hp.lebar .saldo b{font-size:60px}
 .g2.carousel .hp.lebar{width:740px;font-size:32px}
-.poll{display:flex;flex-direction:column;gap:22px;width:560px}
+.poll{display:flex;flex-direction:column;gap:22px;width:520px}
 .poll .opt{background:#FFF6E3;color:#1E2618;border:4px solid #1E2618;border-radius:26px;padding:20px 26px;font-family:"InterDisplay";
-  font-weight:800;font-size:46px;display:flex;gap:22px;align-items:center;box-shadow:8px 8px 0 #1E2618;letter-spacing:-.01em}
+  font-weight:800;font-size:42px;display:flex;gap:22px;align-items:center;box-shadow:8px 8px 0 #1E2618;letter-spacing:-.01em}
 .poll .opt i{font-style:normal;flex:none;width:64px;height:64px;border-radius:50%;background:#1E2618;color:#F2B137;display:grid;place-items:center;font-size:36px}
-.poll .ask{font-weight:600;font-size:34px;line-height:1.3;color:var(--ink);margin-top:6px}
+.poll .ask{font-weight:600;font-size:32px;line-height:1.3;color:var(--ink);margin-top:6px;max-width:440px}
 .g2.carousel .struk{font-size:26px;width:480px;padding:30px 32px 36px}
 .g2.carousel .struk.lebar{width:760px;font-size:32px}
 .g2.carousel .hp{font-size:25px;width:500px;padding:26px 26px 30px}
@@ -259,14 +261,14 @@ function renderG2(d){
   switch(fr.type){
     case "cover":
       b += el("div","hook",richN(fr.title),z.hook);
-      if(fr.sub) b += el("div","sub",rich(fr.sub),z.sub);
+      if(fr.sub) b += el("div","sub",richN(fr.sub),z.sub);
       if(fr.obj) b += objHTML(Object.assign({kanan: sisi==="kiri"}, fr.obj), null, false);
       if(fr.nara!=="tidak") fig = nara;
       break;
     case "struk":
       if(fr.title) b += el("div","h2",richN(fr.title),z.h2);
       b += objHTML({type:"struk", title:fr.head, rows:fr.rows, total:fr.total, lebar:true}, null, true);
-      if(fr.note) b += el("div","txt muted reveal",rich(fr.note),z.sub);
+      if(fr.note) b += el("div","txt muted reveal",richN(fr.note),z.sub);
       break;
     case "mutasi":
       if(fr.title) b += el("div","h2",richN(fr.title),z.h2);
@@ -277,45 +279,45 @@ function renderG2(d){
       b += objHTML({type:"poll", options:fr.options, ask:fr.ask});
       break;
     case "number":
-      if(fr.label) b += el("div","label",rich(fr.label),fmt==="reel"?40:34);
-      if(fr.eq) b += el("div","eq",rich(fr.eq),z.eq);
+      if(fr.label) b += el("div","label",richN(fr.label),fmt==="reel"?40:34);
+      if(fr.eq) b += el("div","eq",richN(fr.eq),z.eq);
       b += el("div","value reveal",richN(fr.value),z.value);
-      if(fr.note) b += el("div","txt muted reveal",rich(fr.note),z.sub);
+      if(fr.note) b += el("div","txt muted reveal",richN(fr.note),z.sub);
       break;
     case "point":
       if(fr.n) b += `<div class="idx">${esc(String(fr.n).padStart(2,"0"))}</div>`;
       b += el("div","h2",richN(fr.title),z.h2);
       b += `<div class="rule"></div>`;
-      if(fr.body) b += el("div","txt reveal",rich(fr.body),z.txt);
+      if(fr.body) b += el("div","txt reveal",richN(fr.body),z.txt);
       break;
     case "list":
       if(fr.title) b += el("div","h2",richN(fr.title),z.h2);
       b += `<ul class="items">` + (fr.items||[]).map((it,i)=>{
         const mark = fr.marks ? esc(fr.marks[i]??"•") : String(i+1);
-        return `<li class="fit ${i>0?"reveal":""}" data-base="${z.item}" style="font-size:${z.item}px"><span class="b">${mark}</span><span>${rich(it)}</span></li>`;
+        return `<li class="fit ${i>0?"reveal":""}" data-base="${z.item}" style="font-size:${z.item}px"><span class="b">${mark}</span><span>${richN(it)}</span></li>`;
       }).join("") + `</ul>`;
       break;
     case "compare":
       if(fr.title) b += el("div","h2",richN(fr.title),z.h2);
       b += `<div class="cmp">
-        <div class="card l">${el("div","ch",rich(fr.left.h),z.ch)}${el("div","ct",rich(fr.left.t),z.ct)}</div>
-        <div class="card r reveal">${el("div","ch",rich(fr.right.h),z.ch)}${el("div","ct",rich(fr.right.t),z.ct)}</div>
+        <div class="card l">${el("div","ch",richN(fr.left.h),z.ch)}${el("div","ct",richN(fr.left.t),z.ct)}</div>
+        <div class="card r reveal">${el("div","ch",richN(fr.right.h),z.ch)}${el("div","ct",richN(fr.right.t),z.ct)}</div>
       </div>`;
       break;
     case "statement":
       b += `<div class="quote-mark">“</div>`;
       b += el("div","h2",richN(fr.text),z.stmt);
-      if(fr.sub) b += el("div","sub reveal",rich(fr.sub),z.sub);
+      if(fr.sub) b += el("div","sub reveal",richN(fr.sub),z.sub);
       break;
     case "cta":
       if(fr.title) b += el("div","title",richN(fr.title),z.title);
-      if(fr.body) b += el("div","txt",rich(fr.body),z.txt);
-      if(fr.pill) b += `<div class="pill fit reveal" data-base="${z.pill}" style="font-size:${z.pill}px">${rich(fr.pill)} <span class="arrow">→</span></div>`;
+      if(fr.body) b += el("div","txt",richN(fr.body),z.txt);
+      if(fr.pill) b += `<div class="pill fit reveal" data-base="${z.pill}" style="font-size:${z.pill}px">${richN(fr.pill)} <span class="arrow">→</span></div>`;
       b += el("div","closing",esc(d.closing),z.closing);
       fig = nara;
       break;
     default:
-      b += el("div","h2",rich(fr.title||fr.text||""),z.h2);
+      b += el("div","h2",richN(fr.title||fr.text||""),z.h2);
   }
   if(!fig && fmt==="reel" && d.cutout && fr.nara!=="tidak" && d.naraKecil!==false) fig = `<img class="nara kecil" src="${esc(d.cutout)}" alt="">`;
   if(fig) f.classList.add("ada-nara");

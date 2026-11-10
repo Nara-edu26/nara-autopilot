@@ -2,6 +2,44 @@
 
 File ini adalah aturan tetap. Rencana tanggal ada di `rencana-100-hari.md`. Data performa ada di `../data/laporan.md`.
 
+## GAYA BARU (berlaku sejak 13 Nov 2026, disetujui pemilik 10 Nov 2026)
+
+Bagian ini mengalahkan aturan lama di bawahnya bila bertentangan.
+
+- **1 reel per hari, slot malam (19.07 WIB).** Slot siang nonaktif mulai 13 Nov 2026 (`"nonaktif_mulai"` di config.json); slot pagi tetap nonaktif. Jangan tulis post siang atau pagi untuk tanggal ≥ 13 Nov.
+- **Setiap post wajib punya `"seri"`**, diputar berurutan supaya grid berganti warna: `bedah` (krem) → `tim` (kuning) → `tanggal-tua` (hitam) → `bedah` → …
+  - **bedah** — "Bedah Gaji #NN": gaji + kota + situasi → struk pengeluaran → sisa → rencana 5 Pos. CTA: BEDAH. Kicker = "Bedah Gaji #NN" (nomor lanjut dari post bedah terakhir di antrean).
+  - **tim** — "Kamu tim mana?": dilema uang yang memancing debat (kirim ortu, kondangan, naik gaji, patungan…). Cover pakai `obj` polling A/B(/C). CTA: "Komen A atau B", tanpa kata kunci.
+  - **tanggal-tua** — saldo menipis, cicilan, paylater, hari-hari sebelum gajian. Cover pakai `obj` mutasi rekening. CTA: BOCOR atau TEMPLATE.
+- **Cover = hook langsung + benda nyata + Nara besar.** Tanpa sapaan "Hai, aku Nara" (suara juga langsung masuk ke hook). Hook ≤ 70 karakter, satu sorotan `**…**`, berisi angka rupiah atau situasi yang dikenali.
+- **Reel 5 frame** (cover, 3 isi, cta). Durasi jadi ±20–30 dtk karena dibacakan.
+- **Kalender 100 hari tidak lagi wajib**; pakai hanya sebagai sumber topik. `spine_day` tidak perlu diisi.
+- **Topik pengeluaran kecil (kopi, parkir, ongkir, dll.) maksimal 1 dari 7 post.** Prioritas: kos/kontrakan, kirim ortu, paylater/cicilan, kondangan, naik gaji, gaji pertama, bonus akhir tahun, sebelum/sesudah gajian, dana darurat.
+- **Jualan (pola S atau CTA TEMPLATE) maksimal 1 dari 5 post.**
+
+### Angka di seri bedah
+- Sampai ada kiriman pengikut, semua kasus adalah **simulasi**: tulis "Simulasi" di benda (judul struk/mutasi) dan kalimat "Angka di atas simulasi, bukan data orang sungguhan." di caption (validator memberi peringatan bila caption tidak menyebut simulasi/contoh/kiriman).
+- Kasus dari pengikut (lewat DM BEDAH) hanya dipakai setelah pemilik meneruskannya dan pengirim setuju. Samarkan: bulatkan angka ke Rp50 ribu terdekat, tanpa nama, tanpa kantor, kota boleh. Caption: "Kiriman pengikut, dipakai dengan izin, angka dibulatkan."
+- Rencana 5 Pos selalu ditulis "panduan, bukan aturan". Masa Depan dikirim di hari gajian, bukan dari sisa.
+
+### Field gaya baru
+| field | di mana | isi |
+|---|---|---|
+| `seri` | post | `bedah` / `tim` / `tanggal-tua` |
+| `obj` | frame cover | benda: `{"type":"struk","title","rows":[[label,nilai],"---",…],"total":[label,nilai]}` · `{"type":"mutasi","title","rows":[[label,tanggal,"+/-nilai"],…],"saldo":[label,nilai]}` · `{"type":"poll","options":[2–3 teks ≤24],"ask"}` |
+| `struk` | tipe frame | `title`, `head`, `rows` (2–7), `total` (opsional, muncul tahap 2), `note` (opsional) |
+| `mutasi` | tipe frame | `title`, `head`, `rows` (2–7), `saldo` |
+| `poll` | tipe frame | `title`, `options`, `ask` |
+| `ekspresi` | frame mana pun | `kaget` / `tertawa` / `berpikir` / `khawatir` (gambar di `assets/ekspresi/`); cover dan cta wajib diisi, variasikan antar-hari |
+| `nara` | frame | `kanan` / `kiri` / `tidak` (default: bedah & tim kanan, tanggal-tua kiri) |
+
+Nilai di `rows`/`total`/`saldo` ditulis tanpa "Rp" (mis. `"-1.500.000"`), tapi tetap dicek mesin terhadap `calc`/`given` seperti nominal lain. Suara membacakan judul + total/saldo saja; baris rincian dibaca mata.
+
+### Kata kunci baru
+| Kata | Hasil | Sejak |
+|---|---|---|
+| BEDAH | DM otomatis meminta gaji bersih, kota, biaya tempat tinggal (tanpa nama/rekening) untuk seri Bedah Gaji | 13 Nov 2026 |
+
 ## Persona
 
 - Nara, **pemandu AI**. Terbuka sebagai AI, tidak pernah mengaku manusia.

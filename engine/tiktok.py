@@ -79,7 +79,7 @@ def main() -> int:
     posted = {r["post_id"]: r for r in read_posted()}
     posts = []
     for p in iter_posts():
-        if not (mulai <= p["date"] <= today) or p.get("format") != "reel" or not slot_aktif(cfg, p["slot"]):
+        if not (mulai <= p["date"] <= today) or p.get("format") != "reel" or not slot_aktif(cfg, p["slot"], p["date"]):
             continue
         # hanya yang benar-benar terbit di Instagram; untuk hari ini juga yang masih terjadwal (sudah disetujui)
         if p["id"] not in posted and not (p["date"] == today and approval_state(p) == "disetujui"):

@@ -74,6 +74,10 @@ def main() -> int:
         tgl = now.date() - dt.timedelta(days=1) if now.hour < jam_slot - 1 else now.date()
         a.tanggal = tgl.isoformat()
 
+    if not slot_aktif(cfg, slot, a.tanggal):
+        summary(f"⏸ Slot {slot} nonaktif mulai {cfg['slot'][slot].get('nonaktif_mulai')} (config.json). Tidak ada yang diterbitkan.")
+        return 0
+
     if a.tanggal < cfg.get("hari_1", "0000-00-00") and not a.uji:
         summary(f"⏳ Belum mulai: posting otomatis dimulai {cfg['hari_1']}. Tidak ada yang diterbitkan.")
         return 0

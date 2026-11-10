@@ -279,6 +279,9 @@ def content_hash(post: dict) -> str:
         g2 = cfg.get("gaya_baru") or {}
         nara = ROOT / g2.get("nara", "-")
         keep["_g2"] = [g2, hashlib.sha1(nara.read_bytes()).hexdigest()[:10] if nara.is_file() else ""]
+        eks = sorted({f.get("ekspresi") for f in post.get("frames", []) if f.get("ekspresi")})
+        keep["_ekspresi"] = {e: (hashlib.sha1(p.read_bytes()).hexdigest()[:10] if (p := ROOT / "assets" / "ekspresi" / f"{e}.png").is_file() else "")
+                             for e in eks}       # file ekspresi ditambah/diganti → post dirender ulang
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
 
@@ -302,7 +305,7 @@ def main() -> int:
             continue
         if not a.id and (p["date"] < a.dari or (a.sampai and p["date"] > a.sampai)):
             continue
-        if p.get("skip") or not slot_aktif(cfg, p["slot"]):
+        if p.get("skip") or not slot_aktif(cfg, p["slot"], p["date"]):
             continue
         if a.paksa or needs_render(p):
             todo.append(p)

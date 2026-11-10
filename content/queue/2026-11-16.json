@@ -1,98 +1,170 @@
 {
-  "date": "2026-11-16",
-  "posts": [
+ "date": "2026-11-16",
+ "posts": [
+  {
+   "slot": "malam",
+   "format": "reel",
+   "pattern": "A",
+   "seri": "bedah",
+   "evergreen": true,
+   "topic": "bedah gaji Rp3,5 juta, tinggal dengan ortu, cicilan motor",
+   "frames": [
     {
-      "slot": "siang",
-      "format": "reel",
-      "pattern": "D",
-      "topic": "cek saldo senin pagi",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "POV",
-          "title": "Senin pagi, buka saldo sambil **tahan napas**",
-          "sub": "Akhir pekan kemarin rasanya biasa saja."
-        },
-        {
-          "type": "statement",
-          "text": "Lihat saldo setelah akhir pekan rasanya kayak **buka rapor**.",
-          "sub": "Kaget, padahal semuanya kamu sendiri yang beli."
-        },
-        {
-          "type": "point",
-          "title": "Cek sebentar tiap **Jumat sore**",
-          "body": "Satu menit lihat sisa jatah sebelum akhir pekan. Senin pagi jadi nggak ada kejutan."
-        },
-        {
-          "type": "cta",
-          "title": "Tag teman yang sama",
-          "body": "Tag teman yang tiap Senin **kaget lihat saldo**.",
-          "pill": "Tag 1 teman"
-        }
+     "type": "cover",
+     "kicker": "Bedah Gaji #02",
+     "ekspresi": "khawatir",
+     "title": "Gaji **Rp3,5 juta**, masih tinggal sama ortu. Kok nggak pernah nabung?",
+     "obj": {
+      "type": "struk",
+      "title": "Simulasi · sebulan",
+      "rows": [
+       [
+        "Gaji bersih",
+        "3.500.000"
+       ],
+       "---",
+       [
+        "Kasih ortu",
+        "-500.000"
+       ],
+       [
+        "Cicilan motor",
+        "-900.000"
+       ],
+       [
+        "Bensin & parkir",
+        "-400.000"
+       ],
+       [
+        "Lainnya",
+        "?"
+       ]
       ],
-      "caption": "Senin pagi, buka saldo sambil tahan napas.\nKagetnya karena akhir pekan nggak dicek.\nCoba cek satu menit tiap Jumat sore.\nTag teman yang tiap Senin kaget lihat saldo.",
-      "hashtags": [
-        "keuanganpribadi",
-        "relate",
-        "gajian",
-        "tanggaltua"
-      ],
-      "disetujui": {
-        "hash": "24796268baa561a8",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      "total": [
+       "SISA",
+       "Rp ???"
+      ]
+     }
     },
     {
-      "slot": "malam",
-      "format": "reel",
-      "pattern": "F",
-      "spine_day": 22,
-      "topic": "transaksi kecil seminggu",
-      "frames": [
-        {
-          "type": "cover",
-          "kicker": "Tantangan",
-          "title": "Hitung semua belanja di bawah **Rp50 ribu** minggu lalu",
-          "sub": "Lima menit. Dari riwayat transaksimu."
-        },
-        {
-          "type": "statement",
-          "text": "Yang kecil-kecil itu yang **paling sering lolos**.",
-          "sub": "Satu-satu nggak terasa. Dijumlah, baru kelihatan."
-        },
-        {
-          "type": "list",
-          "title": "Caranya",
-          "items": [
-            "Buka riwayat transaksi 7 hari terakhir",
-            "Tandai semua yang di bawah Rp50.000",
-            "Jumlahkan semuanya",
-            "Bandingkan dengan jatah Pos Hidup mingguanmu"
-          ]
-        },
-        {
-          "type": "cta",
-          "title": "Berapa totalnya?",
-          "body": "Tulis **totalnya** di komen. Nggak usah malu, ini latihan.",
-          "pill": "Komen totalnya"
-        }
+     "type": "struk",
+     "title": "Pengeluaran sebulan",
+     "head": "Simulasi",
+     "rows": [
+      [
+       "Kasih ortu",
+       "500.000"
       ],
-      "caption": "Tantangan malam ini: hitung semua belanja di bawah Rp50.000 minggu lalu.\nSatu-satu nggak terasa. Dijumlah, baru kelihatan.\nBandingkan dengan jatah Pos Hidup mingguanmu.\nTulis totalnya di komen.",
-      "hashtags": [
-        "keuanganpribadi",
-        "tantangan",
-        "kebocorankecil",
-        "gajian"
+      [
+       "Cicilan motor",
+       "900.000"
       ],
-      "given": [
-        50000
+      [
+       "Bensin & parkir",
+       "400.000"
       ],
-      "disetujui": {
-        "hash": "2cd5885044654559",
-        "pada": "2026-11-06T00:24+07:00",
-        "oleh": "Nara-edu26"
-      }
+      [
+       "Makan siang 25rb × 22",
+       "550.000"
+      ],
+      [
+       "Pulsa & internet",
+       "150.000"
+      ],
+      [
+       "Nongkrong & jajan",
+       "700.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "3.200.000"
+     ]
+    },
+    {
+     "type": "number",
+     "label": "Sisa",
+     "eq": "Rp3.500.000 − Rp3.200.000",
+     "value": "Rp300.000",
+     "note": "Bukan gajinya yang kecil. **Cicilan motor 26%** dari gaji."
+    },
+    {
+     "type": "struk",
+     "title": "Kalau pakai **5 Pos**",
+     "head": "Panduan, bukan aturan",
+     "rows": [
+      [
+       "Wajib (ortu, bensin, pulsa)",
+       "1.050.000"
+      ],
+      [
+       "Hidup (makan)",
+       "550.000"
+      ],
+      [
+       "Cicilan",
+       "900.000"
+      ],
+      [
+       "Masa Depan",
+       "500.000"
+      ],
+      [
+       "Bebas (nongkrong)",
+       "500.000"
+      ]
+     ],
+     "total": [
+      "Total",
+      "3.500.000"
+     ],
+     "note": "Nongkrong turun Rp200 ribu. Masa Depan dikirim di hari gajian, bukan dari sisa."
+    },
+    {
+     "type": "cta",
+     "title": "Mau gajimu dibedah juga?",
+     "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+     "pill": "Komen BEDAH",
+     "ekspresi": "tertawa"
     }
-  ]
+   ],
+   "caption": "Gaji Rp3,5 juta, masih tinggal sama ortu, tapi nggak pernah bisa nabung.\n\nSimulasi sebulan: kasih ortu Rp500.000, cicilan motor Rp900.000, bensin & parkir Rp400.000, makan siang Rp550.000 (Rp25 ribu × 22 hari), pulsa & internet Rp150.000, nongkrong & jajan Rp700.000. Total Rp3.200.000, sisa Rp300.000.\n\nMasalahnya bukan gaji kecil: cicilan motor sudah 26% gaji.\n\nPakai 5 Pos: nongkrong turun ke Rp500.000, Masa Depan naik ke Rp500.000 dan dikirim di hari gajian, bukan dari sisa.\n\nMau gajimu dibedah juga? Komen BEDAH. Tiap minggu aku pilih satu, tanpa nama.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+   "hashtags": [
+    "keuanganpribadi",
+    "gajian",
+    "budgeting",
+    "cicilan"
+   ],
+   "calc": [
+    {
+     "expr": "25000*22",
+     "expect": 550000
+    },
+    {
+     "expr": "500000+900000+400000+550000+150000+700000",
+     "expect": 3200000
+    },
+    {
+     "expr": "3500000-3200000",
+     "expect": 300000
+    },
+    {
+     "expr": "round(900000/3500000*100)",
+     "expect": 26
+    },
+    {
+     "expr": "500000+400000+150000",
+     "expect": 1050000
+    },
+    {
+     "expr": "700000-500000",
+     "expect": 200000
+    },
+    {
+     "expr": "1050000+550000+900000+500000+500000",
+     "expect": 3500000
+    }
+   ]
+  }
+ ]
 }

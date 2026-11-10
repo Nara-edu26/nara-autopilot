@@ -32,9 +32,14 @@ def today_wib() -> str:
     return now_wib().date().isoformat()
 
 
-def slot_aktif(cfg: dict, slot: str) -> bool:
-    """Slot dengan "aktif": false di config.json tidak dirender, tidak diisi evergreen, dan tidak diterbitkan."""
-    return bool(cfg.get("slot", {}).get(slot, {}).get("aktif", True))
+def slot_aktif(cfg: dict, slot: str, tanggal: str | None = None) -> bool:
+    """Slot dengan "aktif": false di config.json tidak dirender, tidak diisi evergreen, dan tidak diterbitkan.
+    "nonaktif_mulai": "YYYY-MM-DD" mematikan slot mulai tanggal itu (post sebelum tanggal itu tetap jalan)."""
+    s = cfg.get("slot", {}).get(slot, {})
+    if not s.get("aktif", True):
+        return False
+    mulai = s.get("nonaktif_mulai")
+    return not (mulai and tanggal and tanggal >= mulai)
 
 
 def post_id(date: str, slot: str) -> str:
