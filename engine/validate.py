@@ -24,9 +24,35 @@ from common import SLOTS, iter_posts, today_wib  # noqa: E402
 
 FORMATS = {"carousel": (3, 10), "reel": (3, 7)}
 POLA = set("ABCDEFS")
-FRAME_TYPES = {"cover", "number", "point", "list", "compare", "statement", "cta"}
+FRAME_TYPES = {"cover", "number", "point", "list", "compare", "statement", "cta", "struk", "mutasi", "poll"}
+SERI = {"bedah", "tanggal-tua", "tim"}
 MAX_LEN = {"title": 90, "sub": 140, "kicker": 40, "label": 60, "eq": 80, "value": 24, "note": 160,
-           "body": 220, "text": 160, "pill": 40, "item": 90, "h": 40, "t": 150}
+           "body": 220, "text": 160, "pill": 40, "item": 90, "h": 40, "t": 150, "baris": 60, "opsi": 24, "ask": 90,
+           "head": 40}
+RE_ANGKA = re.compile(r"\d{1,3}(?:\.\d{3})+|\d+")
+
+
+def _uang(v) -> str:
+    """Nilai baris struk/mutasi ('-1.500.000') diberi 'Rp' supaya ikut dicek terhadap calc."""
+    v = str(v or "").strip().lstrip("+-−")
+    return f"Rp{v}" if RE_ANGKA.fullmatch(v) else v
+
+
+def _benda(o: dict) -> list[tuple[str, str]]:
+    out = []
+    if o.get("head") or o.get("title_obj"):
+        out.append(("head", str(o.get("head") or o.get("title_obj"))))
+    for r in o.get("rows") or []:
+        if isinstance(r, list) and r:
+            out.append(("baris", " ".join([str(r[0])] + [str(x) for x in r[1:-1]] + [_uang(r[-1])])))
+    for k in ("total", "saldo"):
+        if isinstance(o.get(k), list) and len(o[k]) == 2:
+            out.append(("baris", f"{o[k][0]} {_uang(o[k][1])}"))
+    for x in o.get("options") or []:
+        out.append(("opsi", str(x)))
+    if o.get("ask"):
+        out.append(("ask", str(o["ask"])))
+    return out
 
 BLOKIR = [
     r"pasti untung", r"dijamin", r"jaminan untung", r"cuan pasti", r"auto kaya", r"kaya mendadak",
@@ -99,6 +125,12 @@ def frame_texts(fr: dict) -> list[tuple[str, str]]:
         if isinstance(fr.get(side), dict):
             out.append(("h", str(fr[side].get("h", ""))))
             out.append(("t", str(fr[side].get("t", ""))))
+    if fr.get("type") in ("struk", "mutasi", "poll"):
+        out += _benda(fr)
+    if isinstance(fr.get("obj"), dict):
+        o = dict(fr["obj"])
+        o["title_obj"] = o.pop("title", None)
+        out += _benda(o)
     return out
 
 
@@ -119,6 +151,10 @@ def validate_post(post: dict, others: list[dict]) -> tuple[list[str], list[str]]
         return E, W
     if post.get("pattern") not in POLA:
         E.append("pattern harus salah satu dari A B C D E F S")
+    if post.get("seri") is not None and post.get("seri") not in SERI:
+        E.append(f"seri harus salah satu dari {sorted(SERI)}")
+    if post.get("seri") and not re.search(r"simulasi|contoh|kiriman|dengan izin", post.get("caption", ""), re.I):
+        W.append("gaya baru: sebut di caption apakah angka ini simulasi atau kiriman pengikut (dengan izin)")
     frames = post.get("frames") or []
     lo, hi = FORMATS[fmt]
     if not lo <= len(frames) <= hi:
@@ -141,6 +177,15 @@ def validate_post(post: dict, others: list[dict]) -> tuple[list[str], list[str]]
             E.append(f"frame {i}: list butuh 2-6 items")
         if fr["type"] == "compare" and not (isinstance(fr.get("left"), dict) and isinstance(fr.get("right"), dict)):
             E.append(f"frame {i}: compare butuh left{{h,t}} dan right{{h,t}}")
+        if fr["type"] in ("struk", "mutasi") and not (2 <= len(fr.get("rows") or []) <= 7):
+            E.append(f"frame {i}: {fr['type']} butuh 2-7 baris (rows)")
+        if fr["type"] == "poll" and not (2 <= len(fr.get("options") or []) <= 3):
+            E.append(f"frame {i}: poll butuh 2-3 options")
+        if fr["type"] in ("struk", "mutasi", "poll") and not post.get("seri"):
+            E.append(f"frame {i}: tipe '{fr['type']}' hanya untuk post gaya baru (isi 'seri')")
+        o = fr.get("obj")
+        if o is not None and (not isinstance(o, dict) or o.get("type") not in ("struk", "mutasi", "poll")):
+            E.append(f"frame {i}: obj harus struk, mutasi, atau poll")
         for k, t in frame_texts(fr):
             plain = t.replace("**", "")
             if len(plain) > MAX_LEN.get(k, 200):

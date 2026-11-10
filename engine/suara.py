@@ -104,7 +104,30 @@ def _kalimat(*bagian: str | None) -> str:
     return " ".join(out)
 
 
-_KATA_KUNCI = re.compile(r"\b(BOCOR|TEMPLATE|KELAS|SUDAH)\b|\bkomen\b|\bketik\b", re.I)
+_KATA_KUNCI = re.compile(r"\b(BOCOR|BEDAH|TEMPLATE|KELAS|SUDAH)\b|\bkomen\b|\bketik\b", re.I)
+
+
+def _rp(v: str | None) -> str:
+    """'3.750.000' → 'Rp3.750.000' supaya dibaca sebagai uang; teks lain dibiarkan."""
+    v = (v or "").strip().lstrip("+-−")
+    return f"Rp{v}" if re.fullmatch(r"\d{1,3}(?:\.\d{3})+|\d+", v) else v
+
+
+def naskah_benda(fr: dict) -> str | None:
+    """Frame gaya baru (struk, mutasi, polling): judul + baris penutup saja, supaya reel tetap cepat dan
+    kredit suara hemat. Baris rincian dibaca mata, bukan dibacakan."""
+    t = fr.get("type")
+    if t == "struk":
+        tot = fr.get("total") or []
+        return _kalimat(fr.get("title"), f"{tot[0]}… {_rp(tot[1])}" if len(tot) == 2 else "")
+    if t == "mutasi":
+        s = fr.get("saldo") or []
+        return _kalimat(fr.get("title"), f"{s[0]}… {_rp(s[1])}" if len(s) == 2 else "")
+    if t == "poll":
+        opts = fr.get("options") or []
+        pilihan = "; ".join(f"{'ABC'[i]}, {o.lower()}" for i, o in enumerate(opts))
+        return _kalimat(fr.get("title"), pilihan)
+    return None
 
 
 def naskah_frame(fr: dict, i: int, sapaan: str, lengkap: bool = False) -> str:
@@ -112,6 +135,8 @@ def naskah_frame(fr: dict, i: int, sapaan: str, lengkap: bool = False) -> str:
     kredit ElevenLabs Starter (±30 rb karakter/bulan) cukup. Mode lengkap ikut membaca isi."""
     t = fr.get("type")
     isi = (lambda k: fr.get(k)) if lengkap else (lambda k: None)
+    if naskah_benda(fr) is not None:
+        return _kapital(bacaan(naskah_benda(fr)))
     if t == "cover":
         s = _kalimat(sapaan if i == 0 else "", fr.get("title"), isi("sub"))
     elif t == "number":
@@ -151,7 +176,9 @@ def naskah_frame_alami(fr: dict, i: int, sapaan: str, tag: bool = False) -> str:
     Tidak menambah klaim baru: kata yang dibaca tetap dari teks frame. tag=True menambah tag emosi
     ElevenLabs v3/v4 (mis. [warmly]) yang tidak ikut diucapkan."""
     t = fr.get("type")
-    if t == "cover":
+    if naskah_benda(fr) is not None:
+        s = naskah_benda(fr)
+    elif t == "cover":
         s = _kalimat(sapaan if i == 0 else "", fr.get("title"))
     elif t == "number":
         lab, val = (fr.get("label") or "").strip().rstrip(".:"), (fr.get("value") or "").strip()
@@ -177,7 +204,11 @@ def naskah_frame_alami(fr: dict, i: int, sapaan: str, tag: bool = False) -> str:
     s = re.sub(r"\b([A-Z]{3,})\b", lambda m: '"' + m[1].lower() + '"', s)   # Komen BOCOR → Komen "bocor"
     s = _kapital(bacaan(s))
     if tag:
-        if i == 0:
+        if i == 0 and not sapaan and s.rstrip().endswith("?"):
+            s = "[curious] " + s           # gaya baru: hook langsung, tanpa sapaan
+        elif i == 0 and not sapaan:
+            pass
+        elif i == 0:
             s = "[warmly] " + s
         elif t == "cta":
             s = "[cheerfully] " + s
@@ -194,7 +225,7 @@ def _kapital(t: str) -> str:
 def naskah(post: dict, cfg: dict, gaya: str | None = None) -> list[str]:
     """gaya: None/"ringkas" (bawaan), "lengkap", "alami", "alami_tag" (alami + tag emosi v3/v4)."""
     s = cfg.get("suara", {})
-    sapaan = s.get("sapaan", "")
+    sapaan = "" if post.get("seri") else s.get("sapaan", "")    # gaya baru: detik 0 langsung hook
     gaya = gaya or s.get("mode") or "ringkas"
     if gaya.startswith("alami"):
         lines = [naskah_frame_alami(fr, i, sapaan, gaya == "alami_tag") for i, fr in enumerate(post["frames"])]

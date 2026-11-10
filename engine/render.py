@@ -38,8 +38,11 @@ LOUD = "loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000"   # standar kekerasan med
 
 
 def words(fr: dict) -> int:
-    txt = " ".join(str(v) for k, v in fr.items() if isinstance(v, str) and k not in ("type", "theme"))
+    txt = " ".join(str(v) for k, v in fr.items() if isinstance(v, str) and k not in ("type", "theme", "nara"))
     txt += " ".join(fr.get("items") or [])
+    txt += " " + " ".join(fr.get("options") or [])
+    for r in fr.get("rows") or []:          # struk & mutasi: tiap baris dihitung sebagai kata yang dibaca mata
+        txt += " " + (" ".join(map(str, r)) if isinstance(r, list) else "")
     for side in ("left", "right"):
         if isinstance(fr.get(side), dict):
             txt += " " + " ".join(fr[side].values())
@@ -57,6 +60,10 @@ def frame_duration(fr: dict, i: int) -> float:
 
 
 def has_reveal(fr: dict) -> bool:
+    if fr["type"] == "struk":
+        return bool(fr.get("total") or fr.get("note"))
+    if fr["type"] == "mutasi":
+        return bool(fr.get("saldo"))
     return fr["type"] in ("number", "point", "list", "compare", "statement", "cta")
 
 
@@ -70,6 +77,10 @@ class Renderer:
         self.cfg = load_config()
         av = self.cfg["brand"].get("avatar")
         self.avatar = (ROOT / av).as_uri() if av and (ROOT / av).exists() else ""
+        g2 = self.cfg.get("gaya_baru") or {}
+        self.g2 = g2
+        self.cutout = (ROOT / g2["nara"]).as_uri() if g2.get("nara") and (ROOT / g2["nara"]).exists() else ""
+        self.seri = None                         # diisi per post (gaya baru bila post punya "seri")
         self.voice = suara.Suara(self.cfg)
         self.animasi = bool(self.cfg["brand"].get("avatar_animasi")) and bool(self.avatar)
         self.bicara = bool(self.cfg["brand"].get("avatar_bicara"))
@@ -86,6 +97,14 @@ class Renderer:
                    "signature": b["tanda_tangan"], "closing": b["penutup"],
                    "avatar": self.avatar, "greeting": b.get("sapaan", ""), "role": b.get("peran", ""),
                    "topAvatar": not (fmt == "reel" and self.animasi), "talker": talker}
+        if self.seri:
+            s = self.seri
+            ekspresi = fr.get("ekspresi")
+            cut = self.cutout
+            if ekspresi and (ROOT / "assets" / "ekspresi" / f"{ekspresi}.png").exists():
+                cut = (ROOT / "assets" / "ekspresi" / f"{ekspresi}.png").as_uri()
+            payload.update({"seri": s["seri"], "chip": s["chip"], "cutout": cut,
+                            "handle": self.g2.get("handle", ""), "labelAi": self.g2.get("label_ai", "")})
         self.page.evaluate("d => renderFrame(d)", payload)
         self.page.evaluate("() => document.fonts.ready")
         self.page.evaluate("() => Promise.all([...document.images].map(i => i.complete ? 1 :"
@@ -97,6 +116,12 @@ class Renderer:
             self.page.screenshot(path=str(out), type="jpeg", quality=92, clip=clip)
         else:
             self.page.screenshot(path=str(out), type="png", clip=clip)
+
+    def pakai_seri(self, post: dict):
+        """Gaya baru aktif bila post punya "seri". Chip di pojok = kicker frame pembuka (mis. "Bedah Gaji #01")."""
+        seri = post.get("seri")
+        self.seri = {"seri": seri, "chip": post["frames"][0].get("kicker") or
+                     (self.g2.get("seri") or {}).get(seri, {}).get("nama", "")} if seri else None
 
     def carousel(self, post: dict, out: Path):
         frames = post["frames"]
@@ -230,7 +255,7 @@ def needs_render(post: dict) -> bool:
 
 
 def content_hash(post: dict) -> str:
-    keep = {k: post.get(k) for k in ("format", "frames")}
+    keep = {k: post.get(k) for k in ("format", "frames", "seri")}
     cfg = load_config()
     keep["_suara"] = suara.sidik(cfg) if post.get("format") == "reel" else ""
     keep["_brand"] = {k: cfg["brand"].get(k) for k in ("avatar", "sapaan", "peran", "avatar_animasi")}
@@ -250,6 +275,10 @@ def content_hash(post: dict) -> str:
                                           if mask.with_name(f"{post.get('id')}.depan.mp4").exists() else b"")
                                        ).hexdigest()[:12]
     keep["_musik"] = sorted(p.name for p in MUSIC.iterdir()) if MUSIC.exists() else []
+    if post.get("seri"):
+        g2 = cfg.get("gaya_baru") or {}
+        nara = ROOT / g2.get("nara", "-")
+        keep["_g2"] = [g2, hashlib.sha1(nara.read_bytes()).hexdigest()[:10] if nara.is_file() else ""]
     tpl = TEMPLATE.read_bytes()
     return hashlib.sha1(json.dumps(keep, sort_keys=True).encode() + tpl).hexdigest()
 
@@ -295,6 +324,7 @@ def main() -> int:
                 shutil.rmtree(out)
             out.mkdir(parents=True)
             try:
+                r.pakai_seri(p)
                 (r.carousel if p["format"] == "carousel" else r.reel)(p, out)
                 # suara gagal → cap sengaja tidak cocok, supaya render berikutnya mencoba lagi
                 (out / "sumber.sha1").write_text("ulang-suara" if r.voice.gagal else content_hash(p))
