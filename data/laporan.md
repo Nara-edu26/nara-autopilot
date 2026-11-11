@@ -1,39 +1,41 @@
-# Laporan performa Nara · 2026-11-10
+# Laporan performa Nara · 2026-11-11
 
-Post terbit: 35 · punya data: 35 · sudah ≥72 jam (dinilai): 29
+Post terbit: 37 · punya data: 37 · sudah ≥72 jam (dinilai): 31
 Follower: 4 (awal data 2026-10-21: 1).
 
-Median reach akun: **16**
+Median reach akun: **14**
 
 ## Per pola
 
 | pola | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| F | 1 | 27 | 1.69 | 0.0 | 0.0 |
-| E | 4 | 26 | 1.66 | 0.0 | 0.0 |
-| C | 2 | 26 | 1.66 | 0.0 | 0.0 |
-| D | 7 | 19 | 1.19 | 0.0 | 0.0 |
-| A | 7 | 18 | 1.12 | 0.0 | 0.0 |
-| S | 3 | 10 | 0.62 | 0.0 | 0.0 |
-| B | 5 | 7 | 0.44 | 0.0 | 0.0 |
+| F | 1 | 27 | 1.93 | 0.0 | 0.0 |
+| E | 4 | 26 | 1.89 | 0.0 | 0.0 |
+| D | 7 | 19 | 1.36 | 0.0 | 0.0 |
+| A | 8 | 16 | 1.14 | 0.0 | 0.0 |
+| C | 3 | 14 | 1.00 | 0.0 | 0.0 |
+| S | 3 | 10 | 0.71 | 0.0 | 0.0 |
+| B | 5 | 7 | 0.50 | 0.0 | 0.0 |
 
 ## Per format
 
 | format | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| reel | 20 | 24 | 1.53 | 0.0 | 0.0 |
-| carousel | 9 | 7 | 0.44 | 0.0 | 0.0 |
+| reel | 22 | 22 | 1.61 | 0.0 | 0.0 |
+| carousel | 9 | 7 | 0.50 | 0.0 | 0.0 |
 
 ## Per slot
 
 | slot | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| malam | 10 | 29 | 1.81 | 0.0 | 0.0 |
-| siang | 11 | 22 | 1.38 | 0.0 | 0.0 |
-| pagi | 8 | 5 | 0.31 | 0.0 | 0.0 |
+| malam | 11 | 27 | 1.93 | 0.0 | 0.0 |
+| siang | 12 | 20 | 1.46 | 0.0 | 0.0 |
+| pagi | 8 | 5 | 0.36 | 0.0 | 0.0 |
 
 ## Pemenang (reach ≥ 5× median) → buat 3 variasi dalam 7 hari
 
+- 2026-10-28-malam [D/reel] reach 77: Tanggal 20. Saldo Rp200 ribu.
+- 2026-10-29-siang [E/reel] reach 76: Gaji Rp4,5 juta: berapa jatah harianmu?
 - 2026-10-31-siang [D/reel] reach 101: "Nongkrong bentar doang"
 
 ## 5 teratas menurut simpan per 1.000 reach (bahan carousel & produk)
