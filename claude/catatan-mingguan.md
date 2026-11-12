@@ -1,5 +1,19 @@
 # Catatan mingguan mesin konten Nara
 
+## 12 Nov 2026 · batch 23–29 Nov (gaya baru, minggu ke-2)
+
+Ditulis dari sesi Claude utama. Gaya baru: 1 reel/hari di slot malam, seri diputar.
+
+- Tanggal diisi: 23–29 Nov 2026, 7 reel, semua berstatus "menunggu".
+- Rotasi: 23 tim (bonus akhir tahun) · 24 tanggal-tua (saldo Rp85 ribu sehari sebelum gajian, BOCOR) · 25 bedah #05 (gaji pertama Rp4,2 juta, Bandung) · 26 tim (teman pinjam Rp500 ribu) · 27 tanggal-tua (4 cicilan bayar nanti Rp720 ribu, TEMPLATE) · 28 bedah #06 (gaji Rp7 juta, dua cicilan) · 29 tim (liburan akhir tahun Rp1,5 juta).
+- Jualan: 1 (27 Nov, TEMPLATE). Topik pengeluaran kecil: 0. Semua angka berlabel simulasi/contoh.
+- Ekspresi cover: berpikir, khawatir, kaget, berpikir, khawatir, berpikir, tertawa.
+- Data per seri: belum ada. Post gaya baru pertama baru tayang 13 Nov malam; pembanding gaya lama = median 13,5 (4 reel terakhir). Perbandingan per seri dimulai di batch berikutnya.
+- Cover 6 post dirender lokal dan dicek: teks tidak tertutup Nara, satu sorotan per judul.
+- Validasi: `python3 engine/validate.py --semua` → 71 post dicek, 0 gagal.
+
+Tinjau dan setujui di https://nara-edu26.github.io/nara-autopilot/tinjau/ sebelum 23 Nov 2026 19.07 WIB.
+
 ## 5 Nov 2026 · batch 16–22 Nov (Hari 22–28)
 
 Ditulis dari sesi Claude utama. Format baru sejak 3 Nov: 14 post/minggu (slot pagi nonaktif), reel dibacakan suara Nara (Nada 3).
