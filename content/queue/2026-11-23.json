@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-23",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": false,
+      "topic": "bonus akhir tahun: cicilan, dana darurat, atau liburan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "berpikir",
+          "title": "Bonus akhir tahun **Rp3 juta**. Buat apa dulu?",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "LUNASI CICILAN",
+              "DANA DARURAT",
+              "LIBURAN"
+            ],
+            "ask": "Komen A, B, atau C dulu."
+          }
+        },
+        {
+          "type": "compare",
+          "title": "Yang sering terjadi",
+          "left": {
+            "h": "Langsung dipakai",
+            "t": "Bonus terasa seperti gaji tambahan. Dua minggu kemudian, nggak jelas ke mana."
+          },
+          "right": {
+            "h": "Dibagi dulu",
+            "t": "Bonus dibagi sebelum dipakai. Ada yang diselesaikan, ada yang dinikmati."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Contoh dibagi tiga",
+          "eq": "Rp3.000.000 × 50%",
+          "value": "Rp1.500.000",
+          "note": "Separuh untuk **cicilan atau dana darurat** dulu."
+        },
+        {
+          "type": "number",
+          "label": "Sisanya",
+          "eq": "Rp900.000 + Rp600.000",
+          "value": "Rp1.500.000",
+          "note": "Rp900 ribu tabungan liburan, Rp600 ribu **boleh dinikmati** sekarang."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A, B, atau C?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. Pernah dapat bonus, habisnya ke mana?",
+          "pill": "Komen A, B, atau C"
+        }
+      ],
+      "caption": "Bonus akhir tahun Rp3 juta. Lunasi cicilan, dana darurat, atau liburan?\n\nYang sering terjadi: bonus langsung dipakai, dua minggu kemudian nggak jelas ke mana.\n\nContoh dibagi tiga: Rp1.500.000 untuk cicilan atau dana darurat, Rp900.000 tabungan liburan, Rp600.000 boleh dinikmati sekarang.\n\nKamu pilih A, B, atau C? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "bonusakhirtahun",
+        "gajian",
+        "relate"
+      ],
+      "calc": [
+        {
+          "expr": "3000000*50/100",
+          "expect": 1500000
+        },
+        {
+          "expr": "3000000*30/100",
+          "expect": 900000
+        },
+        {
+          "expr": "3000000*20/100",
+          "expect": 600000
+        },
+        {
+          "expr": "900000+600000",
+          "expect": 1500000
+        }
+      ]
+    }
+  ]
+}

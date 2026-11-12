@@ -1,0 +1,101 @@
+{
+  "date": "2026-11-27",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "seri": "tanggal-tua",
+      "evergreen": false,
+      "topic": "tumpukan cicilan bayar nanti + Template 5 Pos",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "khawatir",
+          "title": "Cicilannya kecil-kecil. Totalnya **Rp720 ribu** sebulan.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Tagihan bayar nanti · simulasi",
+            "rows": [
+              [
+                "Sepatu (2/3)",
+                "1 Des",
+                "-180.000"
+              ],
+              [
+                "HP (4/6)",
+                "3 Des",
+                "-250.000"
+              ],
+              [
+                "Jaket (1/3)",
+                "5 Des",
+                "-150.000"
+              ],
+              [
+                "Belanja dapur (2/2)",
+                "8 Des",
+                "-140.000"
+              ]
+            ],
+            "saldo": [
+              "Total Desember",
+              "720.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Pos Cicilan, gaji Rp5 juta",
+          "eq": "Rp5.000.000 × 15%",
+          "value": "Rp750.000",
+          "note": "Panduan, bukan aturan."
+        },
+        {
+          "type": "number",
+          "label": "Yang sudah terpakai",
+          "eq": "Rp720.000 ÷ Rp750.000",
+          "value": "96%",
+          "note": "Satu checkout lagi, **Pos Cicilan jebol**."
+        },
+        {
+          "type": "point",
+          "title": "Aturan sampai lunas",
+          "body": "Jangan tambah cicilan baru sebelum satu selesai. Template 5 Pos menunjukkan sisa Pos Cicilan tiap kali kamu mencatat. **Rp29.000**, sekali beli."
+        },
+        {
+          "type": "cta",
+          "title": "Mau lihat sisa pos-mu?",
+          "ekspresi": "berpikir",
+          "body": "Komen **TEMPLATE**, aku kirim tautannya lewat DM.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Cicilannya kecil-kecil: Rp180 ribu, Rp250 ribu, Rp150 ribu, Rp140 ribu. Totalnya Rp720.000 sebulan.\n\nDengan gaji Rp5.000.000, Pos Cicilan 15% = Rp750.000. Sudah terpakai 96%.\n\nAturan sampai lunas: jangan tambah cicilan baru sebelum satu selesai.\n\nTemplate 5 Pos menunjukkan sisa tiap pos. Rp29.000, sekali beli. Komen TEMPLATE untuk tautannya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "paylater",
+        "cicilan",
+        "keuanganpribadi",
+        "tanggaltua"
+      ],
+      "calc": [
+        {
+          "expr": "180000+250000+150000+140000",
+          "expect": 720000
+        },
+        {
+          "expr": "5000000*15/100",
+          "expect": 750000
+        },
+        {
+          "expr": "720000*100/750000",
+          "expect": 96
+        }
+      ],
+      "given": [
+        29000
+      ]
+    }
+  ]
+}

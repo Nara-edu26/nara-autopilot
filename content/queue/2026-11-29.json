@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-29",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": false,
+      "topic": "patungan liburan akhir tahun",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "tertawa",
+          "title": "Diajak liburan akhir tahun, **Rp1,5 juta** per orang.",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "IKUT",
+              "IKUT KALAU DICICIL",
+              "SKIP DULU"
+            ],
+            "ask": "Komen A, B, atau C dulu."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Masih 5 minggu ke 31 Desember",
+          "eq": "Rp1.500.000 ÷ 5",
+          "value": "Rp300.000",
+          "note": "Per minggu. Kalau berat, itu jawabannya."
+        },
+        {
+          "type": "compare",
+          "title": "Yang perlu dicek dulu",
+          "left": {
+            "h": "Aman ikut",
+            "t": "Rp300 ribu seminggu bisa dari Pos Bebas, tanpa ambil dana darurat."
+          },
+          "right": {
+            "h": "Sebaiknya skip",
+            "t": "Harus pakai bayar nanti atau ambil dari jatah makan."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "Skip liburan bukan berarti **nggak asyik**.",
+          "sub": "Ajak ketemu sekali di kota sendiri, budget jelas, tetap bareng."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A, B, atau C?",
+          "ekspresi": "berpikir",
+          "body": "Komen hurufnya. Akhir tahun ini rencananya ke mana?",
+          "pill": "Komen A, B, atau C"
+        }
+      ],
+      "caption": "Diajak liburan akhir tahun, Rp1,5 juta per orang. Ikut, ikut kalau dicicil, atau skip dulu?\n\nMasih 5 minggu ke 31 Desember: Rp1.500.000 ÷ 5 = Rp300.000 per minggu. Kalau bisa dari Pos Bebas, aman. Kalau harus pakai bayar nanti, sebaiknya skip.\n\nKamu pilih A, B, atau C? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "liburan",
+        "akhirtahun",
+        "relate"
+      ],
+      "calc": [
+        {
+          "expr": "1500000/5",
+          "expect": 300000
+        }
+      ]
+    }
+  ]
+}

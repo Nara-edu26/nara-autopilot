@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-28",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp7 juta dua cicilan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #06",
+          "ekspresi": "berpikir",
+          "title": "Gaji **Rp7 juta**, dua cicilan. Kok sisanya cuma segini?",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "7.000.000"
+              ],
+              "---",
+              [
+                "Kontrakan",
+                "-2.000.000"
+              ],
+              [
+                "Cicilan motor",
+                "-900.000"
+              ],
+              [
+                "Cicilan HP",
+                "-450.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kontrakan",
+              "2.000.000"
+            ],
+            [
+              "Makan",
+              "1.800.000"
+            ],
+            [
+              "Cicilan motor",
+              "900.000"
+            ],
+            [
+              "Cicilan HP",
+              "450.000"
+            ],
+            [
+              "Kirim ortu",
+              "700.000"
+            ],
+            [
+              "Bensin & lainnya",
+              "900.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "6.750.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp7.000.000 − Rp6.750.000",
+          "value": "Rp250.000",
+          "note": "Gaji besar, tapi **sisanya kecil**."
+        },
+        {
+          "type": "number",
+          "label": "Cicilan vs panduan 15%",
+          "eq": "Rp1.350.000 − Rp1.050.000",
+          "value": "Rp300.000",
+          "note": "Lebih Rp300 ribu dari panduan. Setelah cicilan HP lunas, **kirim ke Masa Depan**, jangan diganti cicilan baru."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "ekspresi": "kaget",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH"
+        }
+      ],
+      "caption": "Gaji Rp7 juta, dua cicilan. Kok sisanya cuma segini?\n\nSimulasi sebulan: kontrakan Rp2.000.000, makan Rp1.800.000, cicilan motor Rp900.000, cicilan HP Rp450.000, kirim ortu Rp700.000, bensin & lainnya Rp900.000. Total Rp6.750.000, sisa Rp250.000.\n\nCicilan Rp1.350.000, panduan 15% = Rp1.050.000. Lebih Rp300.000. Setelah cicilan HP lunas, kirim uangnya ke Masa Depan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "cicilan",
+        "gajian",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "2000000+1800000+900000+450000+700000+900000",
+          "expect": 6750000
+        },
+        {
+          "expr": "7000000-6750000",
+          "expect": 250000
+        },
+        {
+          "expr": "900000+450000",
+          "expect": 1350000
+        },
+        {
+          "expr": "7000000*15/100",
+          "expect": 1050000
+        },
+        {
+          "expr": "1350000-1050000",
+          "expect": 300000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-26",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": true,
+      "topic": "teman pinjam uang Rp500 ribu",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "berpikir",
+          "title": "Teman pinjam **Rp500 ribu**, \"minggu depan aku ganti\".",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "PINJAMI SEMUA",
+              "PINJAMI SEBAGIAN",
+              "TOLAK HALUS"
+            ],
+            "ask": "Komen A, B, atau C dulu."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "Masalahnya bukan pelit atau baik. Masalahnya **kalau nggak kembali**.",
+          "sub": "Uang yang dipinjamkan sebaiknya uang yang siap direlakan."
+        },
+        {
+          "type": "number",
+          "label": "Contoh Pos Bebas, gaji Rp4,5 juta",
+          "eq": "Rp4.500.000 × 15%",
+          "value": "Rp675.000",
+          "note": "Batas aman meminjamkan: **dari sini**, bukan dari jatah makan."
+        },
+        {
+          "type": "point",
+          "title": "Kalau mau tolak, cukup satu kalimat",
+          "body": "\"Bulan ini aku cuma bisa Rp200 ribu, nggak apa-apa?\" Jujur, tanpa drama, dan pertemanan tetap aman."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A, B, atau C?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. Pernah dipinjam dan nggak kembali?",
+          "pill": "Komen A, B, atau C"
+        }
+      ],
+      "caption": "Teman pinjam Rp500 ribu, \"minggu depan aku ganti\". Pinjami semua, sebagian, atau tolak halus?\n\nUang yang dipinjamkan sebaiknya uang yang siap direlakan. Contoh gaji Rp4.500.000: Pos Bebas Rp675.000. Pinjamkan dari situ, bukan dari jatah makan.\n\nKamu pilih A, B, atau C? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "relate",
+        "pertemanan",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "4500000*15/100",
+          "expect": 675000
+        }
+      ],
+      "given": [
+        500000,
+        200000
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-25",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji pertama Rp4,2 juta di Bandung",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #05",
+          "ekspresi": "kaget",
+          "title": "Gaji pertama **Rp4,2 juta** di Bandung. Mulai dari mana?",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "4.200.000"
+              ],
+              "---",
+              [
+                "Kos",
+                "-1.100.000"
+              ],
+              [
+                "Makan",
+                "-1.200.000"
+              ],
+              [
+                "Kirim ortu",
+                "-500.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kos",
+              "1.100.000"
+            ],
+            [
+              "Makan 40rb × 30",
+              "1.200.000"
+            ],
+            [
+              "Kirim ortu",
+              "500.000"
+            ],
+            [
+              "Transport",
+              "300.000"
+            ],
+            [
+              "Pulsa & internet",
+              "100.000"
+            ],
+            [
+              "Sabun, laundry, dll",
+              "200.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "3.400.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp4.200.000 − Rp3.400.000",
+          "value": "Rp800.000",
+          "note": "Gaji pertama yang **masih ada sisanya**. Jangan biarkan nganggur."
+        },
+        {
+          "type": "number",
+          "label": "Masa Depan 5%, dikirim hari gajian",
+          "eq": "Rp4.200.000 × 5%",
+          "value": "Rp210.000",
+          "note": "Sisanya Rp590.000 untuk **Pos Bebas**. Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "ekspresi": "tertawa",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH"
+        }
+      ],
+      "caption": "Gaji pertama Rp4,2 juta di Bandung. Mulai dari mana?\n\nSimulasi sebulan: kos Rp1.100.000, makan Rp1.200.000 (Rp40 ribu × 30 hari), kirim ortu Rp500.000, transport Rp300.000, pulsa & internet Rp100.000, sabun-laundry Rp200.000. Total Rp3.400.000, sisa Rp800.000.\n\nKirim 5% ke Masa Depan di hari gajian: Rp210.000. Sisanya Rp590.000 untuk Pos Bebas. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "gajipertama",
+        "keuanganpribadi",
+        "freshgraduate",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "40000*30",
+          "expect": 1200000
+        },
+        {
+          "expr": "1100000+1200000+500000+300000+100000+200000",
+          "expect": 3400000
+        },
+        {
+          "expr": "4200000-3400000",
+          "expect": 800000
+        },
+        {
+          "expr": "4200000*5/100",
+          "expect": 210000
+        },
+        {
+          "expr": "800000-210000",
+          "expect": 590000
+        }
+      ]
+    }
+  ]
+}

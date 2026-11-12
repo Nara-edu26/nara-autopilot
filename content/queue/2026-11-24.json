@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-24",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "seri": "tanggal-tua",
+      "evergreen": true,
+      "topic": "sehari sebelum gajian saldo tipis",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "khawatir",
+          "title": "Besok gajian. Saldo tinggal **Rp85 ribu**.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Mutasi minggu ini · simulasi",
+            "rows": [
+              [
+                "Saldo 18 Nov",
+                "18 Nov",
+                "+620.000"
+              ],
+              [
+                "Belanja bulanan",
+                "19 Nov",
+                "-240.000"
+              ],
+              [
+                "Ojek & makan",
+                "21 Nov",
+                "-165.000"
+              ],
+              [
+                "Isi kuota",
+                "22 Nov",
+                "-50.000"
+              ],
+              [
+                "Jajan akhir pekan",
+                "23 Nov",
+                "-80.000"
+              ]
+            ],
+            "saldo": [
+              "Saldo 24 Nov",
+              "85.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Habis dalam 6 hari",
+          "eq": "Rp620.000 − Rp85.000",
+          "value": "Rp535.000",
+          "note": "Bukan karena satu belanja besar, tapi **nggak ada jatah harian**."
+        },
+        {
+          "type": "number",
+          "label": "Kalau dibagi sejak tanggal 18",
+          "eq": "Rp620.000 ÷ 7",
+          "value": "Rp88.571",
+          "note": "Jatah aman sekitar Rp88 ribu sehari. **Kelihatan dari awal**, bukan di akhir."
+        },
+        {
+          "type": "point",
+          "title": "Besok, sebelum belanja apa pun",
+          "body": "Kirim Masa Depan duluan, bayar Wajib, lalu bagi Pos Hidup per minggu. Biar tanggal 24 bulan depan **nggak begini lagi**."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tahu bocornya di mana?",
+          "ekspresi": "berpikir",
+          "body": "Komen **BOCOR**, aku kirim kalkulator gratisnya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Besok gajian. Saldo tinggal Rp85 ribu.\n\nSimulasi: tanggal 18 masih Rp620.000. Belanja bulanan Rp240.000, ojek dan makan Rp165.000, kuota Rp50.000, jajan akhir pekan Rp80.000. Habis Rp535.000 dalam 6 hari.\n\nKalau dibagi sejak awal, jatah amannya sekitar Rp88 ribu sehari.\n\nKomen BOCOR untuk kalkulator gratisnya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "tanggaltua",
+        "gajian",
+        "keuanganpribadi",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "620000-240000-165000-50000-80000",
+          "expect": 85000
+        },
+        {
+          "expr": "620000-85000",
+          "expect": 535000
+        },
+        {
+          "expr": "round(620000/7)",
+          "expect": 88571
+        },
+        {
+          "expr": "round(620000/7,-3)",
+          "expect": 89000
+        }
+      ],
+      "given": [
+        88000
+      ]
+    }
+  ]
+}
