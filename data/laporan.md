@@ -1,36 +1,36 @@
-# Laporan performa Nara · 2026-11-13
+# Laporan performa Nara · 2026-11-14
 
-Post terbit: 39 · punya data: 39 · sudah ≥72 jam (dinilai): 35
+Post terbit: 39 · punya data: 39 · sudah ≥72 jam (dinilai): 37
 Follower: 4 (awal data 2026-10-21: 1).
 
-Median reach akun: **14**
+Median reach akun: **13**
 
 ## Per pola
 
 | pola | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| F | 1 | 27 | 1.93 | 0.0 | 0.0 |
-| E | 4 | 26 | 1.89 | 0.0 | 0.0 |
-| A | 10 | 16 | 1.14 | 0.0 | 0.0 |
-| D | 8 | 16 | 1.14 | 0.0 | 0.0 |
-| C | 3 | 14 | 1.00 | 0.0 | 0.0 |
-| S | 3 | 10 | 0.71 | 0.0 | 0.0 |
-| B | 6 | 6 | 0.39 | 0.0 | 0.0 |
+| F | 1 | 27 | 2.08 | 0.0 | 0.0 |
+| E | 4 | 26 | 2.04 | 0.0 | 0.0 |
+| D | 8 | 16 | 1.23 | 0.0 | 0.0 |
+| A | 11 | 14 | 1.08 | 0.0 | 0.0 |
+| C | 3 | 14 | 1.08 | 0.0 | 0.0 |
+| S | 3 | 10 | 0.77 | 0.0 | 0.0 |
+| B | 7 | 4 | 0.31 | 0.0 | 0.0 |
 
 ## Per format
 
 | format | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| reel | 25 | 21 | 1.50 | 0.0 | 0.0 |
-| carousel | 10 | 6 | 0.39 | 0.0 | 0.0 |
+| reel | 26 | 20 | 1.54 | 0.0 | 0.0 |
+| carousel | 11 | 4 | 0.31 | 0.0 | 0.0 |
 
 ## Per slot
 
 | slot | n | median reach | × median akun | simpan/1000 | share/1000 |
 |---|---|---|---|---|---|
-| malam | 13 | 21 | 1.50 | 0.0 | 0.0 |
-| siang | 14 | 18 | 1.32 | 0.0 | 0.0 |
-| pagi | 8 | 5 | 0.36 | 0.0 | 0.0 |
+| siang | 15 | 18 | 1.38 | 0.0 | 0.0 |
+| malam | 14 | 18 | 1.35 | 0.0 | 0.0 |
+| pagi | 8 | 5 | 0.38 | 0.0 | 0.0 |
 
 ## Pemenang (reach ≥ 5× median) → buat 3 variasi dalam 7 hari
 
@@ -50,6 +50,6 @@ Median reach akun: **14**
 
 - 2026-10-31-pagi [D/carousel/pagi] reach 2: 5 tipe orang saat tanggal tua
 - 2026-11-01-pagi [S/carousel/pagi] reach 2: Template 5 Pos: gajimu dibagi otomatis
+- 2026-11-11-siang [A/reel/siang] reach 2: Biaya layanan Rp4 ribu
 - 2026-10-28-pagi [B/carousel/pagi] reach 3: 4 pengeluaran kecil yang paling sering lupa dicatat
 - 2026-10-30-pagi [B/carousel/pagi] reach 3: Gaji Rp4,5 juta dibagi ke 5 pos
-- 2026-10-31-malam [A/reel/malam] reach 4: Ongkir Rp12 ribu
