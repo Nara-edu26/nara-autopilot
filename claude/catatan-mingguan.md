@@ -1,5 +1,12 @@
 # Catatan mingguan mesin konten Nara
 
+## 19 Nov 2026 · batch 30 Nov–6 Des (gaya baru, minggu ke-3)
+- 7 reel malam: 30 tanggal-tua (gajian 5 hari lalu, saldo Rp1,6 jt, BOCOR) · 1 Des Bedah Gaji #07 (Rp5,5 jt Medan, biayai sekolah adik) · 2 tim (rumah ortu vs ngekos) · 3 tanggal-tua (tagihan tahunan Desember Rp1,35 jt, TEMPLATE = satu-satunya jualan) · 4 Bedah Gaji #08 (Rp3,2 jt Semarang, cicilan motor) · 5 tim (arisan kantor Rp200 rb) · 6 tanggal-tua (saldo Rp2,4 jt, 19 hari, BOCOR).
+- Lunas Duluan TIDAK dipakai sebagai CTA 1 Des: produk belum ada di Lynk/config (masih menunggu tinjauan pemilik sejak 3 Nov). KELAS juga tidak dipakai: otomasi DM KELAS belum terpasang.
+- Validator: 78 post, 0 gagal. 7 cover dirender lokal dan dicek.
+- DATA: tidak ada. Tidak satu pun post 13–19 Nov disetujui, jadi akun tidak terbit sejak 12 Nov (Terbit malam gagal tiap hari). Tidak ada perubahan alokasi seri.
+- Post terakhir 6 Des = tanggal-tua; batch berikutnya mulai 7 Des dengan seri bedah, Bedah Gaji #09.
+
 ## 12 Nov 2026 · batch 23–29 Nov (gaya baru, minggu ke-2)
 
 Ditulis dari sesi Claude utama. Gaya baru: 1 reel/hari di slot malam, seri diputar.

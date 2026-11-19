@@ -1,0 +1,145 @@
+{
+  "date": "2026-12-01",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp5,5 juta di Medan, bantu ortu dan sekolah adik",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #07",
+          "ekspresi": "khawatir",
+          "title": "Gaji **Rp5,5 juta** di Medan, ikut biayai sekolah adik.",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "5.500.000"
+              ],
+              "---",
+              [
+                "Kos",
+                "-1.000.000"
+              ],
+              [
+                "Kirim ortu",
+                "-800.000"
+              ],
+              [
+                "Sekolah adik",
+                "-600.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kos",
+              "1.000.000"
+            ],
+            [
+              "Makan 50rb × 30",
+              "1.500.000"
+            ],
+            [
+              "Kirim ortu",
+              "800.000"
+            ],
+            [
+              "Sekolah adik",
+              "600.000"
+            ],
+            [
+              "Transport",
+              "400.000"
+            ],
+            [
+              "Pulsa & lainnya",
+              "300.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "4.600.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Untuk keluarga",
+          "eq": "Rp800.000 + Rp600.000",
+          "value": "Rp1.400.000",
+          "note": "Sekitar **25% gaji**. Ini bukan kebocoran, ini pilihan."
+        },
+        {
+          "type": "number",
+          "label": "Sisa, lalu Masa Depan 5%",
+          "eq": "Rp900.000 − Rp275.000",
+          "value": "Rp625.000",
+          "note": "Kirim Rp275 ribu ke Masa Depan **di hari gajian**. Sisanya Pos Bebas. Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "ekspresi": "tertawa",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH"
+        }
+      ],
+      "caption": "Gaji Rp5,5 juta di Medan, ikut biayai sekolah adik.\n\nSimulasi sebulan: kos Rp1.000.000, makan Rp1.500.000 (Rp50 ribu × 30 hari), kirim ortu Rp800.000, sekolah adik Rp600.000, transport Rp400.000, pulsa dan lainnya Rp300.000. Total Rp4.600.000, sisa Rp900.000.\n\nUntuk keluarga Rp1.400.000, sekitar 25% gaji. Itu pilihan, bukan kebocoran. Tapi Masa Depan-mu juga harus jalan: kirim 5% (Rp275.000) di hari gajian, sisanya Rp625.000 untuk Pos Bebas. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "sandwichgeneration",
+        "gajian",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "50000*30",
+          "expect": 1500000
+        },
+        {
+          "expr": "1000000+1500000+800000+600000+400000+300000",
+          "expect": 4600000
+        },
+        {
+          "expr": "5500000-4600000",
+          "expect": 900000
+        },
+        {
+          "expr": "800000+600000",
+          "expect": 1400000
+        },
+        {
+          "expr": "round(1400000*100/5500000)",
+          "expect": 25
+        },
+        {
+          "expr": "5500000*5/100",
+          "expect": 275000
+        },
+        {
+          "expr": "900000-275000",
+          "expect": 625000
+        }
+      ]
+    }
+  ]
+}

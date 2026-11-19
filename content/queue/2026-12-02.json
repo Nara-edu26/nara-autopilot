@@ -1,0 +1,83 @@
+{
+  "date": "2026-12-02",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": true,
+      "topic": "tinggal dengan ortu atau ngekos dekat kantor",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "berpikir",
+          "title": "Gaji Rp4,5 juta. Tetap di rumah ortu atau **ngekos** dekat kantor?",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "TETAP DI RUMAH",
+              "NGEKOS"
+            ],
+            "ask": "Komen A atau B dulu."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Tetap di rumah",
+          "eq": "Rp800.000 + Rp600.000",
+          "value": "Rp1.400.000",
+          "note": "Bantu ortu Rp800 ribu, transport jauh Rp600 ribu sebulan."
+        },
+        {
+          "type": "number",
+          "label": "Ngekos dekat kantor",
+          "eq": "Rp1.200.000 + Rp150.000",
+          "value": "Rp1.350.000",
+          "note": "Selisihnya cuma **Rp50 ribu**."
+        },
+        {
+          "type": "statement",
+          "text": "Hitung **waktunya** juga, bukan cuma rupiahnya.",
+          "sub": "2 jam di jalan × 22 hari kerja = 44 jam sebulan."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A atau B?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. Sekarang kamu tinggal di mana?",
+          "pill": "Komen A atau B"
+        }
+      ],
+      "caption": "Gaji Rp4,5 juta. Tetap di rumah ortu atau ngekos dekat kantor?\n\nContoh. Tetap di rumah: bantu ortu Rp800.000 + transport Rp600.000 = Rp1.400.000. Ngekos: kos Rp1.200.000 + transport Rp150.000 = Rp1.350.000. Selisihnya cuma Rp50.000.\n\nYang beda: 2 jam di jalan × 22 hari kerja = 44 jam sebulan.\n\nKamu pilih A atau B? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "ngekos",
+        "relate",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "800000+600000",
+          "expect": 1400000
+        },
+        {
+          "expr": "1200000+150000",
+          "expect": 1350000
+        },
+        {
+          "expr": "1400000-1350000",
+          "expect": 50000
+        },
+        {
+          "expr": "2*22",
+          "expect": 44
+        }
+      ],
+      "given": [
+        4500000
+      ]
+    }
+  ]
+}

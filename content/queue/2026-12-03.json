@@ -1,0 +1,107 @@
+{
+  "date": "2026-12-03",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "seri": "tanggal-tua",
+      "evergreen": false,
+      "topic": "tagihan tahunan Desember datang bersamaan + Template 5 Pos",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "kaget",
+          "title": "Desember: tagihan tahunan **Rp1,35 juta** datang barengan.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Tagihan Desember · simulasi",
+            "rows": [
+              [
+                "Pajak motor tahunan",
+                "3 Des",
+                "-350.000"
+              ],
+              [
+                "Servis motor",
+                "7 Des",
+                "-250.000"
+              ],
+              [
+                "Kado tukar kantor",
+                "12 Des",
+                "-150.000"
+              ],
+              [
+                "Kondangan 2 kali",
+                "14 Des",
+                "-200.000"
+              ],
+              [
+                "Tiket pulang tahun baru",
+                "20 Des",
+                "-400.000"
+              ]
+            ],
+            "saldo": [
+              "Total",
+              "1.350.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Dari gaji Rp5 juta",
+          "eq": "Rp1.350.000 ÷ Rp5.000.000",
+          "value": "27%",
+          "note": "Seperempat gaji Desember **hilang** sebelum sempat dipakai."
+        },
+        {
+          "type": "number",
+          "label": "Kalau disiapkan sejak Januari",
+          "eq": "Rp1.350.000 ÷ 12",
+          "value": "Rp112.500",
+          "note": "Sebulan cuma Rp112.500. **Nggak terasa** kalau dicicil sendiri."
+        },
+        {
+          "type": "point",
+          "title": "Malam ini, 5 menit",
+          "body": "Catat tagihan tahunanmu, bagi 12, masukkan ke Pos Wajib mulai Januari. Template 5 Pos menunjukkan sisa tiap pos setiap kali kamu mencatat. **Rp29.000**, sekali beli."
+        },
+        {
+          "type": "cta",
+          "title": "Mau lihat sisa pos-mu?",
+          "ekspresi": "berpikir",
+          "body": "Komen **TEMPLATE**, aku kirim tautannya lewat DM.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Desember: tagihan tahunan Rp1,35 juta datang barengan.\n\nSimulasi: pajak motor Rp350.000, servis motor Rp250.000, kado tukar kantor Rp150.000, kondangan dua kali Rp200.000, tiket pulang tahun baru Rp400.000. Total Rp1.350.000, 27% dari gaji Rp5.000.000.\n\nKalau disiapkan sejak Januari: Rp1.350.000 ÷ 12 = Rp112.500 sebulan.\n\nTemplate 5 Pos menunjukkan sisa tiap pos setiap kali kamu mencatat. Rp29.000, sekali beli. Komen TEMPLATE untuk tautannya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "akhirtahun",
+        "tanggaltua",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "350000+250000+150000+200000+400000",
+          "expect": 1350000
+        },
+        {
+          "expr": "1350000*100/5000000",
+          "expect": 27
+        },
+        {
+          "expr": "1350000/12",
+          "expect": 112500
+        }
+      ],
+      "given": [
+        29000,
+        5000000
+      ]
+    }
+  ]
+}

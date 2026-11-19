@@ -1,0 +1,137 @@
+{
+  "date": "2026-12-04",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp3,2 juta di Semarang, cicilan motor",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #08",
+          "ekspresi": "khawatir",
+          "title": "Gaji **Rp3,2 juta** di Semarang, motor masih nyicil. Nabung dari mana?",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "3.200.000"
+              ],
+              "---",
+              [
+                "Kos",
+                "-700.000"
+              ],
+              [
+                "Cicilan motor",
+                "-650.000"
+              ],
+              [
+                "Makan",
+                "-900.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kos",
+              "700.000"
+            ],
+            [
+              "Makan 30rb × 30",
+              "900.000"
+            ],
+            [
+              "Cicilan motor",
+              "650.000"
+            ],
+            [
+              "Bensin",
+              "450.000"
+            ],
+            [
+              "Pulsa",
+              "100.000"
+            ],
+            [
+              "Lainnya",
+              "300.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "3.100.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp3.200.000 − Rp3.100.000",
+          "value": "Rp100.000",
+          "note": "Masa Depan 5% = Rp160 ribu. **Belum muat.**"
+        },
+        {
+          "type": "number",
+          "label": "Bawa bekal 12 hari kerja",
+          "eq": "12 × Rp15.000",
+          "value": "Rp180.000",
+          "note": "Hemat dari jatah makan. Cukup untuk **Masa Depan Rp160 ribu** di hari gajian. Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "ekspresi": "kaget",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH"
+        }
+      ],
+      "caption": "Gaji Rp3,2 juta di Semarang, motor masih nyicil. Nabung dari mana?\n\nSimulasi sebulan: kos Rp700.000, makan Rp900.000 (Rp30 ribu × 30 hari), cicilan motor Rp650.000, bensin Rp450.000, pulsa Rp100.000, lainnya Rp300.000. Total Rp3.100.000, sisa Rp100.000.\n\nMasa Depan 5% = Rp160.000, belum muat. Bawa bekal 12 hari kerja, hemat Rp15.000 sehari = Rp180.000. Cukup untuk Masa Depan, dikirim di hari gajian. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "cicilan",
+        "gajiumr",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "30000*30",
+          "expect": 900000
+        },
+        {
+          "expr": "700000+900000+650000+450000+100000+300000",
+          "expect": 3100000
+        },
+        {
+          "expr": "3200000-3100000",
+          "expect": 100000
+        },
+        {
+          "expr": "3200000*5/100",
+          "expect": 160000
+        },
+        {
+          "expr": "12*15000",
+          "expect": 180000
+        }
+      ]
+    }
+  ]
+}

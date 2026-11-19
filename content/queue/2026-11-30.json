@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-30",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "seri": "tanggal-tua",
+      "evergreen": true,
+      "topic": "lima hari setelah gajian saldo tinggal sepertiga",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "kaget",
+          "title": "Gajian 5 hari lalu. Saldo tinggal **Rp1,6 juta**.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Mutasi 25–29 Nov · simulasi",
+            "rows": [
+              [
+                "Gaji masuk",
+                "25 Nov",
+                "+5.000.000"
+              ],
+              [
+                "Kos",
+                "25 Nov",
+                "-1.300.000"
+              ],
+              [
+                "Kirim ortu",
+                "26 Nov",
+                "-500.000"
+              ],
+              [
+                "Belanja gajian",
+                "26 Nov",
+                "-850.000"
+              ],
+              [
+                "Makan di luar & nongkrong",
+                "28 Nov",
+                "-420.000"
+              ],
+              [
+                "Checkout akhir pekan",
+                "29 Nov",
+                "-330.000"
+              ]
+            ],
+            "saldo": [
+              "Saldo 30 Nov",
+              "1.600.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Terpakai dalam 5 hari",
+          "eq": "Rp5.000.000 − Rp1.600.000",
+          "value": "Rp3.400.000",
+          "note": "Itu **68%** gaji. Bulan masih 25 hari lagi."
+        },
+        {
+          "type": "number",
+          "label": "Yang bikin berat",
+          "eq": "Rp850.000 + Rp420.000 + Rp330.000",
+          "value": "Rp1.600.000",
+          "note": "Bukan kos, bukan kirim ortu. Tapi **hadiah gajian** dalam 4 hari."
+        },
+        {
+          "type": "number",
+          "label": "Sisa untuk 25 hari",
+          "eq": "Rp1.600.000 ÷ 25",
+          "value": "Rp64.000",
+          "note": "Per hari. Masih bisa, asal **mulai dihitung malam ini**."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tahu bocornya di mana?",
+          "ekspresi": "berpikir",
+          "body": "Komen **BOCOR**, aku kirim kalkulator gratisnya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Gajian 5 hari lalu. Saldo tinggal Rp1,6 juta.\n\nSimulasi: gaji Rp5.000.000. Kos Rp1.300.000, kirim ortu Rp500.000, belanja gajian Rp850.000, makan di luar dan nongkrong Rp420.000, checkout akhir pekan Rp330.000. Terpakai Rp3.400.000 dalam 5 hari, 68% gaji.\n\nYang bikin berat bukan kos atau kirim ortu, tapi Rp1.600.000 \"hadiah gajian\" dalam 4 hari.\n\nSisa 25 hari: Rp64.000 per hari. Masih bisa, asal mulai dihitung malam ini.\n\nKomen BOCOR untuk kalkulator gratisnya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "tanggaltua",
+        "gajian",
+        "keuanganpribadi",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "5000000-1300000-500000-850000-420000-330000",
+          "expect": 1600000
+        },
+        {
+          "expr": "5000000-1600000",
+          "expect": 3400000
+        },
+        {
+          "expr": "3400000*100/5000000",
+          "expect": 68
+        },
+        {
+          "expr": "850000+420000+330000",
+          "expect": 1600000
+        },
+        {
+          "expr": "1600000/25",
+          "expect": 64000
+        }
+      ]
+    }
+  ]
+}

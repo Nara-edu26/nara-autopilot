@@ -1,0 +1,73 @@
+{
+  "date": "2026-12-05",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": true,
+      "topic": "ikut arisan kantor atau tidak",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "berpikir",
+          "title": "Diajak arisan kantor, **Rp200 ribu** sebulan. Ikut?",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "IKUT",
+              "NGGAK IKUT"
+            ],
+            "ask": "Komen A atau B dulu."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Arisan 10 orang",
+          "eq": "Rp200.000 × 10",
+          "value": "Rp2.000.000",
+          "note": "Yang kamu terima = **yang kamu setor**. Bukan untung, cuma tabungan dengan urutan."
+        },
+        {
+          "type": "compare",
+          "title": "Cek dulu",
+          "left": {
+            "h": "Aman ikut",
+            "t": "Rp200 ribu bisa dari Pos Masa Depan atau Bebas, dan kamu memang butuh dipaksa nabung."
+          },
+          "right": {
+            "h": "Sebaiknya skip",
+            "t": "Harus ambil dari jatah makan, atau uangnya kamu butuhkan sebelum giliranmu."
+          }
+        },
+        {
+          "type": "statement",
+          "text": "Arisan itu **tabungan sosial**.",
+          "sub": "Enak kalau semua disiplin. Repot kalau ada yang telat setor."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A atau B?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. Pernah dapat giliran pertama?",
+          "pill": "Komen A atau B"
+        }
+      ],
+      "caption": "Diajak arisan kantor, Rp200 ribu sebulan. Ikut atau nggak?\n\nContoh arisan 10 orang: Rp200.000 × 10 = Rp2.000.000. Yang kamu terima sama dengan yang kamu setor. Bukan untung, cuma tabungan dengan urutan.\n\nAman ikut kalau uangnya dari Pos Masa Depan atau Bebas. Sebaiknya skip kalau harus ambil dari jatah makan.\n\nKamu pilih A atau B? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "arisan",
+        "relate",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "200000*10",
+          "expect": 2000000
+        }
+      ]
+    }
+  ]
+}

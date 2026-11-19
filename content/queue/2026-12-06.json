@@ -1,0 +1,111 @@
+{
+  "date": "2026-12-06",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "seri": "tanggal-tua",
+      "evergreen": false,
+      "topic": "saldo awal Desember dibagi sampai gajian, sisihkan akhir tahun",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "khawatir",
+          "title": "Tanggal 6. Saldo **Rp2,4 juta**, gajian masih 19 hari.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Mutasi minggu ini · simulasi",
+            "rows": [
+              [
+                "Saldo 1 Des",
+                "1 Des",
+                "+3.200.000"
+              ],
+              [
+                "Belanja dapur",
+                "2 Des",
+                "-300.000"
+              ],
+              [
+                "Kondangan",
+                "3 Des",
+                "-150.000"
+              ],
+              [
+                "Makan & ojek",
+                "4 Des",
+                "-220.000"
+              ],
+              [
+                "Nonton akhir pekan",
+                "5 Des",
+                "-130.000"
+              ]
+            ],
+            "saldo": [
+              "Saldo 6 Des",
+              "2.400.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Kalau dibagi rata",
+          "eq": "Rp2.400.000 ÷ 19",
+          "value": "Rp126.316",
+          "note": "Sekitar Rp126 ribu sehari. Tapi **akhir tahun belum dihitung**."
+        },
+        {
+          "type": "number",
+          "label": "Sisihkan Rp500 ribu untuk akhir tahun dulu",
+          "eq": "Rp1.900.000 ÷ 19",
+          "value": "Rp100.000",
+          "note": "Jatah harian yang **jujur**: Rp100 ribu."
+        },
+        {
+          "type": "point",
+          "title": "Malam ini, sebelum lupa",
+          "body": "Pindahkan Rp500 ribu ke kantong terpisah. Sisanya Rp100 ribu sehari. **Kelihatan dari awal**, bukan di tanggal 24."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tahu bocornya di mana?",
+          "ekspresi": "tertawa",
+          "body": "Komen **BOCOR**, aku kirim kalkulator gratisnya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Tanggal 6. Saldo Rp2,4 juta, gajian masih 19 hari.\n\nSimulasi: awal Desember Rp3.200.000. Belanja dapur Rp300.000, kondangan Rp150.000, makan dan ojek Rp220.000, nonton Rp130.000.\n\nDibagi rata: sekitar Rp126 ribu sehari. Tapi akhir tahun belum dihitung. Sisihkan Rp500.000 dulu, sisanya Rp1.900.000 ÷ 19 = Rp100.000 sehari.\n\nKomen BOCOR untuk kalkulator gratisnya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "tanggaltua",
+        "akhirtahun",
+        "keuanganpribadi",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "3200000-300000-150000-220000-130000",
+          "expect": 2400000
+        },
+        {
+          "expr": "round(2400000/19)",
+          "expect": 126316
+        },
+        {
+          "expr": "round(2400000/19,-3)",
+          "expect": 126000
+        },
+        {
+          "expr": "2400000-500000",
+          "expect": 1900000
+        },
+        {
+          "expr": "1900000/19",
+          "expect": 100000
+        }
+      ]
+    }
+  ]
+}
