@@ -1,0 +1,133 @@
+{
+  "date": "2026-12-10",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp4,5 juta di Makassar, menabung untuk menikah",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #10",
+          "ekspresi": "tertawa",
+          "title": "Gaji **Rp4,5 juta** di Makassar, mau nikah tahun depan.",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "4.500.000"
+              ],
+              "---",
+              [
+                "Kos",
+                "-900.000"
+              ],
+              [
+                "Makan",
+                "-1.200.000"
+              ],
+              [
+                "Kirim ortu",
+                "-500.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kos",
+              "900.000"
+            ],
+            [
+              "Makan 40rb × 30",
+              "1.200.000"
+            ],
+            [
+              "Kirim ortu",
+              "500.000"
+            ],
+            [
+              "Transport",
+              "350.000"
+            ],
+            [
+              "Pulsa & lainnya",
+              "350.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "3.300.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp4.500.000 − Rp3.300.000",
+          "value": "Rp1.200.000",
+          "note": "Sisa yang besar. Tinggal **jangan dibiarkan nganggur**."
+        },
+        {
+          "type": "number",
+          "label": "Kirim Rp1 juta di hari gajian, 12 bulan",
+          "eq": "Rp1.000.000 × 12",
+          "value": "Rp12.000.000",
+          "note": "Rp200 ribu sisanya tetap untuk **Pos Bebas**. Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH",
+          "ekspresi": "berpikir"
+        }
+      ],
+      "caption": "Gaji Rp4,5 juta di Makassar, mau nikah tahun depan.\n\nSimulasi sebulan: kos Rp900.000, makan Rp1.200.000 (Rp40 ribu × 30 hari), kirim ortu Rp500.000, transport Rp350.000, pulsa dan lainnya Rp350.000. Total Rp3.300.000, sisa Rp1.200.000.\n\nKirim Rp1.000.000 ke tabungan nikah di hari gajian, bukan dari sisa: 12 bulan = Rp12.000.000. Rp200.000 sisanya untuk Pos Bebas. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "tabungannikah",
+        "gajian",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "40000*30",
+          "expect": 1200000
+        },
+        {
+          "expr": "900000+1200000+500000+350000+350000",
+          "expect": 3300000
+        },
+        {
+          "expr": "4500000-3300000",
+          "expect": 1200000
+        },
+        {
+          "expr": "1000000*12",
+          "expect": 12000000
+        },
+        {
+          "expr": "1200000-1000000",
+          "expect": 200000
+        }
+      ]
+    }
+  ]
+}

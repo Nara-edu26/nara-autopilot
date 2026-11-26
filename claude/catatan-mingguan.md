@@ -1,5 +1,12 @@
 # Catatan mingguan mesin konten Nara
 
+## 26 Nov 2026 · batch 7–13 Des (gaya baru, minggu ke-4)
+- 7 reel malam: 7 Bedah Gaji #09 (Rp6 jt, Bekasi–Jakarta) · 8 tim (HP Rp4 jt tunai vs cicil) · 9 tanggal-tua (Pos Hidup tinggal Rp100 rb, TEMPLATE = satu-satunya jualan) · 10 Bedah Gaji #10 (Rp4,5 jt Makassar, tabungan nikah) · 11 tim (nikahan sepupu: pulang vs amplop) · 12 tanggal-tua (saldo Rp900 rb vs keranjang Rp450 rb, BOCOR) · 13 Bedah Gaji #11 (Rp8 jt Jakarta, nol di akhir bulan).
+- Validator: 85 post, 0 gagal. 7 cover dirender lokal; hook 11 Des dipendekkan karena kata terakhir tertutup kepala Nara.
+- Lunas Duluan & KELAS tetap tidak dipakai sebagai CTA (belum di Lynk/config).
+- DATA: tetap tidak ada. 0 dari 24 post gaya baru (13 Nov–6 Des) disetujui; akun tidak terbit sejak 12 Nov (14 hari). Tidak ada perubahan alokasi seri.
+- Post terakhir 13 Des = bedah, jadi 14 Des mulai seri tim; Bedah Gaji berikutnya #12.
+
 ## 19 Nov 2026 · batch 30 Nov–6 Des (gaya baru, minggu ke-3)
 - 7 reel malam: 30 tanggal-tua (gajian 5 hari lalu, saldo Rp1,6 jt, BOCOR) · 1 Des Bedah Gaji #07 (Rp5,5 jt Medan, biayai sekolah adik) · 2 tim (rumah ortu vs ngekos) · 3 tanggal-tua (tagihan tahunan Desember Rp1,35 jt, TEMPLATE = satu-satunya jualan) · 4 Bedah Gaji #08 (Rp3,2 jt Semarang, cicilan motor) · 5 tim (arisan kantor Rp200 rb) · 6 tanggal-tua (saldo Rp2,4 jt, 19 hari, BOCOR).
 - Lunas Duluan TIDAK dipakai sebagai CTA 1 Des: produk belum ada di Lynk/config (masih menunggu tinjauan pemilik sejak 3 Nov). KELAS juga tidak dipakai: otomasi DM KELAS belum terpasang.

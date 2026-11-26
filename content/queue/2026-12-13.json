@@ -1,0 +1,137 @@
+{
+  "date": "2026-12-13",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp8 juta di Jakarta, akhir bulan nol",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #11",
+          "ekspresi": "kaget",
+          "title": "Gaji **Rp8 juta** di Jakarta. Akhir bulan tetap nol.",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "8.000.000"
+              ],
+              "---",
+              [
+                "Kos",
+                "-2.500.000"
+              ],
+              [
+                "Makan",
+                "-2.400.000"
+              ],
+              [
+                "Hiburan & langganan",
+                "-900.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kos",
+              "2.500.000"
+            ],
+            [
+              "Makan 80rb × 30",
+              "2.400.000"
+            ],
+            [
+              "Kirim ortu",
+              "1.000.000"
+            ],
+            [
+              "Hiburan & langganan",
+              "900.000"
+            ],
+            [
+              "Transport",
+              "700.000"
+            ],
+            [
+              "Lainnya",
+              "500.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "8.000.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp8.000.000 − Rp8.000.000",
+          "value": "Rp0",
+          "note": "Gaji besar, **nol** di akhir bulan."
+        },
+        {
+          "type": "number",
+          "label": "Masa Depan 5%, dikirim duluan",
+          "eq": "Rp8.000.000 × 5%",
+          "value": "Rp400.000",
+          "note": "Ambil Rp200 ribu dari makan, Rp200 ribu dari hiburan. **Bukan dari sisa.** Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH",
+          "ekspresi": "khawatir"
+        }
+      ],
+      "caption": "Gaji Rp8 juta di Jakarta. Akhir bulan tetap nol.\n\nSimulasi sebulan: kos Rp2.500.000, makan Rp2.400.000 (Rp80 ribu × 30 hari), kirim ortu Rp1.000.000, hiburan dan langganan Rp900.000, transport Rp700.000, lainnya Rp500.000. Total Rp8.000.000, sisa Rp0.\n\nKirim 5% ke Masa Depan di hari gajian: Rp400.000. Ambil Rp200.000 dari makan dan Rp200.000 dari hiburan, bukan dari sisa. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "gajian",
+        "budgeting",
+        "jakarta"
+      ],
+      "calc": [
+        {
+          "expr": "80000*30",
+          "expect": 2400000
+        },
+        {
+          "expr": "2500000+2400000+1000000+900000+700000+500000",
+          "expect": 8000000
+        },
+        {
+          "expr": "8000000-8000000",
+          "expect": 0
+        },
+        {
+          "expr": "8000000*5/100",
+          "expect": 400000
+        },
+        {
+          "expr": "200000+200000",
+          "expect": 400000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-12-11",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": true,
+      "topic": "nikahan sepupu di kampung: pulang atau kirim amplop",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "khawatir",
+          "title": "Sepupu nikah. Pulang **Rp1,2 juta** atau amplop saja?",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "PULANG",
+              "KIRIM AMPLOP"
+            ],
+            "ask": "Komen A atau B dulu."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Kalau pulang",
+          "eq": "Rp900.000 + Rp300.000",
+          "value": "Rp1.200.000",
+          "note": "Tiket pulang-pergi Rp900 ribu, amplop Rp300 ribu."
+        },
+        {
+          "type": "number",
+          "label": "Selisih dengan kirim amplop",
+          "eq": "Rp1.200.000 − Rp300.000",
+          "value": "Rp900.000",
+          "note": "Itu **harga kehadiran**."
+        },
+        {
+          "type": "statement",
+          "text": "Kadang yang diingat **kehadiran**, bukan amplopnya.",
+          "sub": "Kalau pulang, ambil dari Pos Bebas, bukan dari jatah makan."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A atau B?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. Akhir tahun ini ada berapa undangan?",
+          "pill": "Komen A atau B"
+        }
+      ],
+      "caption": "Sepupu nikah di kampung. Pulang Rp1,2 juta, atau kirim amplop saja?\n\nContoh: tiket pulang-pergi Rp900.000 + amplop Rp300.000 = Rp1.200.000. Selisih Rp900.000 dengan kirim amplop.\n\nKadang yang diingat kehadiran, bukan amplopnya. Kalau pulang, ambil dari Pos Bebas, bukan dari jatah makan.\n\nKamu pilih A atau B? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "kondangan",
+        "relate",
+        "akhirtahun"
+      ],
+      "calc": [
+        {
+          "expr": "900000+300000",
+          "expect": 1200000
+        },
+        {
+          "expr": "1200000-300000",
+          "expect": 900000
+        }
+      ]
+    }
+  ]
+}

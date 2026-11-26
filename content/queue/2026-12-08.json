@@ -1,0 +1,72 @@
+{
+  "date": "2026-12-08",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "D",
+      "seri": "tim",
+      "evergreen": true,
+      "topic": "ganti HP: bayar tunai dari tabungan atau cicil 12 bulan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Kamu tim mana?",
+          "ekspresi": "berpikir",
+          "title": "HP baru **Rp4 juta**. Bayar tunai atau cicil 12 bulan?",
+          "obj": {
+            "type": "poll",
+            "options": [
+              "BAYAR TUNAI",
+              "CICIL 12 BULAN"
+            ],
+            "ask": "Komen A atau B dulu."
+          }
+        },
+        {
+          "type": "number",
+          "label": "Cicil Rp380 ribu × 12",
+          "eq": "Rp380.000 × 12",
+          "value": "Rp4.560.000",
+          "note": "Total yang kamu bayar kalau dicicil."
+        },
+        {
+          "type": "number",
+          "label": "Selisihnya",
+          "eq": "Rp4.560.000 − Rp4.000.000",
+          "value": "Rp560.000",
+          "note": "Itu **harga nggak sabar**."
+        },
+        {
+          "type": "statement",
+          "text": "Tunai aman kalau **dana darurat tetap utuh**.",
+          "sub": "Kalau tabungan habis untuk HP, satu kejadian kecil langsung jadi utang."
+        },
+        {
+          "type": "cta",
+          "title": "Kamu pilih A atau B?",
+          "ekspresi": "tertawa",
+          "body": "Komen hurufnya. HP-mu sekarang dulu dibeli gimana?",
+          "pill": "Komen A atau B"
+        }
+      ],
+      "caption": "HP baru Rp4 juta. Bayar tunai dari tabungan, atau cicil 12 bulan?\n\nContoh: cicilan Rp380.000 × 12 = Rp4.560.000. Selisih Rp560.000 dari harga tunai.\n\nTapi tunai hanya aman kalau dana darurat tetap utuh. Kalau tabungan habis untuk HP, satu kejadian kecil langsung jadi utang.\n\nKamu pilih A atau B? Komen di bawah.\n\nAngka di atas contoh.",
+      "hashtags": [
+        "keuanganpribadi",
+        "cicilan",
+        "relate",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "380000*12",
+          "expect": 4560000
+        },
+        {
+          "expr": "4560000-4000000",
+          "expect": 560000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "date": "2026-12-09",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "S",
+      "seri": "tanggal-tua",
+      "evergreen": true,
+      "topic": "Pos Hidup hampir habis di pertengahan bulan + Template 5 Pos",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "khawatir",
+          "title": "Tanggal 9. Jatah hidup tinggal **Rp100 ribu**.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Pos Hidup · simulasi",
+            "rows": [
+              [
+                "Jatah sebulan",
+                "25 Nov",
+                "+1.000.000"
+              ],
+              [
+                "Belanja gajian",
+                "26 Nov",
+                "-300.000"
+              ],
+              [
+                "Makan & jajan minggu 1",
+                "2 Des",
+                "-260.000"
+              ],
+              [
+                "Makan & jajan minggu 2",
+                "8 Des",
+                "-240.000"
+              ],
+              [
+                "Nongkrong",
+                "6 Des",
+                "-100.000"
+              ]
+            ],
+            "saldo": [
+              "Sisa Pos Hidup",
+              "100.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Pos Hidup, gaji Rp4 juta",
+          "eq": "Rp4.000.000 × 25%",
+          "value": "Rp1.000.000",
+          "note": "Untuk sebulan penuh. Panduan, bukan aturan."
+        },
+        {
+          "type": "number",
+          "label": "Terpakai dalam 2 minggu",
+          "eq": "Rp1.000.000 − Rp100.000",
+          "value": "Rp900.000",
+          "note": "Itu **90%**. Gajian masih 16 hari."
+        },
+        {
+          "type": "point",
+          "title": "Kelihatan dari minggu pertama",
+          "body": "Bagi Pos Hidup per minggu: Rp250 ribu. Template 5 Pos menunjukkan sisa tiap pos setiap kali kamu mencatat. **Rp29.000**, sekali beli."
+        },
+        {
+          "type": "cta",
+          "title": "Mau lihat sisa pos-mu?",
+          "ekspresi": "berpikir",
+          "body": "Komen **TEMPLATE**, aku kirim tautannya lewat DM.",
+          "pill": "Komen TEMPLATE"
+        }
+      ],
+      "caption": "Tanggal 9. Jatah hidup tinggal Rp100 ribu.\n\nSimulasi: gaji Rp4.000.000, Pos Hidup 25% = Rp1.000.000 sebulan. Belanja gajian Rp300.000, makan dan jajan Rp260.000 lalu Rp240.000, nongkrong Rp100.000. Terpakai Rp900.000 (90%) dalam 2 minggu. Gajian masih 16 hari.\n\nBagi Pos Hidup per minggu: Rp250.000. Template 5 Pos menunjukkan sisa tiap pos setiap kali kamu mencatat. Rp29.000, sekali beli. Komen TEMPLATE untuk tautannya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "tanggaltua",
+        "budgeting",
+        "keuanganpribadi",
+        "gajian"
+      ],
+      "calc": [
+        {
+          "expr": "4000000*25/100",
+          "expect": 1000000
+        },
+        {
+          "expr": "1000000-300000-260000-240000-100000",
+          "expect": 100000
+        },
+        {
+          "expr": "1000000-100000",
+          "expect": 900000
+        },
+        {
+          "expr": "900000*100/1000000",
+          "expect": 90
+        },
+        {
+          "expr": "1000000/4",
+          "expect": 250000
+        }
+      ],
+      "given": [
+        29000
+      ]
+    }
+  ]
+}

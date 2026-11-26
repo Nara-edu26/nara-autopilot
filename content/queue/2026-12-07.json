@@ -1,0 +1,140 @@
+{
+  "date": "2026-12-07",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "E",
+      "seri": "bedah",
+      "evergreen": true,
+      "topic": "bedah gaji Rp6 juta, tinggal di Bekasi kerja di Jakarta",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Bedah Gaji #09",
+          "ekspresi": "berpikir",
+          "title": "Gaji **Rp6 juta**, tinggal di Bekasi, kerja di Jakarta.",
+          "obj": {
+            "type": "struk",
+            "title": "Simulasi · sebulan",
+            "rows": [
+              [
+                "Gaji bersih",
+                "6.000.000"
+              ],
+              "---",
+              [
+                "Kontrakan",
+                "-1.500.000"
+              ],
+              [
+                "Transport",
+                "-700.000"
+              ],
+              [
+                "Makan",
+                "-1.500.000"
+              ],
+              [
+                "Lainnya",
+                "?"
+              ]
+            ],
+            "total": [
+              "SISA",
+              "Rp ???"
+            ]
+          }
+        },
+        {
+          "type": "struk",
+          "title": "Pengeluaran sebulan",
+          "head": "Simulasi",
+          "rows": [
+            [
+              "Kontrakan",
+              "1.500.000"
+            ],
+            [
+              "Makan 50rb × 30",
+              "1.500.000"
+            ],
+            [
+              "Kereta & ojek",
+              "700.000"
+            ],
+            [
+              "Kirim ortu",
+              "600.000"
+            ],
+            [
+              "Cicilan HP",
+              "400.000"
+            ],
+            [
+              "Pulsa & lainnya",
+              "400.000"
+            ]
+          ],
+          "total": [
+            "Total",
+            "5.100.000"
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Sisa",
+          "eq": "Rp6.000.000 − Rp5.100.000",
+          "value": "Rp900.000",
+          "note": "Ada sisa. Masalahnya, biasanya **habis tanpa terasa**."
+        },
+        {
+          "type": "number",
+          "label": "Masa Depan 5%, dikirim hari gajian",
+          "eq": "Rp900.000 − Rp300.000",
+          "value": "Rp600.000",
+          "note": "Rp300 ribu ke Masa Depan dulu, sisanya Pos Bebas. Saat cicilan HP lunas, **Rp400 ribu itu ikut ke Masa Depan**. Panduan, bukan aturan."
+        },
+        {
+          "type": "cta",
+          "title": "Mau gajimu dibedah juga?",
+          "body": "Komen **BEDAH**. Tiap minggu aku pilih satu, tanpa nama.",
+          "pill": "Komen BEDAH",
+          "ekspresi": "kaget"
+        }
+      ],
+      "caption": "Gaji Rp6 juta, tinggal di Bekasi, kerja di Jakarta.\n\nSimulasi sebulan: kontrakan Rp1.500.000, makan Rp1.500.000 (Rp50 ribu × 30 hari), kereta dan ojek Rp700.000, kirim ortu Rp600.000, cicilan HP Rp400.000, pulsa dan lainnya Rp400.000. Total Rp5.100.000, sisa Rp900.000.\n\nKirim 5% ke Masa Depan di hari gajian: Rp300.000. Sisanya Rp600.000 untuk Pos Bebas. Saat cicilan HP lunas, Rp400.000 itu ikut ke Masa Depan. Panduan, bukan aturan.\n\nMau gajimu dibedah juga? Komen BEDAH.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "keuanganpribadi",
+        "anakkereta",
+        "gajian",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "50000*30",
+          "expect": 1500000
+        },
+        {
+          "expr": "1500000+1500000+700000+600000+400000+400000",
+          "expect": 5100000
+        },
+        {
+          "expr": "6000000-5100000",
+          "expect": 900000
+        },
+        {
+          "expr": "6000000*5/100",
+          "expect": 300000
+        },
+        {
+          "expr": "900000-300000",
+          "expect": 600000
+        }
+      ],
+      "given": [
+        400000
+      ]
+    }
+  ]
+}

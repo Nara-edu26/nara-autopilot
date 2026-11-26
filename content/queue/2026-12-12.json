@@ -1,0 +1,108 @@
+{
+  "date": "2026-12-12",
+  "posts": [
+    {
+      "slot": "malam",
+      "format": "reel",
+      "pattern": "A",
+      "seri": "tanggal-tua",
+      "evergreen": false,
+      "topic": "keranjang belanja promo di pertengahan bulan",
+      "frames": [
+        {
+          "type": "cover",
+          "kicker": "Tanggal tua",
+          "ekspresi": "kaget",
+          "title": "Saldo **Rp900 ribu**, keranjang belanja Rp450 ribu.",
+          "obj": {
+            "type": "mutasi",
+            "title": "Mutasi minggu ini · simulasi",
+            "rows": [
+              [
+                "Saldo 8 Des",
+                "8 Des",
+                "+1.400.000"
+              ],
+              [
+                "Makan & transport",
+                "9–11 Des",
+                "-380.000"
+              ],
+              [
+                "Bayar listrik",
+                "10 Des",
+                "-120.000"
+              ]
+            ],
+            "saldo": [
+              "Saldo 12 Des",
+              "900.000"
+            ]
+          }
+        },
+        {
+          "type": "number",
+          "label": "Kalau nggak checkout, 13 hari lagi",
+          "eq": "Rp900.000 ÷ 13",
+          "value": "Rp69.231",
+          "note": "Sekitar Rp69 ribu sehari. **Masih napas.**"
+        },
+        {
+          "type": "number",
+          "label": "Kalau checkout Rp450 ribu",
+          "eq": "Rp450.000 ÷ 13",
+          "value": "Rp34.615",
+          "note": "Jatah harian **turun setengah**."
+        },
+        {
+          "type": "point",
+          "title": "Malam ini, cukup satu langkah",
+          "body": "Simpan keranjangnya, jangan dihapus. Buka lagi setelah gajian. Kalau masih mau, beli dari **Pos Bebas**."
+        },
+        {
+          "type": "cta",
+          "title": "Mau tahu bocornya di mana?",
+          "ekspresi": "berpikir",
+          "body": "Komen **BOCOR**, aku kirim kalkulator gratisnya lewat DM.",
+          "pill": "Komen BOCOR"
+        }
+      ],
+      "caption": "Saldo Rp900 ribu, keranjang belanja Rp450 ribu. Gajian masih 13 hari.\n\nSimulasi: tanggal 8 masih Rp1.400.000. Makan dan transport Rp380.000, listrik Rp120.000.\n\nKalau nggak checkout: sekitar Rp69 ribu sehari. Kalau checkout Rp450.000: sekitar Rp34 ribu sehari, turun setengah.\n\nSimpan keranjangnya, buka lagi setelah gajian.\n\nKomen BOCOR untuk kalkulator gratisnya.\n\nAngka di atas simulasi, bukan data orang sungguhan.",
+      "hashtags": [
+        "tanggaltua",
+        "promo",
+        "keuanganpribadi",
+        "budgeting"
+      ],
+      "calc": [
+        {
+          "expr": "1400000-380000-120000",
+          "expect": 900000
+        },
+        {
+          "expr": "round(900000/13)",
+          "expect": 69231
+        },
+        {
+          "expr": "round(900000/13,-3)",
+          "expect": 69000
+        },
+        {
+          "expr": "900000-450000",
+          "expect": 450000
+        },
+        {
+          "expr": "round(450000/13)",
+          "expect": 34615
+        },
+        {
+          "expr": "round(450000/13,-3)",
+          "expect": 35000
+        }
+      ],
+      "given": [
+        34000
+      ]
+    }
+  ]
+}
